@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StepperUpper", "StepperUpper\StepperUpper.csproj", "{6ACBE635-A903-4F00-8CED-6B2DA8F23C82}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{375B1BA1-5E64-4507-9BC0-4D9DEB704E07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBreather.Common", "..\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj", "{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{6ACBE635-A903-4F00-8CED-6B2DA8F23C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ACBE635-A903-4F00-8CED-6B2DA8F23C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ACBE635-A903-4F00-8CED-6B2DA8F23C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC} = {375B1BA1-5E64-4507-9BC0-4D9DEB704E07}
 	EndGlobalSection
 EndGlobal
