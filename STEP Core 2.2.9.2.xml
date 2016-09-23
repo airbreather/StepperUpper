@@ -1135,6 +1135,7 @@
 			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT 4.0.1">
 				<MapFolder From="11_ExtInt_Legendary" To="ModOrganizer/mods/Relighting Skyrim - No JIT 4.0.1" />
 			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
 			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" Id="SmartSoulsMain" />
 			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
@@ -1257,94 +1258,68 @@
 				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.94" />
 				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.94" />
 				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.94" />
+
+				<!-- uncomment when we have STEP patches. -->
+				<!--
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-DragonbornTernFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-DungeonsCliffsIceSkirts.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-FarmhouseFlickeringFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-FurnitureChestSnowFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-ShackRoofFixes.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-ShackRoofFixesDragonborn.esp" />
+				-->
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim HD - Landscape LITE 1.7">
-				<MapFolder From="textures/dlc02" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/dlc02" />
-				<MapFolder From="textures/landscape/dirtcliffs" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirtcliffs" />
-				<MapFolder From="textures/landscape/mountains" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/mountains" />
-				<MapFolder From="textures/landscape/trees" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/trees" />
-				<MapFile From="textures/landscape/cavebaseground01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/cavebaseground01.dds" />
-				<MapFile From="textures/landscape/cavebaseground01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/cavebaseground01_n.dds" />
-				<MapFile From="textures/landscape/coastbeach01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeach01.dds" />
-				<MapFile From="textures/landscape/coastbeach01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeach01_n.dds" />
-				<MapFile From="textures/landscape/coastbeachgrass01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeachgrass01.dds" />
-				<MapFile From="textures/landscape/coastbeachgrass01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeachgrass01_n.dds" />
-				<MapFile From="textures/landscape/coastoceanfloor01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastoceanfloor01.dds" />
-				<MapFile From="textures/landscape/coastoceanfloor01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastoceanfloor01_n.dds" />
-				<MapFile From="textures/landscape/dirt01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirt01.dds" />
-				<MapFile From="textures/landscape/dirt01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirt01_n.dds" />
-				<MapFile From="textures/landscape/dirt02.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirt02.dds" />
-				<MapFile From="textures/landscape/dirt02_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirt02_n.dds" />
-				<MapFile From="textures/landscape/fallforestdirt01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestdirt01.dds" />
-				<MapFile From="textures/landscape/fallforestdirt01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestdirt01_n.dds" />
-				<MapFile From="textures/landscape/fallforestgrass01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestgrass01.dds" />
-				<MapFile From="textures/landscape/fallforestgrass01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestgrass01_n.dds" />
-				<MapFile From="textures/landscape/fallforestleaves01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestleaves01.dds" />
-				<MapFile From="textures/landscape/fallforestleaves01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestleaves01_n.dds" />
-				<MapFile From="textures/landscape/fallforestrocks01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestrocks01.dds" />
-				<MapFile From="textures/landscape/fallforestrocks01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fallforestrocks01_n.dds" />
-				<MapFile From="textures/landscape/fielddirtgrass01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fielddirtgrass01.dds" />
-				<MapFile From="textures/landscape/fielddirtgrass01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fielddirtgrass01_n.dds" />
-				<MapFile From="textures/landscape/fieldgrass01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fieldgrass01.dds" />
-				<MapFile From="textures/landscape/fieldgrass01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fieldgrass01_n.dds" />
-				<MapFile From="textures/landscape/fieldgrass02.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fieldgrass02.dds" />
-				<MapFile From="textures/landscape/fieldgrass02_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/fieldgrass02_n.dds" />
-				<MapFile From="textures/landscape/frozenmarshdirtslopes01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshdirtslopes01.dds" />
-				<MapFile From="textures/landscape/frozenmarshdirtslopes01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshdirtslopes01_n.dds" />
-				<MapFile From="textures/landscape/frozenmarshlichen01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshlichen01.dds" />
-				<MapFile From="textures/landscape/frozenmarshlichen01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshlichen01_n.dds" />
-				<MapFile From="textures/landscape/glacierparallax.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/glacierparallax.dds" />
-				<MapFile From="textures/landscape/glacierslab.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/glacierslab.dds" />
-				<MapFile From="textures/landscape/glacierslab_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/glacierslab_n.dds" />
-				<MapFile From="textures/landscape/grasssnow01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/grasssnow01.dds" />
-				<MapFile From="textures/landscape/grasssnow01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/grasssnow01_n.dds" />
-				<MapFile From="textures/landscape/icicle.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/icicle.dds" />
-				<MapFile From="textures/landscape/icicle_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/icicle_n.dds" />
-				<MapFile From="textures/landscape/mineralpoolterrace.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/mineralpoolterrace.dds" />
-				<MapFile From="textures/landscape/mineralpoolterrace_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/mineralpoolterrace_n.dds" />
-				<MapFile From="textures/landscape/pineforest01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest01.dds" />
-				<MapFile From="textures/landscape/pineforest01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest01_n.dds" />
-				<MapFile From="textures/landscape/pineforest02.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest02.dds" />
-				<MapFile From="textures/landscape/pineforest02_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest02_n.dds" />
-				<MapFile From="textures/landscape/pineforest03.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest03.dds" />
-				<MapFile From="textures/landscape/pineforest03_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/pineforest03_n.dds" />
-				<MapFile From="textures/landscape/rocks01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rocks01.dds" />
-				<MapFile From="textures/landscape/rocks01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rocks01_n.dds" />
-				<MapFile From="textures/landscape/rocksedgetrim01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rocksedgetrim01.dds" />
-				<MapFile From="textures/landscape/rocksedgetrim01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rocksedgetrim01_n.dds" />
-				<MapFile From="textures/landscape/snow01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snow01.dds" />
-				<MapFile From="textures/landscape/snow01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snow01_n.dds" />
-				<MapFile From="textures/landscape/snow01alta.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snow01alta.dds" />
-				<MapFile From="textures/landscape/snow02.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snow02.dds" />
-				<MapFile From="textures/landscape/snow02_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snow02_n.dds" />
-				<MapFile From="textures/landscape/snowrocks01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snowrocks01.dds" />
-				<MapFile From="textures/landscape/snowrocks01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snowrocks01_n.dds" />
-				<MapFile From="textures/landscape/snowstone01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snowstone01.dds" />
-				<MapFile From="textures/landscape/snowstone01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/snowstone01_n.dds" />
-				<MapFile From="textures/landscape/tundramoss01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundramoss01.dds" />
-				<MapFile From="textures/landscape/tundramosstest01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundramosstest01.dds" />
-				<MapFile From="textures/landscape/tundrarocks01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundrarocks01.dds" />
-				<MapFile From="textures/landscape/volcanictundradirt01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundradirt01.dds" />
-				<MapFile From="textures/landscape/volcanictundradirt01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundradirt01_n.dds" />
-				<MapFile From="textures/landscape/volcanictundradirt02.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundradirt02.dds" />
-				<MapFile From="textures/landscape/volcanictundradirt02_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundradirt02_n.dds" />
-				<MapFile From="textures/landscape/volcanictundragravel01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundragravel01.dds" />
-				<MapFile From="textures/landscape/volcanictundragravel01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundragravel01_n.dds" />
-				<MapFile From="textures/landscape/volcanictundraminerals01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundraminerals01.dds" />
-				<MapFile From="textures/landscape/volcanictundraminerals01_n.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundraminerals01_n.dds" />
-				<MapFile From="textures/landscape/volcanictundrarocks01.dds" To="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/volcanictundrarocks01_n.dds" />
+			<ExtractArchive ArchiveFile="Skyrim HD - Landscape LITE 1.7" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/roads" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeach02.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/coastbeach02_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirtpath01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirtpath01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirtsnowpath01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/dirtsnowpath01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshgrass01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshgrass01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshice01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/frozenmarshice01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/icefloes.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/icefloes_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachdirt01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachdirt01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachgrass01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachgrass01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachmoss01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachmoss01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachmossyrocks01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/reachmossyrocks01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/riverbededge.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/riverbededge_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/riverbededge1.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/riverbottom.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/riverbottom_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rivermud.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/rivermud_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundra01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundra01_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundra02.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim HD - Landscape LITE 1.7/textures/landscape/tundra02_n.dds" />
 			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="HD Misc 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Tobes Highres Textures - 1k 1.2">
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/candles" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/candles" />
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/choppingblock" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/choppingblock" />
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/common" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/common" />
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/diningset" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/diningset" />
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/firewood" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/firewood" />
-				<MapFolder From="TobesHighresTextures1_2_1024/Data/Textures/clutter/kitchen" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/kitchen" />
-				<MapFile From="TobesHighresTextures1_2_1024/Data/Textures/clutter/deadanimals/salmon01.dds" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/salmon01.dds" />
-				<MapFile From="TobesHighresTextures1_2_1024/Data/Textures/clutter/deadanimals/salmon01_n.dds" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/salmon01_n.dds" />
+				<MapFolder From="TobesHighresTextures1_2_1024/Data" To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel01.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel01_n.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel02.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel02_n.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/furniturewood01.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/furniturewood01_n.dds" />
+				<Hide Folder="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barset" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadhare01.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadhare01_n.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadpheasant01.dds" />
+				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadpheasant01_n.dds" />
+				<Hide Folder="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/furniture" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b">
@@ -1362,6 +1337,99 @@
 		</Group>
 
 		<Group Name="2.G. Landscape &amp; Environment">
+			<ExtractArchive ArchiveFile="aMidianBorn Farmhouse - 1k 1.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/rope01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/rope01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/ropealpha01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/ropealpha01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch02.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch02_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch03.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch03_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Solstheim Landscape - 1k 1.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltcolumsingle.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltcolumsingle_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltside.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltside_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2road01ash01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2road01ash01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_05.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_darkcliff_01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_darkcliff_01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_rocks_01_d.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_03.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Basic Edition 1.87a" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_01.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_04.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_04_n.dds" />
+				<Hide Folder="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/dirtcliffs" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/fieldgrass02.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/fieldgrass02_n.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/trees/treepineforestbranchcompsnow.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/trees/treepineforestbranchcompsnowl.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/terrain/tamriel/trees/tamrieltreelod.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Dragonborn Addon 0.2">
+				<MapFolder From="data" To="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a" />
+			</ExtractArchive>
+
+			<!-- TODO: Clean for SFO -->
+			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.32">
+				<MapFolder From="EHD 1K" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDFireplaces" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDForges" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDLavaCrater" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDPatchUHDFE" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Enhanced Night Skyrim - Low Stars 0.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys 2.6">
+				<MapFolder From="00 - Thinner Meshes" To="ModOrganizer/mods/Farmhouse Chimneys 2.6" />
+				<MapFolder From="01 - Vanilla" To="ModOrganizer/mods/Farmhouse Chimneys 2.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0">
+				<MapFolder From="No glowing eyes/Data" To="ModOrganizer/mods/HD Dark Brotherhood Door - No Glowing Eyes 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HD Enhanced Terrain and Map snow - 1024 8.0">
+				<MapFolder From="HD Enhanced Terrain/Data" To="ModOrganizer/mods/HD Enhanced Terrain and Map snow - 1024 8.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High Quality LODs - Meshes Hi-Res 2.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="HQ Snow Texture - 1k Loose 2.7.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Hybrids Hires Plant and Herb Retexture 4.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Improved Vanilla Mountains HD 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Realistic Water Two 1.11">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="10 Medium Resolution" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="20 Legendary (21 + 22 + 30 + 31)" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="40 Bobbing Longboats" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Improved Puddles - 1k BAIN 1.1a">
+				<MapFolder From="00 Core Files" To="ModOrganizer/mods/Skyrim Improved Puddles - 1k BAIN 1.1a" />
+				<MapFolder From="17 --CHOOSE ONE ESP-- Dawnguard-HearthFires-Dragonborn DLC Users" To="ModOrganizer/mods/Skyrim Improved Puddles - 1k BAIN 1.1a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" SimpleMO="Single" Id="TundraMossMain" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5" WaitFor="TundraMossMain">
+				<MapFolder From="high poly mesh(for the same object)/Data" To="ModOrganizer/mods/Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Whiterun Trellis Redesigned - 1k 1.1" SimpleMO="Root" />
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">

@@ -41,6 +41,7 @@ namespace StepperUpper
             string tempDirectoryPath = Path.Combine(dumpDirectory.FullName, "EXTRACT_DUMPER" + Path.GetRandomFileName());
             DirectoryInfo tempDirectory = new DirectoryInfo(tempDirectoryPath);
             tempDirectory.Create();
+            bool explicitDelete = true;
 
             string givenFile = taskElement.Attribute("ArchiveFile").Value;
             await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory).ConfigureAwait(false);
@@ -49,7 +50,6 @@ namespace StepperUpper
             XAttribute simpleMO = taskElement.Attribute("SimpleMO");
             if (simpleMO != null)
             {
-                bool explicitDelete = true;
                 DirectoryInfo fromDirectory;
                 switch (simpleMO.Value)
                 {
@@ -73,60 +73,69 @@ namespace StepperUpper
                 DirectoryInfo toDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, "ModOrganizer", "mods", givenFile));
                 toDirectory.Parent.Create();
                 Program.MoveDirectory(fromDirectory, toDirectory);
-                if (!explicitDelete)
+            }
+            else
+            {
+                foreach (XElement mapElement in taskElement.Elements("MapFolder"))
                 {
-                    return;
+                    string givenFromPath = mapElement.Attribute("From")?.Value ?? String.Empty;
+                    string givenToPath = mapElement.Attribute("To").Value;
+                    string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+                    DirectoryInfo toDirectory = new DirectoryInfo(toPath);
+                    toDirectory.Parent.Create();
+
+                    if (givenFromPath.Length == 0)
+                    {
+                        tempDirectory.MoveTo(toPath);
+                        return;
+                    }
+
+                    string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                    DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
+
+                    Program.MoveDirectory(fromDirectory, toDirectory);
                 }
 
-                // why
-                tempDirectory = null;
-                await Task.Delay(1000).ConfigureAwait(false);
-                tempDirectory = new DirectoryInfo(tempDirectoryPath);
-                tempDirectory.Refresh();
+                foreach (XElement mapElement in taskElement.Elements("MapFile"))
+                {
+                    string givenFromPath = mapElement.Attribute("From").Value;
+                    string givenToPath = mapElement.Attribute("To").Value;
+
+                    string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                    string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+
+                    FileInfo toFile = new FileInfo(toPath);
+                    toFile.Directory.Create();
+                    if (toFile.Exists)
+                    {
+                        toFile.Delete();
+                        toFile.Refresh();
+                    }
+
+                    File.Move(fromPath, toPath);
+                }
+            }
+
+            foreach (XElement hideElement in taskElement.Elements("Hide"))
+            {
+                // "hide"... heh...
+                string folderToHide = hideElement.Attribute("Folder")?.Value;
+                string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? hideElement.Attribute("File").Value);
+                if (folderToHide != null)
+                {
+                    Program.DeleteDirectory(new DirectoryInfo(pathToHide));
+                }
+                else
+                {
+                    File.SetAttributes(pathToHide, FileAttributes.Normal);
+                    File.Delete(pathToHide);
+                }
+            }
+
+            if (explicitDelete)
+            {
                 Program.DeleteDirectory(tempDirectory);
-                return;
             }
-
-            foreach (XElement mapElement in taskElement.Elements("MapFolder"))
-            {
-                string givenFromPath = mapElement.Attribute("From")?.Value ?? String.Empty;
-                string givenToPath = mapElement.Attribute("To").Value;
-                string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-                DirectoryInfo toDirectory = new DirectoryInfo(toPath);
-                toDirectory.Parent.Create();
-
-                if (givenFromPath.Length == 0)
-                {
-                    tempDirectory.MoveTo(toPath);
-                    return;
-                }
-
-                string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
-                DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
-
-                Program.MoveDirectory(fromDirectory, toDirectory);
-            }
-
-            foreach (XElement mapElement in taskElement.Elements("MapFile"))
-            {
-                string givenFromPath = mapElement.Attribute("From").Value;
-                string givenToPath = mapElement.Attribute("To").Value;
-
-                string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
-                string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-
-                FileInfo toFile = new FileInfo(toPath);
-                toFile.Directory.Create();
-                if (toFile.Exists)
-                {
-                    toFile.Delete();
-                    toFile.Refresh();
-                }
-
-                File.Move(fromPath, toPath);
-            }
-
-            Program.DeleteDirectory(tempDirectory);
         }
 
         private static void WriteINI(XElement taskElement, DirectoryInfo dumpDirectory)
