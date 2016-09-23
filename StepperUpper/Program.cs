@@ -67,6 +67,7 @@ namespace StepperUpper
             }
 
             IGrouping<string, XElement>[] groups = doc
+                .PoolStrings() // lots of strings show up multiple times each.
                 .Element("Modpack")
                 .Element("Files")
                 .Elements("Group")
