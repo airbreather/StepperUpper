@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using AirBreather;
 using AirBreather.IO;
 using AirBreather.Logging;
 
@@ -48,10 +48,11 @@ namespace StepperUpper
                 ////.Take(0)
                 ;
 
-            IDictionary<Md5Checksum, string> checkedFiles =
+            Dictionary<Md5Checksum, string> checkedFiles =
                 await CachedMd5.Calculate(allFiles)
                     .Distinct(f => f.Checksum)
                     .ToDictionary(f => f.Checksum, f => f.Path)
+                    .Select(d => new Dictionary<Md5Checksum, string>(d))
                     .ToTask()
                     .ConfigureAwait(false);
 
@@ -60,7 +61,8 @@ namespace StepperUpper
             using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
             {
                 string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
-                docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName);
+                docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
+                                 .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"));
                 doc = XDocument.Parse(docText);
             }
 
@@ -194,7 +196,7 @@ namespace StepperUpper
                         await dict2[waitId].Task.ConfigureAwait(false);
                     }
 
-                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory).ConfigureAwait(false);
+                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles).ConfigureAwait(false);
                     dict2[id].TrySetResult(null);
                 }
                 catch (Exception ex)
@@ -209,6 +211,8 @@ namespace StepperUpper
 
         internal static void MoveDirectory(DirectoryInfo fromDirectory, DirectoryInfo toDirectory)
         {
+            fromDirectory.Refresh();
+            toDirectory.Refresh();
             try
             {
                 fromDirectory.MoveTo(toDirectory.FullName);
@@ -240,7 +244,7 @@ namespace StepperUpper
             {
                 try
                 {
-                    foreach (FileSystemInfo info in directory.GetFiles())
+                    foreach (FileInfo info in directory.GetFiles())
                     {
                         info.Attributes = FileAttributes.Normal;
                         info.Delete();
@@ -297,12 +301,14 @@ namespace StepperUpper
             }
         }
 
-        private static IEnumerable<Md5Checksum> Md5Checksums(XElement element)
+        internal static IEnumerable<Md5Checksum> Md5Checksums(XElement element) => Md5ChecksumsWithIds(element).Select(kvp => kvp.Value);
+
+        internal static IEnumerable<KeyValuePair<string, Md5Checksum>> Md5ChecksumsWithIds(XElement element)
         {
-            yield return new Md5Checksum(element.Attribute("MD5Checksum").Value);
+            yield return KeyValuePair.Create("default", new Md5Checksum(element.Attribute("MD5Checksum").Value));
             foreach (XElement alternateMD5Checksum in element.Elements("AlternateMD5Checksum"))
             {
-                yield return new Md5Checksum(alternateMD5Checksum.Value);
+                yield return KeyValuePair.Create(alternateMD5Checksum.Attribute("Id").Value, new Md5Checksum(alternateMD5Checksum.Value));
             }
         }
 

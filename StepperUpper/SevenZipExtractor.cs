@@ -24,9 +24,20 @@ namespace StepperUpper
 
         private static async Task<string> UnpackExecutableAsync()
         {
-            string targetPath = Path.ChangeExtension(Path.GetTempFileName(), "exe");
+            string targetPath = Path.Combine(Path.GetTempPath(), "STEP_EXEs");
+            Directory.CreateDirectory(targetPath);
+            targetPath = Path.Combine(targetPath, "7z.dll");
 
-            var arch = Environment.Is64BitProcess ? "7za-x64.exe" : "7za-x86.exe";
+            var arch = Environment.Is64BitProcess ? "7z-x64.dll" : "7z-x86.dll";
+
+            using (var executableStream = ResourceUtility.OpenEmbeddedResourceFile(arch))
+            using (var targetStream = AsyncFile.CreateSequential(targetPath))
+            {
+                await executableStream.CopyToAsync(targetStream).ConfigureAwait(false);
+            }
+
+            targetPath = Path.ChangeExtension(targetPath, "exe");
+            arch = Environment.Is64BitProcess ? "7z-x64.exe" : "7z-x86.exe";
 
             using (var executableStream = ResourceUtility.OpenEmbeddedResourceFile(arch))
             using (var targetStream = AsyncFile.CreateSequential(targetPath))

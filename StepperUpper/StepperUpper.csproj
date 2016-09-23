@@ -109,8 +109,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="7za-x64.exe" />
-    <EmbeddedResource Include="7za-x86.exe" />
+    <EmbeddedResource Include="7z-x64.dll" />
+    <EmbeddedResource Include="7z-x64.exe" />
+    <EmbeddedResource Include="7z-x86.dll" />
+    <EmbeddedResource Include="7z-x86.exe" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj">

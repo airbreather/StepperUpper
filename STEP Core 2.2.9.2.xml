@@ -121,6 +121,11 @@
 			      MD5Checksum="7a5aaaa2a3266b7530a49253bae3d553"
 			      DownloadTags="steam§202485" />
 
+			<File Name="Unofficial High Resolution Patch 1.2.0"
+			      CanonicalFileName="Unofficial High Resolution Patch-31255-1-2-0.7z"
+			      MD5Checksum="21a3dc0041833905120c20852fb4b2ff"
+			      DownloadTags="nexus§skyrim§31255§1000195461" />
+
 			<!-- NOTE: either this OR the next one.  Don't waste your time getting both. -->
 			<File Name="STEP Optimized Vanilla Textures - Performance Version 1.2"
 			      CanonicalFileName="STEP Optimized Vanilla Textures - Performance Version 1.2-11-1-2.7z"
@@ -1038,11 +1043,17 @@
 
 				<Set Section="Water" Property="iWaterReflectHeight" Value="1024" />
 				<Set Section="Water" Property="iWaterReflectWidth" Value="1024" />
+
+				<!-- mine -->
+				<Set Section="Display" Property="bFull Screen" Value="1" />
+				<Set Section="Display" Property="iSize H" Value="1440" />
+				<Set Section="Display" Property="iSize W" Value="2560" />
 			</TweakINI>
 		</Group>
 
 		<Group Name="2.B. Clean the Update ESM">
-			<Clean File="Update ESM" DirtyMD5Checksum="default" CleanMD5Checksum="clean" />
+			<Clean Id="CleanUpdate" File="Update ESM" DirtyMD5Checksum="default" CleanMD5Checksum="clean" />
+			<CopyFile WaitFor="CleanUpdate" File="642283fc4167cee49e15b898c036b20c" To="ModOrganizer/mods/Cleaned Update ESM/Update.esm" />
 		</Group>
 
 		<Group Name="2.C. Extenders">
@@ -1066,6 +1077,10 @@
 
 				<Set Section="ENGINE" Property="EnableVSync" Value="true" />
 				<Set Section="ENGINE" Property="VSyncSkipNumFrames" Value="0" />
+
+				<!-- Skyrim physics assumes no higher than 60 fps. -->
+				<Set Section="LIMITER" Property="EnableFPSLimit" Value="true" />
+				<Set Section="LIMITER" Property="FPSLimit" Value="60.0" />
 			</TweakINI>
 
 			<!-- SKSE -->
@@ -1090,6 +1105,63 @@
 		</Group>
 
 		<Group Name="2.D. Fixes">
+			<Clean Id="CleanDawnguard1" File="Dawnguard ESM" DirtyMD5Checksum="default" CleanMD5Checksum="halfclean" />
+			<Clean Id="CleanDawnguard2" File="Dawnguard ESM" DirtyMD5Checksum="halfclean" CleanMD5Checksum="clean" />
+			<CopyFile WaitFor="CleanDawnguard2" File="0b3bbdcb8d58b790ca1c4deb2cdf3f22" To="ModOrganizer/mods/Cleaned Dawnguard ESM/Dawnguard.esm" />
+
+			<Clean Id="CleanHearthfire" File="Hearthfire ESM" DirtyMD5Checksum="default" CleanMD5Checksum="clean" />
+			<CopyFile WaitFor="CleanHearthfire" File="ef391e45925c7582cb69f6bac5b5a637" To="ModOrganizer/mods/Cleaned Hearthfire ESM/HearthFires.esm" />
+
+			<Clean Id="CleanDragonborn" File="Dragonborn ESM" DirtyMD5Checksum="default" CleanMD5Checksum="clean" />
+			<CopyFile WaitFor="CleanDragonborn" File="8761b7438519edfce77fbdf74797e353" To="ModOrganizer/mods/Cleaned Dragonborn ESM/Dragonborn.esm" />
+
+			<ExtractArchive ArchiveFile="USLEEP 3.0.6" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="STEP Optimized Vanilla Textures" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Consistent Older People 31 All NPCs USLEEP 3.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Fuz Ro D'oh 6.0" SimpleMO="Root" Id="FuzMain" />
+			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57" SimpleMO="Single" Id="ICHMain" />
+			<ExtractArchive ArchiveFile="Invisibility Eyes Fix 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="NARC Core 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Ragdoll Paralysis - Paralyze 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT 4.0.1">
+				<MapFolder From="11_ExtInt_Legendary" To="ModOrganizer/mods/Relighting Skyrim - No JIT 4.0.1" />
+			</ExtractArchive>
+			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
+			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" Id="SmartSoulsMain" />
+			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Weapon and Armor Fixes Remade 5.2">
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/00 Readme" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/01 WAF Legendary" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/08 True Orcish Daedric/Req DG and DB" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/17 Patch ICH/ICH Legendary" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/18 Dark Brotherhood Mask Fix" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/19 Better Fitting Glass Helmet Meshes" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57a Update" WaitFor="ICHMain">
+				<MapFile From="Meshes/Armor/Dragonpriesthelms/drgpmc1.nif" To="ModOrganizer/mods/Improved Closefaced Helmets (Legendary Edition) 1.57/Meshes/Armor/Dragonpriesthelms/drgpmc1.nif" />
+			</ExtractArchive>
+
+			<TweakINI File="ModOrganizer/mods/Fuz Ro D'oh 6.0/SKSE/Plugins/Fuz Ro D'oh.ini" WaitFor="FuzMain">
+				<Set Section="General" Property="WordsPerSecondSilence" Value="2" />
+			</TweakINI>
+
+			<TweakINI File="ModOrganizer/mods/Smart Souls 9.0/SKSE/Plugins/Smart Souls.ini" WaitFor="SmartSoulsMain">
+				<Set Section="General" Property="ForceSoulSoulGemSizeMatch" Value="1" />
+				<Set Section="General" Property="LimitBlackGemsToBlackSouls" Value="1" />
+
+				<Set Section="Notifications" Property="ShowCapturedSoulQuality" Value="1" />
+				<Set Section="Notifications" Property="ShowEscapedSoulQuality" Value="1" />
+			</TweakINI>
 		</Group>
 
 		<Group Name="2.E. Interface">
@@ -1120,6 +1192,121 @@
 		</Group>
 
 		<Group Name="2.N. Patches">
+		</Group>
+		<Group Name="X. Final Cleanups">
+			<TweakINI File="ModOrganizer/ModOrganizer.ini">
+				<Set Section="General" Property="selected_profile" Value="STEP Core 2.2.9.2" />
+				<Set Section="General" Property="gamePath" Value="{SteamInstallFolderEscapeBackslashes}\\steamapps\\common\\Skyrim" />
+				<Set Section="General" Property="selected_executable" Value="1" />
+
+				<Set Section="customExecutables" Property="1\title" Value="SKSE" />
+				<Set Section="customExecutables" Property="1\custom" Value="false" />
+				<Set Section="customExecutables" Property="1\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="1\ownicon" Value="false" />
+				<Set Section="customExecutables" Property="size" Value="1" />
+			</TweakINI>
+			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
+				<Line># This file was automatically generated by Mod Organizer.</Line>
+				<Line>+Weapon and Armor Fixes Remade 5.2</Line>
+				<Line>+Trade And Barter - Hearthfire 1.2</Line>
+				<Line>+Smart Souls 9.0</Line>
+				<Line>+Skyrim Project Optimization - Full Version 1.6</Line>
+				<Line>+Relighting Skyrim - No JIT 4.0.1</Line>
+				<Line>+Ragdoll Paralysis - Paralyze 1.0</Line>
+				<Line>+NARC Core 1.2</Line>
+				<Line>+Invisibility Eyes Fix 2.0</Line>
+				<Line>+Improved Closefaced Helmets (Legendary Edition) 1.57</Line>
+				<Line>+Guard Dialog Overhaul 1.4</Line>
+				<Line>+Fuz Ro D'oh 6.0</Line>
+				<Line>+Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c</Line>
+				<Line>+Enchantment Reload Fix 1.2</Line>
+				<Line>+Dead Body Collision Fix - With Improved Fireball Spell 2.4</Line>
+				<Line>+Cutting Room Floor - Legendary Edition 2.0.2</Line>
+				<Line>+Clothing and Clutter Fixes 1.7</Line>
+				<Line>+Brawl Bugs - Compatibility Edition 1.0</Line>
+				<Line>+Appropriately Attired Jarls 1.1.1</Line>
+				<Line>+STEP Optimized Vanilla Textures</Line>
+				<Line>+Unofficial High Resolution Patch 1.2.0</Line>
+				<Line>*Unmanaged: HighResTexturePack03</Line>
+				<Line>*Unmanaged: HighResTexturePack02</Line>
+				<Line>*Unmanaged: HighResTexturePack01</Line>
+				<Line>+USLEEP 3.0.6</Line>
+				<Line>+Cleaned Dragonborn ESM</Line>
+				<Line>*Unmanaged: Dragonborn</Line>
+				<Line>+Cleaned Hearthfire ESM</Line>
+				<Line>*Unmanaged: HearthFires</Line>
+				<Line>+Cleaned Dawnguard ESM</Line>
+				<Line>*Unmanaged: Dawnguard</Line>
+				<Line>+PapyrusUtil 3.3</Line>
+				<Line>+SKSE Support</Line>
+				<Line>+Cleaned Update ESM</Line>
+			</Embedded>
+
+			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/loadorder.txt" Encoding="UTF8NoBOM" Id="LoadOrder">
+				<Line># This file was automatically generated by Mod Organizer.</Line>
+				<Line>Skyrim.esm</Line>
+				<Line>Update.esm</Line>
+				<Line>Dawnguard.esm</Line>
+				<Line>HearthFires.esm</Line>
+				<Line>Dragonborn.esm</Line>
+				<Line>Unofficial Skyrim Legendary Edition Patch.esp</Line>
+				<Line>Skyrim Project Optimization - Full Version.esm</Line>
+				<Line>HighResTexturePack01.esp</Line>
+				<Line>HighResTexturePack02.esp</Line>
+				<Line>HighResTexturePack03.esp</Line>
+				<Line>Unofficial High Resolution Patch.esp</Line>
+				<Line>Cutting Room Floor.esp</Line>
+				<Line>Brawl Bugs CE.esp</Line>
+				<Line>Invisibility Eyes Fix.esp</Line>
+				<Line>Dead Body Collision.esp</Line>
+				<Line>Paralyze.esp</Line>
+				<Line>TradeBarter.esp</Line>
+				<Line>Appropriately Attired Jarls Redux.esp</Line>
+				<Line>Guard Dialogue Overhaul.esp</Line>
+				<Line>NARC.esp</Line>
+				<Line>STEP Vanilla Optimized Textures - Performance.esp</Line>
+				<Line>Weapons &amp; Armor Fixes_Remade.esp</Line>
+				<Line>Weapons &amp; Armor_TrueOrcish&amp;DaedricWeapons.esp</Line>
+				<Line>Weapons &amp; Armor_TrueWeaponsLvlLists.esp</Line>
+				<Line>Clothing &amp; Clutter Fixes.esp</Line>
+				<Line>imp_helm_legend.esp</Line>
+				<Line>RelightingSkyrim_Legendary.esp</Line>
+				<Line>ELE_Legendary_Lite.esp</Line>
+			</Embedded>
+
+			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/archives.txt" Encoding="UTF8NoBOM">
+				<Line>Skyrim - Misc.bsa</Line>
+				<Line>Skyrim - Shaders.bsa</Line>
+				<Line>Skyrim - Textures.bsa</Line>
+				<Line>Skyrim - Interface.bsa</Line>
+				<Line>Skyrim - Animations.bsa</Line>
+				<Line>Skyrim - Meshes.bsa</Line>
+				<Line>Skyrim - Sounds.bsa</Line>
+				<Line>Skyrim - Voices.bsa</Line>
+				<Line>Skyrim - VoicesExtra.bsa</Line>
+				<Line>Update.bsa</Line>
+				<Line>Dawnguard.bsa</Line>
+				<Line>HearthFires.bsa</Line>
+				<Line>Dragonborn.bsa</Line>
+				<Line>Unofficial Skyrim Legendary Edition Patch.bsa</Line>
+				<Line>HighResTexturePack01.bsa</Line>
+				<Line>HighResTexturePack02.bsa</Line>
+				<Line>HighResTexturePack03.bsa</Line>
+				<Line>Unofficial High Resolution Patch.bsa</Line>
+				<Line>STEP Vanilla Optimized Textures - Performance.bsa</Line>
+				<Line>Appropriately Attired Jarls Redux.bsa</Line>
+				<Line>Brawl Bugs CE.bsa</Line>
+				<Line>Cutting Room Floor.bsa</Line>
+				<Line>Guard Dialogue Overhaul.bsa</Line>
+			</Embedded>
+
+			<Embedded File="RunSkyrim.bat" Encoding="UTF8NoBOM">
+				<Line>@ECHO OFF</Line>
+				<Line>CD %~dp0ModOrganizer</Line>
+				<Line>ModOrganizer.exe "{SteamInstallFolder}\steamapps\common\Skyrim\skse_loader.exe"</Line>
+			</Embedded>
+
+			<CopyFile WaitFor="LoadOrder" From="ModOrganizer/profiles/STEP Core 2.2.9.2/loadorder.txt" To="ModOrganizer/profiles/STEP Core 2.2.9.2/plugins.txt" />
 		</Group>
 	</Tasks>
 </Modpack>
