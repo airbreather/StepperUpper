@@ -29,7 +29,6 @@ namespace StepperUpper
             return result;
         }
 
-
         private static async Task<int> MainAsync(string[] args)
         {
             Options options = new Options();

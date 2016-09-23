@@ -980,6 +980,65 @@
 		</Group>
 
 		<Group Name="1.D. INI Tweaks">
+			<CopyFile Id="SkyrimINI" From="{SteamInstallFolder}/steamapps/common/Skyrim/Skyrim_default.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" />
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" WaitFor="SkyrimINI">
+				<Set Section="Archive" Property="sResourceArchiveList" Value="Skyrim - Misc.bsa, Skyrim - Shaders.bsa, Skyrim - Textures.bsa, Skyrim - Interface.bsa, Skyrim - Animations.bsa, Skyrim - Meshes.bsa, Skyrim - Sounds.bsa" />
+				<Set Section="Archive" Property="sResourceArchiveList2" Value="Skyrim - Voices.bsa, Skyrim - VoicesExtra.bsa" />
+
+				<Set Section="Camera" Property="fMouseWheelZoomSpeed" Value="10" />
+
+				<Set Section="Combat" Property="f1PArrowTiltUpAngle" Value="0.7" />
+				<Set Section="Combat" Property="f3PArrowTiltUpAngle" Value="0.7" />
+				<Set Section="Combat" Property="f1PBoltTiltUpAngle" Value="0.7" />
+
+				<!-- Buggy.  ENBoost replaces it. -->
+				<Set Section="Display" Property="bAllowScreenShot" Value="0" />
+
+				<Set Section="General" Property="sIntroSequence" Value="" />
+				<Set Section="General" Property="fFlickeringLightDistance" Value="8192" />
+
+				<!-- I am required by law and/or tradition to point out that this is Bethesda's typo
+				     ("texure") which must be reproduced here for this to work correctly. -->
+				<Set Section="Grass" Property="iMaxGrassTypesPerTexure" Value="7" />
+				<Set Section="Grass" Property="fGrassFadeRange" Value="10000" />
+				<Set Section="Grass" Property="iMinGrassSize" Value="40" />
+
+				<Set Section="Interface" Property="bShowTutorials" Value="0" />
+
+				<Set Section="MapMenu" Property="fMapWorldYawRange" Value="400" />
+				<Set Section="MapMenu" Property="fMapWorldMinPitch" Value="0" />
+				<Set Section="MapMenu" Property="fMapWorldMaxPitch" Value="90" />
+
+				<Set Section="Water" Property="bReflectLODLand" Value="1" />
+				<Set Section="Water" Property="bReflectLODObjects" Value="1" />
+				<Set Section="Water" Property="bReflectLODTrees" Value="1" />
+			</TweakINI>
+			
+			<CopyFile Id="SkyrimPrefsINI" From="{SteamInstallFolder}/steamapps/common/Skyrim/VeryHigh.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" />
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" WaitFor="SkyrimPrefsINI">
+				<!-- Don't change iMaxAnisotropy here.  Force it on in your graphics driver. -->
+				<Set Section="Display" Property="iMaxAnisotropy" Value="0" />
+				<Set Section="Display" Property="bFloatPointRenderTarget" Value="0" />
+				<Set Section="Display" Property="bDeferredShadows" Value="1" />
+				<Set Section="Display" Property="bLandShadows" Value="1" />
+				<Set Section="Display" Property="bShadowsOnGrass" Value="1" />
+				<Set Section="Display" Property="bTreesReceiveShadows" Value="1" />
+				<Set Section="Display" Property="iShadowFilter" Value="3" />
+				<Set Section="Display" Property="bShadowMaskZPrepass" Value="0" />
+				<Set Section="Display" Property="fMeshLODLevel1FadeTreeDistance" Value="6144" />
+				<Set Section="Display" Property="fMeshLODLevel2FadeTreeDistance" Value="4096" />
+				<Set Section="Display" Property="fTreesMidLODSwitchDist" Value="8192" />
+				<Set Section="Display" Property="iMaxDecalsPerFrame" Value="250" />
+				<Set Section="Display" Property="iMaxSkinDecalsPerFrame" Value="100" />
+				<Set Section="Display" Property="iMultiSample" Value="4" />
+
+				<Set Section="Launcher" Property="bEnableFileSelection" Value="1" />
+
+				<Set Section="Trees" Property="uiMaxSkinnedTreesToRender" Value="200" />
+
+				<Set Section="Water" Property="iWaterReflectHeight" Value="1024" />
+				<Set Section="Water" Property="iWaterReflectWidth" Value="1024" />
+			</TweakINI>
 		</Group>
 
 		<Group Name="2.B. Clean the Update ESM">

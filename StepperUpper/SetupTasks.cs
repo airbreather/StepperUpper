@@ -19,6 +19,10 @@ namespace StepperUpper
                     WriteINI(taskElement, dumpDirectory);
                     return Task.CompletedTask;
 
+                case "CopyFile":
+                    CopyFile(taskElement, dumpDirectory);
+                    return Task.CompletedTask;
+
                 case "Clean":
                     Console.WriteLine("TODO: This is a placeholder for code that'll automatically run plugin cleaning.");
                     return Task.CompletedTask;
@@ -111,6 +115,14 @@ namespace StepperUpper
                                                         value: setElement.Attribute("Value").Value,
                                                         iniFilePath: iniFile.FullName);
             }
+        }
+
+        private static void CopyFile(XElement taskElement, DirectoryInfo dumpDirectory)
+        {
+            FileInfo fromFile = new FileInfo(taskElement.Attribute("From").Value);
+            FileInfo toFile = new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value));
+            toFile.Directory.Create();
+            fromFile.CopyTo(toFile.FullName, true);
         }
     }
 }
