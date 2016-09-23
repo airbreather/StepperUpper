@@ -224,15 +224,21 @@ namespace StepperUpper
                 // you knew it wouldn't be this easy every time.
             }
 
-            // anything else that throws should continue to throw.
             foreach (FileInfo file in fromDirectory.GetFiles())
             {
+                string targetPath = Path.Combine(toDirectory.FullName, file.Name);
+                if (File.Exists(targetPath))
+                {
+                    File.SetAttributes(targetPath, FileAttributes.Normal);
+                    File.Delete(targetPath);
+                }
+
                 file.MoveTo(Path.Combine(toDirectory.FullName, file.Name));
             }
 
             foreach (DirectoryInfo subFromDirectory in fromDirectory.GetDirectories())
             {
-                MoveDirectory(subFromDirectory, new DirectoryInfo(Path.Combine(toDirectory.FullName, subFromDirectory.Name)));
+                MoveDirectory(subFromDirectory, toDirectory.CreateSubdirectory(subFromDirectory.Name));
             }
 
             DeleteDirectory(fromDirectory);
