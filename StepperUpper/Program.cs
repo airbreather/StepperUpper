@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -38,11 +39,12 @@ namespace StepperUpper
             logger.Info("Checking existing files...");
 
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
-            DirectoryInfo steamDirectory = new DirectoryInfo(Path.Combine(options.SteamDirectoryPath, "steamapps", "common", "Skyrim", "Data"));
+            DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
+            DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
             IObservable<FileInfo> downloadDirectoryFiles = downloadDirectory.GetFiles().ToObservable();
-            IObservable<FileInfo> steamDirectoryFiles = steamDirectory.GetFiles().ToObservable();
+            IObservable<FileInfo> skyrimDirectoryFiles = skyrimDirectory.GetFiles().ToObservable();
 
-            IObservable<FileInfo> allFiles = Observable.Merge(downloadDirectoryFiles, steamDirectoryFiles)
+            IObservable<FileInfo> allFiles = Observable.Merge(downloadDirectoryFiles, skyrimDirectoryFiles)
                 // uncomment to see what it's like if you don't have anything yet.
                 ////.Take(0)
                 ;
@@ -55,15 +57,12 @@ namespace StepperUpper
                     .ConfigureAwait(false);
 
             XDocument doc;
-            using (MemoryStream bufferStream = new MemoryStream())
+            using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(options.PackDefinitionFilePath))
+            using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
             {
-                using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(options.PackDefinitionFilePath))
-                {
-                    await packDefinitionFileStream.CopyToAsync(bufferStream).ConfigureAwait(false);
-                }
-
-                bufferStream.Position = 0;
-                doc = XDocument.Load(bufferStream);
+                string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
+                docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName);
+                doc = XDocument.Parse(docText);
             }
 
             IGrouping<string, XElement>[] groups = doc
@@ -181,28 +180,89 @@ namespace StepperUpper
             }
 
             dumpDirectory.Create();
-            foreach (XElement task in doc.Element("Modpack").Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()))
+            var dict = doc.Element("Modpack").Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
+            var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
+            await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
             {
-                await SetupTasks.DispatchAsync(task, dct, dumpDirectory).ConfigureAwait(false);
-            }
+                string id = kvp.Key;
+                XElement taskElement = kvp.Value;
+
+                try
+                {
+                    string waitId = taskElement.Attribute("WaitFor")?.Value;
+                    if (waitId != null)
+                    {
+                        await dict2[waitId].Task.ConfigureAwait(false);
+                    }
+
+                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory).ConfigureAwait(false);
+                    dict2[id].TrySetResult(null);
+                }
+                catch (Exception ex)
+                {
+                    dict2[id].TrySetException(ex);
+                    throw;
+                }
+            }))).ConfigureAwait(false);
 
             return 0;
         }
 
+        internal static void MoveDirectory(DirectoryInfo fromDirectory, DirectoryInfo toDirectory)
+        {
+            try
+            {
+                fromDirectory.MoveTo(toDirectory.FullName);
+                return;
+            }
+            catch
+            {
+                // you knew it wouldn't be this easy every time.
+            }
+
+            // anything else that throws should continue to throw.
+            foreach (FileInfo file in fromDirectory.GetFiles())
+            {
+                file.MoveTo(Path.Combine(toDirectory.FullName, file.Name));
+            }
+
+            foreach (DirectoryInfo subFromDirectory in fromDirectory.GetDirectories())
+            {
+                MoveDirectory(subFromDirectory, new DirectoryInfo(Path.Combine(toDirectory.FullName, subFromDirectory.Name)));
+            }
+
+            DeleteDirectory(fromDirectory);
+        }
+
         internal static void DeleteDirectory(DirectoryInfo directory)
         {
-            foreach (FileSystemInfo info in directory.GetFiles())
+            Stopwatch sw = Stopwatch.StartNew();
+            while (true)
             {
-                info.Attributes = FileAttributes.Normal;
-                info.Delete();
-            }
+                try
+                {
+                    foreach (FileSystemInfo info in directory.GetFiles())
+                    {
+                        info.Attributes = FileAttributes.Normal;
+                        info.Delete();
+                    }
 
-            foreach (DirectoryInfo info in directory.GetDirectories())
-            {
-                DeleteDirectory(info);
-            }
+                    foreach (DirectoryInfo info in directory.GetDirectories())
+                    {
+                        DeleteDirectory(info);
+                    }
 
-            directory.Delete();
+                    directory.Delete();
+                    return;
+                }
+                catch
+                {
+                    if (sw.Elapsed.TotalSeconds > 10)
+                    {
+                        throw;
+                    }
+                }
+            }
         }
 
         private static string GetUrl(XElement missing)

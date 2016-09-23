@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CachedMd5.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ProcessRunner.cs" />
