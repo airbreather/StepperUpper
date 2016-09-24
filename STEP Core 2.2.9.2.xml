@@ -1667,6 +1667,99 @@
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
+			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1">
+				<MapFolder From="00 - MAIN" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+				<MapFolder From="01b - Crown Texture 1k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+				<MapFolder From="02b - Gamwich Jewelrybox Texture 1k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL">
+				<MapFolder From="Detailing the Eldrich - Higher-Res Riekling Architecture/Data" To="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL" />
+				<Hide File="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL/textures/dlc02/clutter/dlc02stalhrimore.dds" />
+				<Hide File="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL/textures/dlc02/clutter/dlc02stalhrimore_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="LeanWolf's Improved Enchanter Candle Meshes 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="HD Linens 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="HD Ore and Ingots - with manager 1.0">
+				<MapFolder From="HD Ore And Ingots/Data" To="ModOrganizer/mods/HD Ore and Ingots - with manager 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HORNCANDLES - 2k-1k 1.1">
+				<MapFolder From="00 Data" To="ModOrganizer/mods/HORNCANDLES - 2k-1k 1.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HQ Paper 2.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="N-R HD Display Case - Smudged Glass Version 0.9a" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Not Really HD Keys - With Normal Maps X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Pilgrims Delight - Legacy 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Realistic HD Baskets - 1k 1.1 fix">
+				<MapFolder From="REALISTIC HD Baskets QUALITY/Data" To="ModOrganizer/mods/Realistic HD Baskets - 1k 1.1 fix" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC DRAGON CORPSE - RUSTIC DRAGON CORPSE 2k 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC POTIONS and POISIONS - 1k 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Septim HD 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Full Pack 1.00" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Less Saturated Labels 1.00" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="SKELETON - 1k 1.1">
+				<MapFolder From="00 Data" To="ModOrganizer/mods/SKELETON - 1k 1.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0">
+				<MapFolder From="Skyrim Redesigned/Alchemy table v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Anvil v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Bloody rags v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Brown (less saturated) money bags/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Buckets - meshes better with environment)/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Charcoal/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Chaurus eggs (LORE)/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Cratewood v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Enchanting table- Css01 retexture/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Hasgraven claws/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Skeever tail/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Skeleton key v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+				<MapFolder From="Skyrim Redesigned/Spider eggs/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Soul Gems Differ - All-In-One 1.5.6">
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/000 Core" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/100 Sorted and Weighted ESP" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<!-- <MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/100 Sorted and Weightless ESP" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" /> -->
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/211 Petty - Empty - tycol1709 - Violet" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/212 Petty - Full - Purple - Sparkle" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/209 Lesser - Empty - tycol1709 - Violet" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/210 Lesser - Full - Purple - All Purple" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/203 Common - Empty - tycol1709 - Bluegreen" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/204 Common - Full - Colorful - Stars" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/207 Greater - Empty - tycol1709 - Bluegreen" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/208 Greater - Full - Colorful - Space 3" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/205 Grand - Empty - tycol1709 - Bluegreen" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/206 Grand - Full - Colorful - Space 1" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/201 Black - Empty - tycol1709 - Black" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/202 Black - Full - Black - with hints of red" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/301 Black - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/302 Black - Full - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/303 Common - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/304 Common - Full - Glow - Blue" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/305 Grand - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/306 Grand - Full - Glow - Blue" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/307 Greater - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/308 Greater - Full - Glow - Blue" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/309 Lesser - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/310 Lesser - Full - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/311 Petty - Empty - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/312 Petty - Full - Glow - Normal" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+				<MapFolder From="Soul Gems Differ All-In-One-6335-1-5-6/401 Optional - Soul Fragments" To="ModOrganizer/mods/Soul Gems Differ - All-In-One 1.5.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Super Realistic Ore Textures - Just the textures 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Sweet Mother - Sweet Mother HD 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2">
+				<MapFolder From="01b - textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+				<MapFolder From="10c - nDG meshes 0.5x" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.L. Sound">
@@ -1677,6 +1770,7 @@
 
 		<Group Name="2.N. Patches">
 		</Group>
+
 		<Group Name="X. Final Cleanups">
 			<TweakINI File="ModOrganizer/ModOrganizer.ini">
 				<Set Section="General" Property="selected_profile" Value="STEP Core 2.2.9.2" />
@@ -1692,6 +1786,29 @@
 
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
 				<Line># This file was automatically generated by Mod Organizer.</Line>
+				<Line>+White Phial Replacer - All-in-One 1.2</Line>
+				<Line>+Sweet Mother - Sweet Mother HD 2.0</Line>
+				<Line>+Super Realistic Ore Textures - Just the textures 1.0</Line>
+				<Line>+Soul Gems Differ - All-In-One 1.5.6</Line>
+				<Line>+Skyrim Redesigned 1.0</Line>
+				<Line>+SKELETON - 1k 1.1</Line>
+				<Line>+SLOD Wine Cellar - Less Saturated Labels 1.00</Line>
+				<Line>+SLOD Wine Cellar - Full Pack 1.00</Line>
+				<Line>+Septim HD 1.0</Line>
+				<Line>+RUSTIC POTIONS and POISIONS - 1k 1.1</Line>
+				<Line>+RUSTIC DRAGON CORPSE - RUSTIC DRAGON CORPSE 2k 1.0</Line>
+				<Line>+Realistic HD Baskets - 1k 1.1 fix</Line>
+				<Line>+Pilgrims Delight - Legacy 1.1</Line>
+				<Line>+Not Really HD Keys - With Normal Maps X</Line>
+				<Line>+N-R HD Display Case - Smudged Glass Version 0.9a</Line>
+				<Line>+HQ Paper 2.3</Line>
+				<Line>+HORNCANDLES - 2k-1k 1.1</Line>
+				<Line>+HD Ore and Ingots - with manager 1.0</Line>
+				<Line>+HD Linens 1.0</Line>
+				<Line>+Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0</Line>
+				<Line>+LeanWolf's Improved Enchanter Candle Meshes 1.1</Line>
+				<Line>+Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL</Line>
+				<Line>+Barenziah's Glory 2.1</Line>
 				<Line>+Running with Bows 1.0</Line>
 				<Line>+NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1</Line>
 				<Line>+DROPS - v1 Optional 1.0</Line>
@@ -1814,6 +1931,7 @@
 			</Embedded>
 
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/loadorder.txt" Encoding="UTF8NoBOM" Id="LoadOrder">
+				<Line># This file was automatically generated by Mod Organizer.</Line>
 				<Line>Skyrim.esm</Line>
 				<Line>Update.esm</Line>
 				<Line>Dawnguard.esm</Line>
@@ -1850,6 +1968,7 @@
 				<Line>Skyrim Flora Overhaul.esp</Line>
 				<Line>SMIM-RiftenDocksRopesObjectFix.esp</Line>
 				<Line>ExplosiveBoltsVisualized.esp</Line>
+				<Line>PilgrimsDelight.esp</Line>
 				<Line>EmbersHD.esp</Line>
 				<Line>SFO - Dragonborn.esp</Line>
 				<Line>SMIM-ShackRoofFixesDragonborn.esp</Line>
@@ -1873,6 +1992,7 @@
 				<Line>Mage Outfit Texture Overhaul.esp</Line>
 				<Line>SPTConsistentOlderPeople.esp</Line>
 				<Line>DawnguardRuneWeaponsFXSReplacer.esp</Line>
+				<Line>Soul Gems Differ.esp</Line>
 			</Embedded>
 
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/archives.txt" Encoding="UTF8NoBOM">
