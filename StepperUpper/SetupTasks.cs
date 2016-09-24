@@ -74,61 +74,71 @@ namespace StepperUpper
                 toDirectory.Parent.Create();
                 Program.MoveDirectory(fromDirectory, toDirectory);
             }
-            else
-            {
-                foreach (XElement mapElement in taskElement.Elements("MapFolder"))
-                {
-                    string givenFromPath = mapElement.Attribute("From")?.Value ?? String.Empty;
-                    string givenToPath = mapElement.Attribute("To").Value;
-                    string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-                    DirectoryInfo toDirectory = new DirectoryInfo(toPath);
-                    toDirectory.Parent.Create();
 
-                    if (givenFromPath.Length == 0)
+            foreach (XElement element in taskElement.Elements())
+            {
+                switch (element.Name.LocalName)
+                {
+                    case "MapFolder":
                     {
-                        tempDirectory.MoveTo(toPath);
-                        return;
+                        string givenFromPath = element.Attribute("From")?.Value ?? String.Empty;
+                        string givenToPath = element.Attribute("To").Value;
+                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+                        DirectoryInfo toDirectory = new DirectoryInfo(toPath);
+                        toDirectory.Parent.Create();
+
+                        if (givenFromPath.Length == 0)
+                        {
+                            explicitDelete = false;
+                        }
+
+                        string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                        DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
+
+                        Program.MoveDirectory(fromDirectory, toDirectory);
+                        break;
                     }
 
-                    string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
-                    DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
-
-                    Program.MoveDirectory(fromDirectory, toDirectory);
-                }
-
-                foreach (XElement mapElement in taskElement.Elements("MapFile"))
-                {
-                    string givenFromPath = mapElement.Attribute("From").Value;
-                    string givenToPath = mapElement.Attribute("To").Value;
-
-                    string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
-                    string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-
-                    FileInfo toFile = new FileInfo(toPath);
-                    toFile.Directory.Create();
-                    if (toFile.Exists)
+                    case "MapFile":
                     {
-                        toFile.Delete();
-                        toFile.Refresh();
+                        string givenFromPath = element.Attribute("From").Value;
+                        string givenToPath = element.Attribute("To").Value;
+
+                        string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+
+                        FileInfo toFile = new FileInfo(toPath);
+                        toFile.Directory.Create();
+                        if (toFile.Exists)
+                        {
+                            toFile.Delete();
+                            toFile.Refresh();
+                        }
+
+                        File.Move(fromPath, toPath);
+                        break;
                     }
 
-                    File.Move(fromPath, toPath);
-                }
-            }
+                    case "Hide":
+                    {
+                        // "hide"... heh...
+                        string folderToHide = element.Attribute("Folder")?.Value;
+                        string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
+                        if (folderToHide != null)
+                        {
+                            Program.DeleteDirectory(new DirectoryInfo(pathToHide));
+                        }
+                        else
+                        {
+                            File.SetAttributes(pathToHide, FileAttributes.Normal);
+                            File.Delete(pathToHide);
+                        }
 
-            foreach (XElement hideElement in taskElement.Elements("Hide"))
-            {
-                // "hide"... heh...
-                string folderToHide = hideElement.Attribute("Folder")?.Value;
-                string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? hideElement.Attribute("File").Value);
-                if (folderToHide != null)
-                {
-                    Program.DeleteDirectory(new DirectoryInfo(pathToHide));
-                }
-                else
-                {
-                    File.SetAttributes(pathToHide, FileAttributes.Normal);
-                    File.Delete(pathToHide);
+                        break;
+                    }
+
+                    default:
+                        throw new NotSupportedException("Unsupported element: " + element.Name.LocalName);
                 }
             }
 

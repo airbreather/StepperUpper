@@ -1489,6 +1489,111 @@
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
+			<ExtractArchive ArchiveFile="aMidianBorn Blade of Woe 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9">
+				<MapFolder From="04 iron vanilla cut" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="05 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="09 steel plate" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="10 leather" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="03 hide" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="02 fur" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="01 elven gold" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="08 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="11 ancient nord" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="07 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="06 scaled" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="12 wolf grey" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="13 glass" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="14 ebony black" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="15 blades" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+				<MapFolder From="16 falmer armor" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9">
+				<MapFolder From="01 skeleton" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+				<MapFolder From="02 dragonpriest" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+				<MapFolder From="03 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+				<MapFolder From="04 falmer" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+				<MapFolder From="05 chaurus" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+				<MapFolder From="06 spriggan" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9">
+				<MapFolder From="01 nordic carved black" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<MapFolder From="02 bonemold" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<MapFolder From="03 acolyte masks" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<MapFolder From="04 dragon priest acolyte" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<MapFolder From="05 hulking draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<!-- "ash" should have been "ashman" -->
+				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9/textures/actors/dlc02/ashman" />
+				<MapFolder From="07 ash guardian" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" Id="BoSUNIQUEITEMS">
+				<MapFolder From="01 targe of the blooded" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="02 wuuthrad" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="03 savior's hide" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="04 yngols helm" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="05 maceofmolagbal" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="06 mehrunes razor" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="07 volendrung" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="08 tsun" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="09 ebonymail black" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="10 staff of magnus" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+				<MapFolder From="11 dragon priest masks" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9">
+				<MapFolder From="01 iron" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="02 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="03 skyforge" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="04 silver" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="05 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="06 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="09 staves" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<MapFolder From="10 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9/aMidianborn_Skyforge_Weapons.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" WaitFor="BoSUNIQUEITEMS">
+				<MapFolder From="data" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9">
+				<!-- effectively "delete this file" because the next line overwrites it. -->
+				<MapFile From="aMidianBorn_ContentAddon.esp" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9/aMidianBorn_ContentAddon.esp" />
+				<MapFolder From="Improved Closefaced Helmets version" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
+				<MapFolder To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Imperial Light and Studded - 2k 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Stormcloak Officer Armour - 2k 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized 1.0.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Elemental Staffs - 1k 1.16" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c">
+				<MapFolder From="00 - Amulets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="10 - Circlets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="20 - Rings" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="40 - Dawnguard Addon" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="01a- Gamwich Amulet Textures 512" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project 1.0.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Greatsword Sheaths and Scabbards Redux 2.7.3">
+				<MapFolder From="08 Fullsize Textures" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
+				<MapFolder From="04 Meshes Fullsize Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
+				<MapFolder From="05 Meshes Fullsize DG Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
+				<MapFolder From="06 Meshes Fullsize DB Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Mage Outfit Texture Overhaul - Master X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="New Thinner Torch - Ultimate HD Torch Compatible 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Nightingale Prime HD - Leather Version Final" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Not Really HD - Mask of Clavicus Vile - Wrecked 0.9a" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Ultimate HD Torch - 1k 1.3" SimpleMO="Single" />
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
@@ -1519,6 +1624,28 @@
 			</TweakINI>
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
 				<Line># This file was automatically generated by Mod Organizer.</Line>
+				<Line>+Ultimate HD Torch - 1k 1.3</Line>
+				<Line>+Not Really HD - Mask of Clavicus Vile - Wrecked 0.9a</Line>
+				<Line>+Nightingale Prime HD - Leather Version Final</Line>
+				<Line>+New Thinner Torch - Ultimate HD Torch Compatible 1.0</Line>
+				<Line>+Mage Outfit Texture Overhaul - Master X</Line>
+				<Line>+Greatsword Sheaths and Scabbards Redux 2.7.3</Line>
+				<Line>+Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2</Line>
+				<Line>+Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0</Line>
+				<Line>+Skyrim Weapon De-LARP-ification Project 1.0.5</Line>
+				<Line>+Gemling Queen Jewelry - All In One 4.1c</Line>
+				<Line>+Elemental Staffs - 1k 1.16</Line>
+				<Line>+Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0</Line>
+				<Line>+Dawnguard Crossbow Explosive Bolts Visualized 1.0.2</Line>
+				<Line>+aMidianBorn Stormcloak Officer Armour - 2k 1.0</Line>
+				<Line>+aMidianBorn Imperial Light and Studded - 2k 1.1</Line>
+				<Line>+aMidianBorn - Content Addon 1.9</Line>
+				<Line>+aMidianBorn Book of Silence - WEAPONS 1.9</Line>
+				<Line>+aMidianBorn Book of Silence - UNIQUE ITEMS 1.9</Line>
+				<Line>+aMidianBorn Book of Silence - DRAGONBORN DLC 1.9</Line>
+				<Line>+aMidianBorn Book of Silence - Creatures 1.9</Line>
+				<Line>+aMidianBorn Book of Silence - ARMORS 1.9</Line>
+				<Line>+aMidianBorn Blade of Woe 1.1</Line>
 				<Line>+Better males - Underwear - Default 2.3.2</Line>
 				<Line>+Better males - Genox Faces 1.2</Line>
 				<Line>+XCE - Dawnguard 1.0</Line>
@@ -1638,7 +1765,6 @@
 				<Line>Weapons &amp; Armor_TrueOrcish&amp;DaedricWeapons.esp</Line>
 				<Line>Weapons &amp; Armor_TrueWeaponsLvlLists.esp</Line>
 				<Line>Clothing &amp; Clutter Fixes.esp</Line>
-				<Line>imp_helm_legend.esp</Line>
 				<Line>SkyFalls + SkyMills + DG + DB.esp</Line>
 				<Line>SMIM-FarmhouseFlickeringFix.esp</Line>
 				<Line>Point The Way.esp</Line>
@@ -1649,6 +1775,7 @@
 				<Line>RealisticWaterTwo - Legendary.esp</Line>
 				<Line>Skyrim Flora Overhaul.esp</Line>
 				<Line>SMIM-RiftenDocksRopesObjectFix.esp</Line>
+				<Line>ExplosiveBoltsVisualized.esp</Line>
 				<Line>EmbersHD.esp</Line>
 				<Line>SFO - Dragonborn.esp</Line>
 				<Line>SMIM-ShackRoofFixesDragonborn.esp</Line>
@@ -1665,6 +1792,11 @@
 				<Line>Beards.esp</Line>
 				<Line>Brows.esp</Line>
 				<Line>ORM-Arvak.esp</Line>
+				<Line>aMidianBorn_ContentAddon.esp</Line>
+				<Line>imp_helm_legend.esp</Line>
+				<Line>Elemental Staves.esp</Line>
+				<Line>GQJ_DG_vampireamuletfix.esp</Line>
+				<Line>Mage Outfit Texture Overhaul.esp</Line>
 			</Embedded>
 
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/archives.txt" Encoding="UTF8NoBOM">
