@@ -38,44 +38,49 @@ namespace StepperUpper
 
         private static async Task ExtractArchiveAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, DirectoryInfo steamInstallDirectory)
         {
-            string tempDirectoryPath = Path.Combine(dumpDirectory.FullName, "EXTRACT_DUMPER" + Path.GetRandomFileName());
-            DirectoryInfo tempDirectory = new DirectoryInfo(tempDirectoryPath);
-            tempDirectory.Create();
-            bool explicitDelete = true;
+            string randomFileName = Path.GetRandomFileName();
+            IEnumerable<XElement> elements = taskElement.Elements();
 
             string givenFile = taskElement.Attribute("ArchiveFile").Value;
-            await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory).ConfigureAwait(false);
+            bool explicitDelete = true;
+
+            DirectoryInfo tempDirectory;
 
             // slight hack to make the STEP XML file much more bearable.
             XAttribute simpleMO = taskElement.Attribute("SimpleMO");
             if (simpleMO != null)
             {
-                DirectoryInfo fromDirectory;
-                switch (simpleMO.Value)
-                {
-                    case "Root":
-                        fromDirectory = tempDirectory;
-                        explicitDelete = false;
-                        break;
-
-                    case "Single":
-                        fromDirectory = tempDirectory.EnumerateDirectories().Single();
-                        break;
-
-                    case "SingleData":
-                        fromDirectory = tempDirectory.EnumerateDirectories().Single(x => "Data".Equals(x.Name, StringComparison.OrdinalIgnoreCase));
-                        break;
-
-                    default:
-                        throw new NotSupportedException("SimpleMO mode " + simpleMO.Value + " is not supported.");
-                }
-
-                DirectoryInfo toDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, "ModOrganizer", "mods", givenFile));
-                toDirectory.Parent.Create();
-                Program.MoveDirectory(fromDirectory, toDirectory);
+                explicitDelete = false;
+                tempDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, "ModOrganizer", "mods", givenFile));
+            }
+            else
+            {
+                tempDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, "Staging_" + givenFile + "_" + randomFileName));
             }
 
-            foreach (XElement element in taskElement.Elements())
+            tempDirectory.Create();
+            await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory).ConfigureAwait(false);
+
+            switch (simpleMO?.Value)
+            {
+                case "Single":
+                    DirectoryInfo singleSub = tempDirectory.GetDirectories().Single();
+
+                    // rename randomly to ensure no temporary conflicts
+                    singleSub.MoveTo(Path.Combine(tempDirectory.FullName, randomFileName));
+                    elements = elements.StartWith(new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)));
+                    break;
+
+                case "SingleData":
+                    DirectoryInfo singleData = tempDirectory.GetDirectories().Where(dir => "data".Equals(dir.Name, StringComparison.OrdinalIgnoreCase)).Single();
+
+                    // rename randomly to ensure no temporary conflicts
+                    singleData.MoveTo(Path.Combine(tempDirectory.FullName, randomFileName));
+                    elements = elements.StartWith(new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)));
+                    break;
+            }
+
+            foreach (XElement element in elements)
             {
                 switch (element.Name.LocalName)
                 {
@@ -92,7 +97,7 @@ namespace StepperUpper
                             explicitDelete = false;
                         }
 
-                        string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
                         DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
 
                         Program.MoveDirectory(fromDirectory, toDirectory);
@@ -104,7 +109,7 @@ namespace StepperUpper
                         string givenFromPath = element.Attribute("From").Value;
                         string givenToPath = element.Attribute("To").Value;
 
-                        string fromPath = Path.Combine(tempDirectoryPath, givenFromPath);
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
                         string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
 
                         FileInfo toFile = new FileInfo(toPath);

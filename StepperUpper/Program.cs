@@ -242,6 +242,7 @@ namespace StepperUpper
             }
 
             DeleteDirectory(fromDirectory);
+            toDirectory.Refresh();
         }
 
         internal static void DeleteDirectory(DirectoryInfo directory)
