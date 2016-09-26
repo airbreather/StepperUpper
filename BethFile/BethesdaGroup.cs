@@ -14,6 +14,10 @@
 
         public UArraySegment<byte> RawData { get; }
 
+        public UArraySegment<byte> PayloadData => new UArraySegment<byte>(this.RawData, 24, this.RawData.Count - 24);
+
+        public B4S RecordType => UBitConverter.ToUInt32(this.PayloadData, 0);
+
         public uint PayloadSize => UBitConverter.ToUInt32(this.RawData, 4) - 24;
 
         public uint Label => UBitConverter.ToUInt32(this.RawData, 8);
@@ -22,47 +26,44 @@
 
         public bool IsDefault => this.RawData.Array == null;
 
-#if false
         public override string ToString()
         {
-            byte[] data = BitConverter.GetBytes(this.LabelData);
             switch (this.GroupType)
             {
                 case BethesdaGroupType.Top:
-                    return $"Record of type {Encoding.ASCII.GetString(data, 0, 4)}";
+                    return $"Top({this.RecordType})";
 
                 case BethesdaGroupType.WorldChildren:
-                    return $"World children of WLRD:{this.LabelData.ToString("X")}";
+                    return $"Children of [WLRD:{this.Label:X8}]";
 
                 case BethesdaGroupType.InteriorCellBlock:
-                    return $"Interior cell block #{this.LabelData}";
+                    return $"Int block {this.Label}";
 
                 case BethesdaGroupType.InteriorCellSubBlock:
-                    return $"Interior cell sub-block #{this.LabelData}";
+                    return $"Int sub-block #{this.Label}";
 
                 case BethesdaGroupType.ExteriorCellBlock:
-                    return $"Exterior cell block at Y={BitConverter.ToInt16(data, 0)}, X={BitConverter.ToInt16(data, 2)}";
+                    return $"Ext block Y={UBitConverter.ToInt16(this.RawData, 8)}, X={UBitConverter.ToInt16(this.RawData, 10)}";
 
                 case BethesdaGroupType.ExteriorCellSubBlock:
-                    return $"Exterior cell sub-block at Y={BitConverter.ToInt16(data, 0)}, X={BitConverter.ToInt16(data, 2)}";
+                    return $"Ext sub-block Y={UBitConverter.ToInt16(this.RawData, 8)}, X={UBitConverter.ToInt16(this.RawData, 10)}";
 
                 case BethesdaGroupType.CellChildren:
-                    return $"Cell children of CELL:{this.LabelData.ToString("X")}";
+                    return $"Children of [CELL:{this.Label:X8}]";
 
                 case BethesdaGroupType.TopicChildren:
-                    return $"Topic children of DIAL:{this.LabelData.ToString("X")}";
+                    return $"Children of [DIAL:{this.Label:X8}]";
 
                 case BethesdaGroupType.CellPersistentChildren:
-                    return $"Cell persistent children of CELL:{this.LabelData.ToString("X")}";
+                    return $"Persistent children of [CELL:{this.Label:X8}]";
 
                 case BethesdaGroupType.CellTemporaryChildren:
-                    return $"Cell temporary children of CELL:{this.LabelData.ToString("X")}";
+                    return $"Temporary children of [CELL:{this.Label:X8}]";
 
                 ////case BethesdaGroupType.CellVisibleDistantChildren:
                 default:
-                    return $"Cell visible distant children of CELL:{this.LabelData.ToString("X")}";
+                    return $"Visible distant children of [CELL:{this.Label:X8}]";
             }
         }
-#endif
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="BethesdaGroup.cs" />
     <Compile Include="BethesdaGroupReaderState.cs" />
     <Compile Include="BethesdaGroupReader.cs" />
+    <Compile Include="BethesdaGroupEditor.cs" />
     <Compile Include="BethesdaGroupType.cs" />
     <Compile Include="BethesdaRecord.cs" />
     <Compile Include="BethesdaRecordFlags.cs" />
