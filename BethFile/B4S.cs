@@ -27,6 +27,7 @@ namespace BethFile
         public static readonly B4S BOOK = new B4S("BOOK");
         public static readonly B4S XXXX = new B4S("XXXX");
         public static readonly B4S HEDR = new B4S("HEDR");
+        public static readonly B4S DOBJ = new B4S("DOBJ");
 
         private uint val;
 

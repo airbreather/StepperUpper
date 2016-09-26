@@ -6,68 +6,77 @@ namespace BethFile
 {
     public sealed class BethesdaGroupReader
     {
-        private readonly UArraySegment<byte> outer;
-
         private BethesdaGroupReaderState state;
 
-        private UArraySegment<byte> inner;
-
-        // group header eats 24 bytes.
-        private uint pos = 24;
+        private uint pos;
 
         public BethesdaGroupReader(BethesdaGroup group)
         {
-            this.outer = group.RawData;
+            this.Group = group;
         }
+
+        public BethesdaGroup Group { get; }
 
         public BethesdaRecord CurrentRecord => new BethesdaRecord(this.EnsureInState(BethesdaGroupReaderState.Record));
 
         public BethesdaGroup CurrentSubgroup => new BethesdaGroup(this.EnsureInState(BethesdaGroupReaderState.Subgroup));
 
-        public unsafe BethesdaGroupReaderState Read()
+        public void NotifyDeletion()
         {
             switch (this.state)
             {
                 case BethesdaGroupReaderState.Record:
                 case BethesdaGroupReaderState.Subgroup:
-                    this.pos += this.inner.Count;
+                case BethesdaGroupReaderState.Deleted:
+                    this.state = BethesdaGroupReaderState.Deleted;
+                    break;
+
+                default:
+                    throw new InvalidOperationException("You can only delete while actively reading.");
+            }
+        }
+
+        public unsafe BethesdaGroupReaderState Read()
+        {
+            switch (this.state)
+            {
+                case BethesdaGroupReaderState.Subgroup:
+                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos, 4);
+                    break;
+
+                case BethesdaGroupReaderState.Record:
+                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos, 4) + 24;
                     break;
 
                 case BethesdaGroupReaderState.EndOfContent:
                     return this.state;
             }
 
-            if (this.pos == this.outer.Count)
+            if (this.pos >= this.Group.DataSize)
             {
-                this.inner = default(UArraySegment<byte>);
                 return this.state = BethesdaGroupReaderState.EndOfContent;
             }
 
-            uint dataSize = UBitConverter.ToUInt32(this.outer, this.pos + 4);
-
-            if (UBitConverter.ToInt32(this.outer, this.pos) == GRUP)
+            if (UBitConverter.ToInt32(this.Group.PayloadStart + this.pos, 0) == GRUP)
             {
                 this.state = BethesdaGroupReaderState.Subgroup;
             }
             else
             {
-                dataSize += 24;
                 this.state = BethesdaGroupReaderState.Record;
             }
-
-            this.inner = new UArraySegment<byte>(this.outer, this.pos, dataSize);
 
             return this.state;
         }
 
-        private UArraySegment<byte> EnsureInState(BethesdaGroupReaderState state)
+        private UArrayPosition<byte> EnsureInState(BethesdaGroupReaderState state)
         {
             if (this.state != state)
             {
                 throw new InvalidOperationException("You can only do that after a previous call to Read() returned " + state + ".  Last call actually returned " + this.state);
             }
 
-            return this.inner;
+            return this.Group.PayloadStart + this.pos;
         }
     }
 }

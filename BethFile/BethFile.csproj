@@ -38,6 +38,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Interactive, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.3.0.0\lib\net45\System.Interactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +53,7 @@
     <Compile Include="B4S.cs" />
     <Compile Include="BethesdaFile.cs" />
     <Compile Include="BethesdaFileReader.cs" />
+    <Compile Include="BethesdaFileRewriter.cs" />
     <Compile Include="BethesdaFileWriter.cs" />
     <Compile Include="BethesdaGroup.cs" />
     <Compile Include="BethesdaGroupReaderState.cs" />
@@ -60,6 +65,7 @@
     <Compile Include="BethesdaRecordType.cs" />
     <Compile Include="BethesdaField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UArrayPosition.cs" />
     <Compile Include="UArraySegment.cs" />
     <Compile Include="UBitConverter.cs" />
     <Compile Include="UBuffer.cs" />

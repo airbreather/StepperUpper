@@ -4,27 +4,33 @@
     {
         public BethesdaGroup(byte[] rawData)
         {
-            this.RawData = new UArraySegment<byte>(rawData);
+            this.Start = new UArrayPosition<byte>(rawData);
         }
 
-        public BethesdaGroup(UArraySegment<byte> rawData)
+        public BethesdaGroup(UArrayPosition<byte> start)
         {
-            this.RawData = rawData;
+            this.Start = start;
         }
 
-        public UArraySegment<byte> RawData { get; }
+        public UArrayPosition<byte> Start { get; }
 
-        public UArraySegment<byte> PayloadData => new UArraySegment<byte>(this.RawData, 24, this.RawData.Count - 24);
+        public UArraySegment<byte> RawData => new UArraySegment<byte>(this.Start, this.DataSize + 24);
 
-        public B4S RecordType => UBitConverter.ToUInt32(this.PayloadData, 0);
+        public UArraySegment<byte> PayloadData => new UArraySegment<byte>(this.PayloadStart, this.DataSize);
 
-        public uint PayloadSize => UBitConverter.ToUInt32(this.RawData, 4) - 24;
+        public UArrayPosition<byte> PayloadStart => this.Start + 24;
 
-        public uint Label => UBitConverter.ToUInt32(this.RawData, 8);
+        public B4S RecordType => UBitConverter.ToUInt32(this.PayloadStart, 0);
 
-        public BethesdaGroupType GroupType => (BethesdaGroupType)UBitConverter.ToInt32(this.RawData, 12);
+        public uint DataSize
+        {
+            get { return UBitConverter.ToUInt32(this.Start, 4) - 24; }
+            set { UBitConverter.Set(this.Start + 4, value + 24); }
+        }
 
-        public bool IsDefault => this.RawData.Array == null;
+        public uint Label => UBitConverter.ToUInt32(this.Start, 8);
+
+        public BethesdaGroupType GroupType => (BethesdaGroupType)UBitConverter.ToInt32(this.Start, 12);
 
         public override string ToString()
         {
@@ -43,10 +49,10 @@
                     return $"Int sub-block #{this.Label}";
 
                 case BethesdaGroupType.ExteriorCellBlock:
-                    return $"Ext block Y={UBitConverter.ToInt16(this.RawData, 8)}, X={UBitConverter.ToInt16(this.RawData, 10)}";
+                    return $"Ext block Y={UBitConverter.ToInt16(this.Start, 8)}, X={UBitConverter.ToInt16(this.Start, 10)}";
 
                 case BethesdaGroupType.ExteriorCellSubBlock:
-                    return $"Ext sub-block Y={UBitConverter.ToInt16(this.RawData, 8)}, X={UBitConverter.ToInt16(this.RawData, 10)}";
+                    return $"Ext sub-block Y={UBitConverter.ToInt16(this.Start, 8)}, X={UBitConverter.ToInt16(this.Start, 10)}";
 
                 case BethesdaGroupType.CellChildren:
                     return $"Children of [CELL:{this.Label:X8}]";

@@ -5,6 +5,7 @@
         ReadNotCalledYet,
         EndOfContent,
         Record,
-        Subgroup
+        Subgroup,
+        Deleted
     }
 }

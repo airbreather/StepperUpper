@@ -34,7 +34,13 @@ namespace BethFile
             while (await this.ReadHeaderAsync().ConfigureAwait(false))
             {
                 byte[] groupData = await this.ReadDataAsync().ConfigureAwait(false);
-                topGroups.Add(new BethesdaGroup(groupData));
+                uint realLength = unchecked((uint)groupData.LongLength);
+
+                // the sum total of extra room needed in things from cleaning Update.esm: 285 bytes
+                // complete overkill to put this on everything but whatever.
+                byte[] groupDataPadded = new byte[realLength + 285];
+                UBuffer.BlockCopy(groupData, 0, groupDataPadded, 0, realLength);
+                topGroups.Add(new BethesdaGroup(groupDataPadded));
             }
 
             return new BethesdaFile(headerRecord, topGroups.ToArray());

@@ -10,6 +10,13 @@ namespace BethFile
     {
         private static bool IsLittleEndian => BitConverter.IsLittleEndian;
 
+        public static short ToInt16(UArrayPosition<byte> value, uint startIndex) => ToInt16(value.Array, value.Offset + startIndex);
+        public static ushort ToUInt16(UArrayPosition<byte> value, uint startIndex) => ToUInt16(value.Array, value.Offset + startIndex);
+        public static int ToInt32(UArrayPosition<byte> value, uint startIndex) => ToInt32(value.Array, value.Offset + startIndex);
+        public static uint ToUInt32(UArrayPosition<byte> value, uint startIndex) => ToUInt32(value.Array, value.Offset + startIndex);
+        public static long ToInt64(UArrayPosition<byte> value, uint startIndex) => ToInt64(value.Array, value.Offset + startIndex);
+        public static ulong ToUInt64(UArrayPosition<byte> value, uint startIndex) => ToUInt64(value.Array, value.Offset + startIndex);
+
         public static short ToInt16(UArraySegment<byte> value, uint startIndex) => ToInt16(value.Array, value.Offset + startIndex);
         public static ushort ToUInt16(UArraySegment<byte> value, uint startIndex) => ToUInt16(value.Array, value.Offset + startIndex);
         public static int ToInt32(UArraySegment<byte> value, uint startIndex) => ToInt32(value.Array, value.Offset + startIndex);
@@ -18,6 +25,14 @@ namespace BethFile
         public static ulong ToUInt64(UArraySegment<byte> value, uint startIndex) => ToUInt64(value.Array, value.Offset + startIndex);
 
         public static uint ToUInt32(byte[] value, uint startIndex) => unchecked((uint)ToInt32(value, startIndex));
+
+        public static unsafe void Set(UArrayPosition<byte> pos, uint val)
+        {
+            fixed (byte* pbyte = &pos.Array[pos.Offset])
+            {
+                *((uint*)pbyte) = val;
+            }
+        }
 
         public static unsafe int ToInt32(byte[] value, uint startIndex)
         {

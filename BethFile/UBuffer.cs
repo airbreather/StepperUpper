@@ -1,12 +1,12 @@
 ﻿namespace BethFile
 {
-    internal static class UBuffer
+    public static class UBuffer
     {
-        internal static unsafe void BlockCopy(UArraySegment<byte> src, uint srcOffset, UArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        internal static unsafe void BlockCopy(byte[] src, uint srcOffset, UArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        internal static unsafe void BlockCopy(UArraySegment<byte> src, uint srcOffset, byte[] dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
+        public static unsafe void BlockCopy(UArraySegment<byte> src, uint srcOffset, UArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(byte[] src, uint srcOffset, UArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(UArraySegment<byte> src, uint srcOffset, byte[] dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
 
-        internal static unsafe void BlockCopy(byte[] src, uint srcOffset, byte[] dst, uint dstOffset, uint count)
+        public static unsafe void BlockCopy(byte[] src, uint srcOffset, byte[] dst, uint dstOffset, uint count)
         {
 // switch to true if debugging gets to be a pain...
 #if false

@@ -9,7 +9,7 @@ namespace BethFile
     {
         public static void SortRecords(BethesdaGroup group)
         {
-            byte[] newData = new byte[group.PayloadSize];
+            byte[] newData = new byte[group.DataSize];
             List<BethesdaRecord> records = new List<BethesdaRecord>();
             BethesdaGroupReader reader = new BethesdaGroupReader(group);
             BethesdaGroupReaderState state = reader.Read();
@@ -31,7 +31,7 @@ namespace BethFile
                 pos += record.RawData.Count;
             }
 
-            UBuffer.BlockCopy(newData, 0, group.PayloadData, 0, group.PayloadData.Count);
+            UBuffer.BlockCopy(newData, 0, group.PayloadData, 0, group.DataSize);
         }
 
         public static void MoveSubgroupToBottom(BethesdaGroup group, BethesdaGroupType subgroupType, uint subgroupLabel)
@@ -67,10 +67,12 @@ namespace BethFile
                 return;
             }
 
-            byte[] subgroupData = new byte[subgroup.RawData.Count];
-            UBuffer.BlockCopy(subgroup.RawData, 0, subgroupData, 0, subgroup.RawData.Count);
-            UBuffer.BlockCopy(group.RawData.Array, subgroup.RawData.Offset + subgroup.RawData.Count, group.RawData.Array, subgroup.RawData.Offset, group.RawData.Count - (subgroup.RawData.Offset - group.RawData.Offset) - subgroup.RawData.Count);
-            UBuffer.BlockCopy(subgroupData, 0, group.RawData.Array, group.RawData.Offset + (group.RawData.Count - subgroup.RawData.Count), subgroup.RawData.Count);
+            UArraySegment<byte> grpRawData = group.RawData;
+            UArraySegment<byte> subRawData = subgroup.RawData;
+            byte[] subgroupData = new byte[subRawData.Count];
+            UBuffer.BlockCopy(subRawData, 0, subgroupData, 0, subRawData.Count);
+            UBuffer.BlockCopy(grpRawData.Array, subRawData.Offset + subRawData.Count, grpRawData.Array, subRawData.Offset, grpRawData.Count - (subRawData.Offset - grpRawData.Offset) - subRawData.Count);
+            UBuffer.BlockCopy(subgroupData, 0, grpRawData.Array, grpRawData.Offset + (grpRawData.Count - subRawData.Count), subRawData.Count);
         }
     }
 }

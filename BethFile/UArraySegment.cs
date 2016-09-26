@@ -11,6 +11,10 @@ namespace BethFile
         {
         }
 
+        public UArraySegment(UArrayPosition<T> pos, uint count) : this(pos.Array, pos.Offset, count)
+        {
+        }
+        
         public UArraySegment(UArraySegment<T> seg, uint offset, uint count) : this(seg.Array, seg.Offset + offset, count)
         {
         }
@@ -22,13 +26,19 @@ namespace BethFile
             this.Count = count;
         }
 
-        public T this[uint idx] => this.Array[this.Offset + idx];
+        public T this[uint idx]
+        {
+            get { return this.Array[this.Offset + idx]; }
+            set { this.Array[this.Offset + idx] = value; }
+        }
 
         public T[] Array { get; }
 
         public uint Offset { get; }
 
         public uint Count { get; }
+
+        public UArrayPosition<T> Pos => new UArrayPosition<T>(this.Array, this.Offset);
 
         int IReadOnlyCollection<T>.Count => checked((int)this.Count);
 
