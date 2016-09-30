@@ -120,6 +120,10 @@
       <Project>{f04c8bb5-8838-4472-9b64-fafdb5a27ebc}</Project>
       <Name>AirBreather.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BethFile\BethFile.csproj">
+      <Project>{b0193c00-c6ce-47e4-be6c-d4434466c226}</Project>
+      <Name>BethFile</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
