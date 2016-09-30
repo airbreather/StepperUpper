@@ -4,6 +4,7 @@
     {
         public void Visit(BethesdaFile file)
         {
+            this.VisitFile(file);
             this.VisitRecord(file.HeaderRecord);
             foreach (var group in file.TopGroups)
             {
