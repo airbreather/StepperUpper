@@ -4,23 +4,25 @@
     {
         public void Visit(BethesdaFile file)
         {
-            this.VisitFile(file);
-            this.VisitRecord(file.HeaderRecord);
+            this.OnFile(file);
+            this.OnRecord(file.HeaderRecord);
             foreach (var group in file.TopGroups)
             {
                 this.VisitGroupCore(group);
             }
         }
 
-        protected virtual void VisitFile(BethesdaFile file) { }
+        protected virtual void OnFile(BethesdaFile file) { }
 
-        protected virtual void VisitRecord(BethesdaRecord record) { }
+        protected virtual void OnRecord(BethesdaRecord record) { }
 
-        protected virtual void VisitGroup(BethesdaGroup group) { }
+        protected virtual void OnEnterGroup(BethesdaGroup group) { }
+
+        protected virtual void OnExitGroup(BethesdaGroup group) { }
 
         private void VisitGroupCore(BethesdaGroup group)
         {
-            this.VisitGroup(group);
+            this.OnEnterGroup(group);
             BethesdaGroupReader reader = new BethesdaGroupReader(group);
             BethesdaGroupReaderState state;
             while ((state = reader.Read()) != BethesdaGroupReaderState.EndOfContent)
@@ -28,7 +30,7 @@
                 switch (state)
                 {
                     case BethesdaGroupReaderState.Record:
-                        this.VisitRecord(reader.CurrentRecord);
+                        this.OnRecord(reader.CurrentRecord);
                         break;
 
                     case BethesdaGroupReaderState.Subgroup:
@@ -36,6 +38,8 @@
                         break;
                 }
             }
+
+            this.OnExitGroup(group);
         }
     }
 }
