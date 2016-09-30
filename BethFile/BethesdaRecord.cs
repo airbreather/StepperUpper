@@ -25,23 +25,27 @@ namespace BethFile
 
         public UArraySegment<byte> Payload => new UArraySegment<byte>(this.Start + 24, this.DataSize);
 
-        public B4S Type => UBitConverter.ToUInt32(this.Start, 0);
+        public B4S Type => UBitConverter.ToUInt32(this.Start);
 
-        public uint DataSize => UBitConverter.ToUInt32(this.Start, 4);
+        public uint DataSize
+        {
+            get { return UBitConverter.ToUInt32(this.Start + 4); }
+            set { UBitConverter.SetUInt32(this.Start + 4, value); }
+        }
 
         public BethesdaRecordFlags Flags
         {
-            get { return (BethesdaRecordFlags)UBitConverter.ToUInt32(this.Start, 8); }
-            set { UBitConverter.Set(this.Start + 8, (uint)value); }
+            get { return (BethesdaRecordFlags)UBitConverter.ToUInt32(this.Start + 8); }
+            set { UBitConverter.SetUInt32(this.Start + 8, (uint)value); }
         }
 
-        public uint Id => UBitConverter.ToUInt32(this.Start, 12);
+        public uint Id => UBitConverter.ToUInt32(this.Start + 12);
 
-        public uint Revision => UBitConverter.ToUInt32(this.Start, 16);
+        public uint Revision => UBitConverter.ToUInt32(this.Start + 16);
 
-        public ushort Version => UBitConverter.ToUInt16(this.Start, 20);
+        public ushort Version => UBitConverter.ToUInt16(this.Start + 20);
 
-        public ushort UNKNOWN_22 => UBitConverter.ToUInt16(this.Start, 22);
+        public ushort UNKNOWN_22 => UBitConverter.ToUInt16(this.Start + 22);
 
         public IEnumerable<BethesdaField> Fields
         {

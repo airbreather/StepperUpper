@@ -10,12 +10,12 @@ namespace BethFile
     {
         private static bool IsLittleEndian => BitConverter.IsLittleEndian;
 
-        public static short ToInt16(UArrayPosition<byte> value, uint startIndex) => ToInt16(value.Array, value.Offset + startIndex);
-        public static ushort ToUInt16(UArrayPosition<byte> value, uint startIndex) => ToUInt16(value.Array, value.Offset + startIndex);
-        public static int ToInt32(UArrayPosition<byte> value, uint startIndex) => ToInt32(value.Array, value.Offset + startIndex);
-        public static uint ToUInt32(UArrayPosition<byte> value, uint startIndex) => ToUInt32(value.Array, value.Offset + startIndex);
-        public static long ToInt64(UArrayPosition<byte> value, uint startIndex) => ToInt64(value.Array, value.Offset + startIndex);
-        public static ulong ToUInt64(UArrayPosition<byte> value, uint startIndex) => ToUInt64(value.Array, value.Offset + startIndex);
+        public static short ToInt16(UArrayPosition<byte> value) => ToInt16(value.Array, value.Offset);
+        public static ushort ToUInt16(UArrayPosition<byte> value) => ToUInt16(value.Array, value.Offset);
+        public static int ToInt32(UArrayPosition<byte> value) => ToInt32(value.Array, value.Offset);
+        public static uint ToUInt32(UArrayPosition<byte> value) => ToUInt32(value.Array, value.Offset);
+        public static long ToInt64(UArrayPosition<byte> value) => ToInt64(value.Array, value.Offset);
+        public static ulong ToUInt64(UArrayPosition<byte> value) => ToUInt64(value.Array, value.Offset);
 
         public static short ToInt16(UArraySegment<byte> value, uint startIndex) => ToInt16(value.Array, value.Offset + startIndex);
         public static ushort ToUInt16(UArraySegment<byte> value, uint startIndex) => ToUInt16(value.Array, value.Offset + startIndex);
@@ -26,11 +26,19 @@ namespace BethFile
 
         public static uint ToUInt32(byte[] value, uint startIndex) => unchecked((uint)ToInt32(value, startIndex));
 
-        public static unsafe void Set(UArrayPosition<byte> pos, uint val)
+        public static unsafe void SetUInt32(UArrayPosition<byte> pos, uint val)
         {
             fixed (byte* pbyte = &pos.Array[pos.Offset])
             {
                 *((uint*)pbyte) = val;
+            }
+        }
+
+        public static unsafe void SetUInt16(UArrayPosition<byte> pos, ushort val)
+        {
+            fixed (byte* pbyte = &pos.Array[pos.Offset])
+            {
+                *((ushort*)pbyte) = val;
             }
         }
 

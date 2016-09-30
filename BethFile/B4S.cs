@@ -6,28 +6,57 @@ namespace BethFile
 {
     public struct B4S : IEquatable<B4S>
     {
-        public static readonly B4S TES4 = new B4S("TES4");
-        public static readonly B4S GRUP = new B4S("GRUP");
-        public static readonly B4S QUST = new B4S("QUST");
-        public static readonly B4S CELL = new B4S("CELL");
-        public static readonly B4S REFR = new B4S("REFR");
-        public static readonly B4S WRLD = new B4S("WRLD");
-        public static readonly B4S NAVM = new B4S("NAVM");
-        public static readonly B4S WEAP = new B4S("WEAP");
-        public static readonly B4S SCEN = new B4S("SCEN");
-        public static readonly B4S PACK = new B4S("PACK");
-        public static readonly B4S NPC_ = new B4S("NPC_");
-        public static readonly B4S IDLE = new B4S("IDLE");
-        public static readonly B4S GMST = new B4S("GMST");
-        public static readonly B4S DLVW = new B4S("DLVW");
-        public static readonly B4S DLBR = new B4S("DLBR");
-        public static readonly B4S DIAL = new B4S("DIAL");
-        public static readonly B4S CPTH = new B4S("CPTH");
-        public static readonly B4S ACHR = new B4S("ACHR");
-        public static readonly B4S BOOK = new B4S("BOOK");
-        public static readonly B4S XXXX = new B4S("XXXX");
-        public static readonly B4S HEDR = new B4S("HEDR");
-        public static readonly B4S DOBJ = new B4S("DOBJ");
+        // get values by running this in C# Interactive:
+        ////System.BitConverter.ToUInt32(System.Text.Encoding.ASCII.GetBytes("TES4"), 0)
+        public const uint _TES4 = 877872468;
+        public const uint _GRUP = 1347768903;
+        public const uint _QUST = 1414747473;
+        public const uint _CELL = 1280066883;
+        public const uint _REFR = 1380336978;
+        public const uint _WRLD = 1145852503;
+        public const uint _NAVM = 1297498446;
+        public const uint _WEAP = 1346454871;
+        public const uint _SCEN = 1313162067;
+        public const uint _PACK = 1262698832;
+        public const uint _NPC_ = 1598246990;
+        public const uint _IDLE = 1162626121;
+        public const uint _GMST = 1414745415;
+        public const uint _DLVW = 1465273412;
+        public const uint _DLBR = 1380076612;
+        public const uint _DIAL = 1279347012;
+        public const uint _CPTH = 1213485123;
+        public const uint _ACHR = 1380467521;
+        public const uint _BOOK = 1263488834;
+        public const uint _XXXX = 1482184792;
+        public const uint _HEDR = 1380205896;
+        public const uint _DOBJ = 1245859652;
+        public const uint _DATA = 1096040772;
+        public const uint _XESP = 1347634520;
+
+        public static readonly B4S TES4 = _TES4;
+        public static readonly B4S GRUP = _GRUP;
+        public static readonly B4S QUST = _QUST;
+        public static readonly B4S CELL = _CELL;
+        public static readonly B4S REFR = _REFR;
+        public static readonly B4S WRLD = _WRLD;
+        public static readonly B4S NAVM = _NAVM;
+        public static readonly B4S WEAP = _WEAP;
+        public static readonly B4S SCEN = _SCEN;
+        public static readonly B4S PACK = _PACK;
+        public static readonly B4S NPC_ = _NPC_;
+        public static readonly B4S IDLE = _IDLE;
+        public static readonly B4S GMST = _GMST;
+        public static readonly B4S DLVW = _DLVW;
+        public static readonly B4S DLBR = _DLBR;
+        public static readonly B4S DIAL = _DIAL;
+        public static readonly B4S CPTH = _CPTH;
+        public static readonly B4S ACHR = _ACHR;
+        public static readonly B4S BOOK = _BOOK;
+        public static readonly B4S XXXX = _XXXX;
+        public static readonly B4S HEDR = _HEDR;
+        public static readonly B4S DOBJ = _DOBJ;
+        public static readonly B4S DATA = _DATA;
+        public static readonly B4S XESP = _XESP;
 
         private uint val;
 
@@ -53,7 +82,6 @@ namespace BethFile
         }
 
         public static implicit operator uint(B4S val) => val.val;
-
         public static implicit operator B4S(uint val) => new B4S(val);
 
         public static bool operator ==(B4S first, B4S second) => first.val == second.val;

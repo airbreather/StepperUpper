@@ -20,17 +20,17 @@
 
         public UArrayPosition<byte> PayloadStart => this.Start + 24;
 
-        public B4S RecordType => UBitConverter.ToUInt32(this.PayloadStart, 0);
+        public B4S RecordType => UBitConverter.ToUInt32(this.PayloadStart);
 
         public uint DataSize
         {
-            get { return UBitConverter.ToUInt32(this.Start, 4) - 24; }
-            set { UBitConverter.Set(this.Start + 4, value + 24); }
+            get { return UBitConverter.ToUInt32(this.Start + 4) - 24; }
+            set { UBitConverter.SetUInt32(this.Start + 4, value + 24); }
         }
 
-        public uint Label => UBitConverter.ToUInt32(this.Start, 8);
+        public uint Label => UBitConverter.ToUInt32(this.Start + 8);
 
-        public BethesdaGroupType GroupType => (BethesdaGroupType)UBitConverter.ToInt32(this.Start, 12);
+        public BethesdaGroupType GroupType => (BethesdaGroupType)UBitConverter.ToInt32(this.Start + 12);
 
         public override string ToString()
         {
@@ -49,10 +49,10 @@
                     return $"Int sub-block #{this.Label}";
 
                 case BethesdaGroupType.ExteriorCellBlock:
-                    return $"Ext block Y={UBitConverter.ToInt16(this.Start, 8)}, X={UBitConverter.ToInt16(this.Start, 10)}";
+                    return $"Ext block Y={UBitConverter.ToInt16(this.Start + 8)}, X={UBitConverter.ToInt16(this.Start + 10)}";
 
                 case BethesdaGroupType.ExteriorCellSubBlock:
-                    return $"Ext sub-block Y={UBitConverter.ToInt16(this.Start, 8)}, X={UBitConverter.ToInt16(this.Start, 10)}";
+                    return $"Ext sub-block Y={UBitConverter.ToInt16(this.Start + 8)}, X={UBitConverter.ToInt16(this.Start + 10)}";
 
                 case BethesdaGroupType.CellChildren:
                     return $"Children of [CELL:{this.Label:X8}]";

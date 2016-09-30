@@ -16,6 +16,8 @@ namespace BethFile
 
         public UArrayPosition<byte> Start => this.RawData.Pos;
 
-        public UArraySegment<byte> Payload => new UArraySegment<byte>(this.Start + 6, this.RawData.Count - 6);
+        public UArrayPosition<byte> PayloadStart => this.Start + 6;
+
+        public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.RawData.Count - 6);
     }
 }

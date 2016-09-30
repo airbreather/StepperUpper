@@ -54,11 +54,12 @@
     <Compile Include="BethesdaFile.cs" />
     <Compile Include="BethesdaFileReader.cs" />
     <Compile Include="BethesdaFileRewriter.cs" />
+    <Compile Include="BethesdaFileVisitor.cs" />
     <Compile Include="BethesdaFileWriter.cs" />
     <Compile Include="BethesdaGroup.cs" />
     <Compile Include="BethesdaGroupReaderState.cs" />
     <Compile Include="BethesdaGroupReader.cs" />
-    <Compile Include="BethesdaGroupEditor.cs" />
+    <Compile Include="BethesdaEditor.cs" />
     <Compile Include="BethesdaGroupType.cs" />
     <Compile Include="BethesdaRecord.cs" />
     <Compile Include="BethesdaRecordFlags.cs" />

@@ -41,11 +41,11 @@ namespace BethFile
             switch (this.state)
             {
                 case BethesdaGroupReaderState.Subgroup:
-                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos, 4);
+                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos + 4);
                     break;
 
                 case BethesdaGroupReaderState.Record:
-                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos, 4) + 24;
+                    this.pos += UBitConverter.ToUInt32(this.Group.PayloadStart + this.pos + 4) + 24;
                     break;
 
                 case BethesdaGroupReaderState.EndOfContent:
@@ -57,7 +57,7 @@ namespace BethFile
                 return this.state = BethesdaGroupReaderState.EndOfContent;
             }
 
-            if (UBitConverter.ToInt32(this.Group.PayloadStart + this.pos, 0) == GRUP)
+            if (UBitConverter.ToInt32(this.Group.PayloadStart + this.pos) == GRUP)
             {
                 this.state = BethesdaGroupReaderState.Subgroup;
             }
