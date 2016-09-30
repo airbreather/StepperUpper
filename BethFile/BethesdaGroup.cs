@@ -40,7 +40,7 @@
                     return $"Top({this.RecordType})";
 
                 case BethesdaGroupType.WorldChildren:
-                    return $"Children of [WLRD:{this.Label:X8}]";
+                    return $"Children of [WRLD:{this.Label:X8}]";
 
                 case BethesdaGroupType.InteriorCellBlock:
                     return $"Int block {this.Label}";
