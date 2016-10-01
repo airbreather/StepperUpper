@@ -111,7 +111,7 @@ namespace BethFile
 
             BethesdaField field = record.Fields.Single();
             UArraySegment<byte> rawData = field.RawData;
-            if (rawData.Count != field.StoredSize)
+            if (rawData.Count != field.StoredSize + 6)
             {
                 throw new NotSupportedException("DOBJ fields with XXXX lengths are not supported right now.");
             }
