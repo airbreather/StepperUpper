@@ -96,7 +96,7 @@ namespace BethFile
                     // OFST must be removed if present.
                     bool foundOfst = false;
                     List<BethesdaField> newFields = new List<BethesdaField>();
-                    foreach (BethesdaField field in newFields)
+                    foreach (BethesdaField field in record.Fields)
                     {
                         if (field.Type != OFST)
                         {
