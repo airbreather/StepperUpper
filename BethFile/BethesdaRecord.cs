@@ -27,7 +27,11 @@ namespace BethFile
 
         public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.DataSize);
 
-        public B4S Type => UBitConverter.ToUInt32(this.Start);
+        public B4S Type
+        {
+            get { return UBitConverter.ToUInt32(this.Start); }
+            set { UBitConverter.SetUInt32(this.Start, value); }
+        }
 
         public uint DataSize
         {
@@ -41,13 +45,29 @@ namespace BethFile
             set { UBitConverter.SetUInt32(this.Start + 8, (uint)value); }
         }
 
-        public uint Id => UBitConverter.ToUInt32(this.Start + 12);
+        public uint Id
+        {
+            get { return UBitConverter.ToUInt32(this.Start + 12); }
+            set { UBitConverter.SetUInt32(this.Start + 12, value); }
+        }
 
-        public uint Revision => UBitConverter.ToUInt32(this.Start + 16);
+        public uint Revision
+        {
+            get { return UBitConverter.ToUInt32(this.Start + 16); }
+            set { UBitConverter.SetUInt32(this.Start + 16, value); }
+        }
 
-        public ushort Version => UBitConverter.ToUInt16(this.Start + 20);
+        public ushort Version
+        {
+            get { return UBitConverter.ToUInt16(this.Start + 20); }
+            set { UBitConverter.SetUInt32(this.Start + 20, value); }
+        }
 
-        public ushort UNKNOWN_22 => UBitConverter.ToUInt16(this.Start + 22);
+        public ushort UNKNOWN_22
+        {
+            get { return UBitConverter.ToUInt16(this.Start + 22); }
+            set { UBitConverter.SetUInt32(this.Start + 22, value); }
+        }
 
         public IEnumerable<BethesdaField> Fields
         {

@@ -26,6 +26,7 @@ namespace BethFile
 
         public static uint ToUInt32(byte[] value, uint startIndex) => unchecked((uint)ToInt32(value, startIndex));
 
+        public static void SetUInt32(byte[] arr, uint startIndex, uint val) => SetUInt32(new UArrayPosition<byte>(arr) + startIndex, val);
         public static unsafe void SetUInt32(UArrayPosition<byte> pos, uint val)
         {
             fixed (byte* pbyte = &pos.Array[pos.Offset])
@@ -34,6 +35,7 @@ namespace BethFile
             }
         }
 
+        public static void SetUInt16(byte[] arr, uint startIndex, ushort val) => SetUInt16(new UArrayPosition<byte>(arr) + startIndex, val);
         public static unsafe void SetUInt16(UArrayPosition<byte> pos, ushort val)
         {
             fixed (byte* pbyte = &pos.Array[pos.Offset])

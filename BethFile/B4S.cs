@@ -34,6 +34,18 @@ namespace BethFile
         public const uint _XESP = 1347634520;
         public const uint _ONAM = 1296125519;
         public const uint _OFST = 1414743631;
+        public const uint _MGEF = 1178945357;
+        public const uint _ARMO = 1330467393;
+        public const uint _CONT = 1414418243;
+        public const uint _LIGH = 1212631372;
+        public const uint _LVLN = 1313625676;
+        public const uint _RNAM = 1296125522;
+        public const uint _IMAD = 1145130313;
+        public const uint _FLST = 1414745158;
+        public const uint _LCTN = 1314145100;
+        public const uint _SMQN = 1313951059;
+        public const uint _SMBN = 1312968019;
+        public const uint _LGTM = 1297368908;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -61,6 +73,18 @@ namespace BethFile
         public static readonly B4S XESP = _XESP;
         public static readonly B4S ONAM = _ONAM;
         public static readonly B4S OFST = _OFST;
+        public static readonly B4S MGEF = _MGEF;
+        public static readonly B4S ARMO = _ARMO;
+        public static readonly B4S CONT = _CONT;
+        public static readonly B4S LIGH = _LIGH;
+        public static readonly B4S LVLN = _LVLN;
+        public static readonly B4S RNAM = _RNAM;
+        public static readonly B4S IMAD = _IMAD;
+        public static readonly B4S FLST = _FLST;
+        public static readonly B4S LCTN = _LCTN;
+        public static readonly B4S SMQN = _SMQN;
+        public static readonly B4S SMBN = _SMBN;
+        public static readonly B4S LGTM = _LGTM;
 
         private uint val;
 

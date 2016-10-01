@@ -13,6 +13,26 @@ namespace BethFile
             return vis.Records;
         }
 
+        public static IEnumerable<BethesdaGroup> GetSubgroupsByType(this BethesdaGroup grp, BethesdaGroupType subgroupType)
+        {
+            BethesdaGroupReader reader = new BethesdaGroupReader(grp);
+            BethesdaGroupReaderState state;
+            while ((state = reader.Read()) != BethesdaGroupReaderState.EndOfContent)
+            {
+                switch (state)
+                {
+                    case BethesdaGroupReaderState.Subgroup:
+                        BethesdaGroup subgroup = reader.CurrentSubgroup;
+                        if (subgroup.GroupType == subgroupType)
+                        {
+                            yield return subgroup;
+                        }
+
+                        break;
+                }
+            }
+        }
+
         private sealed class ExtractRecordsVisitor : BethesdaFileVisitor
         {
             private readonly HashSet<uint> ids;
