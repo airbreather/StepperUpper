@@ -115,6 +115,10 @@ namespace BethFile
 
                     record = BethesdaEditor.RewriteRecord(record, newFields);
                     return RewriteAction.WriteReplaced;
+
+                case _DOBJ:
+                    record = BethesdaEditor.OptimizeDOBJ(record);
+                    return RewriteAction.WriteReplaced;
             }
 
             BethesdaRecord orig;

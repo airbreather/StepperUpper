@@ -21,6 +21,12 @@ namespace BethFile
 
         public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.RawData.Count - 6);
 
+        public ushort StoredSize
+        {
+            get { return UBitConverter.ToUInt16(this.Start + 4); }
+            set { UBitConverter.SetUInt16(this.Start + 4, value); }
+        }
+
         public override string ToString() => $"{this.Type}: ({Convert.ToBase64String(this.Payload.Array, (int)this.Payload.Offset, (int)this.Payload.Count)}";
     }
 }

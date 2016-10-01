@@ -102,6 +102,46 @@ namespace BethFile
             return record;
         }
 
+        public static unsafe BethesdaRecord OptimizeDOBJ(BethesdaRecord record)
+        {
+            if (record.Type != DOBJ)
+            {
+                throw new ArgumentException("Must be a DOBJ.", nameof(record));
+            }
+
+            BethesdaField field = record.Fields.Single();
+            UArraySegment<byte> rawData = field.RawData;
+            if (rawData.Count != field.StoredSize)
+            {
+                throw new NotSupportedException("DOBJ fields with XXXX lengths are not supported right now.");
+            }
+
+            ushort realCount = 0;
+            byte[] realDataBuffer = new byte[rawData.Count];
+            for (uint i = 6; i < rawData.Count; i += 8)
+            {
+                if (rawData[i + 0] == 0 &&
+                    rawData[i + 2] == 0 &&
+                    rawData[i + 3] == 0 &&
+                    rawData[i + 4] == 0 &&
+                    rawData[i + 5] == 0 &&
+                    rawData[i + 6] == 0 &&
+                    rawData[i + 7] == 0)
+                {
+                    continue;
+                }
+
+                UBuffer.BlockCopy(rawData, i, realDataBuffer, unchecked((uint)(realCount + 6)), 8);
+                realCount += 8;
+            }
+
+            UArrayPosition<byte> pos = new UArrayPosition<byte>(realDataBuffer);
+            UBitConverter.SetUInt32(pos, field.Type);
+            UBitConverter.SetUInt16(pos + 4, realCount);
+            field = new BethesdaField(new UArraySegment<byte>(realDataBuffer, 0, unchecked((uint)(realCount + 6))));
+            return RewriteRecord(record, new[] { field });
+        }
+
         public static BethesdaRecord UndeleteAndDisableReference(BethesdaRecord record, BethesdaRecord template)
         {
             if (record.Type != REFR)
