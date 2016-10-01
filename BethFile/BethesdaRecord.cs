@@ -23,7 +23,9 @@ namespace BethFile
 
         public UArraySegment<byte> RawData => new UArraySegment<byte>(this.Start, this.DataSize + 24);
 
-        public UArraySegment<byte> Payload => new UArraySegment<byte>(this.Start + 24, this.DataSize);
+        public UArrayPosition<byte> PayloadStart => this.Start + 24;
+
+        public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.DataSize);
 
         public B4S Type => UBitConverter.ToUInt32(this.Start);
 
@@ -84,7 +86,7 @@ namespace BethFile
                     yield return field;
                     if (field.Type == XXXX)
                     {
-                        offsides = UBitConverter.ToUInt32(field.Payload, 0);
+                        offsides = UBitConverter.ToUInt32(field.PayloadStart);
                     }
                     else
                     {

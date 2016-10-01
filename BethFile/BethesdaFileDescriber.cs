@@ -22,7 +22,7 @@ namespace BethFile
         protected override void OnEnterGroup(BethesdaGroup group)
         {
             this.activeGroups.Push(group);
-            this.writer.WriteLine(String.Join(": ", this.activeGroups.Select(grp => $"In group {grp}")) + ".");
+            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => $"In group {grp}")) + ".");
             base.OnEnterGroup(group);
         }
 
@@ -34,8 +34,8 @@ namespace BethFile
 
         protected override void OnRecord(BethesdaRecord record)
         {
-            byte[] payload = record.Payload.ToArray();
-            this.writer.WriteLine(String.Join(": ", this.activeGroups.Select(grp => $"In group {grp}")) + $": [{record.Type}:{record.Id:X8}] (Payload: {payload.ByteArrayToHexString()})");
+            byte[] rawData = record.RawData.ToArray();
+            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => $"In group {grp}")) + $": [{record.Type}:{record.Id:X8}] (RawData: {rawData.ByteArrayToHexString()})");
             base.OnRecord(record);
         }
     }

@@ -128,8 +128,8 @@ namespace BethFile
 
             if ((handled & 2) == 0)
             {
+                BethesdaField field = new BethesdaField(new UArraySegment<byte>(rawData, record.DataSize + 24, 30));
                 record.DataSize += 30;
-                BethesdaField field = new BethesdaField(new UArraySegment<byte>(rawData, record.DataSize - 30, 30));
                 UBitConverter.SetUInt32(field.Start, DATA);
                 UBitConverter.SetUInt16(field.Start + 4, 24);
                 UDR_DATA(field);
@@ -137,8 +137,8 @@ namespace BethFile
 
             if ((handled & 1) == 0)
             {
+                BethesdaField field = new BethesdaField(new UArraySegment<byte>(rawData, record.DataSize + 24, 14));
                 record.DataSize += 14;
-                BethesdaField field = new BethesdaField(new UArraySegment<byte>(rawData, record.DataSize - 14, 14));
                 UBitConverter.SetUInt32(field.Start, XESP);
                 UBitConverter.SetUInt16(field.Start + 4, 8);
                 UDR_XESP(field);

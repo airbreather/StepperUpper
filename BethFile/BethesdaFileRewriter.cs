@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using static BethFile.B4S;
 
 namespace BethFile
@@ -14,25 +14,22 @@ namespace BethFile
             DoNotWrite
         }
 
-        public unsafe BethesdaFile Rewrite(BethesdaFile file)
+        public BethesdaFile Rewrite(BethesdaFile file)
         {
-            var headerRecord = file.HeaderRecord;
-            bool rewrote = false;
+            BethesdaRecord headerRecord = file.HeaderRecord;
             switch (this.ShouldWriteRecord(ref headerRecord))
             {
-                case RewriteAction.WriteReplaced:
-                    rewrote = true;
-                    file = new BethesdaFile(headerRecord, file.TopGroups);
+                case RewriteAction.WriteOriginal:
+                    headerRecord = file.HeaderRecord;
                     break;
             }
 
-            uint thingCount = 0;
             Stack<BethesdaGroupReader> activeReaders = new Stack<BethesdaGroupReader>();
             int newLength = file.TopGroups.Length;
             for (int i = 0; i < newLength; i++)
             {
                 BethesdaGroup topGroup = file.TopGroups[i];
-                switch (this.ShouldWriteGroup(ref topGroup))
+                switch (this.ShouldWriteGroupPre(ref topGroup))
                 {
                     case RewriteAction.DoNotWrite:
                         if (i < --newLength)
@@ -48,7 +45,6 @@ namespace BethFile
                         break;
                 }
 
-                ++thingCount;
                 activeReaders.Push(new BethesdaGroupReader(topGroup));
                 while (activeReaders.Count != 0)
                 {
@@ -60,16 +56,7 @@ namespace BethFile
                             BethesdaRecord record = reader.CurrentRecord;
                             switch (this.ShouldWriteRecord(ref record))
                             {
-                                case RewriteAction.WriteOriginal:
-                                    ++thingCount;
-                                    break;
-
                                 case RewriteAction.WriteReplaced:
-                                    // TODO: if smaller, shift later bytes back.  if bigger, but
-                                    // room at end, then shift to that gap. otherwise, if bigger,
-                                    // copy the whole dang thing and tell all the readers that they
-                                    // should resume from the new copy.  that, or throw if no room
-                                    // and force the reader to know how much of a gap to include.
                                     var origRecord = reader.CurrentRecord;
                                     var origRaw = origRecord.RawData;
                                     var currRaw = record.RawData;
@@ -99,10 +86,9 @@ namespace BethFile
                         case BethesdaGroupReaderState.Subgroup:
                             activeReaders.Push(reader);
                             BethesdaGroup subgroup = reader.CurrentSubgroup;
-                            switch (this.ShouldWriteGroup(ref subgroup))
+                            switch (this.ShouldWriteGroupPre(ref subgroup))
                             {
                                 case RewriteAction.WriteOriginal:
-                                    ++thingCount;
                                     activeReaders.Push(new BethesdaGroupReader(subgroup));
                                     break;
 
@@ -111,12 +97,30 @@ namespace BethFile
                                     break;
 
                                 case RewriteAction.WriteReplaced:
-                                    // TODO: if smaller, shift later bytes back.  if bigger, but
-                                    // room at end, then shift to that gap. otherwise, if bigger,
-                                    // copy the whole dang thing and tell all the readers that they
-                                    // should resume from the new copy.  that, or throw if no room
-                                    // and force the reader to know how much of a gap to include.
-                                    throw new NotImplementedException("going to sleep");
+                                    throw new NotImplementedException("I don't yet have a reason to implement this.");
+                            }
+
+                            break;
+
+                        case BethesdaGroupReaderState.EndOfContent:
+                            BethesdaGroup origGroup = reader.Group;
+                            switch (this.ShouldWriteGroupPost(ref origGroup))
+                            {
+                                case RewriteAction.DoNotWrite:
+                                    DeleteAndNotifyReaders(activeReaders, origGroup.RawData);
+                                    if (origGroup.RawData.Offset == 0)
+                                    {
+                                        if (i < --newLength)
+                                        {
+                                            Array.Copy(file.TopGroups, i + 1, file.TopGroups, i, newLength - i--);
+                                            continue;
+                                        }
+                                    }
+
+                                    break;
+
+                                case RewriteAction.WriteReplaced:
+                                    throw new NotImplementedException("I don't yet have a reason to implement this.");
                             }
 
                             break;
@@ -126,27 +130,10 @@ namespace BethFile
 
             BethesdaGroup[] topGroups = new BethesdaGroup[newLength];
             Array.Copy(file.TopGroups, topGroups, newLength);
-            if (!rewrote)
-            {
-                foreach (var field in file.HeaderRecord.Fields)
-                {
-                    if (field.Type != HEDR)
-                    {
-                        continue;
-                    }
-
-                    var payload = field.Payload;
-                    fixed (byte* pbyte = &payload.Array[payload.Offset + 4])
-                    {
-                        *((uint*)pbyte) = thingCount;
-                    }
-                }
-            }
-
-            return new BethesdaFile(file.HeaderRecord, topGroups);
+            return new BethesdaFile(headerRecord, topGroups);
         }
 
-        private static unsafe void DeleteAndNotifyReaders(Stack<BethesdaGroupReader> activeReaders, UArraySegment<byte> segment)
+        private static void DeleteAndNotifyReaders(Stack<BethesdaGroupReader> activeReaders, UArraySegment<byte> segment)
         {
             uint nukedBytes = segment.Count;
             NukeSegment(segment);
@@ -161,7 +148,9 @@ namespace BethFile
 
         protected virtual RewriteAction ShouldWriteRecord(ref BethesdaRecord record) => RewriteAction.WriteOriginal;
 
-        protected virtual RewriteAction ShouldWriteGroup(ref BethesdaGroup group) => RewriteAction.WriteOriginal;
+        protected virtual RewriteAction ShouldWriteGroupPre(ref BethesdaGroup group) => RewriteAction.WriteOriginal;
+
+        protected virtual RewriteAction ShouldWriteGroupPost(ref BethesdaGroup group) => RewriteAction.WriteOriginal;
 
         private static void NukeSegment(UArraySegment<byte> segment)
         {
