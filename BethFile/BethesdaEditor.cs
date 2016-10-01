@@ -78,7 +78,30 @@ namespace BethFile
             UBuffer.BlockCopy(subgroupData, 0, grpRawData.Array, grpRawData.Offset + (grpRawData.Count - subRawData.Count), subRawData.Count);
         }
 
-        // this is still very much a work-in-progress... I almost want to comment it out entirely.
+        public static BethesdaRecord RewriteRecord(BethesdaRecord record, IReadOnlyCollection<BethesdaField> fields)
+        {
+            uint fieldDataLength = 0;
+            foreach (var field in fields)
+            {
+                fieldDataLength = fieldDataLength + field.RawData.Count;
+            }
+
+            byte[] recordRawData = new byte[fieldDataLength + 24];
+            UBuffer.BlockCopy(record.RawData, 0, recordRawData, 0, 24);
+
+            uint offset = 24;
+            foreach (var field in fields)
+            {
+                var fieldRawData = field.RawData;
+                UBuffer.BlockCopy(fieldRawData, 0, recordRawData, offset, fieldRawData.Count);
+                offset += fieldRawData.Count;
+            }
+
+            record = new BethesdaRecord(recordRawData);
+            record.DataSize = offset - 24;
+            return record;
+        }
+
         public static BethesdaRecord UndeleteAndDisableReference(BethesdaRecord record, BethesdaRecord template)
         {
             if (record.Type != REFR)

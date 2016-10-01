@@ -33,6 +33,7 @@ namespace BethFile
         public const uint _DATA = 1096040772;
         public const uint _XESP = 1347634520;
         public const uint _ONAM = 1296125519;
+        public const uint _OFST = 1414743631;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -59,6 +60,7 @@ namespace BethFile
         public static readonly B4S DATA = _DATA;
         public static readonly B4S XESP = _XESP;
         public static readonly B4S ONAM = _ONAM;
+        public static readonly B4S OFST = _OFST;
 
         private uint val;
 

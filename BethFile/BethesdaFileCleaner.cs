@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using AirBreather;
+
 using static BethFile.B4S;
 
 namespace BethFile
@@ -52,61 +53,68 @@ namespace BethFile
                 this.safeList[i] = true;
             }
 
-            if (record.Type == TES4)
+            switch (record.Type)
             {
-                List<BethesdaField> fields = new List<BethesdaField>();
-                foreach (var field in record.Fields)
-                {
-                    BethesdaField newField = field;
-                    switch (newField.Type)
+                case _TES4:
+                    List<BethesdaField> fields = new List<BethesdaField>();
+                    foreach (var field in record.Fields)
                     {
-                        case _HEDR:
-                            UBitConverter.SetUInt32(field.PayloadStart + 4, this.thingCount);
-                            break;
+                        BethesdaField newField = field;
+                        switch (newField.Type)
+                        {
+                            case _HEDR:
+                                UBitConverter.SetUInt32(field.PayloadStart + 4, this.thingCount);
+                                break;
 
-                        case _ONAM:
-                            byte[] newFieldRawData = new byte[this.onams.Length * 4 + 6];
-                            UArrayPosition<byte> pos = new UArrayPosition<byte>(newFieldRawData);
+                            case _ONAM:
+                                byte[] newFieldRawData = new byte[this.onams.Length * 4 + 6];
+                                UArrayPosition<byte> pos = new UArrayPosition<byte>(newFieldRawData);
 
-                            UBitConverter.SetUInt32(pos, ONAM);
-                            pos += 4;
-
-                            UBitConverter.SetUInt16(pos, checked((ushort)(this.onams.Length * 4)));
-                            pos += 2;
-
-                            foreach (uint onam in this.onams)
-                            {
-                                UBitConverter.SetUInt32(pos, onam);
+                                UBitConverter.SetUInt32(pos, ONAM);
                                 pos += 4;
-                            }
 
-                            newField = new BethesdaField(new UArraySegment<byte>(newFieldRawData));
-                            break;
+                                UBitConverter.SetUInt16(pos, checked((ushort)(this.onams.Length * 4)));
+                                pos += 2;
+
+                                foreach (uint onam in this.onams)
+                                {
+                                    UBitConverter.SetUInt32(pos, onam);
+                                    pos += 4;
+                                }
+
+                                newField = new BethesdaField(new UArraySegment<byte>(newFieldRawData));
+                                break;
+                        }
+
+                        fields.Add(newField);
                     }
 
-                    fields.Add(newField);
-                }
+                    record = BethesdaEditor.RewriteRecord(record, fields);
+                    return RewriteAction.WriteReplaced;
 
-                uint fieldDataLength = 0;
-                foreach (var field in fields)
-                {
-                    fieldDataLength = fieldDataLength + field.RawData.Count;
-                }
+                case _WRLD:
+                    // OFST must be removed if present.
+                    bool foundOfst = false;
+                    List<BethesdaField> newFields = new List<BethesdaField>();
+                    foreach (BethesdaField field in newFields)
+                    {
+                        if (field.Type != OFST)
+                        {
+                            newFields.Add(field);
+                        }
+                        else
+                        {
+                            foundOfst = true;
+                        }
+                    }
 
-                byte[] recordRawData = new byte[fieldDataLength + 24];
-                UBuffer.BlockCopy(record.RawData, 0, recordRawData, 0, 24);
+                    if (!foundOfst)
+                    {
+                        return RewriteAction.WriteOriginal;
+                    }
 
-                uint offset = 24;
-                foreach (var field in fields)
-                {
-                    var fieldRawData = field.RawData;
-                    UBuffer.BlockCopy(fieldRawData, 0, recordRawData, offset, fieldRawData.Count);
-                    offset += fieldRawData.Count;
-                }
-
-                record = new BethesdaRecord(recordRawData);
-                record.DataSize = offset - 24;
-                return RewriteAction.WriteReplaced;
+                    record = BethesdaEditor.RewriteRecord(record, newFields);
+                    return RewriteAction.WriteReplaced;
             }
 
             BethesdaRecord orig;
