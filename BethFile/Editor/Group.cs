@@ -1,9 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BethFile.Editor
 {
     public sealed class Group
     {
+        public Group()
+        {
+        }
+
+        public Group(Group copyFrom)
+        {
+            this.Type = copyFrom.Type;
+            this.Label = copyFrom.Label;
+            this.Stamp = copyFrom.Stamp;
+            this.UNKNOWN_18 = copyFrom.UNKNOWN_18;
+            this.Version = copyFrom.Version;
+            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+            this.Records.AddRange(copyFrom.Records.Select(rec => new Record(rec)));
+        }
+
         public BethesdaGroupType Type { get; set; }
 
         public uint Label { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 using static BethFile.B4S;
@@ -19,81 +18,34 @@ namespace BethFile.Editor
 
         private static void FinalizeHeader(Record header)
         {
-            uint itemCount = CountItems(header) - 1;
+            uint itemCount = 0;
+            CountItems(header, ref itemCount);
             var hedr = header.Fields.Single(f => f.Type == HEDR);
             UBitConverter.SetUInt32(new UArrayPosition<byte>(hedr.Payload) + 4, itemCount);
-
-            // assume deletes ONLY.
-            HashSet<uint> recs = new HashSet<uint>();
-            AddRecordIds(header, recs);
-
-            List<uint> onams = new List<uint>();
-            var idx = header.Fields.FindIndex(f => f.Type == ONAM);
-            byte[] payload = header.Fields[idx].Payload;
-
-            uint i;
-            for (i = 0; i < payload.Length; i += 4)
-            {
-                var x = UBitConverter.ToUInt32(payload, i);
-                if (recs.Remove(x))
-                {
-                    onams.Add(x);
-                }
-            }
-
-            payload = new byte[i];
-            i = 0;
-            foreach (var val in onams)
-            {
-                UBitConverter.SetUInt32(payload, i, val);
-                i += 4;
-            }
-
-            header.Fields[idx] = new Field
-            {
-                Type = ONAM,
-                Payload = payload
-            };
         }
 
-        private static void AddRecordIds(Record rec, HashSet<uint> ids)
+        private static void CountItems(Record rec, ref uint i)
         {
-            if (rec.Type != Record.DummyType)
-            {
-                ids.Add(rec.Id);
-            }
-
-            foreach (var rec2 in rec.Subgroups.SelectMany(grp => grp.Records))
-            {
-                AddRecordIds(rec2, ids);
-            }
-        }
-
-        private static uint CountItems(Record rec)
-        {
-            uint i = 0;
-            if (rec.Type != Record.DummyType)
-            {
-                ++i;
-            }
-
             foreach (var grp in rec.Subgroups)
             {
                 ++i;
                 foreach (var subRec in grp.Records)
                 {
-                    i += CountItems(subRec);
+                    if (!subRec.IsDummy)
+                    {
+                        ++i;
+                    }
+
+                    CountItems(subRec, ref i);
                 }
             }
-
-            return i;
         }
 
         private static Saved Write(Record record, ref UArrayPosition<byte> pos)
         {
             Saved saved = new Saved();
 
-            if (record.Type == Record.DummyType)
+            if (record.IsDummy)
             {
                 goto groups;
             }
@@ -190,7 +142,7 @@ namespace BethFile.Editor
         private static uint CalculateSize(Record record, bool includeGroups)
         {
             uint val = 0;
-            if (record.Type == Record.DummyType)
+            if (record.IsDummy)
             {
                 goto groups;
             }

@@ -44,6 +44,15 @@ namespace BethFile
             }
         }
 
+        public static void SetUInt64(byte[] arr, uint startIndex, ulong val) => SetUInt64(new UArrayPosition<byte>(arr) + startIndex, val);
+        public static unsafe void SetUInt64(UArrayPosition<byte> pos, ulong val)
+        {
+            fixed (byte* pbyte = &pos.Array[pos.Offset])
+            {
+                *((ulong*)pbyte) = val;
+            }
+        }
+
         public static unsafe int ToInt32(byte[] value, uint startIndex)
         {
             value.ValidateNotNull(nameof(value));

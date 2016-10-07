@@ -46,6 +46,7 @@ namespace BethFile
         public const uint _SMQN = 1313951059;
         public const uint _SMBN = 1312968019;
         public const uint _LGTM = 1297368908;
+        public const uint _DNAM = 1296125508;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -85,6 +86,7 @@ namespace BethFile
         public static readonly B4S SMQN = _SMQN;
         public static readonly B4S SMBN = _SMBN;
         public static readonly B4S LGTM = _LGTM;
+        public static readonly B4S DNAM = _DNAM;
 
         private uint val;
 
