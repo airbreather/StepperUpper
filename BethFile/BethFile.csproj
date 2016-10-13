@@ -67,7 +67,6 @@
     <Compile Include="BethesdaRecordFlags.cs" />
     <Compile Include="BethesdaRecordType.cs" />
     <Compile Include="BethesdaField.cs" />
-    <Compile Include="Editor\Diff.cs" />
     <Compile Include="Editor\Doer.cs" />
     <Compile Include="Editor\Field.cs" />
     <Compile Include="Editor\Group.cs" />
