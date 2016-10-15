@@ -37,7 +37,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable, Version=1.1.37.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Core" />
     <Reference Include="System.Interactive, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.3.0.0\lib\net45\System.Interactive.dll</HintPath>
@@ -53,7 +52,6 @@
   <ItemGroup>
     <Compile Include="B4S.cs" />
     <Compile Include="BethesdaFile.cs" />
-    <Compile Include="BethesdaFileCleaner.cs" />
     <Compile Include="BethesdaFileDescriber.cs" />
     <Compile Include="BethesdaFileReader.cs" />
     <Compile Include="BethesdaFileRewriter.cs" />
@@ -62,18 +60,15 @@
     <Compile Include="BethesdaGroup.cs" />
     <Compile Include="BethesdaGroupReaderState.cs" />
     <Compile Include="BethesdaGroupReader.cs" />
-    <Compile Include="BethesdaEditor.cs" />
     <Compile Include="BethesdaGroupType.cs" />
     <Compile Include="BethesdaRecord.cs" />
     <Compile Include="BethesdaRecordFlags.cs" />
     <Compile Include="BethesdaRecordType.cs" />
     <Compile Include="BethesdaField.cs" />
     <Compile Include="Editor\Comparers.cs" />
-    <Compile Include="Editor\ObjectVisitor.cs" />
     <Compile Include="Editor\Doer.cs" />
     <Compile Include="Editor\Field.cs" />
     <Compile Include="Editor\Group.cs" />
-    <Compile Include="Editor\ObjectIdentifier.cs" />
     <Compile Include="Editor\Parser.cs" />
     <Compile Include="Editor\Record.cs" />
     <Compile Include="Editor\Saver.cs" />
