@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using static System.FormattableString;
 using static BethFile.B4S;
 
 namespace BethFile.Editor
@@ -53,7 +54,7 @@ namespace BethFile.Editor
                 Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
                 this.Fields.Add(new Field
                 {
-                    Type = field.Type,
+                    FieldType = field.Type,
                     Payload = payload
                 });
 
@@ -91,6 +92,6 @@ namespace BethFile.Editor
             this.UNKNOWN_22 = rec.UNKNOWN_22;
         }
 
-        public override string ToString() => $"[{this.RecordType}:{this.Id:X8}]";
+        public override string ToString() => Invariant($"[{this.RecordType}:{this.Id:X8}]");
     }
 }

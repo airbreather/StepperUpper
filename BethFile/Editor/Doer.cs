@@ -13,7 +13,7 @@ namespace BethFile.Editor
         public static IEnumerable<uint> GetOnams(Record root)
         {
             HashSet<uint> onams = new HashSet<uint>();
-            var onamField = root.Fields.Single(f => f.Type == ONAM);
+            var onamField = root.Fields.Single(f => f.FieldType == ONAM);
             var oldOnamData = onamField.Payload;
             for (int i = 0; i < oldOnamData.Length; i += 4)
             {
@@ -27,7 +27,7 @@ namespace BethFile.Editor
 
         public static void FixOnams(Record root, IEnumerable<uint> extraOnams)
         {
-            var onamField = root.Fields.Single(f => f.Type == ONAM);
+            var onamField = root.Fields.Single(f => f.FieldType == ONAM);
             HashSet<uint> onams = GetOnams(root).ToHashSet();
             onams.IntersectWith(FindRecords(root).Select(r => r.Id));
             onams.UnionWith(extraOnams);
@@ -106,7 +106,7 @@ namespace BethFile.Editor
                     case _DOBJ:
                         foreach (var field in rec.Fields)
                         {
-                            if (field.Type != DNAM)
+                            if (field.FieldType != DNAM)
                             {
                                 continue;
                             }
@@ -122,7 +122,7 @@ namespace BethFile.Editor
                         List<Field> flds = rec.Fields;
                         for (int i = 0; i < flds.Count; i++)
                         {
-                            switch (flds[i].Type)
+                            switch (flds[i].FieldType)
                             {
                                 case _OFST:
                                 case _RNAM:
@@ -138,7 +138,7 @@ namespace BethFile.Editor
                     case _WEAP:
                         foreach (var field in rec.Fields)
                         {
-                            if (field.Type != DNAM)
+                            if (field.FieldType != DNAM)
                             {
                                 continue;
                             }
@@ -156,7 +156,7 @@ namespace BethFile.Editor
                     case _REFR:
                         foreach (var field in rec.Fields)
                         {
-                            if (field.Type != XLOC)
+                            if (field.FieldType != XLOC)
                             {
                                 continue;
                             }

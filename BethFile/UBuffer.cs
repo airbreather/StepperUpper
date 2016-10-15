@@ -15,6 +15,11 @@
 
         public static unsafe void BlockCopy(byte[] src, uint srcOffset, byte[] dst, uint dstOffset, uint count)
         {
+            if (count == 0)
+            {
+                return;
+            }
+
 // switch to true if debugging gets to be a pain...
 #if false
             for (uint i = 0; i < count; i++)

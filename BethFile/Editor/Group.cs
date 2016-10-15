@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using static System.FormattableString;
+
 namespace BethFile.Editor
 {
     public sealed class Group
@@ -50,7 +52,6 @@ namespace BethFile.Editor
                         break;
                 }
             }
-
         }
 
         public BethesdaGroupType GroupType { get; set; }
@@ -72,38 +73,38 @@ namespace BethFile.Editor
             switch (this.GroupType)
             {
                 case BethesdaGroupType.Top:
-                    return $"Top({(B4S)this.Label})";
+                    return Invariant($"Top({(B4S)this.Label})");
 
                 case BethesdaGroupType.WorldChildren:
-                    return $"Children of [WRLD:{this.Label:X8}]";
+                    return Invariant($"Children of [WRLD:{this.Label:X8}]");
 
                 case BethesdaGroupType.InteriorCellBlock:
-                    return $"Int block {this.Label}";
+                    return Invariant($"Int block {this.Label}");
 
                 case BethesdaGroupType.InteriorCellSubBlock:
-                    return $"Int sub-block #{this.Label}";
+                    return Invariant($"Int sub-block #{this.Label}");
 
                 case BethesdaGroupType.ExteriorCellBlock:
-                    return $"Ext block Y={unchecked((short)(this.Label >> 16))}, X={unchecked((short)(this.Label))}";
+                    return Invariant($"Ext block Y={unchecked((short)(this.Label >> 16))}, X={unchecked((short)(this.Label))}");
 
                 case BethesdaGroupType.ExteriorCellSubBlock:
-                    return $"Ext sub-block Y={unchecked((short)(this.Label >> 16))}, X={unchecked((short)(this.Label))}";
+                    return Invariant($"Ext sub-block Y={unchecked((short)(this.Label >> 16))}, X={unchecked((short)(this.Label))}");
 
                 case BethesdaGroupType.CellChildren:
-                    return $"Children of [CELL:{this.Label:X8}]";
+                    return Invariant($"Children of [CELL:{this.Label:X8}]");
 
                 case BethesdaGroupType.TopicChildren:
-                    return $"Children of [DIAL:{this.Label:X8}]";
+                    return Invariant($"Children of [DIAL:{this.Label:X8}]");
 
                 case BethesdaGroupType.CellPersistentChildren:
-                    return $"Persistent children of [CELL:{this.Label:X8}]";
+                    return Invariant($"Persistent children of [CELL:{this.Label:X8}]");
 
                 case BethesdaGroupType.CellTemporaryChildren:
-                    return $"Temporary children of [CELL:{this.Label:X8}]";
+                    return Invariant($"Temporary children of [CELL:{this.Label:X8}]");
 
                 ////case BethesdaGroupType.CellVisibleDistantChildren:
                 default:
-                    return $"Visible distant children of [CELL:{this.Label:X8}]";
+                    return Invariant($"Visible distant children of [CELL:{this.Label:X8}]");
             }
         }
     }

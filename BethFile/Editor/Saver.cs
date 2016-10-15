@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
 using Ionic.Zlib;
 
 using static BethFile.B4S;
@@ -22,7 +22,7 @@ namespace BethFile.Editor
         }
 
         private static void FinalizeHeader(Record header) =>
-            UBitConverter.SetUInt32(new UArrayPosition<byte>(header.Fields.Single(f => f.Type == HEDR).Payload, 4), Doer.CountItems(header) - 1);
+            UBitConverter.SetUInt32(new UArrayPosition<byte>(header.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(header) - 1);
 
         private static Saved Write(Record record, ref UArrayPosition<byte> pos)
         {
@@ -49,10 +49,7 @@ namespace BethFile.Editor
                 ? GetCompressedPayload(record)
                 : GetUncompressedPayload(record);
             uint payloadLength = unchecked((uint)payload.LongLength);
-            if (payloadLength != 0)
-            {
-                UBuffer.BlockCopy(payload, 0, pos, 0, payloadLength);
-            }
+            UBuffer.BlockCopy(payload, 0, pos, 0, payloadLength);
 
             pos += payloadLength;
 
@@ -92,36 +89,17 @@ namespace BethFile.Editor
 
         private static uint CalculateSize(Record record, bool includeGroups)
         {
-            uint val = 0;
-            if (record.IsDummy)
-            {
-                goto groups;
-            }
+            uint val = record.IsDummy
+                ? 0
+                : checked(24 + (record.Flags.HasFlag(BethesdaRecordFlags.Compressed)
+                    ? unchecked((uint)GetCompressedPayload(record).LongLength)
+                    : GetUncompressedPayloadSize(record)));
 
-            val += 24;
-            if (record.Flags.HasFlag(BethesdaRecordFlags.Compressed))
-            {
-                val += unchecked((uint)GetCompressedPayload(record).Length);
-            }
-            else
-            {
-                foreach (var field in record.Fields)
-                {
-                    uint fieldLength = unchecked((uint)(field.Payload.LongLength + 6));
-                    val += fieldLength;
-                    if (fieldLength > 65535)
-                    {
-                        val += 10;
-                    }
-                }
-            }
-
-            groups:
             if (includeGroups)
             {
                 foreach (var grp in record.Subgroups)
                 {
-                    val += CalculateSize(grp);
+                    val = checked(val + CalculateSize(grp));
                 }
             }
 
@@ -133,7 +111,7 @@ namespace BethFile.Editor
             uint val = 24;
             foreach (var rec in group.Records)
             {
-                val += CalculateSize(rec, true);
+                val = checked(val + CalculateSize(rec, true));
             }
 
             return val;
@@ -174,41 +152,54 @@ namespace BethFile.Editor
 
         private static byte[] GetUncompressedPayload(Record record)
         {
-            List<byte> result = new List<byte>();
+            byte[] result = new byte[GetUncompressedPayloadSize(record)];
+            UArrayPosition<byte> pos = new UArrayPosition<byte>(result);
             foreach (var field in record.Fields)
             {
                 uint fieldLength = unchecked((uint)(field.Payload.LongLength));
                 ushort storedFieldLength = unchecked((ushort)fieldLength);
                 if (fieldLength > ushort.MaxValue)
                 {
-                    AddUInt32(result, XXXX);
-                    AddUInt16(result, 4);
-                    AddUInt32(result, fieldLength);
+                    UBitConverter.SetUInt32(pos, XXXX);
+                    pos += 4;
+
+                    UBitConverter.SetUInt16(pos, 4);
+                    pos += 2;
+
+                    UBitConverter.SetUInt32(pos, fieldLength);
+                    pos += 4;
                     storedFieldLength = 0;
                 }
 
-                AddUInt32(result, field.Type);
-                AddUInt16(result, storedFieldLength);
-                result.AddRange(field.Payload);
+                UBitConverter.SetUInt32(pos, field.FieldType);
+                pos += 4;
+
+                UBitConverter.SetUInt16(pos, storedFieldLength);
+                pos += 2;
+
+                UBuffer.BlockCopy(field.Payload, 0, pos, 0, fieldLength);
+
+                pos += fieldLength;
             }
 
-            return result.ToArray();
+            return result;
         }
 
-        private static unsafe void AddUInt32(List<byte> lst, uint val)
+        private static uint GetUncompressedPayloadSize(Record record)
         {
-            byte* b = (byte*)&val;
-            lst.Add(*(b++));
-            lst.Add(*(b++));
-            lst.Add(*(b++));
-            lst.Add(*b);
-        }
+            uint payloadSize = 0;
+            foreach (var field in record.Fields)
+            {
+                uint fieldLength = checked((uint)(field.Payload.LongLength));
+                if (fieldLength > ushort.MaxValue)
+                {
+                    payloadSize = checked(payloadSize + 10);
+                }
 
-        private static unsafe void AddUInt16(List<byte> lst, ushort val)
-        {
-            byte* b = (byte*)&val;
-            lst.Add(*(b++));
-            lst.Add(*b);
+                payloadSize = checked(payloadSize + 6 + fieldLength);
+            }
+
+            return payloadSize;
         }
 
         private struct Saved

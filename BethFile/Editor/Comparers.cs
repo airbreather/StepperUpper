@@ -101,7 +101,7 @@ namespace BethFile.Editor
 
         public override int Compare(Field x, Field y)
         {
-            int cmp = ((uint)x.Type).CompareTo(y.Type);
+            int cmp = ((uint)x.FieldType).CompareTo(y.FieldType);
             if (cmp != 0)
             {
                 return cmp;
@@ -120,9 +120,9 @@ namespace BethFile.Editor
                 : cmp;
         }
 
-        public bool Equals(Field x, Field y) => x.Type == y.Type && x.Payload.LongLength == y.Payload.LongLength && memcmp(x.Payload, y.Payload, x.Payload.LongLength) == 0;
+        public bool Equals(Field x, Field y) => x.FieldType == y.FieldType && x.Payload.LongLength == y.Payload.LongLength && memcmp(x.Payload, y.Payload, x.Payload.LongLength) == 0;
 
-        public int GetHashCode(Field x) => HashCode.Seed.HashWith(x.Type).HashWith(x.Payload.LongLength);
+        public int GetHashCode(Field x) => HashCode.Seed.HashWith(x.FieldType).HashWith(x.Payload.LongLength);
 
         [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern int memcmp(byte[] b1, byte[] b2, long cnt);
