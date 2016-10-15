@@ -54,7 +54,6 @@
     <Compile Include="BethesdaFile.cs" />
     <Compile Include="BethesdaFileDescriber.cs" />
     <Compile Include="BethesdaFileReader.cs" />
-    <Compile Include="BethesdaFileRewriter.cs" />
     <Compile Include="BethesdaFileVisitor.cs" />
     <Compile Include="BethesdaFileWriter.cs" />
     <Compile Include="BethesdaGroup.cs" />
