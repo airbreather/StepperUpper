@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BethFile
@@ -44,14 +46,46 @@ namespace BethFile
 
         T IReadOnlyList<T>.this[int index] => this[checked((uint)index)];
 
-        public IEnumerator<T> GetEnumerator()
+        public T[] ToArray()
         {
-            for (uint i = 0; i < this.Count; i++)
+            if (typeof(T) != typeof(byte))
             {
-                yield return this[i];
+                return Enumerable.ToArray(this);
             }
+
+            T[] result = new T[this.Count];
+            UArraySegment<byte> bthis = (UArraySegment<byte>)(object)this;
+            UBuffer.BlockCopy(bthis, 0, (byte[])(object)result, 0, this.Count);
+            return result;
         }
 
+        public IEnumerator<T> GetEnumerator() => new Enumerator(this);
+
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+
+        private sealed class Enumerator : IEnumerator<T>
+        {
+            private UArraySegment<T> seg;
+
+            private uint curr;
+
+            internal Enumerator(UArraySegment<T> seg)
+            {
+                this.seg = seg;
+            }
+
+            public T Current => this.seg[this.curr - 1];
+
+            object IEnumerator.Current => this.seg[this.curr - 1];
+
+            void IDisposable.Dispose()
+            {
+            }
+
+            public bool MoveNext() => this.curr <= this.seg.Count &&
+                                      ++this.curr <= this.seg.Count;
+
+            public void Reset() => this.curr = 0;
+        }
     }
 }

@@ -104,7 +104,7 @@ namespace BethFile
 
         public static unsafe BethesdaRecord OptimizeDOBJ(BethesdaRecord record)
         {
-            if (record.Type != DOBJ)
+            if (record.RecordType != DOBJ)
             {
                 throw new ArgumentException("Must be a DOBJ.", nameof(record));
             }
@@ -144,7 +144,7 @@ namespace BethFile
 
         public static BethesdaRecord UndeleteAndDisableReference(BethesdaRecord record, BethesdaRecord template)
         {
-            if (record.Type != REFR)
+            if (record.RecordType != REFR)
             {
                 throw new ArgumentException("Must be a REFR.", nameof(record));
             }

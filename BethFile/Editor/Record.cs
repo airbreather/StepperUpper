@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+
+using static BethFile.B4S;
 
 namespace BethFile.Editor
 {
@@ -13,7 +16,7 @@ namespace BethFile.Editor
 
         public Record(Record copyFrom)
         {
-            this.Type = copyFrom.Type;
+            this.RecordType = copyFrom.RecordType;
             this.Flags = copyFrom.Flags;
             this.Id = copyFrom.Id;
             this.Revision = copyFrom.Revision;
@@ -24,7 +27,41 @@ namespace BethFile.Editor
             this.Subgroups.AddRange(copyFrom.Subgroups.Select(g => new Group(g)));
         }
 
-        public B4S Type { get; set; } = DummyType;
+        public Record(BethesdaRecord copyFrom)
+        {
+            this.RecordType = copyFrom.RecordType;
+            this.Flags = copyFrom.Flags;
+            this.Id = copyFrom.Id;
+            this.Revision = copyFrom.Revision;
+            this.Version = copyFrom.Version;
+            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+            if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
+            {
+                this.OriginalCompressedFieldData = copyFrom.Payload.ToArray();
+            }
+
+            uint? offsides = null;
+            foreach (BethesdaField field in copyFrom.Fields)
+            {
+                if (this.RecordType == XXXX)
+                {
+                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
+                    continue;
+                }
+
+                byte[] payload = new byte[offsides ?? field.StoredSize];
+                Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
+                this.Fields.Add(new Field
+                {
+                    Type = field.Type,
+                    Payload = payload
+                });
+
+                offsides = null;
+            }
+        }
+
+        public B4S RecordType { get; set; } = DummyType;
 
         public BethesdaRecordFlags Flags { get; set; }
 
@@ -42,8 +79,18 @@ namespace BethFile.Editor
 
         public List<Group> Subgroups { get; } = new List<Group>();
 
-        public bool IsDummy => this.Type == DummyType;
+        public bool IsDummy => this.RecordType == DummyType;
 
-        public override string ToString() => $"[{this.Type}:{this.Id:X8}]";
+        public void CopyHeadersFrom(Record rec)
+        {
+            this.RecordType = rec.RecordType;
+            this.Flags = rec.Flags;
+            this.Id = rec.Id;
+            this.Revision = rec.Revision;
+            this.Version = rec.Version;
+            this.UNKNOWN_22 = rec.UNKNOWN_22;
+        }
+
+        public override string ToString() => $"[{this.RecordType}:{this.Id:X8}]";
     }
 }

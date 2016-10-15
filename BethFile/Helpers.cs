@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using static BethFile.B4S;
+
 namespace BethFile
 {
     public static class Helpers
@@ -29,6 +31,24 @@ namespace BethFile
                         }
 
                         break;
+                }
+            }
+        }
+
+        public static IEnumerable<uint> GetOnams(BethesdaFile file)
+        {
+            HashSet<uint> oldOnams = new HashSet<uint>();
+            foreach (BethesdaField field in file.HeaderRecord.Fields)
+            {
+                if (field.Type != ONAM)
+                {
+                    continue;
+                }
+
+                UArraySegment<byte> onamData = field.Payload;
+                for (uint i = 0; i < onamData.Count; i += 4)
+                {
+                    yield return UBitConverter.ToUInt32(onamData, i);
                 }
             }
         }

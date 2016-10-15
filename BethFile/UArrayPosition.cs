@@ -19,7 +19,11 @@ namespace BethFile
             this.Offset = offset;
         }
 
-        public T this[uint idx] => this.Array[this.Offset + idx];
+        public T this[uint idx]
+        {
+            get { return this.Array[this.Offset + idx]; }
+            set { this.Array[this.Offset + idx] = value; }
+        }
 
         public T[] Array { get; }
 

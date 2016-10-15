@@ -11,7 +11,7 @@ namespace BethFile.Editor
 
         public Group(Group copyFrom)
         {
-            this.Type = copyFrom.Type;
+            this.GroupType = copyFrom.GroupType;
             this.Label = copyFrom.Label;
             this.Stamp = copyFrom.Stamp;
             this.UNKNOWN_18 = copyFrom.UNKNOWN_18;
@@ -20,7 +20,40 @@ namespace BethFile.Editor
             this.Records.AddRange(copyFrom.Records.Select(rec => new Record(rec)));
         }
 
-        public BethesdaGroupType Type { get; set; }
+        public Group(BethesdaGroup copyFrom)
+        {
+            this.GroupType = copyFrom.GroupType;
+            this.Label = copyFrom.Label;
+            this.Stamp = copyFrom.Stamp;
+            this.UNKNOWN_18 = copyFrom.UNKNOWN_18;
+            this.Version = copyFrom.Version;
+            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+
+            Record record = null;
+            BethesdaGroupReader reader = new BethesdaGroupReader(copyFrom);
+            BethesdaGroupReaderState state;
+            while ((state = reader.Read()) != BethesdaGroupReaderState.EndOfContent)
+            {
+                switch (state)
+                {
+                    case BethesdaGroupReaderState.Record:
+                        this.Records.Add(record = new Record(reader.CurrentRecord));
+                        break;
+
+                    case BethesdaGroupReaderState.Subgroup:
+                        if (record == null)
+                        {
+                            this.Records.Add(record = new Record());
+                        }
+
+                        record.Subgroups.Add(new Group(reader.CurrentSubgroup));
+                        break;
+                }
+            }
+
+        }
+
+        public BethesdaGroupType GroupType { get; set; }
 
         public uint Label { get; set; }
 
@@ -36,7 +69,7 @@ namespace BethFile.Editor
 
         public override string ToString()
         {
-            switch (this.Type)
+            switch (this.GroupType)
             {
                 case BethesdaGroupType.Top:
                     return $"Top({(B4S)this.Label})";

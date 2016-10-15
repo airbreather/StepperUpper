@@ -27,7 +27,7 @@ namespace BethFile
 
         public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.DataSize);
 
-        public B4S Type
+        public B4S RecordType
         {
             get { return UBitConverter.ToUInt32(this.Start); }
             set { UBitConverter.SetUInt32(this.Start, value); }

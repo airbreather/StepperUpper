@@ -47,6 +47,9 @@ namespace BethFile
         public const uint _SMBN = 1312968019;
         public const uint _LGTM = 1297368908;
         public const uint _DNAM = 1296125508;
+        public const uint _VMAD = 1145130326;
+        public const uint _XLOC = 1129270360;
+        public const uint _ACRE = 1163019073;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -87,6 +90,9 @@ namespace BethFile
         public static readonly B4S SMBN = _SMBN;
         public static readonly B4S LGTM = _LGTM;
         public static readonly B4S DNAM = _DNAM;
+        public static readonly B4S VMAD = _VMAD;
+        public static readonly B4S XLOC = _XLOC;
+        public static readonly B4S ACRE = _ACRE;
 
         private uint val;
 

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+
+using AirBreather;
 
 namespace BethFile
 {
@@ -27,6 +28,6 @@ namespace BethFile
             set { UBitConverter.SetUInt16(this.Start + 4, value); }
         }
 
-        public override string ToString() => $"{this.Type}: ({Convert.ToBase64String(this.Payload.Array, (int)this.Payload.Offset, (int)this.Payload.Count)}";
+        public override string ToString() => $"{this.Type}: ({this.Payload.ToArray().ByteArrayToHexString()}";
     }
 }

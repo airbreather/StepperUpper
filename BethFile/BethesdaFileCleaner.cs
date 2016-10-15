@@ -53,7 +53,7 @@ namespace BethFile
                 this.safeList[i] = true;
             }
 
-            switch (record.Type)
+            switch (record.RecordType)
             {
                 case _TES4:
                     List<BethesdaField> fields = new List<BethesdaField>();

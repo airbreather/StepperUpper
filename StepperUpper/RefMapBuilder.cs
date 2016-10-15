@@ -10,7 +10,7 @@ namespace StepperUpper
     {
         protected override void OnRecord(BethesdaRecord record)
         {
-            if (record.Type == REFR)
+            if (record.RecordType == REFR)
             {
                 this.References.Add(record.Id, record);
             }

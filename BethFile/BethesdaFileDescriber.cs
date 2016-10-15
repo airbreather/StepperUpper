@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AirBreather;
+
+using static System.FormattableString;
 
 namespace BethFile
 {
@@ -22,7 +22,7 @@ namespace BethFile
         protected override void OnEnterGroup(BethesdaGroup group)
         {
             this.activeGroups.Push(group);
-            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => $"In group {grp}")) + ".");
+            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => "In group " + grp)) + ".");
             base.OnEnterGroup(group);
         }
 
@@ -35,7 +35,7 @@ namespace BethFile
         protected override void OnRecord(BethesdaRecord record)
         {
             byte[] rawData = record.RawData.ToArray();
-            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => $"In group {grp}")) + $": [{record.Type}:{record.Id:X8}] (RawData: {rawData.ByteArrayToHexString()})");
+            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => "In group " + grp)) + Invariant($": [{record.RecordType}:{record.Id:X8}] (RawData: {rawData.ByteArrayToHexString()})"));
             base.OnRecord(record);
         }
     }

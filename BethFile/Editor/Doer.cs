@@ -1,71 +1,246 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
+using AirBreather;
 using static BethFile.B4S;
 
 namespace BethFile.Editor
 {
     public static class Doer
     {
-        public static void DeleteRecords(Record parent, HashSet<uint> ids)
+        public static IEnumerable<uint> GetOnams(Record root)
         {
-            DeleteCore(parent, ids);
+            HashSet<uint> onams = new HashSet<uint>();
+            var onamField = root.Fields.Single(f => f.Type == ONAM);
+            var oldOnamData = onamField.Payload;
+            for (int i = 0; i < oldOnamData.Length; i += 4)
+            {
+                uint onam = BitConverter.ToUInt32(oldOnamData, i);
+                if (onams.Add(onam))
+                {
+                    yield return onam;
+                }
+            }
         }
 
-        public static void UDR(Record rec, Dictionary<uint, Record> origMapping)
+        public static void FixOnams(Record root, IEnumerable<uint> extraOnams)
         {
-            // TODO: I feel like something ONAM-related can / should be done here... but I can't
-            // figure out exactly what.  Let's at least get rid of the useless zeroes.
-            var onamField = rec.Fields.Find(x => x.Type == ONAM);
+            var onamField = root.Fields.Single(f => f.Type == ONAM);
+            HashSet<uint> onams = GetOnams(root).ToHashSet();
+            onams.IntersectWith(FindRecords(root).Select(r => r.Id));
+            onams.UnionWith(extraOnams);
 
-            List<uint> vals = new List<uint>();
-            for (uint i = 0; i < onamField.Payload.Length; i += 4)
+            uint[] onamsArray = new uint[onams.Count];
+            onams.CopyTo(onamsArray);
+            Array.Sort(onamsArray);
+
+            onamField.Payload = new byte[unchecked((uint)(onamsArray.Length) * 4u)];
+
+            uint idx = 0;
+            foreach (uint onam in onamsArray)
             {
-                uint val = UBitConverter.ToUInt32(onamField.Payload, i);
+                UBitConverter.SetUInt32(onamField.Payload, idx, onam);
+                idx += 4;
+            }
 
-                // this ContainsKey isn't what we need...
-                if (val != 0 /*&& !origMapping.ContainsKey(val)*/)
+            root.OriginalCompressedFieldData = null;
+        }
+
+        // used for deleting the actual things
+        public static void Delete(Record root, IEnumerable<ObjectIdentifier> toDeleteList)
+        {
+            var payload = root.Fields.Single(x => x.Type == HEDR).Payload;
+            uint cnt = UBitConverter.ToUInt32(payload, 4);
+
+            // TODO: we don't technically need to sort the whole thing.  just
+            // enough to make sure that deleting multiple fields within a record
+            // with the same type don't screw up.
+            foreach (var id in toDeleteList.OrderByDescending(x => x))
+            {
+                object[] res = id.Resolve(root);
+                object parent = res[res.Length - 2];
+                object toDelete = res[res.Length - 1];
+                Record parentRecord = parent as Record;
+                if (parentRecord == null)
                 {
-                    vals.Add(val);
+                    goto parentNotRecord;
+                }
+
+                Field delField = toDelete as Field;
+                if (delField == null)
+                {
+                    goto childNotField;
+                }
+
+                if (!parentRecord.Fields.Remove(delField))
+                {
+                    throw new Exception("Could not delete...");
+                }
+
+                parentRecord.OriginalCompressedFieldData = null;
+
+                continue;
+
+                childNotField:
+                if (!parentRecord.Subgroups.Remove((Group)toDelete))
+                {
+                    throw new Exception("Could not delete...");
+                }
+
+                cnt -= CountItems((Group)toDelete);
+                continue;
+
+                parentNotRecord:
+                Group parentGroup = (Group)parent;
+                Group grp = toDelete as Group;
+                if (grp == null)
+                {
+                    goto childNotSubgroup;
+                }
+
+                foreach (var dummyRecord in parentGroup.Records)
+                {
+                    if (dummyRecord.Subgroups.Remove(grp))
+                    {
+                        goto deletedSuccessfully;
+                    }
+                }
+
+                throw new Exception("Could not delete...");
+
+                deletedSuccessfully:
+                cnt -= CountItems(grp);
+
+                continue;
+
+                childNotSubgroup:
+                if (!parentGroup.Records.Remove((Record)toDelete))
+                {
+                    throw new Exception("Could not delete...");
+                }
+
+                cnt -= CountItems((Record)toDelete);
+            }
+
+            UBitConverter.SetUInt32(payload, 4, cnt);
+        }
+
+        // used for calculating the set of things to delete.
+        public static ObjectIdentifier[] GetItemsToDelete(Record oldRoot, Record newRoot)
+        {
+            HashSet<ObjectIdentifier> oldData = null;
+            List<ObjectIdentifier> newData = null;
+            Parallel.Invoke(
+                () => oldData = GetObjects(oldRoot).ToHashSet(),
+                () => newData = GetObjects(newRoot));
+
+            oldData.ExceptWith(newData);
+            foreach (var id in oldData.ToList())
+            {
+                for (var par = id.Pop(); !par.IsDefault; par = par.Pop())
+                {
+                    if (oldData.Contains(par))
+                    {
+                        oldData.Remove(id);
+                        break;
+                    }
                 }
             }
 
-            if (vals.Count != onamField.Payload.Length / 4)
-            {
-                onamField.Payload = new byte[vals.Count * 4];
-
-                UArrayPosition<byte> pos = new UArrayPosition<byte>(onamField.Payload);
-                foreach (uint val in vals)
-                {
-                    UBitConverter.SetUInt32(pos, val);
-                    pos += 4;
-                }
-            }
-
-            UDRCore(rec, origMapping);
+            ObjectIdentifier[] results = new ObjectIdentifier[oldData.Count];
+            oldData.CopyTo(results);
+            return results;
         }
 
-        private static void UDRCore(Record rec, Dictionary<uint, Record> origMapping)
+        private static List<ObjectIdentifier> GetObjects(Record rec)
         {
-            Record orig;
-            if (!rec.IsDummy && origMapping.TryGetValue(rec.Id, out orig))
+            var vis = new ObjectVisitor();
+            vis.Visit(rec);
+            return vis.Data;
+        }
+
+        public static Record Sort(Record root)
+        {
+            root = new Record(root);
+            SortCore(root);
+            return root;
+        }
+
+        private static void SortCore(Record rec)
+        {
+            rec.Subgroups.ForEach(SortCore);
+            rec.Subgroups.Sort(GroupComparer.Instance);
+            rec.Fields.Sort(FieldComparer.Instance);
+            rec.OriginalCompressedFieldData = null;
+        }
+
+        private static void SortCore(Group grp)
+        {
+            grp.Records.ForEach(SortCore);
+            grp.Records.Sort(RecordComparer.Instance);
+        }
+
+        public static void UDR(Record root, Record[] origRoot, HashSet<uint> udrs)
+        {
+            bool did;
+            do
             {
-                rec.Flags = (rec.Flags & ~BethesdaRecordFlags.Deleted) | BethesdaRecordFlags.InitiallyDisabled;
+                did = UDRCore(root, root, origRoot, udrs);
+            } while (did);
+        }
+
+        private static bool UDRCore(Record rec, Record currRoot, Record[] origRoot, HashSet<uint> udrs)
+        {
+            bool result = false;
+            if (!rec.IsDummy && udrs.Contains(rec.Id) && rec.Flags.HasFlag(BethesdaRecordFlags.Deleted))
+            {
+                var origRecord = origRoot.Select(r => ResolveOrig(r, rec.Id)).First(x => x != null);
+                Record orig = (Record)origRecord.Item2[origRecord.Item2.Length - 1];
+
+                rec.CopyHeadersFrom(orig);
+                rec.Revision = 0;
+                rec.Flags |= BethesdaRecordFlags.InitiallyDisabled;
 
                 rec.Fields.Clear();
                 rec.Fields.AddRange(orig.Fields.Select(f => new Field(f)));
-                Field dataField = rec.Fields.Find(f => f.Type == DATA);
-                if (dataField == null)
+
+                if (rec.RecordType == ACHR || rec.RecordType == ACRE || orig.Flags.HasFlag(BethesdaRecordFlags.PersistentReference))
                 {
-                    rec.Fields.Add(dataField = new Field
+                    rec.Flags |= BethesdaRecordFlags.PersistentReference;
+                    object[] reRes = origRecord.Item1[origRecord.Item1.Length - 2].Resolve(currRoot);
+                    Group parent = (Group)reRes[reRes.Length - 2];
+                    if (parent.GroupType != BethesdaGroupType.CellPersistentChildren)
                     {
-                        Type = DATA,
-                        Payload = new byte[24]
-                    });
+                        parent.Records.Remove(rec);
+                        reRes.OfType<Record>()
+                             .First(r => r.RecordType == B4S.CELL)
+                             .Subgroups
+                             .Single(grp => grp.GroupType == BethesdaGroupType.CellChildren)
+                             .Records
+                             .SelectMany(r => r.Subgroups)
+                             .Single(g => g.GroupType == BethesdaGroupType.CellPersistentChildren)
+                             .Records
+                             .Add(rec);
+
+                        result = true;
+                    }
                 }
 
-                UBitConverter.SetUInt32(dataField.Payload, 8, 3337248768);
+                if (!rec.Flags.HasFlag(BethesdaRecordFlags.PersistentReference))
+                {
+                    Field dataField = rec.Fields.Find(f => f.Type == DATA);
+                    if (dataField == null)
+                    {
+                        rec.Fields.Add(dataField = new Field
+                        {
+                            Type = DATA,
+                            Payload = new byte[24]
+                        });
+                    }
+
+                    UBitConverter.SetUInt32(dataField.Payload, 8, 3337248768);
+                }
 
                 Field xespField = rec.Fields.Find(f => f.Type == XESP);
                 if (xespField == null)
@@ -79,12 +254,21 @@ namespace BethFile.Editor
 
                 UBitConverter.SetUInt32(xespField.Payload, 0, 0x14);
                 UBitConverter.SetUInt32(xespField.Payload, 4, 0x01);
+                rec.OriginalCompressedFieldData = null;
             }
 
-            foreach (var rec2 in rec.Subgroups.SelectMany(grp => grp.Records))
+            foreach (var grp in rec.Subgroups)
             {
-                UDRCore(rec2, origMapping);
+                foreach (var rec2 in grp.Records)
+                {
+                    if (UDRCore(rec2, currRoot, origRoot, udrs))
+                    {
+                        return true;
+                    }
+                }
             }
+
+            return result;
         }
 
         public static IEnumerable<Record> FindRecords(Record rec)
@@ -106,42 +290,72 @@ namespace BethFile.Editor
             }
         }
 
-        public static void Optimize(Record rec)
+        private static readonly Dictionary<Record, List<ObjectIdentifier>> VisitCache = new Dictionary<Record, List<ObjectIdentifier>>();
+
+        public static Tuple<ObjectIdentifier[], object[]> ResolveOrig(Record origRoot, uint recordId)
         {
-            foreach (var rec2 in FindRecords(rec))
+            // TODO: talk about suboptimal...
+            List<ObjectIdentifier> visitedData;
+            if (!VisitCache.TryGetValue(origRoot, out visitedData))
             {
-                switch (rec2.Type)
+                var vis = new ObjectVisitor();
+                vis.Visit(origRoot);
+                visitedData = VisitCache[origRoot] = vis.Data;
+            }
+
+            foreach (var id in visitedData)
+            {
+                if (id.Data[id.Data.Length - 1] != recordId)
+                {
+                    continue;
+                }
+
+                object[] res = id.Resolve(origRoot);
+                Record c = res[res.Length - 1] as Record;
+                if (c?.Id != recordId)
+                {
+                    continue;
+                }
+
+                ObjectIdentifier[] result = new ObjectIdentifier[res.Length];
+                ObjectIdentifier curr = ObjectIdentifier.Root;
+                for (int i = 0; i < result.Length; i++)
+                {
+                    Group grp = res[i] as Group;
+                    curr = result[i] = grp == null
+                        ? curr.Push((Record)res[i])
+                        : curr.Push(grp);
+                }
+
+                return Tuple.Create(result, res);
+            }
+
+            return null;
+        }
+
+        public static void Optimize(Record root)
+        {
+            foreach (var rec in FindRecords(root))
+            {
+                switch (rec.RecordType)
                 {
                     case _DOBJ:
-                        foreach (var field in rec2.Fields)
+                        foreach (var field in rec.Fields)
                         {
                             if (field.Type != DNAM)
                             {
                                 continue;
                             }
 
-                            UArrayPosition<byte> pos = new UArrayPosition<byte>(field.Payload);
-                            for (uint i = 0; i < field.Payload.Length; i += 8)
-                            {
-                                ulong val = UBitConverter.ToUInt64(field.Payload, i);
-                                if (val == 0)
-                                {
-                                    continue;
-                                }
-
-                                UBitConverter.SetUInt64(pos, val);
-                                pos += 8;
-                            }
-
-                            byte[] payload = field.Payload;
-                            Array.Resize(ref payload, checked((int)pos.Offset));
-                            field.Payload = payload;
+                            field.Payload = CompressDNAM(field.Payload);
+                            rec.OriginalCompressedFieldData = null;
+                            break;
                         }
 
                         break;
 
                     case _WRLD:
-                        List<Field> flds = rec2.Fields;
+                        List<Field> flds = rec.Fields;
                         for (int i = 0; i < flds.Count; i++)
                         {
                             switch (flds[i].Type)
@@ -149,8 +363,45 @@ namespace BethFile.Editor
                                 case _OFST:
                                 case _RNAM:
                                     flds.RemoveAt(i--);
+                                    rec.OriginalCompressedFieldData = null;
                                     break;
                             }
+                        }
+
+                        break;
+
+                    // not strictly necessary.
+                    case _WEAP:
+                        foreach (var field in rec.Fields)
+                        {
+                            if (field.Type != DNAM)
+                            {
+                                continue;
+                            }
+
+                            byte[] payload = field.Payload;
+                            payload[12] &= unchecked((byte)(~0x40));
+                            payload[41] &= unchecked((byte)(~0x01));
+
+                            rec.OriginalCompressedFieldData = null;
+                        }
+
+                        break;
+
+                    case _REFR:
+                        foreach (var field in rec.Fields)
+                        {
+                            if (field.Type != XLOC)
+                            {
+                                continue;
+                            }
+
+                            if (field.Payload[0] == 0)
+                            {
+                                field.Payload[0] = 1;
+                            }
+
+                            rec.OriginalCompressedFieldData = null;
                         }
 
                         break;
@@ -158,49 +409,59 @@ namespace BethFile.Editor
             }
         }
 
-        internal static void Sort(Group grp)
+        private static byte[] CompressDNAM(byte[] dnamPayload)
         {
-            // this isn't quite perfect yet... need to order groups too somehow.
-            grp.Records.Sort((r1, r2) => r1.Id.CompareTo(r2.Id));
+            UArrayPosition<byte> pos = new UArrayPosition<byte>(dnamPayload);
+            for (uint i = 0; i < dnamPayload.Length; i += 8)
+            {
+                ulong val = UBitConverter.ToUInt64(dnamPayload, i);
+                if (val == 0)
+                {
+                    continue;
+                }
+
+                UBitConverter.SetUInt64(pos, val);
+                pos += 8;
+            }
+
+            Array.Resize(ref dnamPayload, checked((int)pos.Offset));
+            return dnamPayload;
         }
 
-        private static bool DeleteCore(Record rec, HashSet<uint> ids)
+        public static uint CountItems(Record rec)
         {
-            if (!rec.IsDummy && ids.Contains(rec.Id))
+            uint itemCount = 0;
+            CountItems(rec, ref itemCount);
+            return itemCount;
+        }
+
+        public static uint CountItems(Group grp)
+        {
+            uint itemCount = 0;
+            CountItems(grp, ref itemCount);
+            return itemCount;
+        }
+
+        private static void CountItems(Group grp, ref uint i)
+        {
+            ++i;
+            foreach (var subRec in grp.Records)
             {
-                return true;
+                CountItems(subRec, ref i);
+            }
+        }
+
+        private static void CountItems(Record rec, ref uint i)
+        {
+            if (!rec.IsDummy)
+            {
+                ++i;
             }
 
-            List<Group> grps = rec.Subgroups;
-            for (int i = 0; i < grps.Count; i++)
+            foreach (var grp in rec.Subgroups)
             {
-                Group grp = grps[i];
-                bool deleted = false;
-                List<Record> subs = grp.Records;
-                for (int j = 0; j < subs.Count; j++)
-                {
-                    if (!DeleteCore(subs[j], ids))
-                    {
-                        continue;
-                    }
-
-                    subs.RemoveAt(j--);
-                    deleted = true;
-                }
-
-                if (deleted)
-                {
-                    Sort(grp);
-                }
-
-                if (subs.Count == 0 ||
-                    subs.Count == 1 && subs[0].IsDummy && subs[0].Subgroups.Count == 0)
-                {
-                    grps.RemoveAt(i--);
-                }
+                CountItems(grp, ref i);
             }
-
-            return false;
         }
     }
 }
