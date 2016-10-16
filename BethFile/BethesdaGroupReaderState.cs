@@ -6,6 +6,5 @@
         EndOfContent,
         Record,
         Subgroup,
-        Deleted
     }
 }

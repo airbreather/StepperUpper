@@ -21,21 +21,6 @@ namespace BethFile
 
         public BethesdaGroup CurrentSubgroup => new BethesdaGroup(this.EnsureInState(BethesdaGroupReaderState.Subgroup));
 
-        public void NotifyDeletion()
-        {
-            switch (this.state)
-            {
-                case BethesdaGroupReaderState.Record:
-                case BethesdaGroupReaderState.Subgroup:
-                case BethesdaGroupReaderState.Deleted:
-                    this.state = BethesdaGroupReaderState.Deleted;
-                    break;
-
-                default:
-                    throw new InvalidOperationException("You can only delete while actively reading.");
-            }
-        }
-
         public BethesdaGroupReaderState Read()
         {
             switch (this.state)
