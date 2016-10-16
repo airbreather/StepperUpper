@@ -79,6 +79,7 @@
     <Compile Include="UArraySegment.cs" />
     <Compile Include="UBitConverter.cs" />
     <Compile Include="UBuffer.cs" />
+    <Compile Include="Zlib.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj">

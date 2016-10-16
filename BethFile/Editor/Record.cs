@@ -19,8 +19,17 @@ namespace BethFile.Editor
         {
             this.CopyHeadersFrom(copyFrom);
             this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
-            this.Fields.AddRange(copyFrom.Fields.Select(f => new Field(f)));
-            this.Subgroups.AddRange(copyFrom.Subgroups.Select(g => new Group(g) { Parent = this }));
+            this.Fields = new List<Field>(copyFrom.Fields.Count);
+            foreach (var field in copyFrom.Fields)
+            {
+                this.Fields.Add(new Field(field));
+            }
+
+            this.Subgroups = new List<Group>(copyFrom.Subgroups.Count);
+            foreach (var subgroup in copyFrom.Subgroups)
+            {
+                this.Subgroups.Add(new Group(subgroup) { Parent = this });
+            }
         }
 
         public Record(BethesdaFile copyFrom)

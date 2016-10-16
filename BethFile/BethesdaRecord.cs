@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-
-using Ionic.Zlib;
 
 using static System.FormattableString;
 using static BethFile.B4S;
@@ -77,25 +74,7 @@ namespace BethFile
                 UArraySegment<byte> payload = this.Payload;
                 if (this.Flags.HasFlag(BethesdaRecordFlags.Compressed))
                 {
-                    uint decompSize = UBitConverter.ToUInt32(payload, 0);
-                    byte[] payloadArray = new byte[decompSize];
-                    using (MemoryStream sourceStream = new MemoryStream(payload.Array, false))
-                    {
-                        sourceStream.Position = payload.Offset + 4;
-                        byte[] buf = new byte[81920];
-                        uint soFar = 0;
-                        using (ZlibStream decompressStream = new ZlibStream(sourceStream, CompressionMode.Decompress))
-                        {
-                            int cnt;
-                            while ((cnt = decompressStream.Read(buf, 0, buf.Length)) != 0)
-                            {
-                                UBuffer.BlockCopy(buf, 0, payloadArray, soFar, unchecked((uint)cnt));
-                                soFar += unchecked((uint)cnt);
-                            }
-                        }
-                    }
-
-                    payload = new UArraySegment<byte>(payloadArray);
+                    payload = new UArraySegment<byte>(Zlib.Uncompress(payload));
                 }
 
                 uint pos = 0;

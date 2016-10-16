@@ -5,16 +5,12 @@ using System.Linq;
 
 using AirBreather;
 
-using Ionic.Zlib;
-
 using static BethFile.B4S;
 
 namespace BethFile.Editor
 {
     public static class Saver
     {
-        private static readonly byte[] FourBytes = new byte[4];
-
         public static BethesdaFile Save(Record root)
         {
             FinalizeHeader(root);
@@ -147,38 +143,9 @@ namespace BethFile.Editor
             return val;
         }
 
-        private static byte[] GetCompressedPayload(Record record)
-        {
-            if (record.OriginalCompressedFieldData != null)
-            {
-                return record.OriginalCompressedFieldData;
-            }
-
-            byte[] uncompressed = GetUncompressedPayload(record);
-            uint uncompressedLength = unchecked((uint)uncompressed.LongLength);
-
-            // xEdit uses default compression mode when it does the same.
-            using (var result = new MemoryStream())
-            {
-                result.Write(FourBytes, 0, 4);
-                using (var cmp = new ZlibStream(result, CompressionMode.Compress, leaveOpen: true))
-                {
-                    uint pos = 0;
-                    byte[] buf = new byte[81920];
-                    while (pos < uncompressedLength)
-                    {
-                        uint sz = Math.Min(uncompressedLength - pos, 81920);
-                        UBuffer.BlockCopy(uncompressed, pos, buf, 0, sz);
-                        cmp.Write(buf, 0, unchecked((int)sz));
-                        pos += sz;
-                    }
-                }
-
-                byte[] data = result.ToArray();
-                UBitConverter.SetUInt32(data, 0, uncompressedLength);
-                return record.OriginalCompressedFieldData = data;
-            }
-        }
+        private static byte[] GetCompressedPayload(Record record) =>
+            record.OriginalCompressedFieldData ??
+                (record.OriginalCompressedFieldData = Zlib.Compress(new UArraySegment<byte>(GetUncompressedPayload(record))));
 
         private static byte[] GetUncompressedPayload(Record record)
         {
