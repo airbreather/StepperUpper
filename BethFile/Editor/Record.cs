@@ -25,7 +25,13 @@ namespace BethFile.Editor
             this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
             this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
             this.Fields.AddRange(copyFrom.Fields.Select(f => new Field(f)));
-            this.Subgroups.AddRange(copyFrom.Subgroups.Select(g => new Group(g)));
+            this.Subgroups.AddRange(copyFrom.Subgroups.Select(g => new Group(g) { Parent = this }));
+        }
+
+        public Record(BethesdaFile copyFrom)
+            : this(copyFrom.HeaderRecord)
+        {
+            this.Subgroups.AddRange(copyFrom.TopGroups.Select(g => new Group(g) { Parent = this }));
         }
 
         public Record(BethesdaRecord copyFrom)
@@ -61,6 +67,8 @@ namespace BethFile.Editor
                 offsides = null;
             }
         }
+
+        public Group Parent { get; set; }
 
         public B4S RecordType { get; set; } = DummyType;
 

@@ -48,6 +48,59 @@ namespace BethFile.Editor
             root.OriginalCompressedFieldData = null;
         }
 
+        // not working right now.
+        public static void GetITMs(Record root, Merged orig)
+        {
+            var q = from currRecord in FindRecords(root).AsParallel()
+                    where currRecord.IsIdentical(orig.FindRecord(currRecord.Id))
+                    select currRecord;
+            var itms = q.OrderBy(r => r.RecordType).ThenBy(r => r.Id).ToArray();
+        }
+
+        public static void PerformDeletes(Record root, HashSet<uint> ids)
+        {
+            Stack<Group> stack = new Stack<Group>();
+            foreach (var grp in root.Subgroups)
+            {
+                stack.Push(grp);
+            }
+
+            while (stack.Count != 0)
+            {
+                Group grp = stack.Pop();
+
+                for (int i = 0; i < grp.Records.Count; i++)
+                {
+                    Record rec = grp.Records[i];
+                    if (rec.IsDummy || !ids.Remove(rec.Id))
+                    {
+                        goto done;
+                    }
+
+                    grp.Records.RemoveAt(i--);
+
+                    done:
+                    foreach (var grp2 in rec.Subgroups)
+                    {
+                        stack.Push(grp2);
+                    }
+                }
+
+                while (grp?.Records.Count == 0)
+                {
+                    Record par = grp.Parent;
+                    par.Subgroups.Remove(grp);
+                    if (!par.IsDummy || par.Subgroups.Count != 0)
+                    {
+                        break;
+                    }
+
+                    grp = par.Parent;
+                    grp.Records.Remove(par);
+                }
+            }
+        }
+
         public static IEnumerable<Record> FindRecords(Record rec)
         {
             Stack<Record> stack = new Stack<Record>();
@@ -226,6 +279,55 @@ namespace BethFile.Editor
             foreach (var grp in rec.Subgroups)
             {
                 CountItems(grp, ref i);
+            }
+        }
+
+        public static IEnumerable<object> Iterate(Record root)
+        {
+            bool first = true;
+            Stack<object> results = new Stack<object>();
+            results.Push(root);
+            while (results.Count != 0)
+            {
+                object curr = results.Pop();
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    yield return curr;
+                }
+
+                Record rec = curr as Record;
+                if (rec == null)
+                {
+                    goto currIsSubgroup;
+                }
+
+                foreach (Group subgroup in rec.Subgroups.AsEnumerable().Reverse())
+                {
+                    results.Push(subgroup);
+                }
+
+                continue;
+
+                currIsSubgroup:
+                Group grp = (Group)curr;
+                foreach (Record subrecord in grp.Records.AsEnumerable().Reverse())
+                {
+                    if (subrecord.IsDummy)
+                    {
+                        foreach (Group subgroup in subrecord.Subgroups.AsEnumerable().Reverse())
+                        {
+                            results.Push(subgroup);
+                        }
+
+                        continue;
+                    }
+
+                    results.Push(subrecord);
+                }
             }
         }
     }

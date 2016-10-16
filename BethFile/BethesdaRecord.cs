@@ -3,6 +3,7 @@ using System.IO;
 
 using Ionic.Zlib;
 
+using static System.FormattableString;
 using static BethFile.B4S;
 
 namespace BethFile
@@ -117,5 +118,7 @@ namespace BethFile
                 }
             }
         }
+
+        public override string ToString() => Invariant($"[{this.RecordType}:{this.Id:X8}]");
     }
 }

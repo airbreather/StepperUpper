@@ -39,20 +39,22 @@ namespace BethFile.Editor
                 switch (state)
                 {
                     case BethesdaGroupReaderState.Record:
-                        this.Records.Add(record = new Record(reader.CurrentRecord));
+                        this.Records.Add(record = new Record(reader.CurrentRecord) { Parent = this });
                         break;
 
                     case BethesdaGroupReaderState.Subgroup:
                         if (record == null)
                         {
-                            this.Records.Add(record = new Record());
+                            this.Records.Add(record = new Record { Parent = this });
                         }
 
-                        record.Subgroups.Add(new Group(reader.CurrentSubgroup));
+                        record.Subgroups.Add(new Group(reader.CurrentSubgroup) { Parent = record });
                         break;
                 }
             }
         }
+
+        public Record Parent { get; set; }
 
         public BethesdaGroupType GroupType { get; set; }
 

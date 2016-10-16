@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BethFile
 {
-    public struct B4S : IEquatable<B4S>
+    public struct B4S : IEquatable<B4S>, IComparable<B4S>
     {
         // get values by running this in C# Interactive:
         ////System.BitConverter.ToUInt32(System.Text.Encoding.ASCII.GetBytes("TES4"), 0)
@@ -50,6 +50,8 @@ namespace BethFile
         public const uint _VMAD = 1145130326;
         public const uint _XLOC = 1129270360;
         public const uint _ACRE = 1163019073;
+        public const uint _CTDA = 1094997059;
+        public const uint _ENAM = 1296125509;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -93,6 +95,8 @@ namespace BethFile
         public static readonly B4S VMAD = _VMAD;
         public static readonly B4S XLOC = _XLOC;
         public static readonly B4S ACRE = _ACRE;
+        public static readonly B4S CTDA = _CTDA;
+        public static readonly B4S ENAM = _ENAM;
 
         private uint val;
 
@@ -122,7 +126,12 @@ namespace BethFile
 
         public static bool operator ==(B4S first, B4S second) => first.val == second.val;
         public static bool operator !=(B4S first, B4S second) => first.val != second.val;
+        public static bool operator <(B4S first, B4S second) => first.val < second.val;
+        public static bool operator >(B4S first, B4S second) => first.val > second.val;
+        public static bool operator <=(B4S first, B4S second) => first.val <= second.val;
+        public static bool operator >=(B4S first, B4S second) => first.val >= second.val;
 
+        public int CompareTo(B4S other) => this.val.CompareTo(other.val);
         public override bool Equals(object obj) => obj is B4S && this.val == ((B4S)obj).val;
         public bool Equals(B4S other) => this.val == other.val;
         public override int GetHashCode() => unchecked((int)this.val);

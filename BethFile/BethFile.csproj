@@ -68,8 +68,9 @@
     <Compile Include="Editor\Doer.cs" />
     <Compile Include="Editor\Field.cs" />
     <Compile Include="Editor\Group.cs" />
-    <Compile Include="Editor\Parser.cs" />
+    <Compile Include="Editor\Merged.cs" />
     <Compile Include="Editor\Record.cs" />
+    <Compile Include="Editor\Rules.cs" />
     <Compile Include="Editor\Saver.cs" />
     <Compile Include="Editor\Visitor.cs" />
     <Compile Include="Helpers.cs" />
