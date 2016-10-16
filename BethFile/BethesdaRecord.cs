@@ -74,7 +74,7 @@ namespace BethFile
                 UArraySegment<byte> payload = this.Payload;
                 if (this.Flags.HasFlag(BethesdaRecordFlags.Compressed))
                 {
-                    payload = new UArraySegment<byte>(Zlib.Uncompress(payload));
+                    payload = Zlib.Uncompress(payload);
                 }
 
                 uint pos = 0;

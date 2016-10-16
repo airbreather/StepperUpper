@@ -145,7 +145,7 @@ namespace BethFile.Editor
 
         private static byte[] GetCompressedPayload(Record record) =>
             record.OriginalCompressedFieldData ??
-                (record.OriginalCompressedFieldData = Zlib.Compress(new UArraySegment<byte>(GetUncompressedPayload(record))));
+                (record.OriginalCompressedFieldData = Zlib.Compress(GetUncompressedPayload(record)));
 
         private static byte[] GetUncompressedPayload(Record record)
         {

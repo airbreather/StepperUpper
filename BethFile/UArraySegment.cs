@@ -9,7 +9,7 @@ namespace BethFile
     [StructLayout(LayoutKind.Auto)]
     public struct UArraySegment<T> : IReadOnlyList<T>
     {
-        public UArraySegment(T[] array) : this(array, 0, unchecked((uint)array.LongLength))
+        public UArraySegment(T[] array) : this(array, 0, checked((uint)array.LongLength))
         {
         }
 
@@ -45,6 +45,8 @@ namespace BethFile
         int IReadOnlyCollection<T>.Count => checked((int)this.Count);
 
         T IReadOnlyList<T>.this[int index] => this[checked((uint)index)];
+
+        public static implicit operator UArraySegment<T>(T[] array) => new UArraySegment<T>(array);
 
         public T[] ToArray()
         {

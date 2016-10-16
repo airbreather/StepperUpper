@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using static System.FormattableString;
 using static BethFile.B4S;
@@ -11,6 +12,10 @@ namespace BethFile.Editor
     {
         public static readonly B4S DummyType = new B4S("FUCK");
 
+        private readonly Task initTask = Task.CompletedTask;
+
+        private readonly List<Field> fields = new List<Field>();
+
         public Record()
         {
         }
@@ -19,10 +24,14 @@ namespace BethFile.Editor
         {
             this.CopyHeadersFrom(copyFrom);
             this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
-            this.Fields = new List<Field>(copyFrom.Fields.Count);
-            foreach (var field in copyFrom.Fields)
+
+            if (copyFrom.initTask.IsCompleted)
             {
-                this.Fields.Add(new Field(field));
+                this.fields.AddRange(copyFrom.Fields);
+            }
+            else
+            {
+                this.initTask = initTask.ContinueWith(t => this.fields.AddRange(copyFrom.Fields));
             }
 
             this.Subgroups = new List<Group>(copyFrom.Subgroups.Count);
@@ -49,26 +58,11 @@ namespace BethFile.Editor
             if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
             {
                 this.OriginalCompressedFieldData = copyFrom.Payload.ToArray();
+                this.initTask = Task.Run(() => this.CopyFieldsFrom(copyFrom.Fields));
             }
-
-            uint? offsides = null;
-            foreach (BethesdaField field in copyFrom.Fields)
+            else
             {
-                if (field.FieldType == XXXX)
-                {
-                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
-                    continue;
-                }
-
-                byte[] payload = new byte[offsides ?? field.StoredSize];
-                Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
-                this.Fields.Add(new Field
-                {
-                    FieldType = field.FieldType,
-                    Payload = payload
-                });
-
-                offsides = null;
+                this.CopyFieldsFrom(copyFrom.Fields);
             }
         }
 
@@ -88,7 +82,14 @@ namespace BethFile.Editor
 
         public byte[] OriginalCompressedFieldData { get; set; }
 
-        public List<Field> Fields { get; } = new List<Field>();
+        public List<Field> Fields
+        {
+            get
+            {
+                this.initTask.Wait();
+                return this.fields;
+            }
+        }
 
         public List<Group> Subgroups { get; } = new List<Group>();
 
@@ -105,5 +106,28 @@ namespace BethFile.Editor
         }
 
         public override string ToString() => Invariant($"[{this.RecordType}:{this.Id:X8}]");
+
+        private void CopyFieldsFrom(IEnumerable<BethesdaField> source)
+        {
+            uint? offsides = null;
+            foreach (BethesdaField field in source)
+            {
+                if (field.FieldType == XXXX)
+                {
+                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
+                    continue;
+                }
+
+                byte[] payload = new byte[offsides ?? field.StoredSize];
+                Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
+                this.fields.Add(new Field
+                {
+                    FieldType = field.FieldType,
+                    Payload = payload
+                });
+
+                offsides = null;
+            }
+        }
     }
 }
