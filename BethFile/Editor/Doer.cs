@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-using AirBreather;
-
 using static BethFile.B4S;
 
 namespace BethFile.Editor
@@ -24,29 +22,6 @@ namespace BethFile.Editor
                     yield return onam;
                 }
             }
-        }
-
-        public static void FixOnams(Record root, IEnumerable<uint> extraOnams)
-        {
-            var onamField = root.Fields.Single(f => f.FieldType == ONAM);
-            HashSet<uint> onams = GetOnams(root).ToHashSet();
-            onams.IntersectWith(FindRecords(root).Select(r => r.Id));
-            onams.UnionWith(extraOnams);
-
-            uint[] onamsArray = new uint[onams.Count];
-            onams.CopyTo(onamsArray);
-            Array.Sort(onamsArray);
-
-            onamField.Payload = new byte[unchecked((uint)(onamsArray.Length) * 4u)];
-
-            uint idx = 0;
-            foreach (uint onam in onamsArray)
-            {
-                UBitConverter.SetUInt32(onamField.Payload, idx, onam);
-                idx += 4;
-            }
-
-            root.OriginalCompressedFieldData = null;
         }
 
         // not working right now.
@@ -175,8 +150,6 @@ namespace BethFile.Editor
 
                 MergeInto(orig, root);
             }
-
-            bool r = FindRecords(root).Any(x => x.Id == 0x23C63);
         }
 
         public static IEnumerable<Record> FindRecords(Record rec)
@@ -232,6 +205,11 @@ namespace BethFile.Editor
         {
             foreach (var rec in FindRecords(root))
             {
+                if (rec.Flags.HasFlag(BethesdaRecordFlags.Deleted))
+                {
+                    rec.Fields.Clear();
+                }
+
                 switch (rec.RecordType)
                 {
                     case _DOBJ:
@@ -300,6 +278,28 @@ namespace BethFile.Editor
                             rec.OriginalCompressedFieldData = null;
                         }
 
+                        break;
+
+                    case _LVLN:
+                        if (0 <= rec.Fields.FindIndex(f => f.FieldType == LLCT))
+                        {
+                            continue;
+                        }
+
+                        // TODO: this is what xEdit does, but it doesn't feel right...
+                        rec.Fields.Add(new Field
+                        {
+                            FieldType = LLCT,
+                            Payload = new[] { (byte)1 },
+                        });
+
+                        rec.Fields.Add(new Field
+                        {
+                            FieldType = LVLO,
+                            Payload = new byte[12],
+                        });
+
+                        rec.OriginalCompressedFieldData = null;
                         break;
                 }
             }

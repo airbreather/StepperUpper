@@ -52,6 +52,8 @@ namespace BethFile
         public const uint _ACRE = 1163019073;
         public const uint _CTDA = 1094997059;
         public const uint _ENAM = 1296125509;
+        public const uint _LLCT = 1413696588;
+        public const uint _LVLO = 1330402892;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -97,6 +99,8 @@ namespace BethFile
         public static readonly B4S ACRE = _ACRE;
         public static readonly B4S CTDA = _CTDA;
         public static readonly B4S ENAM = _ENAM;
+        public static readonly B4S LLCT = _LLCT;
+        public static readonly B4S LVLO = _LVLO;
 
         private uint val;
 

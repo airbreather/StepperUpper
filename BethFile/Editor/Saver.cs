@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
+using AirBreather;
 
 using Ionic.Zlib;
 
@@ -21,8 +24,35 @@ namespace BethFile.Editor
             return new BethesdaFile(saved.Record, saved.Subgroups);
         }
 
-        private static void FinalizeHeader(Record header) =>
-            UBitConverter.SetUInt32(new UArrayPosition<byte>(header.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(header) - 1);
+        private static void FinalizeHeader(Record root)
+        {
+            var onamField = root.Fields.Single(f => f.FieldType == ONAM);
+            HashSet<uint> prevOnams = Doer.GetOnams(root).ToHashSet();
+            List<uint> currOnams = new List<uint>(prevOnams.Count);
+            foreach (Record rec in Doer.FindRecords(root))
+            {
+                if (prevOnams.Remove(rec.Id) && (!rec.Flags.HasFlag(BethesdaRecordFlags.InitiallyDisabled) || !rec.Flags.HasFlag(BethesdaRecordFlags.PersistentReference)))
+                {
+                    currOnams.Add(rec.Id);
+                }
+            }
+
+            uint[] onamsArray = currOnams.ToArray();
+            Array.Sort(onamsArray);
+
+            onamField.Payload = new byte[unchecked((uint)(onamsArray.Length) * 4u)];
+
+            uint idx = 0;
+            foreach (uint onam in onamsArray)
+            {
+                UBitConverter.SetUInt32(onamField.Payload, idx, onam);
+                idx += 4;
+            }
+
+            root.OriginalCompressedFieldData = null;
+
+            UBitConverter.SetUInt32(new UArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
+        }
 
         private static Saved Write(Record record, ref UArrayPosition<byte> pos)
         {
