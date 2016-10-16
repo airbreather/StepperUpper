@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 using AirBreather;
@@ -72,6 +73,7 @@ namespace BethFile.Editor
                 for (int i = 0; i < grp.Records.Count; i++)
                 {
                     Record rec = grp.Records[i];
+
                     if (rec.IsDummy || !ids.Remove(rec.Id))
                     {
                         goto done;
@@ -99,6 +101,82 @@ namespace BethFile.Editor
                     grp.Records.Remove(par);
                 }
             }
+        }
+
+        // assumes all IDs were deleted by PerformDeletes.
+        public static void PerformUDRs(Record root, Merged master, IEnumerable<uint> ids)
+        {
+            foreach (uint id in ids)
+            {
+                Record orig = master.FindRecord(id);
+                orig = new Record(orig) { Parent = orig.Parent };
+
+                orig.Flags |= BethesdaRecordFlags.InitiallyDisabled;
+                if (orig.RecordType == ACHR || orig.RecordType == ACRE)
+                {
+                    orig.Flags |= BethesdaRecordFlags.PersistentReference;
+                }
+
+                if (orig.Flags.HasFlag(BethesdaRecordFlags.PersistentReference) && orig.Parent.GroupType != BethesdaGroupType.CellPersistentChildren)
+                {
+                    Record cellParent = null;
+
+                    // persistent children of the HIGHEST cell in the world
+                    while (orig.Parent != null)
+                    {
+                        Record rrrr = orig.Parent.Parent;
+                        if (rrrr.RecordType == CELL)
+                        {
+                            cellParent = rrrr;
+                        }
+
+                        orig.Parent = rrrr.Parent;
+                    }
+
+                    // origParent is CellChildren
+                    // recordParent is the cell
+                    orig.Parent = cellParent.Subgroups
+                                            .First(g => g.GroupType == BethesdaGroupType.CellChildren)
+                                            .Records
+                                            .Single()
+                                            .Subgroups
+                                            .Single(g => g.GroupType == BethesdaGroupType.CellPersistentChildren);
+                }
+
+                bool isPersistent = orig.Flags.HasFlag(BethesdaRecordFlags.PersistentReference);
+                if (!isPersistent)
+                {
+                    Field dataField = orig.Fields.Find(f => f.FieldType == DATA);
+                    if (dataField == null)
+                    {
+                        orig.Fields.Add(dataField = new Field
+                        {
+                            FieldType = DATA,
+                            Payload = new byte[24]
+                        });
+                    }
+
+                    UBitConverter.SetUInt32(dataField.Payload, 8, 3337248768);
+                }
+
+                Field xespField = orig.Fields.Find(f => f.FieldType == XESP);
+                if (xespField == null)
+                {
+                    orig.Fields.Add(xespField = new Field
+                    {
+                        FieldType = XESP,
+                        Payload = new byte[8]
+                    });
+                }
+
+                UBitConverter.SetUInt32(xespField.Payload, 0, 0x14);
+                UBitConverter.SetUInt32(xespField.Payload, 4, 0x01);
+                orig.OriginalCompressedFieldData = null;
+
+                MergeInto(orig, root);
+            }
+
+            bool r = FindRecords(root).Any(x => x.Id == 0x23C63);
         }
 
         public static IEnumerable<Record> FindRecords(Record rec)
@@ -329,6 +407,58 @@ namespace BethFile.Editor
                     results.Push(subrecord);
                 }
             }
+        }
+
+        private static void MergeInto(Record orig, Record root)
+        {
+            Stack<Group> parentGroups = new Stack<Group>();
+            Stack<Record> parentRecords = new Stack<Record>();
+
+            Group origParent = orig.Parent;
+            while (origParent != null)
+            {
+                parentGroups.Push(origParent);
+                parentRecords.Push(origParent.Parent);
+                origParent = origParent.Parent.Parent;
+            }
+
+            parentRecords.Pop();
+            Record recordParent = root;
+            while (parentGroups.Count != 1)
+            {
+                Group origParentGroup = parentGroups.Pop();
+                Group parentGroup = recordParent.Subgroups.FirstOrDefault(g => g.GroupType == origParentGroup.GroupType && g.Label == origParentGroup.Label);
+                if (parentGroup == null)
+                {
+                    recordParent.Subgroups.Add(parentGroup = new Group { Parent = recordParent });
+                    parentGroup.CopyHeadersFrom(origParentGroup);
+                }
+
+                Record origSubrecord = parentRecords.Pop();
+                recordParent = parentGroup.Records.FirstOrDefault(r => r.Id == origSubrecord.Id);
+                if (recordParent == null)
+                {
+                    parentGroup.Records.Add(recordParent = new Record { Parent = parentGroup });
+                    recordParent.CopyHeadersFrom(origSubrecord);
+                }
+            }
+
+            if (parentRecords.Count != 0)
+            {
+                Debug.Fail("Didn't expect this at all.");
+                parentRecords.Clear();
+            }
+
+            Group finalOrigParent = parentGroups.Pop();
+            Group finalParent = recordParent.Subgroups.FirstOrDefault(g => g.GroupType == finalOrigParent.GroupType && g.Label == finalOrigParent.Label);
+
+            if (finalParent == null)
+            {
+                recordParent.Subgroups.Add(finalParent = new Group { Parent = recordParent });
+                finalParent.CopyHeadersFrom(finalOrigParent);
+            }
+
+            finalParent.Records.Add(orig);
         }
     }
 }

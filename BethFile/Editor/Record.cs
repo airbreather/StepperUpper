@@ -17,12 +17,7 @@ namespace BethFile.Editor
 
         public Record(Record copyFrom)
         {
-            this.RecordType = copyFrom.RecordType;
-            this.Flags = copyFrom.Flags;
-            this.Id = copyFrom.Id;
-            this.Revision = copyFrom.Revision;
-            this.Version = copyFrom.Version;
-            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+            this.CopyHeadersFrom(copyFrom);
             this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
             this.Fields.AddRange(copyFrom.Fields.Select(f => new Field(f)));
             this.Subgroups.AddRange(copyFrom.Subgroups.Select(g => new Group(g) { Parent = this }));

@@ -13,12 +13,7 @@ namespace BethFile.Editor
 
         public Group(Group copyFrom)
         {
-            this.GroupType = copyFrom.GroupType;
-            this.Label = copyFrom.Label;
-            this.Stamp = copyFrom.Stamp;
-            this.UNKNOWN_18 = copyFrom.UNKNOWN_18;
-            this.Version = copyFrom.Version;
-            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+            this.CopyHeadersFrom(copyFrom);
             this.Records.AddRange(copyFrom.Records.Select(rec => new Record(rec)));
         }
 
@@ -69,6 +64,16 @@ namespace BethFile.Editor
         public ushort UNKNOWN_22 { get; set; }
 
         public List<Record> Records { get; } = new List<Record>();
+
+        public void CopyHeadersFrom(Group copyFrom)
+        {
+            this.GroupType = copyFrom.GroupType;
+            this.Label = copyFrom.Label;
+            this.Stamp = copyFrom.Stamp;
+            this.UNKNOWN_18 = copyFrom.UNKNOWN_18;
+            this.Version = copyFrom.Version;
+            this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
+        }
 
         public override string ToString()
         {
