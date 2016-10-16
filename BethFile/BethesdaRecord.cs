@@ -105,7 +105,7 @@ namespace BethFile
                     uint sz = offsides ?? UBitConverter.ToUInt16(payload, pos + 4);
                     BethesdaField field = new BethesdaField(new UArraySegment<byte>(payload, pos, sz + 6u));
                     yield return field;
-                    if (field.Type == XXXX)
+                    if (field.FieldType == XXXX)
                     {
                         offsides = UBitConverter.ToUInt32(field.PayloadStart);
                     }

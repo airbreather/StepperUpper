@@ -40,7 +40,7 @@ namespace BethFile
             HashSet<uint> oldOnams = new HashSet<uint>();
             foreach (BethesdaField field in file.HeaderRecord.Fields)
             {
-                if (field.Type != ONAM)
+                if (field.FieldType != ONAM)
                 {
                     continue;
                 }

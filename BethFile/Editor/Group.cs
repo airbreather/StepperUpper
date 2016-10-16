@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using static System.FormattableString;
+using static BethFile.B4S;
 
 namespace BethFile.Editor
 {
@@ -27,6 +29,7 @@ namespace BethFile.Editor
             this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
 
             Record record = null;
+            Record dummyRecord = null;
             BethesdaGroupReader reader = new BethesdaGroupReader(copyFrom);
             BethesdaGroupReaderState state;
             while ((state = reader.Read()) != BethesdaGroupReaderState.EndOfContent)
@@ -38,12 +41,33 @@ namespace BethFile.Editor
                         break;
 
                     case BethesdaGroupReaderState.Subgroup:
-                        if (record == null)
+                        var currSubgroup = reader.CurrentSubgroup;
+                        switch (currSubgroup.GroupType)
                         {
-                            this.Records.Add(record = new Record { Parent = this });
+                            case BethesdaGroupType.CellChildren:
+                            case BethesdaGroupType.CellPersistentChildren:
+                            case BethesdaGroupType.CellTemporaryChildren:
+                            case BethesdaGroupType.CellVisibleDistantChildren:
+                            case BethesdaGroupType.WorldChildren:
+                            case BethesdaGroupType.TopicChildren:
+                                break;
+
+                            default:
+                                record = null;
+                                break;
                         }
 
-                        record.Subgroups.Add(new Group(reader.CurrentSubgroup) { Parent = record });
+                        if (record == null)
+                        {
+                            if (dummyRecord == null)
+                            {
+                                this.Records.Add(dummyRecord = new Record { Parent = this });
+                            }
+
+                            record = dummyRecord;
+                        }
+
+                        record.Subgroups.Add(new Group(currSubgroup) { Parent = record });
                         break;
                 }
             }

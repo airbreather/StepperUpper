@@ -12,7 +12,7 @@ namespace BethFile
             this.RawData = rawData;
         }
 
-        public B4S Type => UBitConverter.ToUInt32(this.RawData, 0);
+        public B4S FieldType => UBitConverter.ToUInt32(this.RawData, 0);
 
         public UArraySegment<byte> RawData { get; }
 
@@ -28,6 +28,6 @@ namespace BethFile
             set { UBitConverter.SetUInt16(this.Start + 4, value); }
         }
 
-        public override string ToString() => $"{this.Type}: ({this.Payload.ToArray().ByteArrayToHexString()}";
+        public override string ToString() => $"{this.FieldType}: ({this.Payload.ToArray().ByteArrayToHexString()}";
     }
 }

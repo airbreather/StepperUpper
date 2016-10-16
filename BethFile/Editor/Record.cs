@@ -45,7 +45,7 @@ namespace BethFile.Editor
             uint? offsides = null;
             foreach (BethesdaField field in copyFrom.Fields)
             {
-                if (this.RecordType == XXXX)
+                if (field.FieldType == XXXX)
                 {
                     offsides = UBitConverter.ToUInt32(field.PayloadStart);
                     continue;
@@ -55,7 +55,7 @@ namespace BethFile.Editor
                 Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
                 this.Fields.Add(new Field
                 {
-                    FieldType = field.Type,
+                    FieldType = field.FieldType,
                     Payload = payload
                 });
 

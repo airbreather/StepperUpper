@@ -18,7 +18,7 @@ namespace BethFile.Editor
 
         public Field(BethesdaField copyFrom)
         {
-            this.FieldType = copyFrom.Type;
+            this.FieldType = copyFrom.FieldType;
             this.Payload = copyFrom.Payload.ToArray();
         }
 
