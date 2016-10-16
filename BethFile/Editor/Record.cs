@@ -24,15 +24,7 @@ namespace BethFile.Editor
         {
             this.CopyHeadersFrom(copyFrom);
             this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
-
-            if (copyFrom.initTask.IsCompleted)
-            {
-                this.fields.AddRange(copyFrom.Fields);
-            }
-            else
-            {
-                this.initTask = initTask.ContinueWith(t => this.fields.AddRange(copyFrom.Fields));
-            }
+            this.initTask = copyFrom.initTask.ContinueWith(t => this.fields.AddRange(copyFrom.Fields), TaskContinuationOptions.ExecuteSynchronously);
 
             this.Subgroups = new List<Group>(copyFrom.Subgroups.Count);
             foreach (var subgroup in copyFrom.Subgroups)
