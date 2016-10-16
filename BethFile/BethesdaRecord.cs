@@ -79,9 +79,9 @@ namespace BethFile
                 {
                     uint decompSize = UBitConverter.ToUInt32(payload, 0);
                     byte[] payloadArray = new byte[decompSize];
-                    using (MemoryStream sourceStream = new MemoryStream(this.Payload.Array, false))
+                    using (MemoryStream sourceStream = new MemoryStream(payload.Array, false))
                     {
-                        sourceStream.Position = this.Payload.Offset + 4;
+                        sourceStream.Position = payload.Offset + 4;
                         byte[] buf = new byte[81920];
                         uint soFar = 0;
                         using (ZlibStream decompressStream = new ZlibStream(sourceStream, CompressionMode.Decompress))

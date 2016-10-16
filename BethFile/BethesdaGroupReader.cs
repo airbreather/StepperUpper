@@ -36,7 +36,7 @@ namespace BethFile
             }
         }
 
-        public unsafe BethesdaGroupReaderState Read()
+        public BethesdaGroupReaderState Read()
         {
             switch (this.state)
             {
