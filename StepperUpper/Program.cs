@@ -362,7 +362,9 @@ namespace StepperUpper
             // load the master.
             Task<Record> skyrimMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + "Skyrim.esm.bak"));
             Task<Record> updateMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + "Update.esm.bak"));
-            Task<Record> baselineUpdateMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + "Update.esm.true"));
+
+            ////Task<Record> baselineUpdateMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + "Update.esm.true"));
+            Task<Record> baselineUpdateMasterTask = Task.FromException<Record>(new InvalidOperationException("You forgot to swap this line with the one above it."));
 
             uint[] udrs = { 0x2BD60, 0x81979, 0x109CD2 };
             HashSet<uint> deletes = new HashSet<uint> { 0x9418, 0x95B0, 0x13384, 0x133A5, 0x142ED, 0x1691F, 0x19E53, 0x1A26F, 0x1A270, 0x1A332, 0x1B07F, 0x1BB9B, 0x20554, 0x206AE, 0x21553, 0x223E7, 0x242BA, 0x26C4D, 0x2850A, 0x28923, 0x2E655, 0x35369, 0x3636C, 0x36516, 0x38382, 0x3ECD5, 0x45923, 0x4D8E2, 0x54B6F, 0x74069, 0x76F44, 0x76F45, 0x7DCFC, 0x93807, 0x95125, 0x9B239, 0x9BA65, 0x9CCD3, 0x9CCD4, 0x9DD77, 0x9F179, 0x9F823, 0xA6D5E, 0xA6D5F, 0xA6D60, 0xA6D61, 0xABD88, 0xABD96, 0xB702D, 0xBAC24, 0xBD77F, 0xBD78C, 0xC0ED9, 0xC4F2D, 0xCBA9A, 0xD7886, 0xD93FA, 0xD9431, 0xD944F, 0xE1720, 0xE1726, 0xE1727, 0xE519C, 0xE6DF1, 0xE89EF, 0xF9956, 0xFE946, 0xFE94B, 0xFE950, 0x100EFB, 0x102ED2, 0x104D27, 0x106CE9, 0x106CEA, 0x108A63, 0x10C064, 0x10C065, 0x10D2AD, 0x10D2AE, 0x10E3BF, 0x10F8AC, 0x10F8B0, 0x10FEA3, 0x10FEA4, 0x10FEA5 };
@@ -429,7 +431,9 @@ namespace StepperUpper
         {
             deletes.UnionWith(udrs);
             Task<Record> dlcMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + dlcName + ".esm.bak"));
-            Task<Record> baselineDlcMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + dlcName + ".esm.true"));
+
+            ////Task<Record> baselineDlcMasterTask = Task.Run(() => LoadPluginAsync(BaseDirectory + dlcName + ".esm.true"));
+            Task<Record> baselineDlcMasterTask = Task.FromException<Record>(new InvalidOperationException("You forgot to swap this line with the one above it."));
 
             Record dlcMaster = await dlcMasterTask.ConfigureAwait(false);
             Doer.PerformDeletes(dlcMaster, deletes);
@@ -458,7 +462,11 @@ namespace StepperUpper
             Console.WriteLine("Finished saving " + name + ".");
 
             // uncomment if something changes and I need to go back to this part again.
-            /*
+            ////await DebuggingThingAsync(cleaned, origTask, name).ConfigureAwait(false);
+        }
+
+        private static async Task DebuggingThingAsync(Record cleaned, Task<Record> origTask, string name)
+        {
             var sortedMine = Doer.Sort(cleaned);
             using (var fl = File.CreateText(BaseDirectory + name + ".dsc_mine.txt"))
             {
@@ -472,7 +480,6 @@ namespace StepperUpper
             }
 
             Console.WriteLine("All that debugging stuff is finished for " + name + " now.");
-            */
         }
 
         #endregion PluginCleaningTest
