@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using static System.FormattableString;
@@ -10,11 +9,11 @@ namespace BethFile.Editor
 {
     public sealed class Record
     {
-        public static readonly B4S DummyType = new B4S("FUCK");
-
-        private readonly Task initTask = Task.CompletedTask;
+        public static readonly B4S DummyType = new B4S("eggs");
 
         private readonly List<Field> fields = new List<Field>();
+
+        private Task initTask;
 
         public Record()
         {
@@ -23,10 +22,31 @@ namespace BethFile.Editor
         public Record(Record copyFrom)
         {
             this.CopyHeadersFrom(copyFrom);
-            this.OriginalCompressedFieldData = (byte[])copyFrom.OriginalCompressedFieldData?.Clone();
-            this.initTask = copyFrom.initTask.ContinueWith(t => this.fields.AddRange(copyFrom.Fields), TaskContinuationOptions.ExecuteSynchronously);
+            Task otherTask = copyFrom.initTask;
+            this.CompressedFieldData = copyFrom.CompressedFieldData;
+            if (otherTask != null)
+            {
+                this.initTask = otherTask.ContinueWith(t =>
+                {
+                    this.fields.Capacity = copyFrom.fields.Count;
+                    foreach (var field in copyFrom.Fields)
+                    {
+                        this.fields.Add(new Field(field));
+                    }
 
-            this.Subgroups = new List<Group>(copyFrom.Subgroups.Count);
+                    this.initTask = null;
+                }, TaskContinuationOptions.ExecuteSynchronously);
+            }
+            else
+            {
+                this.fields.Capacity = copyFrom.fields.Count;
+                foreach (var field in copyFrom.fields)
+                {
+                    this.fields.Add(new Field(field));
+                }
+            }
+
+            this.Subgroups.Capacity = copyFrom.Subgroups.Count;
             foreach (var subgroup in copyFrom.Subgroups)
             {
                 this.Subgroups.Add(new Group(subgroup) { Parent = this });
@@ -36,7 +56,11 @@ namespace BethFile.Editor
         public Record(BethesdaFile copyFrom)
             : this(copyFrom.HeaderRecord)
         {
-            this.Subgroups.AddRange(copyFrom.TopGroups.Select(g => new Group(g) { Parent = this }));
+            this.Subgroups.Capacity = copyFrom.TopGroups.Length;
+            foreach (var g in copyFrom.TopGroups)
+            {
+                this.Subgroups.Add(new Group(g) { Parent = this });
+            }
         }
 
         public Record(BethesdaRecord copyFrom)
@@ -49,8 +73,12 @@ namespace BethFile.Editor
             this.UNKNOWN_22 = copyFrom.UNKNOWN_22;
             if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
             {
-                this.OriginalCompressedFieldData = copyFrom.Payload.ToArray();
-                this.initTask = Task.Run(() => this.CopyFieldsFrom(copyFrom.Fields));
+                this.CompressedFieldData = copyFrom.Payload.ToArray();
+                this.initTask = Task.Run(() =>
+                {
+                    this.CopyFieldsFrom(copyFrom.Fields);
+                    this.initTask = null;
+                });
             }
             else
             {
@@ -72,13 +100,13 @@ namespace BethFile.Editor
 
         public ushort UNKNOWN_22 { get; set; }
 
-        public byte[] OriginalCompressedFieldData { get; set; }
+        public byte[] CompressedFieldData { get; set; }
 
         public List<Field> Fields
         {
             get
             {
-                this.initTask.Wait();
+                this.initTask?.Wait();
                 return this.fields;
             }
         }

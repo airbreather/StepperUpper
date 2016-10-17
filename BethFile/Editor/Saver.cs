@@ -45,7 +45,7 @@ namespace BethFile.Editor
                 idx += 4;
             }
 
-            root.OriginalCompressedFieldData = null;
+            root.CompressedFieldData = null;
 
             UBitConverter.SetUInt32(new UArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
         }
@@ -144,8 +144,8 @@ namespace BethFile.Editor
         }
 
         private static byte[] GetCompressedPayload(Record record) =>
-            record.OriginalCompressedFieldData ??
-                (record.OriginalCompressedFieldData = Zlib.Compress(GetUncompressedPayload(record)));
+            record.CompressedFieldData ??
+                (record.CompressedFieldData = Zlib.Compress(GetUncompressedPayload(record)));
 
         private static byte[] GetUncompressedPayload(Record record)
         {

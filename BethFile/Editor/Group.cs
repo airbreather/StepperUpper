@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 using static System.FormattableString;
 
@@ -14,7 +13,11 @@ namespace BethFile.Editor
         public Group(Group copyFrom)
         {
             this.CopyHeadersFrom(copyFrom);
-            this.Records.AddRange(copyFrom.Records.Select(rec => new Record(rec)));
+            this.Records.Capacity = copyFrom.Records.Count;
+            foreach (var rec in copyFrom.Records)
+            {
+                this.Records.Add(new Record(rec));
+            }
         }
 
         public Group(BethesdaGroup copyFrom)

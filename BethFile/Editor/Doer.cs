@@ -148,7 +148,7 @@ namespace BethFile.Editor
 
                 UBitConverter.SetUInt32(xespField.Payload, 0, 0x14);
                 UBitConverter.SetUInt32(xespField.Payload, 4, 0x01);
-                orig.OriginalCompressedFieldData = null;
+                orig.CompressedFieldData = null;
 
                 MergeInto(orig, root);
             }
@@ -193,7 +193,7 @@ namespace BethFile.Editor
 
             rec.Subgroups.Sort(GroupComparer.Instance);
             rec.Fields.Sort(FieldComparer.Instance);
-            rec.OriginalCompressedFieldData = null;
+            rec.CompressedFieldData = null;
         }
 
         private static void SortCore(Group grp)
@@ -213,6 +213,7 @@ namespace BethFile.Editor
                 if (rec.Flags.HasFlag(BethesdaRecordFlags.Deleted))
                 {
                     rec.Fields.Clear();
+                    rec.CompressedFieldData = null;
                 }
 
                 switch (rec.RecordType)
@@ -226,7 +227,7 @@ namespace BethFile.Editor
                             }
 
                             field.Payload = CompressDNAM(field.Payload);
-                            rec.OriginalCompressedFieldData = null;
+                            rec.CompressedFieldData = null;
                             break;
                         }
 
@@ -241,7 +242,7 @@ namespace BethFile.Editor
                                 case _OFST:
                                 case _RNAM:
                                     flds.RemoveAt(i--);
-                                    rec.OriginalCompressedFieldData = null;
+                                    rec.CompressedFieldData = null;
                                     break;
                             }
                         }
@@ -261,7 +262,7 @@ namespace BethFile.Editor
                             payload[12] &= unchecked((byte)(~0x40));
                             payload[41] &= unchecked((byte)(~0x01));
 
-                            rec.OriginalCompressedFieldData = null;
+                            rec.CompressedFieldData = null;
                         }
 
                         break;
@@ -270,17 +271,13 @@ namespace BethFile.Editor
                     case _REFR:
                         foreach (var field in rec.Fields)
                         {
-                            if (field.FieldType != XLOC)
+                            if (field.FieldType != XLOC || field.Payload[0] != 0)
                             {
                                 continue;
                             }
 
-                            if (field.Payload[0] == 0)
-                            {
-                                field.Payload[0] = 1;
-                            }
-
-                            rec.OriginalCompressedFieldData = null;
+                            field.Payload[0] = 1;
+                            rec.CompressedFieldData = null;
                         }
 
                         break;
@@ -304,7 +301,7 @@ namespace BethFile.Editor
                             Payload = new byte[12],
                         });
 
-                        rec.OriginalCompressedFieldData = null;
+                        rec.CompressedFieldData = null;
                         break;
                 }
             }
