@@ -154,6 +154,19 @@ namespace BethFile.Editor
             }
         }
 
+        public static void DeleteField(Record root, uint recordId, B4S fieldType)
+        {
+            var q = from record in FindRecords(root).AsParallel()
+                    where record.Id == recordId
+                    from field in record.Fields
+                    where field.FieldType == fieldType
+                    select new { Record = record, Field = field };
+
+            var result = q.First();
+            result.Record.Fields.Remove(result.Field);
+            result.Record.CompressedFieldData = null;
+        }
+
         public static IEnumerable<Record> FindRecords(Record rec)
         {
             Stack<Record> stack = new Stack<Record>();
