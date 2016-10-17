@@ -166,9 +166,12 @@ namespace BethFile.Editor
                     yield return rec;
                 }
 
-                foreach (var rec2 in rec.Subgroups.SelectMany(grp => grp.Records))
+                foreach (var subgroup in rec.Subgroups)
                 {
-                    stack.Push(rec2);
+                    foreach (var rec2 in subgroup.Records)
+                    {
+                        stack.Push(rec2);
+                    }
                 }
             }
         }
