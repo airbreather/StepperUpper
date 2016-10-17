@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 using static System.FormattableString;
 using static BethFile.B4S;
@@ -11,9 +10,7 @@ namespace BethFile.Editor
     {
         public static readonly B4S DummyType = new B4S("eggs");
 
-        private readonly List<Field> fields = new List<Field>();
-
-        private Task initTask;
+        private Lazy<List<Field>> fields = new Lazy<List<Field>>();
 
         public Record()
         {
@@ -22,28 +19,18 @@ namespace BethFile.Editor
         public Record(Record copyFrom)
         {
             this.CopyHeadersFrom(copyFrom);
-            Task otherTask = copyFrom.initTask;
             this.CompressedFieldData = copyFrom.CompressedFieldData;
-            if (otherTask != null)
-            {
-                this.initTask = otherTask.ContinueWith(t =>
-                {
-                    this.fields.Capacity = copyFrom.fields.Count;
-                    foreach (var field in copyFrom.Fields)
-                    {
-                        this.fields.Add(new Field(field));
-                    }
 
-                    this.initTask = null;
-                }, TaskContinuationOptions.ExecuteSynchronously);
+            Lazy<List<Field>> otherFields = copyFrom.fields;
+            if (otherFields.IsValueCreated)
+            {
+                List<Field> myFields = new List<Field>(otherFields.Value);
+                this.fields = new Lazy<List<Field>>(() => myFields);
+                this.MakeFieldsNotLazy();
             }
             else
             {
-                this.fields.Capacity = copyFrom.fields.Count;
-                foreach (var field in copyFrom.fields)
-                {
-                    this.fields.Add(new Field(field));
-                }
+                this.fields = new Lazy<List<Field>>(() => new List<Field>(otherFields.Value));
             }
 
             this.Subgroups.Capacity = copyFrom.Subgroups.Count;
@@ -74,15 +61,13 @@ namespace BethFile.Editor
             if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
             {
                 this.CompressedFieldData = copyFrom.Payload.ToArray();
-                this.initTask = Task.Run(() =>
-                {
-                    this.CopyFieldsFrom(copyFrom.Fields);
-                    this.initTask = null;
-                });
+                this.fields = new Lazy<List<Field>>(() => CopyFieldsFrom(copyFrom.Fields));
             }
             else
             {
-                this.CopyFieldsFrom(copyFrom.Fields);
+                List<Field> myFields = CopyFieldsFrom(copyFrom.Fields);
+                this.fields = new Lazy<List<Field>>(() => myFields);
+                this.MakeFieldsNotLazy();
             }
         }
 
@@ -106,8 +91,14 @@ namespace BethFile.Editor
         {
             get
             {
-                this.initTask?.Wait();
-                return this.fields;
+                List<Field> result;
+                if (!this.fields.IsValueCreated)
+                {
+                    result = new List<Field>(this.fields.Value);
+                    this.fields = new Lazy<List<Field>>(() => result);
+                }
+
+                return this.fields.Value;
             }
         }
 
@@ -127,8 +118,10 @@ namespace BethFile.Editor
 
         public override string ToString() => Invariant($"[{this.RecordType}:{this.Id:X8}]");
 
-        private void CopyFieldsFrom(IEnumerable<BethesdaField> source)
+        private static List<Field> CopyFieldsFrom(IEnumerable<BethesdaField> source)
         {
+            List<Field> result = new List<Field>();
+
             uint? offsides = null;
             foreach (BethesdaField field in source)
             {
@@ -140,13 +133,23 @@ namespace BethFile.Editor
 
                 byte[] payload = new byte[offsides ?? field.StoredSize];
                 Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
-                this.fields.Add(new Field
+                result.Add(new Field
                 {
                     FieldType = field.FieldType,
                     Payload = payload
                 });
 
                 offsides = null;
+            }
+
+            return result;
+        }
+
+        private void MakeFieldsNotLazy()
+        {
+            if (!this.fields.IsValueCreated && this.fields.Value == null)
+            {
+                throw new Exception("This is not actually possible unless there's a bug in Lazy<T>.");
             }
         }
     }
