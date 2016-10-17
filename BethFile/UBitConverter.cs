@@ -24,8 +24,6 @@ namespace BethFile
         public static long ToInt64(UArraySegment<byte> value, uint startIndex) => ToInt64(value.Array, value.Offset + startIndex);
         public static ulong ToUInt64(UArraySegment<byte> value, uint startIndex) => ToUInt64(value.Array, value.Offset + startIndex);
 
-        public static uint ToUInt32(byte[] value, uint startIndex) => unchecked((uint)ToInt32(value, startIndex));
-
         public static void SetUInt32(byte[] arr, uint startIndex, uint val) => SetUInt32(new UArrayPosition<byte>(arr) + startIndex, val);
         public static unsafe void SetUInt32(UArrayPosition<byte> pos, uint val)
         {
@@ -53,6 +51,7 @@ namespace BethFile
             }
         }
 
+        public static uint ToUInt32(byte[] value, uint startIndex) => unchecked((uint)ToInt32(value, startIndex));
         public static unsafe int ToInt32(byte[] value, uint startIndex)
         {
             value.ValidateNotNull(nameof(value));
@@ -74,7 +73,6 @@ namespace BethFile
         }
 
         public static ushort ToUInt16(byte[] value, uint startIndex) => unchecked((ushort)ToInt16(value, startIndex));
-
         public static unsafe short ToInt16(byte[] value, uint startIndex)
         {
             value.ValidateNotNull(nameof(value));
@@ -96,7 +94,6 @@ namespace BethFile
         }
 
         public static ulong ToUInt64(byte[] value, uint startIndex) => unchecked((ulong)ToInt64(value, startIndex));
-
         public static unsafe long ToInt64(byte[] value, uint startIndex)
         {
             value.ValidateNotNull(nameof(value));
