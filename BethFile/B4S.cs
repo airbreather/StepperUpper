@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
 namespace BethFile
@@ -108,7 +107,11 @@ namespace BethFile
 
         public unsafe B4S(string val)
         {
-            if (val?.Length != 4 || val.Max() > 127)
+            if (val?.Length != 4 ||
+                val[0] > 127 ||
+                val[1] > 127 ||
+                val[2] > 127 ||
+                val[3] > 127)
             {
                 this.val = 0;
                 return;
