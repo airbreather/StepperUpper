@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-
-using AirBreather;
 
 using static BethFile.B4S;
 
@@ -23,7 +20,7 @@ namespace BethFile.Editor
         private static void FinalizeHeader(Record root)
         {
             var onamField = root.Fields.Single(f => f.FieldType == ONAM);
-            HashSet<uint> prevOnams = Doer.GetOnams(root).ToHashSet();
+            HashSet<uint> prevOnams = Doer.GetOnams(root);
             List<uint> currOnams = new List<uint>(prevOnams.Count);
             foreach (Record rec in Doer.FindRecords(root))
             {
@@ -38,11 +35,11 @@ namespace BethFile.Editor
 
             onamField.Payload = new byte[unchecked((uint)(onamsArray.Length) * 4u)];
 
-            uint idx = 0;
+            UArrayPosition<byte> pos = new UArrayPosition<byte>(onamField.Payload);
             foreach (uint onam in onamsArray)
             {
-                UBitConverter.SetUInt32(onamField.Payload, idx, onam);
-                idx += 4;
+                UBitConverter.SetUInt32(pos, onam);
+                pos += 4;
             }
 
             root.CompressedFieldData = null;
@@ -175,7 +172,6 @@ namespace BethFile.Editor
                 pos += 2;
 
                 UBuffer.BlockCopy(field.Payload, 0, pos, 0, fieldLength);
-
                 pos += fieldLength;
             }
 

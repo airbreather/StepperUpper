@@ -9,11 +9,6 @@ namespace BethFile.Editor
     {
         public static bool IsIdentical(this Record curr, Record master)
         {
-            if (curr.Id == 0x13344)
-            {
-                int xx = 0;
-            }
-
             if (master == null ||
                 curr.Id != master.Id ||
                 curr.Flags != master.Flags ||

@@ -9,7 +9,7 @@ namespace BethFile.Editor
 {
     public static class Doer
     {
-        public static IEnumerable<uint> GetOnams(Record root)
+        public static HashSet<uint> GetOnams(Record root)
         {
             HashSet<uint> onams = new HashSet<uint>();
             var onamField = root.Fields.Single(f => f.FieldType == ONAM);
@@ -17,11 +17,10 @@ namespace BethFile.Editor
             for (int i = 0; i < oldOnamData.Length; i += 4)
             {
                 uint onam = BitConverter.ToUInt32(oldOnamData, i);
-                if (onams.Add(onam))
-                {
-                    yield return onam;
-                }
+                onams.Add(onam);
             }
+
+            return onams;
         }
 
         // not working right now.
@@ -346,13 +345,6 @@ namespace BethFile.Editor
             return itemCount;
         }
 
-        public static uint CountItems(Group grp)
-        {
-            uint itemCount = 0;
-            CountItems(grp, ref itemCount);
-            return itemCount;
-        }
-
         private static void CountItems(Group grp, ref uint i)
         {
             ++i;
@@ -372,55 +364,6 @@ namespace BethFile.Editor
             foreach (var grp in rec.Subgroups)
             {
                 CountItems(grp, ref i);
-            }
-        }
-
-        public static IEnumerable<object> Iterate(Record root)
-        {
-            bool first = true;
-            Stack<object> results = new Stack<object>();
-            results.Push(root);
-            while (results.Count != 0)
-            {
-                object curr = results.Pop();
-                if (first)
-                {
-                    first = false;
-                }
-                else
-                {
-                    yield return curr;
-                }
-
-                Record rec = curr as Record;
-                if (rec == null)
-                {
-                    goto currIsSubgroup;
-                }
-
-                foreach (Group subgroup in rec.Subgroups.AsEnumerable().Reverse())
-                {
-                    results.Push(subgroup);
-                }
-
-                continue;
-
-                currIsSubgroup:
-                Group grp = (Group)curr;
-                foreach (Record subrecord in grp.Records.AsEnumerable().Reverse())
-                {
-                    if (subrecord.IsDummy)
-                    {
-                        foreach (Group subgroup in subrecord.Subgroups.AsEnumerable().Reverse())
-                        {
-                            results.Push(subgroup);
-                        }
-
-                        continue;
-                    }
-
-                    results.Push(subrecord);
-                }
             }
         }
 

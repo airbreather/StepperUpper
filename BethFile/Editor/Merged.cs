@@ -18,7 +18,7 @@ namespace BethFile.Editor
         public void AddRoot(Record root)
         {
             this.roots.Add(root);
-            this.allRecords.Add(Doer.Iterate(root).OfType<Record>().ToDictionary(rec => rec.Id));
+            this.allRecords.Add(Doer.FindRecords(root).ToDictionary(rec => rec.Id));
         }
 
         public ReadOnlyCollection<Record> Roots { get; }

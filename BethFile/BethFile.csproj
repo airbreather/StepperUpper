@@ -62,7 +62,6 @@
     <Compile Include="BethesdaGroupType.cs" />
     <Compile Include="BethesdaRecord.cs" />
     <Compile Include="BethesdaRecordFlags.cs" />
-    <Compile Include="BethesdaRecordType.cs" />
     <Compile Include="BethesdaField.cs" />
     <Compile Include="Editor\Comparers.cs" />
     <Compile Include="Editor\Doer.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="Editor\Rules.cs" />
     <Compile Include="Editor\Saver.cs" />
     <Compile Include="Editor\Visitor.cs" />
-    <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UArrayPosition.cs" />
     <Compile Include="UArraySegment.cs" />
