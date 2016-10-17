@@ -94,24 +94,26 @@ namespace BethFile.Editor
 
                 if (orig.Flags.HasFlag(BethesdaRecordFlags.PersistentReference) && orig.Parent.GroupType != BethesdaGroupType.CellPersistentChildren)
                 {
-                    Record cellParent = null;
+                    Record wrldParent = null;
 
                     // persistent children of the HIGHEST cell in the world
                     while (orig.Parent != null)
                     {
                         Record rrrr = orig.Parent.Parent;
-                        if (rrrr.RecordType == CELL)
+                        if (rrrr.RecordType == WRLD)
                         {
-                            cellParent = rrrr;
+                            wrldParent = rrrr;
                         }
 
                         orig.Parent = rrrr.Parent;
                     }
 
-                    // origParent is CellChildren
-                    // recordParent is the cell
-                    orig.Parent = cellParent.Subgroups
-                                            .First(g => g.GroupType == BethesdaGroupType.CellChildren)
+                    orig.Parent = wrldParent.Subgroups
+                                            .Single(g => g.GroupType == BethesdaGroupType.WorldChildren)
+                                            .Records
+                                            .Single(r => r.RecordType == CELL)
+                                            .Subgroups
+                                            .Single(g => g.GroupType == BethesdaGroupType.CellChildren)
                                             .Records
                                             .Single()
                                             .Subgroups
