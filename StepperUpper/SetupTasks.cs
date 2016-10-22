@@ -196,9 +196,12 @@ namespace StepperUpper
         {
             FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("File").Value));
             file.Directory.Create();
-            Encoding encoding;
-            switch (taskElement.Attribute("Encoding").Value)
+            Encoding encoding = null;
+            switch (taskElement.Attribute("Encoding")?.Value)
             {
+                case null:
+                    break;
+
                 case "UTF8NoBOM":
                     encoding = EncodingEx.UTF8NoBOM;
                     break;
@@ -208,11 +211,21 @@ namespace StepperUpper
             }
 
             using (FileStream stream = AsyncFile.CreateSequential(file.FullName))
-            using (StreamWriter writer = new StreamWriter(stream, encoding, 4096, true))
             {
-                foreach (string line in taskElement.Elements("Line").Select(l => l.Value))
+                if (encoding != null)
                 {
-                    await writer.WriteLineAsync(line).ConfigureAwait(false);
+                    using (StreamWriter writer = new StreamWriter(stream, encoding, 4096, true))
+                    {
+                        foreach (string line in taskElement.Elements("Line").Select(l => l.Value))
+                        {
+                            await writer.WriteLineAsync(line).ConfigureAwait(false);
+                        }
+                    }
+                }
+                else
+                {
+                    byte[] buf = Convert.FromBase64String(taskElement.Value);
+                    await stream.WriteAsync(buf, 0, buf.Length).ConfigureAwait(false);
                 }
             }
         }
