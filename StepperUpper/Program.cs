@@ -61,7 +61,8 @@ namespace StepperUpper
             {
                 string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
                 docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
-                                 .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"));
+                                 .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
+                                 .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
                 doc = XDocument.Parse(docText);
             }
 
