@@ -38,6 +38,9 @@ namespace StepperUpper
             this.X1 = BitConverter.ToUInt64(buf, 8);
         }
 
+        public static bool operator ==(Md5Checksum first, Md5Checksum second) => first.Equals(second);
+        public static bool operator !=(Md5Checksum first, Md5Checksum second) => !first.Equals(second);
+
         public bool Equals(Md5Checksum other) => this.X0 == other.X0 && this.X1 == other.X1;
 
         public override bool Equals(object obj) => obj is Md5Checksum && this.Equals((Md5Checksum)obj);
@@ -70,7 +73,7 @@ namespace StepperUpper
         }
     }
 
-    internal class CachedMd5
+    internal static class CachedMd5
     {
         internal static IObservable<FileWithChecksum> Calculate(IObservable<FileInfo> files) =>
             files
@@ -110,7 +113,7 @@ namespace StepperUpper
                     Md5Checksum checksum = new Md5Checksum(hash);
                     using (FileStream cachedStream = AsyncFile.CreateSequential(cachedChecksum.FullName))
                     {
-                        byte[] buf = EncodingEx.UTF8NoBOM.GetBytes(Invariant($"{checksum.ToString()} *{file.Name}{Environment.NewLine}"));
+                        byte[] buf = EncodingEx.UTF8NoBOM.GetBytes(Invariant($"{checksum} *{file.Name}{Environment.NewLine}"));
                         await cachedStream.WriteAsync(buf, 0, buf.Length).ConfigureAwait(false);
                     }
 

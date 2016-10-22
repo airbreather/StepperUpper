@@ -1,34 +1,44 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+using System.Threading;
 
 namespace BethFile.Editor
 {
     public sealed class Merged
     {
-        private readonly List<Record> roots = new List<Record>();
+        private readonly Dictionary<uint, Record>[] allRecords;
 
-        private readonly List<Dictionary<uint, Record>> allRecords = new List<Dictionary<uint, Record>>();
-
-        public Merged()
+        public Merged(int masterCount)
         {
-            this.Roots = this.roots.AsReadOnly();
+            this.allRecords = new Dictionary<uint, Record>[masterCount];
         }
 
-        public void AddRoot(Record root)
+        public bool IsFinalized
         {
-            this.roots.Add(root);
-            this.allRecords.Add(Doer.FindRecords(root).ToDictionary(rec => rec.Id));
+            get
+            {
+                for (int i = 0; i < this.allRecords.Length; i++)
+                {
+                    if ((this.allRecords[i] ?? Volatile.Read(ref this.allRecords[i])) == null)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
         }
 
-        public ReadOnlyCollection<Record> Roots { get; }
+        public void SetRoot(int index, Dictionary<uint, Record> map)
+        {
+            Volatile.Write(ref this.allRecords[index], map);
+        }
 
         public Record FindRecord(uint id)
         {
-            foreach (var mapping in this.allRecords)
+            for (int i = 0; i < this.allRecords.Length; i++)
             {
                 Record rec;
-                if (mapping.TryGetValue(id, out rec))
+                if ((this.allRecords[i] ?? Volatile.Read(ref this.allRecords[i])).TryGetValue(id, out rec))
                 {
                     return rec;
                 }

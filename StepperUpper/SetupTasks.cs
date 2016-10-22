@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 using AirBreather.IO;
 using AirBreather.Text;
+
+using BethFile;
+
+using static StepperUpper.Cleaner;
 
 namespace StepperUpper
 {
@@ -29,8 +35,7 @@ namespace StepperUpper
                     return WriteEmbeddedFileAsync(taskElement, dumpDirectory);
 
                 case "Clean":
-                    Console.WriteLine("TODO: This is a placeholder for code that'll automatically run plugin cleaning.");
-                    return Task.CompletedTask;
+                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory)));
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -211,5 +216,47 @@ namespace StepperUpper
                 }
             }
         }
+
+        private static IEnumerable<PluginForCleaning> GetPlugins(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory)
+        {
+            var pluginsForCleaning = new List<PluginForCleaning>();
+            foreach (var el in taskElement.Elements("Plugin"))
+            {
+                FileInfo fl;
+                string outputPath;
+                string name;
+
+                string inputPath = el.Attribute("Path")?.Value;
+                string dirtyFile = el.Attribute("DirtyFile")?.Value;
+                if (inputPath != null)
+                {
+                    fl = new FileInfo(Path.Combine(dumpDirectory.FullName, inputPath));
+                    outputPath = name = fl.FullName;
+                }
+                else if (dirtyFile != null)
+                {
+                    fl = knownFiles[name = dirtyFile];
+                    FileInfo outputFile = new FileInfo(Path.Combine(dumpDirectory.FullName, el.Attribute("OutputPath").Value));
+                    outputFile.Directory.Create();
+                    outputPath = outputFile.FullName;
+                }
+                else
+                {
+                    fl = knownFiles[name = el.Attribute("CleanFile").Value];
+                    outputPath = null;
+                }
+
+                yield return new PluginForCleaning(
+                    name: name,
+                    outputFilePath: outputPath,
+                    dirtyFile: fl,
+                    parentNames: el.Elements("Master").Select(el2 => el2.Attribute("File").Value),
+                    recordsToDelete: TokenizeIds(el.Element("Delete")?.Attribute("Ids").Value),
+                    recordsToUDR: TokenizeIds(el.Element("UDR")?.Attribute("Ids").Value),
+                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))));
+            }
+        }
+
+        private static IEnumerable<uint> TokenizeIds(string ids) => Program.Tokenize(ids).Select(id => UInt32.Parse(id, NumberStyles.HexNumber, CultureInfo.InvariantCulture));
     }
 }

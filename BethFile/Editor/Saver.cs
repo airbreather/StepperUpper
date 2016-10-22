@@ -19,7 +19,12 @@ namespace BethFile.Editor
 
         private static void FinalizeHeader(Record root)
         {
-            var onamField = root.Fields.Single(f => f.FieldType == ONAM);
+            var onamField = root.Fields.SingleOrDefault(f => f.FieldType == ONAM);
+            if (onamField == null)
+            {
+                goto afterOnam;
+            }
+
             HashSet<uint> prevOnams = Doer.GetOnams(root);
             List<uint> currOnams = new List<uint>(prevOnams.Count);
             foreach (Record rec in Doer.FindRecords(root))
@@ -44,6 +49,7 @@ namespace BethFile.Editor
 
             root.CompressedFieldData = null;
 
+            afterOnam:
             UBitConverter.SetUInt32(new UArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
         }
 
