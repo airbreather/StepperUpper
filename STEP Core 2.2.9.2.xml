@@ -1062,7 +1062,7 @@
 				     these, at least for now?  the answer is left as an exercise for the reader. -->
 				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
 				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4096" />
-				<Set Section="MEMORY" Property="UsePatchSpeedhackWithoutGraphics" Value="true" />
+				<Set Section="MEMORY" Property="AutodetectVideoMemorySize" Value="false" />
 
 				<Set Section="ENGINE" Property="EnableVSync" Value="true" />
 				<Set Section="ENGINE" Property="VSyncSkipNumFrames" Value="0" />
