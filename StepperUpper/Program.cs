@@ -177,8 +177,7 @@ namespace StepperUpper
             DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
             if (dumpDirectory.Exists)
             {
-                DeleteDirectory(dumpDirectory);
-                await Task.Yield();
+                await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
             }
 
             dumpDirectory.Create();
@@ -205,10 +204,8 @@ namespace StepperUpper
             return 0;
         }
 
-        internal static void MoveDirectory(DirectoryInfo fromDirectory, DirectoryInfo toDirectory)
+        internal static async Task MoveDirectoryAsync(DirectoryInfo fromDirectory, DirectoryInfo toDirectory)
         {
-            fromDirectory.Refresh();
-            toDirectory.Refresh();
             try
             {
                 fromDirectory.MoveTo(toDirectory.FullName);
@@ -216,52 +213,72 @@ namespace StepperUpper
             }
             catch
             {
-                // you knew it wouldn't be this easy every time.
+                // if it were this easy every time, I wouldn't need this...
             }
 
-            foreach (FileInfo file in fromDirectory.GetFiles())
-            {
-                string targetPath = Path.Combine(toDirectory.FullName, file.Name);
-                if (File.Exists(targetPath))
-                {
-                    File.SetAttributes(targetPath, FileAttributes.Normal);
-                    File.Delete(targetPath);
-                }
-
-                file.MoveTo(Path.Combine(toDirectory.FullName, file.Name));
-            }
-
-            foreach (DirectoryInfo subFromDirectory in fromDirectory.GetDirectories())
-            {
-                MoveDirectory(subFromDirectory, toDirectory.CreateSubdirectory(subFromDirectory.Name));
-            }
-
-            DeleteDirectory(fromDirectory);
-            toDirectory.Refresh();
+            await Task.WhenAll(
+                Task.WhenAll(Array.ConvertAll(fromDirectory.GetFiles(), f => MoveFileAsync(f, new FileInfo(Path.Combine(toDirectory.FullName, f.Name))))),
+                Task.WhenAll(Array.ConvertAll(fromDirectory.GetDirectories(), d => MoveDirectoryAsync(d, toDirectory.CreateSubdirectory(d.Name))))).ConfigureAwait(false);
+            await DeleteDirectoryAsync(fromDirectory).ConfigureAwait(false);
         }
 
-        internal static void DeleteDirectory(DirectoryInfo directory)
+        internal static async Task MoveFileAsync(FileInfo fromFile, FileInfo toFile)
         {
+            if (toFile.Exists)
+            {
+                await DeleteFileAsync(toFile).ConfigureAwait(false);
+            }
+
             while (true)
             {
                 try
                 {
-                    foreach (FileInfo info in directory.GetFiles())
-                    {
-                        info.Attributes = FileAttributes.Normal;
-                        info.Delete();
-                    }
+                    fromFile.MoveTo(toFile.FullName);
+                    return;
+                }
+                catch
+                {
+                    await Task.Delay(0).ConfigureAwait(false);
+                }
+            }
+        }
 
-                    foreach (DirectoryInfo info in directory.GetDirectories())
-                    {
-                        DeleteDirectory(info);
-                    }
+        internal static async Task DeleteDirectoryAsync(DirectoryInfo directory)
+        {
+            await DeleteChildrenAsync(directory).ConfigureAwait(false);
 
+            while (true)
+            {
+                try
+                {
                     directory.Delete();
                     return;
                 }
                 catch
                 {
+                    await Task.Delay(0).ConfigureAwait(false);
+                }
+            }
+        }
+
+        internal static Task DeleteChildrenAsync(DirectoryInfo directory) =>
+            Task.WhenAll(
+                Task.WhenAll(Array.ConvertAll(directory.GetFiles(), DeleteFileAsync)),
+                Task.WhenAll(Array.ConvertAll(directory.GetDirectories(), DeleteDirectoryAsync)));
+
+        internal static async Task DeleteFileAsync(FileInfo file)
+        {
+            while (true)
+            {
+                try
+                {
+                    file.Attributes = FileAttributes.Normal;
+                    file.Delete();
+                    return;
+                }
+                catch
+                {
+                    await Task.Delay(0).ConfigureAwait(false);
                 }
             }
         }

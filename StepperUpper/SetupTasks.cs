@@ -105,7 +105,7 @@ namespace StepperUpper
                         string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
                         DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
 
-                        Program.MoveDirectory(fromDirectory, toDirectory);
+                        await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
                         break;
                     }
 
@@ -136,7 +136,7 @@ namespace StepperUpper
                         string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
                         if (folderToHide != null)
                         {
-                            Program.DeleteDirectory(new DirectoryInfo(pathToHide));
+                            await Program.DeleteDirectoryAsync(new DirectoryInfo(pathToHide)).ConfigureAwait(false);
                         }
                         else
                         {
@@ -154,7 +154,7 @@ namespace StepperUpper
 
             if (explicitDelete)
             {
-                Program.DeleteDirectory(tempDirectory);
+                await Program.DeleteDirectoryAsync(tempDirectory).ConfigureAwait(false);
             }
         }
 
