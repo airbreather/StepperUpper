@@ -99,6 +99,7 @@
     <Compile Include="CachedMd5.cs" />
     <Compile Include="Cleaner.cs" />
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="NonCapturingYield.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ProcessRunner.cs" />

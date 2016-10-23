@@ -239,7 +239,7 @@ namespace StepperUpper
                 }
                 catch
                 {
-                    await Task.Delay(0).ConfigureAwait(false);
+                    await default(NonCapturingYield);
                 }
             }
         }
@@ -257,7 +257,7 @@ namespace StepperUpper
                 }
                 catch
                 {
-                    await Task.Delay(0).ConfigureAwait(false);
+                    await default(NonCapturingYield);
                 }
             }
         }
@@ -279,7 +279,7 @@ namespace StepperUpper
                 }
                 catch
                 {
-                    await Task.Delay(0).ConfigureAwait(false);
+                    await default(NonCapturingYield);
                 }
             }
         }
