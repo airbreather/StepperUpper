@@ -331,7 +331,7 @@ namespace StepperUpper
             {
                 switch (ch)
                 {
-                    case '§':
+                    case '|':
                         yield return sb.MoveToString();
                         break;
 
