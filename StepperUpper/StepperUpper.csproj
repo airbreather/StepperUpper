@@ -96,7 +96,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CachedMd5.cs" />
+    <Compile Include="ConcurrentMd5.cs" />
     <Compile Include="Cleaner.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="NonCapturingYield.cs" />

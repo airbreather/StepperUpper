@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 using AirBreather;
@@ -16,7 +17,7 @@ namespace StepperUpper
 {
     internal static class Cleaner
     {
-        internal static Task DoCleaningAsync(IEnumerable<PluginForCleaning> plugins)
+        internal static Task DoCleaningAsync(IEnumerable<PluginForCleaning> plugins, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
         {
             var parentTasks = new Dictionary<string, TaskCompletionSource<Merged>>();
             var pluginsMap = new Dictionary<string, PluginForCleaning>();
@@ -67,6 +68,7 @@ namespace StepperUpper
                         parentTask.TrySetResult(default(Merged));
                     }
 
+                    await Task.WhenAll(plugin.TaskIds.Select(id => otherTasks[id].Task)).ConfigureAwait(false);
                     var root = await CleanPluginAsync(plugin, parentTask.Task).ConfigureAwait(false);
                     var saver = (plugin.RecordsToDelete.Length | plugin.RecordsToUDR.Length) == 0
                         ? Task.CompletedTask
@@ -93,23 +95,39 @@ namespace StepperUpper
                 }));
             }
 
-            return Task.WhenAll(cleans.Values);
+            // at least at the time of writing, we make a pretty HUGE mess of things on the GC.  the
+            // application's footprint stays kinda high without doing something like this.  this is
+            // probably overkill, but it's enough to get me out of here.
+            return Task.WhenAll(cleans.Values).Finally(new Thread(() =>
+            {
+                Thread.Sleep(100);
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GCUtility.RequestLargeObjectHeapCompaction();
+                GC.Collect();
+            })
+            {
+                IsBackground = true
+            }.Start);
         }
 
         private static async Task<Record> CleanPluginAsync(PluginForCleaning plugin, Task<Merged> parentTask)
         {
-            Record root;
-            using (var fl = AsyncFile.OpenReadSequential(plugin.DirtyFile.FullName))
+            Task<Record> rootTask = LoadPluginAsync(plugin.DirtyFile.FullName);
+
+            var deletes = new HashSet<uint>();
+            foreach (var del in plugin.RecordsToDelete)
             {
-                root = new Record(await new BethesdaFileReader(fl).ReadFileAsync().ConfigureAwait(false));
+                deletes.Add(del);
             }
 
-            var deletes = plugin.RecordsToDelete.ToHashSet();
             var udrs = plugin.RecordsToUDR;
             foreach (var udr in udrs)
             {
                 deletes.Add(udr);
             }
+
+            Record root = await rootTask.ConfigureAwait(false);
 
             Doer.PerformDeletes(root, deletes);
             Doer.PerformUDRs(root, await parentTask.ConfigureAwait(false), udrs);
@@ -121,12 +139,24 @@ namespace StepperUpper
             return root;
         }
 
+        private static async Task<Record> LoadPluginAsync(string path)
+        {
+            BethesdaFile bf;
+            using (var fl = AsyncFile.OpenReadSequential(path))
+            {
+                bf = await new BethesdaFileReader(fl).ReadFileAsync().ConfigureAwait(false);
+            }
+
+            return new Record(bf);
+        }
+
         private static Task SavePluginAsync(Record root, string path)
         {
+            BethesdaFile bf = Saver.Save(root);
             var fl = AsyncFile.CreateSequential(path);
             try
             {
-                return new BethesdaFileWriter(fl).WriteAsync(Saver.Save(root)).Finally(fl.Dispose);
+                return new BethesdaFileWriter(fl).WriteAsync(bf).Finally(fl.Dispose);
             }
             catch
             {
@@ -141,7 +171,7 @@ namespace StepperUpper
         // own cleaning process, but some of it can start right away.
         internal sealed class PluginForCleaning
         {
-            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<FieldToDelete> fieldsToDelete)
+            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<FieldToDelete> fieldsToDelete, IEnumerable<string> taskIds)
             {
                 this.Name = name;
                 this.OutputFilePath = outputFilePath;
@@ -150,6 +180,7 @@ namespace StepperUpper
                 this.RecordsToDelete = recordsToDelete.ToImmutableArray();
                 this.RecordsToUDR = recordsToUDR.ToImmutableArray();
                 this.FieldsToDelete = fieldsToDelete.ToImmutableArray();
+                this.TaskIds = taskIds.ToImmutableArray();
             }
 
             internal string Name { get; }
@@ -165,6 +196,8 @@ namespace StepperUpper
             internal ImmutableArray<uint> RecordsToUDR { get; }
 
             internal ImmutableArray<FieldToDelete> FieldsToDelete { get; }
+
+            internal ImmutableArray<string> TaskIds { get; }
         }
 
         [StructLayout(LayoutKind.Auto)]

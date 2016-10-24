@@ -1841,7 +1841,10 @@
 		</Group>
 
 		<Group Name="X. Final Cleanups">
-			<Clean WaitFor="SFOMain|Brows|Arvak">
+			<!-- Do the expensive cleaning that eats up memory like it's nobody's business,
+			     but also doesn't depend on any extraction tasks and so it can release that memory
+			     as soon as it's done with its own work. -->
+			<Clean>
 				<Plugin CleanFile="Skyrim ESM" />
 
 				<Plugin DirtyFile="Update ESM" OutputPath="ModOrganizer/mods/Cleaned Update ESM/Update.esm">
@@ -1878,18 +1881,22 @@
 					<Delete Ids="1B4CF|38382|BC05|B3A6|79BD8|79BD9|79BDA|FC118|FC126|D366C|9A38F|FC12A|A17DA|A17DB|A17DE|A17E0|EF5A1|EF5A2|EF5A3|EF5A5|81C5A|896A9|15FCE|1320E|30B13|101732|CA210|2D512|9FF6D|101C01|E7A58|13BAF|1365F|39D11|100098E|3DE4E|750BB|6FD69|753D0|D6ADB|B0EF7|F5B05|101989|32AF8" />
 					<UDR Ids="32AEE|32AEB|C2CF1|C2CF2|C2CF3|C2CF4|C2CF5|C2CF6" />
 				</Plugin>
+			</Clean>
 
-				<Plugin Path="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1/ORM-Arvak.esp">
+			<!-- Do the rest of the cleaning that doesn't need to gobble up memory, so it can start
+			     early and stay active for a while without really hurting anyone. -->
+			<Clean>
+				<Plugin WaitFor="Arvak" Path="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1/ORM-Arvak.esp">
 					<!-- Note: since it's "deletes only", masters can be ignored. -->
 					<Delete Ids="200966B" />
 				</Plugin>
 
-				<Plugin Path="ModOrganizer/mods/Brows - 512x256px 3.1/Brows.esp">
+				<Plugin WaitFor="Brows" Path="ModOrganizer/mods/Brows - 512x256px 3.1/Brows.esp">
 					<!-- Note: since it's "deletes only", masters can be ignored. -->
 					<Delete Ids="E4DA8" />
 				</Plugin>
 
-				<Plugin Path="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/Skyrim Flora Overhaul.esp">
+				<Plugin WaitFor="SFOMain" Path="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/Skyrim Flora Overhaul.esp">
 					<!-- Note: since it's "deletes only", masters can be ignored. -->
 					<Delete Ids="137C8" />
 				</Plugin>

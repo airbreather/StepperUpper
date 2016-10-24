@@ -77,24 +77,29 @@ namespace BethFile
                     payload = Zlib.Uncompress(payload);
                 }
 
-                uint pos = 0;
-                uint? offsides = null;
-                while (pos != payload.Count)
-                {
-                    uint sz = offsides ?? UBitConverter.ToUInt16(payload, pos + 4);
-                    BethesdaField field = new BethesdaField(new UArraySegment<byte>(payload, pos, sz + 6u));
-                    yield return field;
-                    if (field.FieldType == XXXX)
-                    {
-                        offsides = UBitConverter.ToUInt32(field.PayloadStart);
-                    }
-                    else
-                    {
-                        offsides = null;
-                    }
+                return GetFields(payload);
+            }
+        }
 
-                    pos += sz + 6u;
+        public static IEnumerable<BethesdaField> GetFields(UArraySegment<byte> payload)
+        {
+            uint pos = 0;
+            uint? offsides = null;
+            while (pos != payload.Count)
+            {
+                uint sz = offsides ?? UBitConverter.ToUInt16(payload, pos + 4);
+                BethesdaField field = new BethesdaField(new UArraySegment<byte>(payload, pos, sz + 6u));
+                yield return field;
+                if (field.FieldType == XXXX)
+                {
+                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
                 }
+                else
+                {
+                    offsides = null;
+                }
+
+                pos += sz + 6u;
             }
         }
 

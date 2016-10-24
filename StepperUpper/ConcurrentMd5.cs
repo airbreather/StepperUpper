@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 
 using AirBreather;
 using AirBreather.IO;
-using AirBreather.Text;
-
-using static System.FormattableString;
 
 namespace StepperUpper
 {
@@ -73,34 +70,20 @@ namespace StepperUpper
         }
     }
 
-    internal static class CachedMd5
+    internal static class ConcurrentMd5
     {
         internal static IObservable<FileWithChecksum> Calculate(IObservable<FileInfo> files) =>
             files
-                .Where(file => !file.Name.EndsWith(".md5", StringComparison.OrdinalIgnoreCase))
                 .Select(file => Task.Run(async () =>
                 {
-                    FileInfo cachedChecksum = new FileInfo(file.FullName + ".md5");
-                    if (cachedChecksum.Exists && cachedChecksum.LastWriteTimeUtc >= file.LastWriteTimeUtc)
-                    {
-                        byte[] bytes = new byte[32];
-                        using (FileStream cachedStream = AsyncFile.OpenReadSequential(cachedChecksum.FullName))
-                        {
-                            await cachedStream.LoopedReadAsync(bytes, 0, 32).ConfigureAwait(false);
-                        }
-
-                        string checksumString = EncodingEx.UTF8NoBOM.GetString(bytes);
-                        return new FileWithChecksum(file.FullName, new Md5Checksum(checksumString));
-                    }
-
                     string path = file.FullName;
                     byte[] hash;
                     using (FileStream fs = AsyncFile.OpenReadSequential(path))
                     using (MD5 md5 = MD5.Create())
                     {
-                        byte[] buf = new byte[81920];
+                        byte[] buf = new byte[AsyncFile.FullCopyBufferSize];
                         int cnt;
-                        while ((cnt = await fs.ReadAsync(buf, 0, buf.Length).ConfigureAwait(false)) != 0)
+                        while ((cnt = await fs.ReadAsync(buf, 0, AsyncFile.FullCopyBufferSize).ConfigureAwait(false)) != 0)
                         {
                             md5.TransformBlock(buf, 0, cnt, null, 0);
                         }
@@ -111,14 +94,6 @@ namespace StepperUpper
                     }
 
                     Md5Checksum checksum = new Md5Checksum(hash);
-#if false
-                    using (FileStream cachedStream = AsyncFile.CreateSequential(cachedChecksum.FullName))
-                    {
-                        byte[] buf = EncodingEx.UTF8NoBOM.GetBytes(Invariant($"{checksum} *{file.Name}{Environment.NewLine}"));
-                        await cachedStream.WriteAsync(buf, 0, buf.Length).ConfigureAwait(false);
-                    }
-#endif
-
                     return new FileWithChecksum(path, checksum);
                 }))
                 .Merge();

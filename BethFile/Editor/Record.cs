@@ -61,7 +61,7 @@ namespace BethFile.Editor
             if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
             {
                 this.CompressedFieldData = copyFrom.Payload.ToArray();
-                this.fields = new Lazy<List<Field>>(() => CopyFieldsFrom(copyFrom.Fields));
+                this.fields = new Lazy<List<Field>>(() => CopyFieldsFrom(BethesdaRecord.GetFields(Zlib.Uncompress(this.CompressedFieldData))));
             }
             else
             {

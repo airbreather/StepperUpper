@@ -18,7 +18,7 @@ namespace StepperUpper
 {
     internal static class SetupTasks
     {
-        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, DirectoryInfo steamInstallDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles)
+        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, DirectoryInfo steamInstallDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
         {
             switch (taskElement.Name.LocalName)
             {
@@ -35,7 +35,7 @@ namespace StepperUpper
                     return WriteEmbeddedFileAsync(taskElement, dumpDirectory);
 
                 case "Clean":
-                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory)));
+                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory), otherTasks));
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -266,7 +266,8 @@ namespace StepperUpper
                     parentNames: el.Elements("Master").Select(el2 => el2.Attribute("File").Value),
                     recordsToDelete: TokenizeIds(el.Element("Delete")?.Attribute("Ids").Value),
                     recordsToUDR: TokenizeIds(el.Element("UDR")?.Attribute("Ids").Value),
-                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))));
+                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))),
+                    taskIds: Program.Tokenize(el.Attribute("WaitFor")?.Value));
             }
         }
 

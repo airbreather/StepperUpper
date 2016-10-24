@@ -37,6 +37,23 @@ namespace StepperUpper
             CommandLine.Parser.Default.ParseArgumentsStrict(args, options);
 
             ILogger logger = Log.For(typeof(Program));
+            DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
+            if (dumpDirectory.Exists)
+            {
+                if (options.Scorch)
+                {
+                    logger.Info("Output folder exists already.  Deleting...");
+                    await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
+                    logger.Info("Output folder deleted.");
+                }
+                else
+                {
+                    logger.Error("Output folder exists already.  Aborting...");
+                    logger.Info("(run with -x / --scorch to have us automatically delete instead).");
+                    return 2;
+                }
+            }
+
             logger.Info("Checking existing files...");
 
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
@@ -55,7 +72,7 @@ namespace StepperUpper
 
             // TODO: maybe only check files whose lengths match with known lengths from the XML?
             Dictionary<Md5Checksum, string> checkedFiles =
-                await CachedMd5.Calculate(allFiles)
+                await ConcurrentMd5.Calculate(allFiles)
                     .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
                     .Distinct(f => f.Checksum)
                     .ToDictionary(f => f.Checksum, f => f.Path)
@@ -137,7 +154,7 @@ namespace StepperUpper
                         continue;
                     }
 
-                    var fileWithChecksum = await CachedMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
+                    var fileWithChecksum = await ConcurrentMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
                     if (fileWithChecksum.Checksum == downloadable.Md5Checksum)
                     {
                         logger.Info("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
@@ -185,13 +202,6 @@ namespace StepperUpper
             logger.Info("All file requirements satisfied!");
 
             var dct = groups.ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(Md5Checksum).First(checkedFiles.ContainsKey)]));
-            DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
-            if (dumpDirectory.Exists)
-            {
-                logger.Info("Output folder {0} exists already... deleting...", dumpDirectory.FullName);
-                await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
-                logger.Info("Output folder {0} deleted.", dumpDirectory.FullName);
-            }
 
             logger.Info("Starting the actual tasks (extracting archives, etc.)...");
             dumpDirectory.Create();
@@ -208,7 +218,11 @@ namespace StepperUpper
                 try
                 {
                     await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
-                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles).Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."))).ConfigureAwait(false);
+
+                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2)
+                        .Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining...")))
+                        .ConfigureAwait(false);
+
                     dict2[id].TrySetResult(null);
                 }
                 catch (Exception ex)
