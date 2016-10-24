@@ -12,9 +12,9 @@ namespace StepperUpper
         {
             public bool IsCompleted => false;
 
-            public void OnCompleted(Action continuation) => Task.CompletedTask.GetAwaiter().OnCompleted(continuation);
+            public void OnCompleted(Action continuation) => Task.CompletedTask.ConfigureAwait(false).GetAwaiter().OnCompleted(continuation);
 
-            public void UnsafeOnCompleted(Action continuation) => Task.CompletedTask.GetAwaiter().UnsafeOnCompleted(continuation);
+            public void UnsafeOnCompleted(Action continuation) => Task.CompletedTask.ConfigureAwait(false).GetAwaiter().UnsafeOnCompleted(continuation);
 
             public void GetResult() { }
         }

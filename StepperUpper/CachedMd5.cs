@@ -111,11 +111,13 @@ namespace StepperUpper
                     }
 
                     Md5Checksum checksum = new Md5Checksum(hash);
+#if false
                     using (FileStream cachedStream = AsyncFile.CreateSequential(cachedChecksum.FullName))
                     {
                         byte[] buf = EncodingEx.UTF8NoBOM.GetBytes(Invariant($"{checksum} *{file.Name}{Environment.NewLine}"));
                         await cachedStream.WriteAsync(buf, 0, buf.Length).ConfigureAwait(false);
                     }
+#endif
 
                     return new FileWithChecksum(path, checksum);
                 }))

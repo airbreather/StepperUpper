@@ -83,7 +83,7 @@
 			<File Name="Dragonborn ESM"
 			      CanonicalFileName="Dragonborn.esm"
 			      MD5Checksum="37d8cbffcb460011ce2bf3aabd007a2d"
-			      DownloadTags="steam|220760" />
+			      DownloadTags="steam|226880" />
 
 			<File Name="USLEEP 3.0.6"
 			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-6.7z"
@@ -1039,9 +1039,8 @@
 			</TweakINI>
 		</Group>
 
-		<Group Name="2.B. Clean the Update ESM">
-			<!-- Done all at once now. -->
-		</Group>
+		<!-- Cleaning is done all at once, in the last group. -->
+		<Group Name="2.B. Clean the Update ESM" />
 
 		<Group Name="2.C. Extenders">
 			<!-- ENBoost, just Wrapper for now. -->
@@ -1056,11 +1055,12 @@
 				<Set Section="GLOBAL" Property="UseDefferedRendering" Value="false" />
 
 				<Set Section="MEMORY" Property="ExpandSystemMemoryX64" Value="false" />
-				<!-- who's got two thumbs and is fine with putting off finding the "right" logic for
-				     these, at least for now?  the answer is left as an exercise for the reader. -->
-				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
-				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4096" />
 				<Set Section="MEMORY" Property="AutodetectVideoMemorySize" Value="false" />
+
+				<!-- Modify these numbers as appropriate for your system!
+				     http://wiki.step-project.com/ENBoost#Recommendations -->
+				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="128" />
+				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="1878" />
 
 				<Set Section="ENGINE" Property="EnableVSync" Value="true" />
 				<Set Section="ENGINE" Property="VSyncSkipNumFrames" Value="0" />
@@ -1092,8 +1092,6 @@
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<!-- Cleaning is done all at once now. -->
-
 			<ExtractArchive ArchiveFile="USLEEP 3.0.6" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />

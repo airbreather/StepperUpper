@@ -99,7 +99,7 @@ namespace StepperUpper
                         Md5Checksum = Md5Checksum(fl),
                         DownloadUrl = fl.Attribute("DownloadUrl")?.Value,
                         CanonicalFileName = fl.Attribute("CanonicalFileName").Value
-                    }).ToArray();
+                    }).Where(x => x.DownloadUrl != null).ToArray();
 
                     if (downloadables.Length == 0)
                     {
@@ -150,7 +150,7 @@ namespace StepperUpper
                     {
                         case 1:
                             XElement missing = grp.First();
-                            logger.Info("    {0}, URL: {{1}}", missing.Attribute("Name").Value, GetUrl(missing));
+                            logger.Info("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
                             continue;
 
                         case 2:
