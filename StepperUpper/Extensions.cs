@@ -29,6 +29,18 @@ namespace StepperUpper
             }
         }
 
+        internal static async Task Finally(this Task antecedent, Action callback)
+        {
+            try
+            {
+                await antecedent.ConfigureAwait(false);
+            }
+            finally
+            {
+                callback();
+            }
+        }
+
         internal static XDocument PoolStrings(this XDocument doc)
         {
             StringPool pool = new StringPool();

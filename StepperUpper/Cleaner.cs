@@ -70,7 +70,7 @@ namespace StepperUpper
                     var root = await CleanPluginAsync(plugin, parentTask.Task).ConfigureAwait(false);
                     var saver = (plugin.RecordsToDelete.Length | plugin.RecordsToUDR.Length) == 0
                         ? Task.CompletedTask
-                        : SavePluginAsync(root, plugin.OutputFilePath);
+                        : Task.Run(() => SavePluginAsync(root, plugin.OutputFilePath));
 
                     List<Tuple<Merged, int, string>> childrenList;
                     if (children.TryGetValue(pluginName, out childrenList))
@@ -121,11 +121,17 @@ namespace StepperUpper
             return root;
         }
 
-        private static async Task SavePluginAsync(Record root, string path)
+        private static Task SavePluginAsync(Record root, string path)
         {
-            using (var fl = AsyncFile.CreateSequential(path))
+            var fl = AsyncFile.CreateSequential(path);
+            try
             {
-                await new BethesdaFileWriter(fl).WriteAsync(Saver.Save(root)).ConfigureAwait(false);
+                return new BethesdaFileWriter(fl).WriteAsync(Saver.Save(root)).Finally(fl.Dispose);
+            }
+            catch
+            {
+                fl.Dispose();
+                throw;
             }
         }
 

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -39,22 +42,29 @@ namespace StepperUpper
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
             DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
-            IObservable<FileInfo> downloadDirectoryFiles = downloadDirectory.GetFiles().ToObservable();
-            IObservable<FileInfo> skyrimDirectoryFiles = skyrimDirectory.GetFiles().ToObservable();
+            FileInfo[] downloadDirectoryFiles = downloadDirectory.GetFiles();
+            FileInfo[] skyrimDirectoryFiles = skyrimDirectory.GetFiles();
 
-            IObservable<FileInfo> allFiles = Observable.Merge(downloadDirectoryFiles, skyrimDirectoryFiles)
+            int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
+
+            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
+            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
                 // uncomment to see what it's like if you don't have anything yet.
                 ////.Take(0)
                 ;
 
+            // TODO: maybe only check files whose lengths match with known lengths from the XML?
             Dictionary<Md5Checksum, string> checkedFiles =
                 await CachedMd5.Calculate(allFiles)
+                    .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
                     .Distinct(f => f.Checksum)
                     .ToDictionary(f => f.Checksum, f => f.Path)
                     .Select(d => new Dictionary<Md5Checksum, string>(d))
                     .ToTask()
                     .ConfigureAwait(false);
 
+            Console.Write(Invariant($"\r{new string(' ', 32)}"));
+            Console.Write('\r');
             XDocument doc;
             using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(options.PackDefinitionFilePath))
             using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
@@ -178,12 +188,18 @@ namespace StepperUpper
             DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
             if (dumpDirectory.Exists)
             {
+                logger.Info("Output folder {0} exists already... deleting...", dumpDirectory.FullName);
                 await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
+                logger.Info("Output folder {0} deleted.", dumpDirectory.FullName);
             }
 
+            logger.Info("Starting the actual tasks (extracting archives, etc.)...");
             dumpDirectory.Create();
             var dict = doc.Element("Modpack").Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
             var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
+
+            cnt = dict.Count;
+            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
             await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
             {
                 string id = kvp.Key;
@@ -192,7 +208,7 @@ namespace StepperUpper
                 try
                 {
                     await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
-                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles).ConfigureAwait(false);
+                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles).Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."))).ConfigureAwait(false);
                     dict2[id].TrySetResult(null);
                 }
                 catch (Exception ex)
@@ -202,6 +218,9 @@ namespace StepperUpper
                 }
             }))).ConfigureAwait(false);
 
+            Console.Write(Invariant($"\r{new string(' ', 32)}"));
+            Console.Write('\r');
+            logger.Info("All tasks completed!");
             return 0;
         }
 
