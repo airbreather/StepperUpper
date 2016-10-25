@@ -293,28 +293,6 @@ namespace BethFile.Editor
                         }
 
                         break;
-
-                    case _LVLN:
-                        if (0 <= rec.Fields.FindIndex(f => f.FieldType == LLCT))
-                        {
-                            continue;
-                        }
-
-                        // TODO: this is what xEdit does, but it doesn't feel right...
-                        rec.Fields.Add(new Field
-                        {
-                            FieldType = LLCT,
-                            Payload = new[] { (byte)1 },
-                        });
-
-                        rec.Fields.Add(new Field
-                        {
-                            FieldType = LVLO,
-                            Payload = new byte[12],
-                        });
-
-                        rec.CompressedFieldData = null;
-                        break;
                 }
             }
         }
