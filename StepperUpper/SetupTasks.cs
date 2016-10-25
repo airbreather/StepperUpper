@@ -36,6 +36,10 @@ namespace StepperUpper
 
                 case "Clean":
                     return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory), otherTasks));
+
+                case "CreateEmptyFolder":
+                    Directory.CreateDirectory(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value));
+                    return Task.CompletedTask;
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
