@@ -3,22 +3,26 @@
 	<Files>
 		<Group Name="1.C. Install Utilities">
 			<File Name="Mod Organizer 1.3.1.1"
+			      LengthInBytes="22240010"
 			      CanonicalFileName="Mod Organizer v1_3_11-1334-1-3-11.7z"
 			      MD5Checksum="215ccbbca78af9cd3f833dd2efb81759"
 			      DownloadTags="nexus|skyrim|1334|1000174746" />
 
 			<File Name="LOOT 0.9.2 - Dev Archive"
+			      LengthInBytes="24693688"
 			      CanonicalFileName="loot_0.9.2-0-g6b58f92_dev.7z"
 			      MD5Checksum="7e22215ec99885695de6b5ee8f27dbf6"
 			      DownloadUrl="https://github.com/loot/loot/releases/download/0.9.2/loot_0.9.2-0-g6b58f92_dev.7z"
 			      DownloadTags="generic|https://loot.github.io/" />
 
 			<File Name="xEdit 3.1.3"
+			      LengthInBytes="2910248"
 			      CanonicalFileName="FO4Edit 3.1.3 - 5466542-2737-3-1-3.7z"
 			      MD5Checksum="df023d7279d1bd15ed8e104b6d228f16"
 			      DownloadTags="nexus|fallout4|2737|73131" />
 
 			<File Name="Wrye Bash 306 - Standalone Executable"
+			      LengthInBytes="17250882"
 			      CanonicalFileName="Wrye Bash 306 - Standalone Executable-1840-306.7z"
 			      MD5Checksum="4e38717c674c1e90b71a44f474cef77e"
 			      DownloadTags="nexus|skyrim|1840|1000210067" />
@@ -26,11 +30,13 @@
 
 		<Group Name="2.B. Clean the Update ESM">
 			<File Name="Skyrim ESM"
+			      LengthInBytes="249371467"
 			      CanonicalFileName="Skyrim.esm"
 			      MD5Checksum="15958064e1272509933b51d086bbd5b4"
 			      DownloadTags="steam|72850" />
 
 			<File Name="Update ESM"
+			      LengthInBytes="1518686"
 			      CanonicalFileName="Update.esm"
 			      MD5Checksum="2476e42699d4d9236ddd2ea8b31f612d"
 			      DownloadTags="steam|72850" />
@@ -38,17 +44,20 @@
 
 		<Group Name="2.C. Extenders">
 			<File Name="ENBSeries v0308"
+			      LengthInBytes="3023637"
 			      CanonicalFileName="enbseries_skyrim_v0308.zip"
 			      MD5Checksum="2fec62db6ada4bc7ffe4a66e24ba5508"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
 
 			<File Name="SKSE 1.7.3"
+			      LengthInBytes="624845"
 			      CanonicalFileName="skse_1_07_03.7z"
 			      MD5Checksum="62f8aad6db2270fdf29618ad90018207"
 			      DownloadUrl="http://skse.silverlock.org/beta/skse_1_07_03.7z"
 			      DownloadTags="generic|http://skse.silverlock.org/" />
 
 			<File Name="PapyrusUtil 3.3"
+			      LengthInBytes="379841"
 			      CanonicalFileName="PapyrusUtil - Scripting Utility Functions-58705-3-3.zip"
 			      MD5Checksum="dd0384d097d97e306098d3e850c8b6b8"
 			      DownloadTags="nexus|skyrim|58705|1000220820" />
@@ -56,167 +65,200 @@
 
 		<Group Name="2.D. Fixes">
 			<File Name="Dawnguard BSA"
+			      LengthInBytes="1187540597"
 			      CanonicalFileName="Dawnguard.bsa"
 			      MD5Checksum="7c697985df6b795b804ca64bfb7c8883"
 			      DownloadTags="steam|211720" />
 
 			<File Name="Dawnguard ESM"
+			      LengthInBytes="25056932"
 			      CanonicalFileName="Dawnguard.esm"
 			      MD5Checksum="5bd2f339925a5fb96f9f0da7f96fd8ce"
 			      DownloadTags="steam|211720" />
 
 			<File Name="Hearthfire BSA"
+			      LengthInBytes="140252452"
 			      CanonicalFileName="HearthFires.bsa"
 			      MD5Checksum="c69f207f8be14857d0a5cd9f2b5fd7da"
 			      DownloadTags="steam|220760" />
 
 			<File Name="Hearthfire ESM"
+			      LengthInBytes="3565491"
 			      CanonicalFileName="HearthFires.esm"
 			      MD5Checksum="71c3d20ea9f8510e29c36f2a426247c2"
 			      DownloadTags="steam|220760" />
 
 			<File Name="Dragonborn BSA"
+			      LengthInBytes="1803105365"
 			      CanonicalFileName="Dragonborn.bsa"
 			      MD5Checksum="87561ba424df97b3b205952241b6917f"
 			      DownloadTags="steam|226880" />
 
 			<File Name="Dragonborn ESM"
+			      LengthInBytes="64510413"
 			      CanonicalFileName="Dragonborn.esm"
 			      MD5Checksum="37d8cbffcb460011ce2bf3aabd007a2d"
 			      DownloadTags="steam|226880" />
 
 			<File Name="USLEEP 3.0.6"
+			      LengthInBytes="175362259"
 			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-6.7z"
 			      MD5Checksum="43319c9175efc90cf6b99ab48fefa346"
 			      DownloadTags="nexus|skyrim|71214|1000221296" />
 
 			<File Name="High Resolution Texture Pack BSA (1 of 3)"
+			      LengthInBytes="1640626582"
 			      CanonicalFileName="HighResTexturePack01.bsa"
 			      MD5Checksum="c26fab356fa44e61ede3961bb4f281c0"
 			      DownloadTags="steam|202485" />
 
 			<File Name="High Resolution Texture Pack BSA (2 of 3)"
+			      LengthInBytes="1875868906"
 			      CanonicalFileName="HighResTexturePack02.bsa"
 			      MD5Checksum="c0817f76bce07fd4fc02020b750c5a99"
 			      DownloadTags="steam|202485" />
 
 			<File Name="High Resolution Texture Pack BSA (3 of 3)"
+			      LengthInBytes="1201576510"
 			      CanonicalFileName="HighResTexturePack03.bsa"
 			      MD5Checksum="a6cf3a8898e40e7b82784ddfb0fc8b68"
 			      DownloadTags="steam|202485" />
 
 			<!-- All 3 dummy ESPs are identical. -->
 			<File Name="High Resolution Texture Pack Dummy ESPs"
+			      LengthInBytes="66"
 			      CanonicalFileName="HighResTexturePack01.esp"
 			      MD5Checksum="7a5aaaa2a3266b7530a49253bae3d553"
 			      DownloadTags="steam|202485" />
 
 			<File Name="Unofficial High Resolution Patch 1.2.0"
+			      LengthInBytes="74632688"
 			      CanonicalFileName="Unofficial High Resolution Patch-31255-1-2-0.7z"
 			      MD5Checksum="21a3dc0041833905120c20852fb4b2ff"
 			      DownloadTags="nexus|skyrim|31255|1000195461" />
 
 			<File Name="STEP Vanilla Optimized Textures - Standard Version 1.2"
+			      LengthInBytes="2917803607"
 			      CanonicalFileName="STEP Vanilla Optimized Textures - Standard-11-1-2.7z"
 			      MD5Checksum="0ed437058e434d347ecddd9cb2aa551b"
 			      DownloadTags="nexus|skyrim|11|1000196761" />
 
 			<File Name="Appropriately Attired Jarls 1.1.1"
+			      LengthInBytes="30538"
 			      CanonicalFileName="Appropriately Attired Jarls-23793-1-1-1.7z"
 			      MD5Checksum="dce464c66ccdf8300388790c024e1019"
 			      DownloadTags="nexus|skyrim|23793|1000028726" />
 
 			<File Name="Brawl Bugs - Compatibility Edition 1.0"
+			      LengthInBytes="11803"
 			      CanonicalFileName="Brawl Bugs - Compatibility Edition-24020-1-0.7z"
 			      MD5Checksum="55ace872587b5642839d93b9d24b6d8a"
 			      DownloadTags="nexus|skyrim|24020|87968" />
 
 			<File Name="Clothing and Clutter Fixes 1.7"
+			      LengthInBytes="3309965"
 			      CanonicalFileName="Clothing and Clutter Fixes-43053-1-7.7z"
 			      MD5Checksum="46199313c39ab193ffdadafde03e01d3"
 			      DownloadTags="nexus|skyrim|43053|1000204073" />
 
 			<File Name="Consistent Older People 31 All NPCs USLEEP 3.1"
+			      LengthInBytes="3655087"
 			      CanonicalFileName="Consistent Older People 31 All NPCs USLEEP-19730-3-1.7z"
 			      MD5Checksum="ecb5d8e8ce7a2b7a54db2ef177be6b97"
 			      DownloadTags="nexus|skyrim|19730|1000215869" />
 
 			<File Name="Cutting Room Floor - Legendary Edition 2.0.2"
+			      LengthInBytes="6001150"
 			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-2.7z"
 			      MD5Checksum="aebc78e0556c4284d9add8f3eca41aa3"
 			      DownloadTags="nexus|skyrim|47327|1000204993" />
 
 			<File Name="Dead Body Collision Fix - With Improved Fireball Spell 2.4"
+			      LengthInBytes="2613"
 			      CanonicalFileName="With Improved Fireball Spell-30947-v2-4.rar"
 			      MD5Checksum="f52e39d754a9d0f85c3f143cde13ccfd"
 			      DownloadTags="nexus|skyrim|30947|1000011192" />
 
 			<File Name="Enchantment Reload Fix 1.2"
+			      LengthInBytes="71979"
 			      CanonicalFileName="Enchantment Reload Fix-52717-1-2"
 			      MD5Checksum="e01f33724f746b94893dfc207f89f9c4"
 			      DownloadTags="nexus|skyrim|52717|1000106159" />
 
 			<File Name="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c"
+			      LengthInBytes="87175"
 			      CanonicalFileName="ELE_Lite_v0_95c_Only IL-59733-0-9-5c.7z"
 			      MD5Checksum="4c84ce3e6028b4ecaaa42be6e5a03338"
 			      DownloadTags="nexus|skyrim|59733|1000185877" />
 
 			<File Name="Fuz Ro D'oh 6.0"
+			      LengthInBytes="301224"
 			      CanonicalFileName="Fuz Ro Doh 60-14884-6-0.zip"
 			      MD5Checksum="350674b4e35b22ef23cdab0a061bde2a"
 			      DownloadTags="nexus|skyrim|14884|1000022522" />
 
 			<File Name="Guard Dialog Overhaul 1.4"
+			      LengthInBytes="1321538"
 			      CanonicalFileName="Guard Dialogue Overhaul-23390-1-4.7z"
 			      MD5Checksum="54c892bbf0505f095aedd6a73f69280f"
 			      DownloadTags="nexus|skyrim|23390|1000096379" />
 
 			<File Name="Improved Closefaced Helmets (Legendary Edition) 1.57"
+			      LengthInBytes="11009398"
 			      CanonicalFileName="Improved Closefaced Helmets (Legendary Edition)-15927-1-57.zip"
 			      MD5Checksum="a4d7cd3c2bd8fbfe5d8fd94f3c1f2c3c"
 			      DownloadTags="nexus|skyrim|15927|1000154235" />
 
 			<File Name="Improved Closefaced Helmets (Legendary Edition) 1.57a Update"
+			      LengthInBytes="64712"
 			      CanonicalFileName="Update - Male corundrum Dragon Priest mask texture fix-15927-1-57a.zip"
 			      MD5Checksum="72716123b028492140291465af05a6b2"
 			      DownloadTags="nexus|skyrim|15927|1000161548" />
 
 			<File Name="Invisibility Eyes Fix 2.0"
+			      LengthInBytes="4194"
 			      CanonicalFileName="Invisibility Eyes Fix v2-23916-2-0.zip"
 			      MD5Checksum="ab9f9a8db22546f49865ec8bcfcec4f1"
 			      DownloadTags="nexus|skyrim|23916|96903" />
 
 			<File Name="NARC Core 1.2"
+			      LengthInBytes="4341"
 			      CanonicalFileName="NARC core-68125-1-2.rar"
 			      MD5Checksum="45a29392bcd8f40862a6281070aa3302"
 			      DownloadTags="nexus|skyrim|68125|1000208335" />
 
 			<File Name="Ragdoll Paralysis - Paralyze 1.0"
+			      LengthInBytes="2314"
 			      CanonicalFileName="Paralyze-34108-1.7z"
 			      MD5Checksum="4ccda4df01e6ed0e3705273aff4986b3"
 			      DownloadTags="nexus|skyrim|34108|1000021116" />
 
 			<File Name="Relighting Skyrim - No JIT 4.0.1"
+			      LengthInBytes="6647840"
 			      CanonicalFileName="Relighting Skyrim - No JIT-17609-4-0-1.7z"
 			      MD5Checksum="c79331c4767c1519f2d7f53121355af0"
 			      DownloadTags="nexus|skyrim|17609|1000163022" />
 
 			<File Name="Skyrim Project Optimization - Full Version 1.6"
+			      LengthInBytes="76826"
 			      CanonicalFileName="Skyrim Project Optimization - Full Version-32505-1-6.rar"
 			      MD5Checksum="7766485ca1878e354c75796177026844"
 			      DownloadTags="nexus|skyrim|32505|1000102233" />
 
 			<File Name="Smart Souls 9.0"
+			      LengthInBytes="105304"
 			      CanonicalFileName="Smart Souls 90-14559-9-0.zip"
 			      MD5Checksum="a40cf48d0ff2f38427413546076233e0"
 			      DownloadTags="nexus|skyrim|14559|1000022518" />
 
 			<File Name="Trade And Barter - Hearthfire 1.2"
+			      LengthInBytes="64605"
 			      CanonicalFileName="Trade And Barter - Hearthfire-34612-1-2.zip"
 			      MD5Checksum="4c02925b47b86661cbe6b6e83cc18a7c"
 			      DownloadTags="nexus|skyrim|34612|1000025324" />
 
 			<File Name="Weapon and Armor Fixes Remade 5.2"
+			      LengthInBytes="7616103"
 			      CanonicalFileName="Weapons and Armor Fixes-34093-5-2.7z"
 			      MD5Checksum="cb4eb50bc039109c777995356ce7a8ec"
 			      DownloadTags="nexus|skyrim|34093|1000194767" />
@@ -224,51 +266,61 @@
 
 		<Group Name="2.E. Interface">
 			<File Name="Better Dialogue Controls 1.2"
+			      LengthInBytes="24869"
 			      CanonicalFileName="Better Dialogue Controls v1_2-27371-1-2.zip"
 			      MD5Checksum="129f4128d42746317d5f8978e9d062b6"
 			      DownloadTags="nexus|skyrim|27371|103702" />
 
 			<File Name="Better MessageBox Controls 1.2"
+			      LengthInBytes="17621"
 			      CanonicalFileName="Better MessageBox Controls v1_2-28170-1-2.zip"
 			      MD5Checksum="5115644839800edd51228e658ed50394"
 			      DownloadTags="nexus|skyrim|28170|105432" />
 
 			<File Name="Easier Lockpicking - Nordic Locks 1.2"
+			      LengthInBytes="2932773"
 			      CanonicalFileName="Easier Lockpicking 1_2 - Nordic Locks-53071-1-2.zip"
 			      MD5Checksum="c04e7e0ef7a9f13b3e249fbd33979f17"
 			      DownloadTags="nexus|skyrim|53071|1000132865" />
 
 			<File Name="High Quality 3D Map - Meshes Hi-Res 2.0"
+			      LengthInBytes="9004850"
 			      CanonicalFileName="HQ3DMap - Meshes Hi-Res-4817-2-0.7z"
 			      MD5Checksum="411f1abdd65437dcdc37d98530fee290"
 			      DownloadTags="nexus|skyrim|4817|17019" />
 
 			<File Name="High Quality 3D Map - Normals Original 2.0"
+			      LengthInBytes="32267645"
 			      CanonicalFileName="HQ3DMap - Normals Original-4817-2-0.7z"
 			      MD5Checksum="b4f5ff7a8a5fc62c48560c8da22fdaa1"
 			      DownloadTags="nexus|skyrim|4817|17060" />
 
 			<File Name="Main Font Replacement - Fertigo Pro 2.0"
+			      LengthInBytes="40399"
 			      CanonicalFileName="Fertigo Pro Font-95-2-0.rar"
 			      MD5Checksum="f9687738d4c2ed3f222ea18f66343d54"
 			      DownloadTags="nexus|skyrim|95|1499" />
 
 			<File Name="RaceMenu 3.4.5"
+			      LengthInBytes="13982702"
 			      CanonicalFileName="RaceMenu v3-4-5-29624-3-4-5.7z"
 			      MD5Checksum="9030a42e841b3ba23037945154fc39db"
 			      DownloadTags="nexus|skyrim|29624|1000184041" />
 
 			<File Name="SSIRT 3.0"
+			      LengthInBytes="44951317"
 			      CanonicalFileName="SSIRT v3.0-62238-v3-0.zip"
 			      MD5Checksum="ed38f781e36d9a840131173be81a9e71"
 			      DownloadTags="nexus|skyrim|62238|1000221000" />
 
 			<File Name="SkyUI 5.1"
+			      LengthInBytes="1346875"
 			      CanonicalFileName="SkyUI_5_1-3863-5-1.7z"
 			      MD5Checksum="6eb992c7509b2a53c429b23a34766c7c"
 			      DownloadTags="nexus|skyrim|3863|1000172397" />
 
 			<File Name="Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8"
+			      LengthInBytes="19608"
 			      CanonicalFileName="Viewable Faction Ranks Dawnguard and Dragonborn-58057-1-1-8.zip"
 			      MD5Checksum="81f8e118fa14ad18e52fc0b400d73241"
 			      DownloadTags="nexus|skyrim|58057|1000217503" />
@@ -276,48 +328,57 @@
 
 		<Group Name="2.F. Conflicting Graphics">
 			<File Name="Ultimate HD Fire Effects - Medium 1.9"
+			      LengthInBytes="19586614"
 			      CanonicalFileName="Ultimate HD Fire Effects -Medium Resolution--28642-1-9.rar"
 			      MD5Checksum="39183abe111a659b3b17a9f873b99c93"
 			      DownloadTags="nexus|skyrim|28642|1000017615" />
 
 			<!-- Consider additionally supporting more targeted downloads. -->
 			<File Name="SkyFalls and SkyMills All-in-One 3.3.1"
+			      LengthInBytes="64976035"
 			      CanonicalFileName="SkyFalls and SkyMills FOMOD-BAIN Installer-40564-3-3-1.rar"
 			      MD5Checksum="13a3701049aa31de296a737145bf353c"
 			      DownloadTags="nexus|skyrim|40564|1000120179" />
 
 			<File Name="SMIM 1.94"
+			      LengthInBytes="892222426"
 			      CanonicalFileName="SMIM 1-94-8655-1-94.7z"
 			      MD5Checksum="23e4e45f62f1ff313b818c922cfbc206"
 			      DownloadTags="nexus|skyrim|8655|1000216424" />
 
 			<File Name="Skyrim HD - Landscape LITE 1.7"
+			      LengthInBytes="114915892"
 			      CanonicalFileName="Landscape LITE-607-1-7.zip"
 			      MD5Checksum="86383ffcc11ac462f3c763fc3e182ea3"
 			      DownloadTags="nexus|skyrim|607|1000178197" />
 
 			<File Name="HD Misc 1.0"
+			      LengthInBytes="4511551"
 			      CanonicalFileName="HD Misc v1-3595-1-0.zip"
 			      MD5Checksum="7fcf96b5cd7243e1ca95fa93e8f58d9e"
 			      DownloadTags="nexus|skyrim|3595|10128" />
 
 			<File Name="Tobes Highres Textures - 1k 1.2"
+			      LengthInBytes="27934454"
 			      CanonicalFileName="Tobes Highres Textures 1_2 1024-1123-1-2.rar"
 			      MD5Checksum="16dfac05b1aeba5518391959b6b59bef"
 			      DownloadTags="nexus|skyrim|1123|27153" />
 
 			<File Name="Tobes Highres Textures - SMIM Patch 1.2b"
+			      LengthInBytes="23572728"
 			      CanonicalFileName="Tobes Highres Textures 1_2b SMIM Patch-1123-1-2.rar"
 			      MD5Checksum="7fa2580bfdccec9fc79d3fd2f848e549"
 			      DownloadTags="nexus|skyrim|1123|79403" />
 
 			<File Name="High Quality Food and Ingredients - Performance Repack 1.6"
+			      LengthInBytes="26515106"
 			      CanonicalFileName="HQ_FOOD-INGREDIENTS_1-6_PerformanceRepack_-1192-1-6.7z"
 			      MD5Checksum="54048289401c6b0e5b88beb75e8dedd3"
 			      DownloadTags="nexus|skyrim|1192|5417" />
 
 			<!-- Consider additionally supporting more targeted downloads. -->
 			<File Name="A Quality World Map - New Installer 8.4"
+			      LengthInBytes="7410533"
 			      CanonicalFileName="A Quality World Map - New Installer-4929-8-4.7z"
 			      MD5Checksum="072542143cd3f13fb3ee8f7cf1a1a074"
 			      DownloadTags="nexus|skyrim|4929|1000153868" />
@@ -325,106 +386,127 @@
 
 		<Group Name="2.G. Landscape &amp; Environment">
 			<File Name="aMidianBorn Farmhouse - 1k 1.0"
+			      LengthInBytes="37569350"
 			      CanonicalFileName="aMidianBorn Farmhouse 1k-49040-1.7z"
 			      MD5Checksum="d514d0bf960764efb4852353d3d6ae2d"
 			      DownloadTags="nexus|skyrim|49040|1000087732" />
 
 			<File Name="aMidianBorn Solstheim Landscape - 1k 1.0"
+			      LengthInBytes="18932957"
 			      CanonicalFileName="aMidianBorn Solstheim Land 1K-50013-1.7z"
 			      MD5Checksum="43146594a0b710e9a0ac27be2a7d193f"
 			      DownloadTags="nexus|skyrim|49040|1000091884" />
 
 			<File Name="Skyrim Flora Overhaul - Basic Edition 1.87a"
+			      LengthInBytes="66019598"
 			      CanonicalFileName="Skyrim Flora Overhaul Basic Edition v187-141-1-87a.7z"
 			      MD5Checksum="c3d3a70cf7b9fe3a706acc0b95c95f2e"
 			      DownloadTags="nexus|skyrim|141|1000067496" />
 
 			<File Name="Skyrim Flora Overhaul - Dragonborn Addon 0.2"
+			      LengthInBytes="29112106"
 			      CanonicalFileName="Dragonborn addon v02-141-v0-2.7z"
 			      MD5Checksum="68fa60ad1f89d5f34d308923b3387d79"
 			      DownloadTags="nexus|skyrim|141|1000071952" />
 
 			<File Name="Embers HD - All-in-One 1.32"
+			      LengthInBytes="82105322"
 			      CanonicalFileName="Embers HD 1.32-62425-1-32.zip"
 			      MD5Checksum="fc417a808a30356791dec2bc910af40f"
 			      DownloadTags="nexus|skyrim|62425|1000200670" />
 
 			<File Name="Enhanced Night Skyrim - Low Stars 0.4"
+			      LengthInBytes="1176639"
 			      CanonicalFileName="Enhanced Night Skyrim v04 Low Stars-85-0-4.zip"
 			      MD5Checksum="d48ca4727826071415aafa891a1f2133"
 			      DownloadTags="nexus|skyrim|85|10856" />
 
 			<File Name="Farmhouse Chimneys 2.6"
+			      LengthInBytes="3703818"
 			      CanonicalFileName="Farmhouse Chimneys 2.6-51330-2-6.zip"
 			      MD5Checksum="33950178d72402ed1e33b271cd44dcee"
 			      DownloadTags="nexus|skyrim|51330|1000200734" />
 
 			<File Name="HD Dark Brotherhood Door - No Glowing Eyes 1.0"
+			      LengthInBytes="13181789"
 			      CanonicalFileName="No glowing eyes version-53059-1-0.rar"
 			      MD5Checksum="82b49278fd331543eb519220b6224daa"
 			      DownloadTags="nexus|skyrim|53059|1000105208" />
 
 			<File Name="HD Enhanced Terrain and Map snow - 1024 8.0"
+			      LengthInBytes="1276281"
 			      CanonicalFileName="Hd Enhanced Terrain and Map snow 1024x1024 Version-29782-V8.rar"
 			      MD5Checksum="a9d44cf3246dc14d8e4606ff5ddb3bf3"
 			      DownloadTags="nexus|skyrim|29782|1000010550" />
 
 			<File Name="High Quality LODs - Meshes Hi-Res 2.1"
+			      LengthInBytes="33602524"
 			      CanonicalFileName="HQLODs - Meshes Hi-Res-4834.7z"
 			      MD5Checksum="252e1286fa170b79035e8e02ede896d6"
 			      DownloadTags="nexus|skyrim|4834|21854" />
 
 			<File Name="HQ Snow Texture - 1k Loose 2.7.1"
+			      LengthInBytes="9807985"
 			      CanonicalFileName="HQ Snow Texture 2_7_1 1024 Loose-743-2-7-1.rar"
 			      MD5Checksum="cea93a8090ab3f649830cdd22ccd617e"
 			      DownloadTags="nexus|skyrim|743|1000080653" />
 
 			<File Name="Hybrids Hires Plant and Herb Retexture 4.0"
+			      LengthInBytes="11316260"
 			      CanonicalFileName="Hybrids Hires Plant and Herb Retexture v4-1546.zip"
 			      MD5Checksum="d52ab79e1d9be86c5ab330408015d9a3"
 			      DownloadTags="nexus|skyrim|1546|8550" />
 
 			<File Name="Improved Vanilla Mountains HD 1.0"
+			      LengthInBytes="15596277"
 			      CanonicalFileName="Improved Vanilla Mountains HD-40922-1-0.rar"
 			      MD5Checksum="3082db534aaeb97bd0d097338dd107bb"
 			      DownloadTags="nexus|skyrim|40922|1000049279" />
 
 			<File Name="Point The Way 1.0.8"
+			      LengthInBytes="792875"
 			      CanonicalFileName="Point The Way-33393-1-0-8.7z"
 			      MD5Checksum="bb3654ad6002643a81e19de47f781ce0"
 			      DownloadTags="nexus|skyrim|33393|1000197437" />
 
 			<File Name="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0"
+			      LengthInBytes="6728337"
 			      CanonicalFileName="Real Wood Textures - Farmhouses No Green Moss Version 1K (S.T.E.P. Version)-50595-v1-0.rar"
 			      MD5Checksum="69128f3bec42895f9be6ca29fd752f78"
 			      DownloadTags="nexus|skyrim|50595|1000173936" />
 
 			<File Name="Realistic Water Two 1.11"
+			      LengthInBytes="52687423"
 			      CanonicalFileName="Realistic Water Two v1_11-41076-1-11.7z"
 			      MD5Checksum="e03fbe240f2daf61faec323066cf7bd2"
 			      DownloadTags="nexus|skyrim|41076|1000081546" />
 
 			<File Name="Skyrim Improved Puddles - 1k BAIN 1.1a"
+			      LengthInBytes="3299778"
 			      CanonicalFileName="Skyrim Improved Puddles 1024 BAIN-33335-1-1a.7z"
 			      MD5Checksum="3c567d7c44dda52dc6c0a1a787b31ac5"
 			      DownloadTags="nexus|skyrim|33335|1000024194" />
 
 			<File Name="Trees HD - HIGH 1.6"
+			      LengthInBytes="28948920"
 			      CanonicalFileName="TreesHD_Skyrim_variation_HIGH_NEW-3812-1-6.rar"
 			      MD5Checksum="48e772097e162664fb715584b02659e7"
 			      DownloadTags="nexus|skyrim|3812|24958" />
 
 			<File Name="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4"
+			      LengthInBytes="1954025"
 			      CanonicalFileName="Vivid Landscapes - Tundra Moss Revised - yellow 1024-43221-1-4.7z"
 			      MD5Checksum="07e1bee74fe3ccc464733f8cecacf52f"
 			      DownloadTags="nexus|skyrim|43221|1000085562" />
 
 			<File Name="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5"
+			      LengthInBytes="145652"
 			      CanonicalFileName="SMIM compatibility patch-43221-1-5.7z"
 			      MD5Checksum="11336ba27fb1ca98de3940a74b91897b"
 			      DownloadTags="nexus|skyrim|43221|1000144603" />
 
 			<File Name="Whiterun Trellis Redesigned - 1k 1.1"
+			      LengthInBytes="862375"
 			      CanonicalFileName="Whitrun Trellis Texture 1024 v_1_1-1647.zip"
 			      MD5Checksum="4aa3e0d87b53b35c4e51ec766f6bf0f0"
 			      DownloadTags="nexus|skyrim|1647|4638" />
@@ -432,101 +514,121 @@
 
 		<Group Name="2.H. Characters &amp; Creatures">
 			<File Name="Beards - 1k 2.0"
+			      LengthInBytes="7114635"
 			      CanonicalFileName="Normal Resolution-28363-v2-0.rar"
 			      MD5Checksum="9b6f55f2035f7ec0e3b411fb1c8cb3fc"
 			      DownloadTags="nexus|skyrim|28363|1000008662" />
 
 			<File Name="Better Beast Races - Lite 2.0"
+			      LengthInBytes="66285228"
 			      CanonicalFileName="Better_Beast_Races-2_00-Lite-944-2-0L.7z"
 			      MD5Checksum="15961f3648604022de5ea6494f5c22bb"
 			      DownloadTags="nexus|skyrim|944|5632" />
 
 			<File Name="Better Freckles 1.0.1"
+			      LengthInBytes="326680"
 			      CanonicalFileName="Better Freckles v1_0_1-4502-1-0-1.7z"
 			      MD5Checksum="801ff2f95535f5ef4fc2571e3103d302"
 			      DownloadTags="nexus|skyrim|4502|46058" />
 
 			<File Name="Brows - 512x256px 3.1"
+			      LengthInBytes="4351202"
 			      CanonicalFileName="Standard Resolution-30411-v3-1.rar"
 			      MD5Checksum="a480e7e712e7f299d964e874b8b55871"
 			      DownloadTags="nexus|skyrim|30411|1000130123" />
 
 			<File Name="Coverkhajits - 1k"
+			      LengthInBytes="7333659"
 			      CanonicalFileName="coverkhajiits 1024x1024-5941-1-0.rar"
 			      MD5Checksum="1cdcd3d01e24757735dd1711f3b6873b"
 			      DownloadTags="nexus|skyrim|5941|20021" />
 
 			<File Name="Female Vampires Have Fangs 0.1"
+			      LengthInBytes="3761"
 			      CanonicalFileName="Female Vampires Have Fangs-22522-0-1.7z"
 			      MD5Checksum="7f49c4b5d853ce833abe57c0085ea824"
 			      DownloadTags="nexus|skyrim|22522|81951" />
 
 			<File Name="GIANT - 2k 1.0"
+			      LengthInBytes="12325286"
 			      CanonicalFileName="Giant.2k-66428-1-0.7z"
 			      MD5Checksum="b880a7a94d394321e57839da82caf5e6"
 			      DownloadTags="nexus|skyrim|66428|1000162749" />
 
 			<File Name="HAGRAVEN - 2k 1.0"
+			      LengthInBytes="7343277"
 			      CanonicalFileName="Hagraven.2k-67075-1-0.7z"
 			      MD5Checksum="b137c43ba0f82f9773365178785f28c9"
 			      DownloadTags="nexus|skyrim|67075|1000164887" />
 
 			<File Name="Immersive Citizens - AI Overhaul 0.3.2.3"
+			      LengthInBytes="2307657"
 			      CanonicalFileName="Immersive Citizens - AI Overhaul-65013-0-3-2-3.7z"
 			      MD5Checksum="13b7909ac97baef243c9aec6fc8e1168"
 			      DownloadTags="nexus|skyrim|65013|1000220961" />
 
 			<File Name="Realistic Hair 1.0"
+			      LengthInBytes="6246981"
 			      CanonicalFileName="Realistic Hair-3397-1-0.rar"
 			      MD5Checksum="21cae19fa2eda75b32006908b50d8680"
 			      DownloadTags="nexus|skyrim|3397|9475" />
 
 			<File Name="New Children - Children Dirt Skin 1.0"
+			      LengthInBytes="11796448"
 			      CanonicalFileName="children dirt skin-6172-2.rar"
 			      MD5Checksum="663e321b92a6334403b1e71fe78f7f81"
 			      DownloadTags="nexus|skyrim|6172|20487" />
 
 			<File Name="SLF Hair - Rough Hair - Lite 1k 2.0"
+			      LengthInBytes="4400927"
 			      CanonicalFileName="SLF Hair - Rough Hair - Lite 1K-36510-2-0.7z"
 			      MD5Checksum="926c9c2565abac0a253f0280cded99a3"
 			      DownloadTags="nexus|skyrim|36510|1000043824" />
 
 			<File Name="Dawnguard Rewritten - Arvak 1.1.1"
+			      LengthInBytes="30185354"
 			      CanonicalFileName="Dawnguard Rewritten - Arvak-24019-1-1-1.7z"
 			      MD5Checksum="ecfa2da0e4e2fd268a0c3debe25d2ead"
 			      DownloadTags="nexus|skyrim|24019|1000016203" />
 
 			<File Name="TROLL - 2k 1.0"
+			      LengthInBytes="18783692"
 			      CanonicalFileName="Troll.2k-68131-1-0.7z"
 			      MD5Checksum="247e95f3143ce2f8850942df4d708cd5"
 			      DownloadTags="nexus|skyrim|68131|1000169009" />
 
 			<File Name="Wiseman303's Critter Fixes 1.06"
+			      LengthInBytes="793605"
 			      CanonicalFileName="WM Critter Fixes v1_06-54485-1-06.7z"
 			      MD5Checksum="c5691c22dfcea614ef562b307f3fd4d7"
 			      DownloadTags="nexus|skyrim|54485|1000117920" />
 
 			<File Name="WISPMOTHER - 2x1k 1.0"
+			      LengthInBytes="4377654"
 			      CanonicalFileName="Wispmother.2x1k-67525-1-0.7z"
 			      MD5Checksum="89610ce8b1440650f005633cbe34d847"
 			      DownloadTags="nexus|skyrim|67525|1000166728" />
 
 			<File Name="XCE 1.13"
+			      LengthInBytes="60493111"
 			      CanonicalFileName="XCE-1_13-2356-1-13.7z"
 			      MD5Checksum="08f12eb415728cb0f2e953d1dc854b19"
 			      DownloadTags="nexus|skyrim|2356|42987" />
 
 			<File Name="XCE - Dawnguard 1.0"
+			      LengthInBytes="3679359"
 			      CanonicalFileName="XCED-1_00-21839-1-0.7z"
 			      MD5Checksum="5c297a8e85ea5b79979de5e7402dc12c"
 			      DownloadTags="nexus|skyrim|21839|79287" />
 
 			<File Name="Better males - Genox Faces 1.2"
+			      LengthInBytes="140452814"
 			      CanonicalFileName="Faces - GeonoxFaces-2488.rar"
 			      MD5Checksum="4a0f1a5d75b7efea1be566a4ee1ced09"
 			      DownloadTags="nexus|skyrim|2488|26461" />
 
 			<File Name="Better males - Underwear - Default 2.3.2"
+			      LengthInBytes="98289541"
 			      CanonicalFileName="Underwear - Default-2488-2-3-2.rar"
 			      MD5Checksum="3f46f4261a187e228ab2f5e96a28634e"
 			      DownloadTags="nexus|skyrim|2488|32073" />
@@ -534,117 +636,140 @@
 
 		<Group Name="2.I. Clothing &amp; Equipment">
 			<File Name="aMidianBorn Blade of Woe 1.1"
+			      LengthInBytes="4229041"
 			      CanonicalFileName="aMidianBorn Blade of Woe-51130-1-1.7z"
 			      MD5Checksum="8ccccbd20380f00662be9b7051bc4b95"
 			      DownloadTags="nexus|skyrim|51130|1000097759" />
 
 			<File Name="aMidianBorn Book of Silence - ARMORS 1.9"
+			      LengthInBytes="372634763"
 			      CanonicalFileName="aMidianBorn book of silence_ARMORS-24909-1-9.7z"
 			      MD5Checksum="75e83fad4377b9a2d026d71ad8a81739"
 			      DownloadTags="nexus|skyrim|24909|1000057539" />
 
 			<File Name="aMidianBorn Book of Silence - Creatures 1.9"
+			      LengthInBytes="74440359"
 			      CanonicalFileName="aMidianBorn book of silence_Creatures-24909-1-9.7z"
 			      MD5Checksum="b4965192e197c91674bf8c6178c60a93"
 			      DownloadTags="nexus|skyrim|24909|1000057444" />
 
 			<File Name="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9"
+			      LengthInBytes="115103998"
 			      CanonicalFileName="aMidianBorn book of silence_DRAGONBORN DLC-24909-1-9.7z"
 			      MD5Checksum="580440a5691d0640866d5cba4e04f4b8"
 			      DownloadTags="nexus|skyrim|24909|1000057507" />
 
 			<File Name="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9"
+			      LengthInBytes="102628905"
 			      CanonicalFileName="aMidianBorn book of silence_UNIQUE ITEMS-24909-1-9.7z"
 			      MD5Checksum="d3420a70879b17eac0bc556722698d34"
 			      DownloadTags="nexus|skyrim|24909|1000057469" />
 
 			<File Name="aMidianBorn Book of Silence - WEAPONS 1.9"
+			      LengthInBytes="312325097"
 			      CanonicalFileName="aMidianBorn book of silence_WEAPONS-24909-1-9.7z"
 			      MD5Checksum="63b705c52cdd1cc8a61235a40e72aa55"
 			      DownloadTags="nexus|skyrim|24909|1000057498" />
 
 			<File Name="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9"
+			      LengthInBytes="171077"
 			      CanonicalFileName="Staff of Magnus Hotfix-24909-1-9.zip"
 			      MD5Checksum="f676f4a9062a2f695857aca6e65b84d2"
 			      DownloadTags="nexus|skyrim|24909|1000138855" />
 
 			<File Name="aMidianBorn - Content Addon 1.9"
+			      LengthInBytes="303267059"
 			      CanonicalFileName="aMidianBorn - Content Addon-24909-1-9.7z"
 			      MD5Checksum="1f6e8a5312d6a377ee9e67772349c036"
 			      DownloadTags="nexus|skyrim|24909|1000151780" />
 
 			<File Name="aMidianBorn Imperial Light and Studded - 2k 1.1"
+			      LengthInBytes="15177688"
 			      CanonicalFileName="aMidianBorn Imperial Light 1dot1_2k-50887-1-1.7z"
 			      MD5Checksum="2b01b9f87310777d24880d007ac603af"
 			      DownloadTags="nexus|skyrim|50887|1000097047" />
 
 			<File Name="aMidianBorn Stormcloak Officer Armour - 2k 1.0"
+			      LengthInBytes="12824462"
 			      CanonicalFileName="aMidianBorn Stormcloak officer-45692-1.7z"
 			      MD5Checksum="42deb8951c5929d59272f2258fdac19e"
 			      DownloadTags="nexus|skyrim|45692|1000071512" />
 
 			<File Name="Dawnguard Crossbow Explosive Bolts Visualized 1.0.2"
+			      LengthInBytes="2851498"
 			      CanonicalFileName="Explosive Bolts Visualized v1_0_2-21922-1-0-2.7z"
 			      MD5Checksum="10bf8cf366c7668c6a5604de3638775a"
 			      DownloadTags="nexus|skyrim|21922|91028" />
 
 			<File Name="Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0"
+			      LengthInBytes="2842441"
 			      CanonicalFileName="Explosive Bolts Visualized HD Textures-21922-1.7z"
 			      MD5Checksum="d0bde60783e7416fffcfda3012da8b35"
 			      DownloadTags="nexus|skyrim|21922|1000014930" />
 
 			<File Name="Elemental Staffs - 1k 1.16"
+			      LengthInBytes="2849508"
 			      CanonicalFileName="Elemental Staffs 1K Main Cleaned-15152-1-16.rar"
 			      MD5Checksum="bb2e202c706576f1bf6d515e2e294959"
 			      DownloadTags="nexus|skyrim|15152|1000117574" />
 
 			<!-- Consider additionally supporting more targeted downloads. -->
 			<File Name="Gemling Queen Jewelry - All In One 4.1c"
+			      LengthInBytes="19880929"
 			      CanonicalFileName="Gemling Queen Jewelry - All In One Installer v4-1c-52266-4-1c.7z"
 			      MD5Checksum="73f73489d72d4074d6a3de9c5a5a65e2"
 			      DownloadTags="nexus|skyrim|52266|1000142242" />
 
 			<File Name="Skyrim Weapon De-LARP-ification Project 1.0.5"
+			      LengthInBytes="2960728"
 			      CanonicalFileName="Skyrim Weapon DeLARPification Project v1_0_5-16072-1-0-5.7z"
 			      MD5Checksum="b8b25896edba026b8868ca590c5ffcca"
 			      DownloadTags="nexus|skyrim|16072|89733" />
 
 			<File Name="Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0"
+			      LengthInBytes="494199"
 			      CanonicalFileName="Skyrim Weapon DeLARPification Project Dawnguard v1_0-16072-DG1-0.7z"
 			      MD5Checksum="3f84ef20698f0285df2bd2512e986038"
 			      DownloadTags="nexus|skyrim|16072|87698" />
 
 			<File Name="Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2"
+			      LengthInBytes="397324"
 			      CanonicalFileName="Skyrim Weapon DeLARPification Project Dragonborn v1_0_2-16072-1-0-2.7z"
 			      MD5Checksum="1e16e48b84b9b9c6578d767a92b998b8"
 			      DownloadTags="nexus|skyrim|16072|1000112917" />
 
 			<File Name="Greatsword Sheaths and Scabbards Redux 2.7.3"
+			      LengthInBytes="5925660"
 			      CanonicalFileName="Greatsword Sheaths and Scabbards Redux-27178-2-7-3.7z"
 			      MD5Checksum="8804f9a315babb973bc485946c5f2802"
 			      DownloadTags="nexus|skyrim|27178|1000194779" />
 
 			<File Name="Mage Outfit Texture Overhaul - Master X"
+			      LengthInBytes="32004130"
 			      CanonicalFileName="Mage Outfit Texture Overhaul - MOTO - SoM - USLEEP and CCF Compatible-69289-.7z"
 			      MD5Checksum="778213ba969655c1e133b4fd32515eca"
 			      DownloadTags="nexus|skyrim|69289|1000184159" />
 
 			<File Name="New Thinner Torch - Ultimate HD Torch Compatible 1.0"
+			      LengthInBytes="49218"
 			      CanonicalFileName="Ultimate HD Torch by rheadude compatible-6950-1-0.rar"
 			      MD5Checksum="082b584873c612283cff5967d981e96c"
 			      DownloadTags="nexus|skyrim|6950|1000000352" />
 
 			<File Name="Nightingale Prime HD - Leather Version Final"
+			      LengthInBytes="34616607"
 			      CanonicalFileName="Nightingale Prime HD - Leather Version-28899-Final.zip"
 			      MD5Checksum="e8939919bd4ee720daedafc8ecd3dc16"
 			      DownloadTags="nexus|skyrim|28899|107580" />
 
 			<File Name="Not Really HD - Mask of Clavicus Vile - Wrecked 0.9a"
+			      LengthInBytes="117682"
 			      CanonicalFileName="Corrected Wrecked Version-3375-0-9a.zip"
 			      MD5Checksum="f3e2cece8a7d8b8eb8355edcbad8bc95"
 			      DownloadTags="nexus|skyrim|3375|9718" />
 
 			<File Name="Ultimate HD Torch - 1k 1.3"
+			      LengthInBytes="1929745"
 			      CanonicalFileName="Ultimate HD Torch MedRes - 1024x1024-28060-1-3.rar"
 			      MD5Checksum="ba70ae824746d64725a9cbf82272a490"
 			      DownloadTags="nexus|skyrim|28060|106162" />
@@ -652,36 +777,43 @@
 
 		<Group Name="2.J. Animations &amp; Effects">
 			<File Name="Animated clutter 1.9"
+			      LengthInBytes="61821561"
 			      CanonicalFileName="animated clutter-48287-1-9.7z"
 			      MD5Checksum="767f4b80d5af721ea3289d17f2a2764f"
 			      DownloadTags="nexus|skyrim|48287|1000107949" />
 
 			<File Name="Better Turn Animation 1.1"
+			      LengthInBytes="5437112"
 			      CanonicalFileName="BetterTurnAnimationOnlyOnePose1-1-8080-1-1.rar"
 			      MD5Checksum="3f2ffd7e0407f2223e0fc30b5d717188"
 			      DownloadTags="nexus|skyrim|8080|30352" />
 
 			<File Name="Better Turn Animation - Fix Crossed Swords and Turn with Leg move 1.1"
+			      LengthInBytes="554747"
 			      CanonicalFileName="Fix Crossed Swords and Turn with Leg move-8080-1-1.rar"
 			      MD5Checksum="092262efd2d40806b1e674c7fee6f3c1"
 			      DownloadTags="nexus|skyrim|8080|39958" />
 
 			<File Name="Dawnguard Rune Weapons FXS Replacer 1.0"
+			      LengthInBytes="15258"
 			      CanonicalFileName="Dawnguard Rune Weapons FXS Replacer-29735-1-0.zip"
 			      MD5Checksum="518f86f1b32ecf3d1b18c8b0fa369921"
 			      DownloadTags="nexus|skyrim|29735|1000001385" />
 
 			<File Name="DROPS - v1 Optional 1.0"
+			      LengthInBytes="18801998"
 			      CanonicalFileName="DROPS v1-63991-1-0.7z"
 			      MD5Checksum="7eac81f10c33f3c77d50fb41b47376b6"
 			      DownloadTags="nexus|skyrim|63991|1000153304" />
 
 			<File Name="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1"
+			      LengthInBytes="367561"
 			      CanonicalFileName="Female without BBB and Male Breathing Idles V0_1-7093.rar"
 			      MD5Checksum="93f5798bf831dc1dc4aac3da90dcffe1"
 			      DownloadTags="nexus|skyrim|7093|23802" />
 
 			<File Name="Running with Bows 1.0"
+			      LengthInBytes="25968"
 			      CanonicalFileName="Running with a bow 3rd person-12426-1-0.zip"
 			      MD5Checksum="91f60d031bcc997fa1cace14c3f63c07"
 			      DownloadTags="nexus|skyrim|12426|41351" />
@@ -689,116 +821,139 @@
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
 			<File Name="Barenziah's Glory 2.1"
+			      LengthInBytes="21046049"
 			      CanonicalFileName="Barenziahs Glory v2-1-63902-2-1.7z"
 			      MD5Checksum="964b99c61cb4bf59e4fff921368497cf"
 			      DownloadTags="nexus|skyrim|63902|1000195554" />
 
 			<File Name="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL"
+			      LengthInBytes="25959512"
 			      CanonicalFileName="Detailing the Eldrich - Higher-Res Riekling Architecture-46741-MEDIAL.7z"
 			      MD5Checksum="51d485197c6b0f564d0da6343d01c0db"
 			      DownloadTags="nexus|skyrim|46741|1000081864" />
 
 			<File Name="LeanWolf's Improved Enchanter Candle Meshes 1.1"
+			      LengthInBytes="339124"
 			      CanonicalFileName="EnchantingCandlesImproved_LeanWolf-53638-1-1.7z"
 			      MD5Checksum="a93bd398cc17b597490474d16d6a48e4"
 			      DownloadTags="nexus|skyrim|53638|1000107539" />
 
 			<File Name="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0"
+			      LengthInBytes="2631364"
 			      CanonicalFileName="SOLID with REFRACTIONS v3-0-51769-3-0.zip"
 			      MD5Checksum="9a72c6337fa00d6ba77ac77082fe9b2c"
 			      DownloadTags="nexus|skyrim|51769|1000100788" />
 
 			<File Name="HD Linens 1.0"
+			      LengthInBytes="1013685"
 			      CanonicalFileName="HD_Linens-2979-1-0.zip"
 			      MD5Checksum="1ad222d95317a52fd73ffa06e93ee469"
 			      DownloadTags="nexus|skyrim|2979|8086" />
 
 			<File Name="HD Ore and Ingots - with manager 1.0"
+			      LengthInBytes="6119642"
 			      CanonicalFileName="HD Ore And Ingots with manager-9912-1-0.7z"
 			      MD5Checksum="682ca5d82aea440d8facee77e6d62038"
 			      DownloadTags="nexus|skyrim|9912|32620" />
 
 			<File Name="HORNCANDLES - 2k-1k 1.1"
+			      LengthInBytes="1219823"
 			      CanonicalFileName="Horncandles.2k-1k-66185-1-1.7z"
 			      MD5Checksum="f63c5e1f76944335a20b111fa46cb774"
 			      DownloadTags="nexus|skyrim|66185|1000162371" />
 
 			<File Name="HQ Paper 2.3"
+			      LengthInBytes="38862659"
 			      CanonicalFileName="HQ Paper-5988-2-3.rar"
 			      MD5Checksum="aecf6dba2b79a496962baae466ff4603"
 			      DownloadTags="nexus|skyrim|5988|20804" />
 
 			<File Name="N-R HD Display Case - Smudged Glass Version 0.9a"
+			      LengthInBytes="425525"
 			      CanonicalFileName="Smudged Glass Version-3693.7z"
 			      MD5Checksum="58ae2b58ec349fa333021a69e9afd7ae"
 			      DownloadTags="nexus|skyrim|3693|10586" />
 
 			<File Name="Not Really HD Keys - With Normal Maps X"
+			      LengthInBytes="428419"
 			      CanonicalFileName="HD Keys With Normal Maps-2875-1.7z"
 			      MD5Checksum="afb8b4bdfb25f913a757bd6d850cdd9d"
 			      DownloadTags="nexus|skyrim|2875|7782" />
 
 			<File Name="Pilgrims Delight - Legacy 1.1"
+			      LengthInBytes="2275825"
 			      CanonicalFileName="Pilgrims Delight - Legacy-10940-1-1.zip"
 			      MD5Checksum="42199735d327fd82ad8f7b4e3b7d019b"
 			      DownloadTags="nexus|skyrim|10940|70700" />
 
 			<File Name="Realistic HD Baskets - 1k 1.1 fix"
+			      LengthInBytes="20151655"
 			      CanonicalFileName="Realistic HD Baskets QUALITY-66008-1-1.rar"
 			      MD5Checksum="ac416da4dfaf001c68ffbeec1e049ee5"
 			      DownloadTags="nexus|skyrim|66008|1000161094" />
 
 			<File Name="RUSTIC DRAGON CORPSE - RUSTIC DRAGON CORPSE 2k 1.0"
+			      LengthInBytes="7211815"
 			      CanonicalFileName="RUSTIC DRAGON CORPSE 2K-65663-1-0.zip"
 			      MD5Checksum="2126e9562d22a00820798ee24c331db0"
 			      DownloadTags="nexus|skyrim|65663|1000159309" />
 
 			<File Name="RUSTIC POTIONS and POISIONS - 1k 1.1"
+			      LengthInBytes="4612367"
 			      CanonicalFileName="RUSTIC POTIONS and POISONS - 1K-62701-1-1.7z"
 			      MD5Checksum="78424610ec7489dece3c645161bebc77"
 			      DownloadTags="nexus|skyrim|62701|1000215635" />
 
 			<File Name="Septim HD 1.0"
+			      LengthInBytes="8138141"
 			      CanonicalFileName="Septim HD 1 point 0-3018-1-0.zip"
 			      MD5Checksum="df671a38d044426e8ad877e6a1a42489"
 			      DownloadTags="nexus|skyrim|3018|8188" />
 
 			<File Name="SLOD Wine Cellar - Full Pack 1.00"
+			      LengthInBytes="5016389"
 			      CanonicalFileName="SLOD Wine Cellar Full Pack-4260.rar"
 			      MD5Checksum="83380a745a5e6fe5872326a7b5e55f17"
 			      DownloadTags="nexus|skyrim|4260|25376" />
 
 			<File Name="SLOD Wine Cellar - Less Saturated Labels 1.00"
+			      LengthInBytes="222617"
 			      CanonicalFileName="Less Saturated Labels-4260.rar"
 			      MD5Checksum="2125950f71e499442e2a6169b02ce4cf"
 			      DownloadTags="nexus|skyrim|4260|25377" />
 
 			<File Name="SKELETON - 1k 1.1"
+			      LengthInBytes="4983612"
 			      CanonicalFileName="Skeleton.and.Human.Bones.1k-67871-1-1.7z"
 			      MD5Checksum="99083325d64992e7dceca2679860c5b3"
 			      DownloadTags="nexus|skyrim|67871|1000168237" />
 
 			<File Name="Skyrim Redesigned 1.0"
+			      LengthInBytes="58178426"
 			      CanonicalFileName="Skyrim Redesigned-8954.rar"
 			      MD5Checksum="66f2e9d468c3aab73c2469f308d947ce"
 			      DownloadTags="nexus|skyrim|8954|29036" />
 
 			<File Name="Soul Gems Differ - All-In-One 1.5.6"
+			      LengthInBytes="35844184"
 			      CanonicalFileName="Soul Gems Differ - All-In-One-6335-1-5-6.7z"
 			      MD5Checksum="3a9cb5acd66f6cc86d52efa3f0ec59ca"
 			      DownloadTags="nexus|skyrim|6335|1000124324" />
 
 			<File Name="Super Realistic Ore Textures - Just the textures 1.0"
+			      LengthInBytes="8541241"
 			      CanonicalFileName="Just the textures-3794-1-0.zip"
 			      MD5Checksum="f4f1e7a0e702197eeda9ae5a9dd4015b"
 			      DownloadTags="nexus|skyrim|3794|11075" />
 
 			<File Name="Sweet Mother - Sweet Mother HD 2.0"
+			      LengthInBytes="9200731"
 			      CanonicalFileName="Sweet Mother HD-4947-2-0.7z"
 			      MD5Checksum="6b6cd13caf43f535aa43d46b9f5990e8"
 			      DownloadTags="nexus|skyrim|4947|28326" />
 
 			<File Name="White Phial Replacer - All-in-One 1.2"
+			      LengthInBytes="15480016"
 			      CanonicalFileName="White Phial Replacer - All In One Installer v1-2-54078-1-2.7z"
 			      MD5Checksum="60dbd8ebb8ad96395e2085e6b18fa362"
 			      DownloadTags="nexus|skyrim|54078|1000114605" />
@@ -806,66 +961,79 @@
 
 		<Group Name="2.L. Sound">
 			<File Name="Better Animal Footsteps 1.5"
+			      LengthInBytes="2386644"
 			      CanonicalFileName="Better Animal Footsteps 1.5-24805-1-5.7z"
 			      MD5Checksum="a34d4608f1a505a4653c40b30cc09acc"
 			      DownloadTags="nexus|skyrim|24805|1000129160" />
 
 			<File Name="Better Horse Pain Sounds 1.0"
+			      LengthInBytes="469053"
 			      CanonicalFileName="Better Horse Pain Sounds-12608-1.zip"
 			      MD5Checksum="79f86ece55402db8e33e08140dfabec8"
 			      DownloadTags="nexus|skyrim|12608|42120" />
 
 			<File Name="Better Weapon Swing Sounds 1.1"
+			      LengthInBytes="303918"
 			      CanonicalFileName="BWS v1_1-17903.zip"
 			      MD5Checksum="99f92a73d95f9eb46ee729be2fea17c2"
 			      DownloadTags="nexus|skyrim|17903|66066" />
 
 			<File Name="AOS All-In-One 2.5.1"
+			      LengthInBytes="235829257"
 			      CanonicalFileName="AOS 2.5.1 Full Install-43773-2-5-1.rar"
 			      MD5Checksum="9347a10a698689a28c8700ede15a3430"
 			      DownloadTags="nexus|skyrim|43773|1000171565" />
 
 			<File Name="Dragon Shout with Voice 1.1"
+			      LengthInBytes="846408"
 			      CanonicalFileName="Dragons Shout with Voice - LOOSE-35286-1-1.rar"
 			      MD5Checksum="7c82698dccf91ff95efe18e212ae9469"
 			      DownloadTags="nexus|skyrim|35286|1000110714" />
 
 			<File Name="Dragon Shout with Voice From Location 1.0"
+			      LengthInBytes="1036"
 			      CanonicalFileName="Dragons Shout with Voice from location-35286-1-0.rar"
 			      MD5Checksum="4d9e1482cf9099eeda64077bf67d93cb"
 			      DownloadTags="nexus|skyrim|35286|1000026786" />
 
 			<File Name="Heart of the Beast - HIGH AGGRESSION 1.6"
+			      LengthInBytes="11757643"
 			      CanonicalFileName="Realistic werewolves - Feral werewolf Sounds-13779-1-4.rar"
 			      MD5Checksum="4643aaccdb02a8c6d71b2697f575b893"
 			      DownloadTags="nexus|skyrim|13779|83749" />
 
 			<File Name="Improved Horse step Sounds 2.1"
+			      LengthInBytes="2816946"
 			      CanonicalFileName="Improved Horse step Sounds v2-1-31039-2-1.zip"
 			      MD5Checksum="7f4403be04636cce4485c1f8c974ee4d"
 			      DownloadTags="nexus|skyrim|31039|1000112264" />
 
 			<File Name="Improved Combat Sounds 2.2"
+			      LengthInBytes="4691138"
 			      CanonicalFileName="Improved Combat Sounds V2 2-5289-2-2.zip"
 			      MD5Checksum="a62957d530eba1b001bd8f7ebb8490a1"
 			      DownloadTags="nexus|skyrim|5289|103127" />
 
 			<File Name="Lower Sounding Thieves Guild Door 1.0"
+			      LengthInBytes="1404999"
 			      CanonicalFileName="LowerVolume-1826-1.rar"
 			      MD5Checksum="fffe7fde287dba473f76273636b105f3"
 			      DownloadTags="nexus|skyrim|1826|4759" />
 
 			<File Name="Smooth blade draw and Sheathe sfx - Full Options 2.3"
+			      LengthInBytes="2421611"
 			      CanonicalFileName="Smooth draw and Sheathe sfx - Full options-1117-2-3.7z"
 			      MD5Checksum="a97ffa007b227f7f8ce7501902e85110"
 			      DownloadTags="nexus|skyrim|1117|1000057449" />
 
 			<File Name="Ultra Realistic Bow Shoot Sounds 1.0"
+			      LengthInBytes="81830"
 			      CanonicalFileName="Bow sound-27208-1.rar"
 			      MD5Checksum="8c056a46c3f5eb6a6292ab953f42b503"
 			      DownloadTags="nexus|skyrim|27208|100825" />
 
 			<File Name="Ultra Realistic Crossbow Shoot Sounds X"
+			      LengthInBytes="103599"
 			      CanonicalFileName="Main File --fixed the Normal Crossbow sound---31274-.rar"
 			      MD5Checksum="50940d22a8c1cd9c7ff1c6ef2e1c5992"
 			      DownloadTags="nexus|skyrim|31274|1000008250" />
@@ -873,51 +1041,61 @@
 
 		<Group Name="2.M. Gameplay">
 			<File Name="Auto Unequip Ammo 5.0"
+			      LengthInBytes="46507"
 			      CanonicalFileName="Auto Unequip Ammo v5_0-10753-5-0.zip"
 			      MD5Checksum="e63080c31edc9fb8cee395fc18d659c5"
 			      DownloadTags="nexus|skyrim|10753|1000013611" />
 
 			<File Name="Better Stealth AI for Followers 3.4"
+			      LengthInBytes="70300"
 			      CanonicalFileName="Better Stealth AI for Followers-16531-3-4.zip"
 			      MD5Checksum="6412a7789e24e9c8c4d892e9cfd5cae4"
 			      DownloadTags="nexus|skyrim|16531|1000111660" />
 
 			<File Name="Clams Drop Pearls 1.0"
+			      LengthInBytes="1410"
 			      CanonicalFileName="ClamsDropPearls-9037-1-0.7z"
 			      MD5Checksum="6a1034a562de0900a166b025e6da9016"
 			      DownloadTags="nexus|skyrim|9037|29214" />
 
 			<File Name="Come Together N Out of the way - Nausicaa Tweaker 1.2"
+			      LengthInBytes="41058"
 			      CanonicalFileName="Nausicaa Tweaker 1_2 Main-33562-1-2.7z"
 			      MD5Checksum="66aa8f09cc11be3520d5716205459eaa"
 			      DownloadTags="nexus|skyrim|33562|1000018652" />
 
 			<File Name="Gildergreen Regrown 1.2.6"
+			      LengthInBytes="33533"
 			      CanonicalFileName="Gildergreen Regrown-12254-1-2-6.7z"
 			      MD5Checksum="db6785d5bed399c04fc0dfb5025a6b95"
 			      DownloadTags="nexus|skyrim|12254|1000098503" />
 
 			<File Name="Non-Essential Children - Hearthfire 10.1"
+			      LengthInBytes="21800"
 			      CanonicalFileName="Non-Essential Children - Hearthfire-13202-10-1.zip"
 			      MD5Checksum="b58830dd0919d21a95a7521c4f74b9cc"
 			      DownloadTags="nexus|skyrim|13202|1000200629" />
 
 			<File Name="Skyrim Community Uncapper 1.15.2.0"
+			      LengthInBytes="190135"
 			      CanonicalFileName="Skyrim -Community- Uncapper v1_15_2_0-1175-1-15-2-0.rar"
 			      MD5Checksum="eb251604dac01878781b54ead7e558e0"
 			      DownloadTags="nexus|skyrim|1175|1000087126" />
 
 			<File Name="The Paarthurnax Dilemma 1.2.9"
+			      LengthInBytes="463972"
 			      CanonicalFileName="The Paarthurnax Dilemma-18465-1-2-9.7z"
 			      MD5Checksum="431c92517ac7012f21e4aa29a04c25c5"
 			      DownloadTags="nexus|skyrim|18465|1000177457" />
 
 			<File Name="Traps Make Noise 2.1"
+			      LengthInBytes="74994"
 			      CanonicalFileName="Traps Make Noise-31799-2-1.zip"
 			      MD5Checksum="8754d394bd011f8d45a13ce849485d4d"
 			      DownloadTags="nexus|skyrim|31799|1000114332" />
 
 			<File Name="Wiseman303's Trap Fixes 2.0b"
+			      LengthInBytes="294143"
 			      CanonicalFileName="WM Trap Fixes-55100-2-0b.7z"
 			      MD5Checksum="53c1df7af8a2e210b2b950d4e02a2336"
 			      DownloadTags="nexus|skyrim|55100|1000186411" />
@@ -925,28 +1103,33 @@
 
 		<Group Name="2.N. Patches">
 			<File Name="STEP Compilation - High 2.2.9.2l"
+			      LengthInBytes="905471272"
 			      CanonicalFileName="STEP Compilation Installer - High Res - 2292l-11-2-2-9-2l.7z"
 			      Option="STEP Compilation 2.2.9.2l"
 			      MD5Checksum="5b3eb1c2bf754c25b5278d4ab2d21aa6"
 			      DownloadTags="nexus|skyrim|11|1000219783" />
 
 			<File Name="STEP Compilation - Normal 2.2.9.2l"
+			      LengthInBytes="582007771"
 			      CanonicalFileName="STEP Compilation Installer - Normal Res - 2292l-11-2-2-9-2l.7z"
 			      Option="STEP Compilation 2.2.9.2l"
 			      MD5Checksum="97d603bb582ad88623dd4ad1010724cb"
 			      DownloadTags="nexus|skyrim|11|1000219776" />
 
 			<File Name="LeanWolf's Better-Shaped Weapons 2.0.06"
+			      LengthInBytes="20488767"
 			      CanonicalFileName="LeanWolfs Better-Shaped Weapons Installer v2.0.06-39870-2-0-06.7z"
 			      MD5Checksum="b39bc682252af8145174916f13036ee9"
 			      DownloadTags="nexus|skyrim|39870|1000208671" />
 
 			<File Name="DynDOLOD 2.18"
+			      LengthInBytes="14327756"
 			      CanonicalFileName="DynDOLOD-59721-2-18.7z"
 			      MD5Checksum="d6be7d164cd879bd2cc7f73b6d72b9cd"
 			      DownloadTags="nexus|skyrim|59721|1000218339" />
 
 			<File Name="DynDOLOD Resources 2.18"
+			      LengthInBytes="35161993"
 			      CanonicalFileName="DynDOLOD Resources-59721-2-18.7z"
 			      MD5Checksum="01a9fee37ec4e334fac13daa7c990d07"
 			      DownloadTags="nexus|skyrim|59721|1000218338" />

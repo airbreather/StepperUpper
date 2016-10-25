@@ -59,29 +59,7 @@ namespace StepperUpper
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
             DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
-            FileInfo[] downloadDirectoryFiles = downloadDirectory.GetFiles();
-            FileInfo[] skyrimDirectoryFiles = skyrimDirectory.GetFiles();
 
-            int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
-
-            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
-            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
-                // uncomment to see what it's like if you don't have anything yet.
-                ////.Take(0)
-                ;
-
-            // TODO: maybe only check files whose lengths match with known lengths from the XML?
-            Dictionary<Md5Checksum, string> checkedFiles =
-                await ConcurrentMd5.Calculate(allFiles)
-                    .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
-                    .Distinct(f => f.Checksum)
-                    .ToDictionary(f => f.Checksum, f => f.Path)
-                    .Select(d => new Dictionary<Md5Checksum, string>(d))
-                    .ToTask()
-                    .ConfigureAwait(false);
-
-            Console.Write(Invariant($"\r{new string(' ', 32)}"));
-            Console.Write('\r');
             XDocument doc;
             using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(options.PackDefinitionFilePath))
             using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
@@ -101,6 +79,35 @@ namespace StepperUpper
                 .SelectMany(grp => grp.Elements("File"))
                 .GroupBy(fl => fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)
                 .ToArray();
+
+            // we hit all the files in the Skyrim directory, which has lots of gigabytes of BSAs we
+            // don't care about, and the MO download folder itself might have tons of crap we don't
+            // care about either.  quick and easy fix is to just look at files whose lengths match.
+            // not absolutely 100% perfect, but good enough.
+            var sizes = new HashSet<long>(groups.SelectMany(grp => grp.Select(el => Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture))));
+
+            FileInfo[] downloadDirectoryFiles = downloadDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
+            FileInfo[] skyrimDirectoryFiles = skyrimDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
+
+            int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
+
+            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
+            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
+                // uncomment to see what it's like if you don't have anything yet.
+                ////.Take(0)
+                ;
+
+            Dictionary<Md5Checksum, string> checkedFiles =
+                await ConcurrentMd5.Calculate(allFiles)
+                    .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
+                    .Distinct(f => f.Checksum)
+                    .ToDictionary(f => f.Checksum, f => f.Path)
+                    .Select(d => new Dictionary<Md5Checksum, string>(d))
+                    .ToTask()
+                    .ConfigureAwait(false);
+
+            Console.Write(Invariant($"\r{new string(' ', 32)}"));
+            Console.Write('\r');
 
             IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.ContainsKey(Md5Checksum(fl)))).ToArray();
 
