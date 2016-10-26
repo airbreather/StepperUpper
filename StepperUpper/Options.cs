@@ -17,7 +17,7 @@ namespace StepperUpper
         [Option('o', "outputFolder", Required = true, HelpText = "Folder to create everything in.")]
         public string OutputDirectoryPath { get; set; }
 
-        [Option('x', "scorch", DefaultValue = false, HelpText = "True to erase existing files.")]
+        [Option('x', "scorch", HelpText = "Delete contents of output directory if non-empty (otherwise, fail).")]
         public bool Scorch { get; set; }
 
         [ParserState]
