@@ -1,6 +1,13 @@
 # StepperUpper
 An automated application to ease STEP (and similar) modpack setup.
 
+Building
+--
+
+Requires Visual Studio 2015 to build.  Community Edition is what I use, and it works just fine.
+
+Also, you have to clone [AirBreather.Common](https://github.com/airbreather/AirBreather.Common) and put it in a magical location next to this repo.  *Oops.  I should make that a bit nicer.  Sorry about the mess.*
+
 Usage
 --
 
