@@ -8,13 +8,13 @@ using System.Net.Http;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 using AirBreather.IO;
-using AirBreather.Logging;
 
 using static System.FormattableString;
 
@@ -36,25 +36,14 @@ namespace StepperUpper
             Options options = new Options();
             CommandLine.Parser.Default.ParseArgumentsStrict(args, options);
 
-            ILogger logger = Log.For(typeof(Program));
             DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
-            if (dumpDirectory.Exists)
+            bool needsDelete = dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
+            if (needsDelete & !options.Scorch)
             {
-                if (options.Scorch)
-                {
-                    logger.Info("Output folder exists already.  Deleting...");
-                    await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
-                    logger.Info("Output folder deleted.");
-                }
-                else
-                {
-                    logger.Error("Output folder exists already.  Aborting...");
-                    logger.Info("(run with -x / --scorch to have us automatically delete instead).");
-                    return 2;
-                }
+                Console.Error.WriteLine("Output folder exists already.  Aborting...");
+                Console.WriteLine("(run with -x / --scorch to have us automatically delete instead).");
+                return 2;
             }
-
-            logger.Info("Checking existing files...");
 
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
@@ -71,9 +60,29 @@ namespace StepperUpper
                 doc = XDocument.Parse(docText);
             }
 
-            IGrouping<string, XElement>[] groups = doc
-                .PoolStrings() // lots of strings show up multiple times each.
-                .Element("Modpack")
+            // lots of strings show up multiple times each.
+            doc = doc.PoolStrings();
+
+            var modpackElement = doc.Element("Modpack");
+
+            var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
+            var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            if (currentToolVersion < minimumToolVersion)
+            {
+                Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
+                return 3;
+            }
+
+            if (needsDelete)
+            {
+                Console.WriteLine("Output folder exists already.  Deleting...");
+                await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
+                Console.WriteLine("Output folder deleted.");
+            }
+
+            Console.WriteLine("Checking existing files...");
+
+            var groups = modpackElement
                 .Element("Files")
                 .Elements("Group")
                 .SelectMany(grp => grp.Elements("File"))
@@ -111,14 +120,14 @@ namespace StepperUpper
 
             IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.ContainsKey(Md5Checksum(fl)))).ToArray();
 
-            logger.Info("Finished checking existing files.");
+            Console.WriteLine("Finished checking existing files.");
 
             if (missingGroups.Length == 0)
             {
                 goto success;
             }
 
-            logger.Info("Failed to find {0} files.  Checking to see if any missing ones can be downloaded automatically.", missingGroups.Length);
+            Console.WriteLine("Failed to find {0} files.  Checking to see if any missing ones can be downloaded automatically.", missingGroups.Length);
 
             using (HttpClient client = new HttpClient())
             {
@@ -143,7 +152,7 @@ namespace StepperUpper
                     // TODO: try more than one if the first fails?  ehh, that's rarely going to be
                     // any better, and we don't even have any option groups with any downloadables.
                     var downloadable = downloadables[0];
-                    logger.Info("{0} can be downloaded automatically from {1}.  Trying now...", downloadable.Name, downloadable.DownloadUrl);
+                    Console.WriteLine("{0} can be downloaded automatically from {1}.  Trying now...", downloadable.Name, downloadable.DownloadUrl);
 
                     var targetFile = new FileInfo(Path.Combine(downloadDirectory.FullName, downloadable.CanonicalFileName));
                     try
@@ -157,19 +166,19 @@ namespace StepperUpper
                     catch (Exception ex)
                     {
                         // ehhhhhhhhhhh..................
-                        logger.Exception(ex);
+                        Console.Error.WriteLine(ex);
                         continue;
                     }
 
                     var fileWithChecksum = await ConcurrentMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
                     if (fileWithChecksum.Checksum == downloadable.Md5Checksum)
                     {
-                        logger.Info("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
+                        Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
                         missingGroups[i] = null;
                     }
                     else
                     {
-                        logger.Warn("{0} downloaded successfully, but the checksum did not match.  You're going to have to download it the hard way.", downloadable.Name);
+                        Console.WriteLine("{0} downloaded successfully, but the checksum did not match.  You're going to have to download it the hard way.", downloadable.Name);
                     }
                 }
             }
@@ -177,28 +186,28 @@ namespace StepperUpper
             missingGroups = Array.FindAll(missingGroups, grp => grp != null);
             if (missingGroups.Length != 0)
             {
-                logger.Error("Some files could not be downloaded automatically.  Get them the hard way:");
+                Console.Error.WriteLine("Some files could not be downloaded automatically.  Get them the hard way:");
                 foreach (var grp in missingGroups)
                 {
                     switch (grp.Count())
                     {
                         case 1:
                             XElement missing = grp.First();
-                            logger.Info("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
+                            Console.WriteLine("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
                             continue;
 
                         case 2:
-                            logger.Info("    Either of:");
+                            Console.WriteLine("    Either of:");
                             break;
 
                         default:
-                            logger.Info("    Any of:");
+                            Console.WriteLine("    Any of:");
                             break;
                     }
 
                     foreach (XElement missing in grp)
                     {
-                        logger.Info("        {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
+                        Console.WriteLine("        {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
                     }
                 }
 
@@ -206,11 +215,11 @@ namespace StepperUpper
             }
 
             success:
-            logger.Info("All file requirements satisfied!");
+            Console.WriteLine("All file requirements satisfied!");
 
             var dct = groups.ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(Md5Checksum).First(checkedFiles.ContainsKey)]));
 
-            logger.Info("Starting the actual tasks (extracting archives, etc.)...");
+            Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
             dumpDirectory.Create();
             var dict = doc.Element("Modpack").Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
             var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
@@ -241,7 +250,7 @@ namespace StepperUpper
 
             Console.Write(Invariant($"\r{new string(' ', 32)}"));
             Console.Write('\r');
-            logger.Info("All tasks completed!");
+            Console.WriteLine("All tasks completed!");
             return 0;
         }
 

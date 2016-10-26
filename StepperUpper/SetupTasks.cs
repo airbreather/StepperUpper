@@ -77,7 +77,7 @@ namespace StepperUpper
 
                     // rename randomly to ensure no temporary conflicts
                     singleSub.MoveTo(Path.Combine(tempDirectory.FullName, randomFileName));
-                    elements = elements.StartWith(new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)));
+                    elements = new[] { new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)) }.Concat(elements);
                     break;
 
                 case "SingleData":
@@ -85,7 +85,7 @@ namespace StepperUpper
 
                     // rename randomly to ensure no temporary conflicts
                     singleData.MoveTo(Path.Combine(tempDirectory.FullName, randomFileName));
-                    elements = elements.StartWith(new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)));
+                    elements = new[] { new XElement("MapFolder", new XAttribute("From", randomFileName), new XAttribute("To", tempDirectory.FullName)) }.Concat(elements);
                     break;
             }
 
