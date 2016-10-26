@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Modpack Name="STEP" Variant="Core" Version="2.2.9.2">
+<Modpack Name="STEP" Variant="Core" PackVersion="2.2.9.2" FileVersion="1.0.0.0" MinimumToolVersion="1.0.0.0">
 	<Files>
 		<Group Name="1.C. Install Utilities">
 			<File Name="Mod Organizer 1.3.1.1"
@@ -16,10 +16,10 @@
 			      DownloadTags="generic|https://loot.github.io/" />
 
 			<File Name="xEdit 3.1.3"
-			      LengthInBytes="2910248"
-			      CanonicalFileName="FO4Edit 3.1.3 - 5466542-2737-3-1-3.7z"
-			      MD5Checksum="df023d7279d1bd15ed8e104b6d228f16"
-			      DownloadTags="nexus|fallout4|2737|73131" />
+			      LengthInBytes="2927436"
+			      CanonicalFileName="FO4Edit 3.1.3 - c9b7bf8-2737-3-1-3.7z"
+			      MD5Checksum="f709548eec2728b6fe830ed691c3eea2"
+			      DownloadTags="nexus|fallout4|2737|79682" />
 
 			<File Name="Wrye Bash 306 - Standalone Executable"
 			      LengthInBytes="17250882"
@@ -161,17 +161,17 @@
 			      MD5Checksum="46199313c39ab193ffdadafde03e01d3"
 			      DownloadTags="nexus|skyrim|43053|1000204073" />
 
-			<File Name="Consistent Older People 31 All NPCs USLEEP 3.1"
-			      LengthInBytes="3655087"
-			      CanonicalFileName="Consistent Older People 31 All NPCs USLEEP-19730-3-1.7z"
-			      MD5Checksum="ecb5d8e8ce7a2b7a54db2ef177be6b97"
-			      DownloadTags="nexus|skyrim|19730|1000215869" />
+			<File Name="Consistent Older People 31a All NPCs USLEEP 3.1a"
+			      LengthInBytes="3655095"
+			      CanonicalFileName="Consistent Older People 31a All NPCs USLEEP-19730-3-1a.7z"
+			      MD5Checksum="c218454a10c70e174f01af8ae3d61765"
+			      DownloadTags="nexus|skyrim|19730|1000221353" />
 
-			<File Name="Cutting Room Floor - Legendary Edition 2.0.2"
-			      LengthInBytes="6001150"
-			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-2.7z"
-			      MD5Checksum="aebc78e0556c4284d9add8f3eca41aa3"
-			      DownloadTags="nexus|skyrim|47327|1000204993" />
+			<File Name="Cutting Room Floor - Legendary Edition 2.0.3"
+			      LengthInBytes="6007711"
+			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-3.7z"
+			      MD5Checksum="e3778a2b026ddbf435c588a4dc4b4064"
+			      DownloadTags="nexus|skyrim|47327|1000221306" />
 
 			<File Name="Dead Body Collision Fix - With Improved Fireball Spell 2.4"
 			      LengthInBytes="2613"
@@ -340,11 +340,11 @@
 			      MD5Checksum="13a3701049aa31de296a737145bf353c"
 			      DownloadTags="nexus|skyrim|40564|1000120179" />
 
-			<File Name="SMIM 1.94"
-			      LengthInBytes="892222426"
-			      CanonicalFileName="SMIM 1-94-8655-1-94.7z"
-			      MD5Checksum="23e4e45f62f1ff313b818c922cfbc206"
-			      DownloadTags="nexus|skyrim|8655|1000216424" />
+			<File Name="SMIM 1.95"
+			      LengthInBytes="892230373"
+			      CanonicalFileName="SMIM 1-95-8655-1-95.7z"
+			      MD5Checksum="c0a26827deecfad129483eeeb4657ad6"
+			      DownloadTags="nexus|skyrim|8655|1000225152" />
 
 			<File Name="Skyrim HD - Landscape LITE 1.7"
 			      LengthInBytes="114915892"
@@ -1116,23 +1116,23 @@
 			      MD5Checksum="97d603bb582ad88623dd4ad1010724cb"
 			      DownloadTags="nexus|skyrim|11|1000219776" />
 
-			<File Name="LeanWolf's Better-Shaped Weapons 2.0.06"
-			      LengthInBytes="20488767"
-			      CanonicalFileName="LeanWolfs Better-Shaped Weapons Installer v2.0.06-39870-2-0-06.7z"
-			      MD5Checksum="b39bc682252af8145174916f13036ee9"
-			      DownloadTags="nexus|skyrim|39870|1000208671" />
+			<File Name="LeanWolf's Better-Shaped Weapons 2.0.07"
+			      LengthInBytes="20593080"
+			      CanonicalFileName="LeanWolfs Better-Shaped Weapons v2.0.07-39870-2-0-07.7z"
+			      MD5Checksum="6d2680d20e08ddf65f445a8b18ffd4ae"
+			      DownloadTags="nexus|skyrim|39870|1000223517" />
 
-			<File Name="DynDOLOD 2.18"
-			      LengthInBytes="14327756"
-			      CanonicalFileName="DynDOLOD-59721-2-18.7z"
-			      MD5Checksum="d6be7d164cd879bd2cc7f73b6d72b9cd"
-			      DownloadTags="nexus|skyrim|59721|1000218339" />
+			<File Name="DynDOLOD 2.20"
+			      LengthInBytes="17185259"
+			      CanonicalFileName="DynDOLOD-59721-2-20.7z"
+			      MD5Checksum="2be861cd64d62983052da1c45f656cd5"
+			      DownloadTags="nexus|skyrim|59721|1000225355" />
 
-			<File Name="DynDOLOD Resources 2.18"
-			      LengthInBytes="35161993"
-			      CanonicalFileName="DynDOLOD Resources-59721-2-18.7z"
-			      MD5Checksum="01a9fee37ec4e334fac13daa7c990d07"
-			      DownloadTags="nexus|skyrim|59721|1000218338" />
+			<File Name="DynDOLOD Resources 2.19"
+			      LengthInBytes="35280470"
+			      CanonicalFileName="DynDOLOD Resources-59721-2-19.7z"
+			      MD5Checksum="06a370dd826a0182fabbfe17c2c74c37"
+			      DownloadTags="nexus|skyrim|59721|1000225252" />
 		</Group>
 	</Files>
 
@@ -1214,11 +1214,6 @@
 
 				<Set Section="Water" Property="iWaterReflectHeight" Value="1024" />
 				<Set Section="Water" Property="iWaterReflectWidth" Value="1024" />
-
-				<!-- mine -->
-				<Set Section="Display" Property="bFull Screen" Value="1" />
-				<Set Section="Display" Property="iSize H" Value="1440" />
-				<Set Section="Display" Property="iSize W" Value="2560" />
 			</TweakINI>
 		</Group>
 
@@ -1281,8 +1276,8 @@
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Consistent Older People 31 All NPCs USLEEP 3.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Consistent Older People 31a All NPCs USLEEP 3.1a" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.3" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMO="Root" />
@@ -1363,67 +1358,67 @@
 				<MapFolder From="22 Waterfalls Realistic water 2" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SMIM 1.94">
-				<MapFolder From="00 Core" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="71 Candelabras Sconces Walltorches" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="72 Chandeliers" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="75 Dungeons Cliffs Snow Skirts" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="01 Furniture" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="40 Furniture Chests" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="42 Furniture Noble" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="02 Vanilla Barrel Textures Animations" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="61 Bowl Ingredients" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="46 Carriage Seats and Fixes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="03 Food" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="39 Dungeons 3D Ropes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="37 Riften 3D Ropes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="22 Solitude Docks Ropes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="14 Stockade 3D Ropes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="05 Chains 3D - Misc" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="06 Chains 3D - Signs" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="07 Chains 3D - Whiterun" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="09 Dwemer Clutter" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="10 Nordic Tables and Benches" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="11 Bridges" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="12 Whiterun Doors" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="15 Clothing Fixes" To="ModOrganizer/mods/SMIM 1.94" />
+			<ExtractArchive ArchiveFile="SMIM 1.95">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="71 Candelabras Sconces Walltorches" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="72 Chandeliers" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="01 Furniture" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="40 Furniture Chests" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="42 Furniture Noble" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="02 Vanilla Barrel Textures Animations" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="61 Bowl Ingredients" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="46 Carriage Seats and Fixes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="03 Food" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="39 Dungeons 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="37 Riften 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="22 Solitude Docks Ropes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="14 Stockade 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="05 Chains 3D - Misc" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="06 Chains 3D - Signs" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="07 Chains 3D - Whiterun" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="09 Dwemer Clutter" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="10 Nordic Tables and Benches" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="11 Bridges" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="12 Whiterun Doors" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="15 Clothing Fixes" To="ModOrganizer/mods/SMIM 1.95" />
 				<!-- I've had the flickering that the wiki talked about, so deviating like the wiki says to do. -->
-				<MapFolder From="18 Farmhouse Woven Fence" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="16 Tankard Dark Brushed Metal" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="57 Ruins Sarcophagus" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="19 Smelter" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="25 Solitude Gate Doors" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="41 Draugr Corpses" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="33 Orc Longhouse" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="44 Poor Coffin Custom Texture" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="17 Nordic Catacombs Skeletal Remains" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="26 Human Skull Fixes" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="27 Hawk" To="ModOrganizer/mods/SMIM 1.94" />
+				<MapFolder From="18 Farmhouse Woven Fence" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="16 Tankard Dark Brushed Metal" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="57 Ruins Sarcophagus" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="19 Smelter" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="25 Solitude Gate Doors" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="41 Draugr Corpses" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="33 Orc Longhouse" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="44 Poor Coffin Custom Texture" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="17 Nordic Catacombs Skeletal Remains" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="26 Human Skull Fixes" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="27 Hawk" To="ModOrganizer/mods/SMIM 1.95" />
 				<!-- Odd that "Strings" isn't copied here in the FOMOD... -->
-				<MapFile From="28 Hawk Dragonborn Fix/SMIM-DragonbornTernFix.esp" To="ModOrganizer/mods/SMIM 1.94/SMIM-DragonbornTernFix.esp" />
-				<MapFolder From="70 Rabbit" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="47 Juniper Tree" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="49 Tundra Tree" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="35 Shack Kit" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="36 Shack Kit Dragonborn" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.94" />
-				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.94" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-DragonbornTernFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-DungeonsCliffsIceSkirts.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-FarmhouseFlickeringFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-FurnitureChestSnowFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-ShackRoofFixes.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.94/SMIM-ShackRoofFixesDragonborn.esp" />
+				<MapFile From="28 Hawk Dragonborn Fix/SMIM-DragonbornTernFix.esp" To="ModOrganizer/mods/SMIM 1.95/SMIM-DragonbornTernFix.esp" />
+				<MapFolder From="70 Rabbit" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="47 Juniper Tree" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="49 Tundra Tree" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="35 Shack Kit" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="36 Shack Kit Dragonborn" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.95" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-DragonbornTernFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-DungeonsCliffsIceSkirts.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-FarmhouseFlickeringFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-FurnitureChestSnowFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-ShackRoofFixes.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-ShackRoofFixesDragonborn.esp" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim HD - Landscape LITE 1.7" SimpleMO="Root">
@@ -1979,47 +1974,47 @@
 				<MapFolder From="02 STEP Core Comp (skip if 03 is installed)" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
 				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
 			</ExtractArchive>
-			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.06">
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/018 Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.06" />
+			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.07">
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/018 Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07" />
 			</ExtractArchive>
 		</Group>
 
@@ -2142,7 +2137,7 @@
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
 				<Line># This file was automatically generated by Mod Organizer.</Line>
 				<Line>+Bashed Patch (Core)</Line>
-				<Line>+LeanWolf's Better-Shaped Weapons 2.0.06</Line>
+				<Line>+LeanWolf's Better-Shaped Weapons 2.0.07</Line>
 				<Line>+STEP Compilation - Normal 2.2.9.2l (Core)</Line>
 				<Line>+Wiseman303's Trap Fixes 2.0b</Line>
 				<Line>+Traps Make Noise 2.1</Line>
@@ -2262,7 +2257,7 @@
 				<Line>+Tobes Highres Textures - 1k 1.2</Line>
 				<Line>+HD Misc 1.0</Line>
 				<Line>+Skyrim HD - Landscape LITE 1.7</Line>
-				<Line>+SMIM 1.94</Line>
+				<Line>+SMIM 1.95</Line>
 				<Line>+SkyFalls and SkyMills All-in-One 3.3.1</Line>
 				<Line>+Ultimate HD Fire Effects - Medium 1.9</Line>
 				<Line>+Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8</Line>
@@ -2289,8 +2284,8 @@
 				<Line>+Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c</Line>
 				<Line>+Enchantment Reload Fix 1.2</Line>
 				<Line>+Dead Body Collision Fix - With Improved Fireball Spell 2.4</Line>
-				<Line>+Cutting Room Floor - Legendary Edition 2.0.2</Line>
-				<Line>+Consistent Older People 31 All NPCs USLEEP 3.1</Line>
+				<Line>+Cutting Room Floor - Legendary Edition 2.0.3</Line>
+				<Line>+Consistent Older People 31a All NPCs USLEEP 3.1a</Line>
 				<Line>+Clothing and Clutter Fixes 1.7</Line>
 				<Line>+Brawl Bugs - Compatibility Edition 1.0</Line>
 				<Line>+Appropriately Attired Jarls 1.1.1</Line>
