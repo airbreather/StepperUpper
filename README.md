@@ -63,6 +63,8 @@ At least at the time of writing, the following tasks are **not** automated:
     1. What the tool **does** do is telling you what files you're missing, makes sure you downloaded the exact version that it was tested with, and gives you the URLs that take you right to the download page.
 2. Downloading or installing files from Steam.
     1. You must have Skyrim installed with all DLCs in the expected subdirectory of Steam (steamapps\common\Skyrim) before running this, or it will not work at all.
+3. Initializing one-time stuff from the Skyrim launcher.
+    1. You have to run the Skyrim launcher at least once before using this tool.  It tweaks some registry settings for you.  If you've run Skyrim before on the same system and haven't changed anything like where Steam is installed, you should be all set.
 3. Driver-specific tweaks, i.e., anything in [1.E of the STEP Guide](http://wiki.step-project.com/STEP:2.2.9.2#1.E._Display_.26_Video_Card_Settings).
 4. DynDOLOD.  StepperUpper extracts what you need as specified by STEP Core and sets up the executables in Mod Organizer, but it leaves "DynDOLOD Resources" disabled and does not actually run the TexGen or DynDOLOD processes.
     1. After running through the automated process, DynDOLOD may be activated by following the recommendations from the [STEP Wiki Page](http://wiki.step-project.com/Dynamic_Distant_Objects_LOD#DynDOLOD_Output_Files), starting at the "Installation/DynDOLOD Output Files" section ("Installation/DynDOLOD Executables" and "Installation/DynDOLOD Resource Files" have already been done for you).
