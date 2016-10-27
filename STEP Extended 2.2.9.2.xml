@@ -190,6 +190,41 @@
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
+			<File Name="The 418th Step - Snow Version 1.2"
+			      LengthInBytes="4700972"
+			      CanonicalFileName="The 418th Step 1_2 - Snow Version-19107-1-2SN.zip"
+			      MD5Checksum="5bd33dac768ebda71f10bf450321f2ab"
+			      DownloadTags="nexus|skyrim|19107|70067" />
+
+			<File Name="Book Covers Skyrim LEGENDARY - Desaturated 3.5"
+			      LengthInBytes="477474752"
+			      CanonicalFileName="Book Covers Skyrim 3_5 LEGENDARY - Desaturated-35399-3-5.7z"
+			      MD5Checksum="d817cb30bbdd26bb9f1947a67bea950d"
+			      DownloadTags="nexus|skyrim|35399|1000205843" />
+
+			<File Name="Dark Brotherhood Tenets Restored - Standard 1.3"
+			      LengthInBytes="1686882"
+			      CanonicalFileName="Tenets Restored 1_3 - Standard Edition-31087-1-3.7z"
+			      MD5Checksum="55eec3d8b2a9de5123b8c46f7902b24a"
+			      DownloadTags="nexus|skyrim|31087|1000018497" />
+
+			<File Name="Radiant and Unique Potions and Poisons HD - BOOZE NON GLOW 2.0"
+			      LengthInBytes="93072229"
+			      CanonicalFileName="Radiant and Unique Potions Poisons and BOOZE v2 NON GLOW-18799-2-0.rar"
+			      MD5Checksum="c8865bcbe7905748ba8b9558972f7c56"
+			      DownloadTags="nexus|skyrim|18799|73942" />
+
+			<File Name="Realistic Instruments X"
+			      LengthInBytes="12614989"
+			      CanonicalFileName="Realistic Instruments Pack-8027-1.zip"
+			      MD5Checksum="4f700eedcb59e03873500cbd754a7850"
+			      DownloadTags="nexus|skyrim|8027|26639" />
+
+			<File Name="Rens HD Shrines - Ultimate 2.0"
+			      LengthInBytes="35068728"
+			      CanonicalFileName="Rens HD Shrines - Ultimate-50327-2-0.rar"
+			      MD5Checksum="563ef24b130c2de653b369c07375cbbb"
+			      DownloadTags="nexus|skyrim|50327|1000095361" />
 		</Group>
 
 		<Group Name="2.L. Sound">
@@ -323,6 +358,47 @@
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
+			<ExtractArchive ArchiveFile="The 418th Step - Snow Version 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Book Covers Skyrim LEGENDARY - Desaturated 3.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dark Brotherhood Tenets Restored - Standard 1.3">
+				<MapFolder From="1024" To="ModOrganizer/mods/Dark Brotherhood Tenets Restored - Standard 1.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Radiant and Unique Potions and Poisons HD - BOOZE NON GLOW 2.0">
+				<MapFolder From="RUPPB v2 NON-GLOW/data" To="ModOrganizer/mods/Radiant and Unique Potions and Poisons HD - BOOZE NON GLOW 2.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Instruments X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Rens HD Shrines - Ultimate 2.0">
+				<!-- Each of these has 3 options in the FOMOD: Version 1, Version 2, and Vanilla.
+				     Vanilla, of course, is just doing nothing (delete the line in this file).
+				     Version 1 (called something different each time) is the odd number below.
+				     Version 2 is always exactly one number higher than Version 1.
+				     So 01Akatosh is Akatosh's Version 1, and 02Akatosh would be Version 2.
+				     Users are encouraged to modify these. -->
+				<MapFolder From="RenHDShrines/01Akatosh" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/03Arkay" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/05Dibella" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/07Julianos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/09Kynareth" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/11Mara" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/13Stendarr" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/15Talos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/17Zenithar" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+
+				<!-- airbreather's personal favorites: -->
+				<!--
+				<MapFolder From="RenHDShrines/01Akatosh" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/03Arkay" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/06Dibella" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/08Julianos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/09Kynareth" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/11Mara" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/13Stendarr" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/16Talos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/18Zenithar" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				-->
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.L. Sound">
