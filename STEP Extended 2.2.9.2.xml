@@ -436,6 +436,10 @@
 					<Delete Ids="F59D3|46047|F80EE|37EEA|10D430|37EE7|E9571|10D433|1A275|20EEA|411F1|64070|CA839|9C60|6072C|9BC3|F1BE4|92C0|70A6E|BD74|ED6F8|971B|106B71|981A|1C750|107415|107416|90BC|10D5A1|10D5BB|F940C|37B0D|371DD|EB1F6|1526B|109666" />
 				</Plugin>
 			</Clean>
+
+			<ExtractArchive ArchiveFile="PondFish and Salmon Replacer 1.2">
+				<MapFolder From="PondFish_Salmon_replacer_1.2/Data" To="ModOrganizer/mods/PondFish and Salmon Replacer 1.2" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
