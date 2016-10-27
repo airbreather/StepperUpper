@@ -524,7 +524,7 @@
 			<Clean>
 				<Plugin WaitFor="HearthfireExtended" Path="ModOrganizer/mods/Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3/hearthfireextended.esp">
 					<!-- Note: since it's "deletes only", masters can be ignored. -->
-					<Delete Ids="4003076" />
+					<Delete Ids="2003076" />
 				</Plugin>
 			</Clean>
 
