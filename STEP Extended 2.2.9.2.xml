@@ -116,6 +116,77 @@
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
+			<File Name="Animated Weapon Enchants - Vanilla Sounds 1.2"
+			      LengthInBytes="6981"
+			      CanonicalFileName="Animated Weapon Enchants - Vanilla Sounds-12668-1-2.zip"
+			      MD5Checksum="7501e4b31415b25e035d5416284c6b30"
+			      DownloadTags="nexus|skyrim|12668|97861" />
+
+			<File Name="Burn Freeze Shock Effects - Loose 3.6"
+			      LengthInBytes="2610503"
+			      CanonicalFileName="BFS Effects 3_6 - Loose-14692-3-6.rar"
+			      MD5Checksum="3684918ed2f497575335bc6a6a83860c"
+			      DownloadTags="nexus|skyrim|14692|1000026418" />
+
+			<File Name="Burn Freeze Shock Effects - Dragonborn Dawnguard 3.6"
+			      LengthInBytes="7157"
+			      CanonicalFileName="BFS Effects 3_6 - Dragonborn Dawnguard-14692-3-6.rar"
+			      MD5Checksum="3aa9d8adf4895c817042304ac87e719a"
+			      DownloadTags="nexus|skyrim|14692|1000026420" />
+
+			<File Name="D13 Faster GET UP STAND UP animation 2.0"
+			      LengthInBytes="41599"
+			      CanonicalFileName="D13 Faster Get up Stand up animation-17491-2-0.rar"
+			      MD5Checksum="b95ce874b3586134fdfeabf49d2aad0f"
+			      DownloadTags="nexus|skyrim|17491|1000025119" />
+
+			<File Name="Deadly Spell Impacts - Medium 1.6.1"
+			      LengthInBytes="9257142"
+			      CanonicalFileName="DSI Med 1_6_1-2947-1-6-1.7z"
+			      MD5Checksum="35c5ed4dd96d8161d1b8d400cf3fc38f"
+			      DownloadTags="nexus|skyrim|2947|90831" />
+
+			<File Name="Dual Wield Blocking Animations 1.0"
+			      LengthInBytes="101981"
+			      CanonicalFileName="Dual Wield Blocking Animations-14915-1-0.zip"
+			      MD5Checksum="2558b8cd71270eff3ddbf2c4548945d1"
+			      DownloadTags="nexus|skyrim|14915|52234" />
+
+			<File Name="Enhanced Blood Textures NMM 3.6c"
+			      LengthInBytes="76207541"
+			      CanonicalFileName="Enhanced Blood Textures 3_6c NMM -60-3-6c.7z"
+			      MD5Checksum="d89c327f632dd5793d5af95519c5323e"
+			      DownloadTags="nexus|skyrim|60|1000182468" />
+
+			<File Name="Improved Weapon Impact EFFECTS Correct Metal 1.1CLEAN"
+			      LengthInBytes="1025749"
+			      CanonicalFileName="clean version by RPSGC-10445-1-1CLEAN.zip"
+			      MD5Checksum="bcaa25a99e22241223b65e4c89dd21f1"
+			      DownloadTags="nexus|skyrim|10445|1000007544" />
+
+			<File Name="Minty's Lightning during Thunder Storms - Loose Files 23.0"
+			      LengthInBytes="4892928"
+			      CanonicalFileName="MintyLightningModV23_Loose_Files-15506-23-0.zip"
+			      MD5Checksum="a48ba227c1450f547f431f69477b8ad7"
+			      DownloadTags="nexus|skyrim|15506|1000028438" />
+
+			<File Name="Skyrim Enhanced Camera 1.4"
+			      LengthInBytes="96946"
+			      CanonicalFileName="Enhanced Camera 1.4-57859-1-4.zip"
+			      MD5Checksum="2c671a687087da71073c7b008d3ff2c3"
+			      DownloadTags="nexus|skyrim|57859|1000218183" />
+
+			<File Name="Smaller Ice Spike and Ice Spear - 50% 1.1"
+			      LengthInBytes="118998"
+			      CanonicalFileName="Smaller Ice Spike 50-31899-1-1.zip"
+			      MD5Checksum="c4ec9c22198000de3a15cdecbd8e3714"
+			      DownloadTags="nexus|skyrim|31899|1000012047" />
+
+			<File Name="Wonders of Weather 1.01"
+			      LengthInBytes="4129763"
+			      CanonicalFileName="Wonders of Weather v1_01-64941-1-01.7z"
+			      MD5Checksum="aeb589a317b460c6d17de6c868a0076d"
+			      DownloadTags="nexus|skyrim|64941|1000162113" />
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
@@ -224,6 +295,31 @@
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
+			<ExtractArchive ArchiveFile="Animated Weapon Enchants - Vanilla Sounds 1.2" SimpleMO="Root" />
+			<ExtractArchive Id="BFSMain" ArchiveFile="Burn Freeze Shock Effects - Loose 3.6" SimpleMO="Single" />
+			<ExtractArchive WaitFor="BFSMain" ArchiveFile="Burn Freeze Shock Effects - Dragonborn Dawnguard 3.6">
+				<MapFolder From="data" To="ModOrganizer/mods/Burn Freeze Shock Effects - Loose 3.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="D13 Faster GET UP STAND UP animation 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Deadly Spell Impacts - Medium 1.6.1">
+				<MapFolder From="00 Data - Required" To="ModOrganizer/mods/Deadly Spell Impacts - Medium 1.6.1" />
+				<MapFolder From="20 Frost +10% Transparency" To="ModOrganizer/mods/Deadly Spell Impacts - Medium 1.6.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dual Wield Blocking Animations 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Enhanced Blood Textures NMM 3.6c">
+				<MapFolder From="1 core files" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c" />
+				<MapFolder From="4 texture res and color/med-default" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Improved Weapon Impact EFFECTS Correct Metal 1.1CLEAN" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Minty's Lightning during Thunder Storms - Loose Files 23.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Skyrim Enhanced Camera 1.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Wonders of Weather 1.01">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Wonders of Weather 1.01" />
+				<MapFolder From="10 Less Opaque Splashes" To="ModOrganizer/mods/Wonders of Weather 1.01" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
