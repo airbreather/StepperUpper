@@ -62,7 +62,20 @@ namespace StepperUpper
                     string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
                     docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
                                      .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
-                                     .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
+                                     .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'))
+                                     .Replace("{DumpFolderEscapeBackslashes}", options.OutputDirectoryPath.Replace("\\", "\\\\"));
+
+                    if (0 <= docText.IndexOf("{JavaBinFolderForwardSlashes}", StringComparison.Ordinal))
+                    {
+                        if (options.JavaBinDirectoryPath == null)
+                        {
+                            Console.Error.WriteLine("--javaBinFolder is required for {0}.", XDocument.Parse(docText).Element("Modpack").Attribute("Name").Value);
+                            return 6;
+                        }
+
+                        docText = docText.Replace("{JavaBinFolderForwardSlashes}", options.JavaBinDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
+                    }
+
                     doc = XDocument.Parse(docText);
                 }
 
