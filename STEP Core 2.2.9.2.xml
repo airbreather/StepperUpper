@@ -1629,6 +1629,8 @@
 			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06">
 				<MapFolder From="00 base" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
 				<MapFolder From="10 flipped monarch wings" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
+				<MapFolder From="20 101BugsHD support" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
+				<MapFolder From="30 PondFish and Salmon Replacer" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="WISPMOTHER - 2x1k 1.0">
@@ -2256,6 +2258,7 @@
 				<Line>+XCE - Dawnguard 1.0</Line>
 				<Line>+XCE 1.13</Line>
 				<Line>+WISPMOTHER - 2x1k 1.0</Line>
+				<Line>-Wiseman303's Critter Fixes 1.06 (Extended Extras)</Line>
 				<Line>+Wiseman303's Critter Fixes 1.06</Line>
 				<Line>+TROLL - 2k 1.0</Line>
 				<Line>+Dawnguard Rewritten - Arvak 1.1.1</Line>
