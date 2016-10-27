@@ -1411,7 +1411,8 @@
 				<MapFolder From="36 Shack Kit Dragonborn" To="ModOrganizer/mods/SMIM 1.95" />
 				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 1.95" />
 				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.95 - Jewelry Rings (Vanilla)" />
+				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" To="ModOrganizer/mods/SMIM 1.95 - Jewelry Rings (CCO Remade)" />
 				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 1.95" />
 				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 1.95" />
 				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 1.95" />
@@ -2294,6 +2295,8 @@
 				<Line>+Tobes Highres Textures - 1k 1.2</Line>
 				<Line>+HD Misc 1.0</Line>
 				<Line>+Skyrim HD - Landscape LITE 1.7</Line>
+				<Line>-SMIM 1.95 - Jewelry Rings (CCO Remade)</Line>
+				<Line>+SMIM 1.95 - Jewelry Rings (Vanilla)</Line>
 				<Line>+SMIM 1.95</Line>
 				<Line>+SkyFalls and SkyMills All-in-One 3.3.1</Line>
 				<Line>+Ultimate HD Fire Effects - Medium 1.9</Line>
