@@ -108,6 +108,11 @@
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
+			<File Name="Nightshade Vampire Armor Retexture 1.0"
+			      LengthInBytes="37921598"
+			      CanonicalFileName="Nightshade Vampire Armor Retexture-55640-1-0.rar"
+			      MD5Checksum="3c46d7bb3e6bf3207af7147fd256fcdb"
+			      DownloadTags="nexus|skyrim|55640|1000116049" />
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
@@ -215,6 +220,7 @@
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
+			<ExtractArchive ArchiveFile="Nightshade Vampire Armor Retexture 1.0" SimpleMO="Root" />
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
