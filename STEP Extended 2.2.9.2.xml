@@ -56,6 +56,35 @@
 		<!-- <Group Name="2.F. Conflicting Graphics" /> -->
 
 		<Group Name="2.G. Landscape &amp; Environment">
+			<File Name="aMidianBorn Caves and Mines - 2k 3"
+			      LengthInBytes="150742029"
+			      CanonicalFileName="aMidianBorn Caves and Mines 2k-39190-3.7z"
+			      MD5Checksum="380f578b8c66f3192fa64b5c055af239"
+			      DownloadTags="nexus|skyrim|39190|1000086758" />
+
+			<File Name="aMidianBorn Whiterun - 1k 2.1"
+			      LengthInBytes="141767600"
+			      CanonicalFileName="aMidianBorn Whiterun 1k 2_1-38491-2-1.7z"
+			      MD5Checksum="f940a3e75afc4031c13f4d6e9d8fc501"
+			      DownloadTags="nexus|skyrim|38491|1000225060" />
+
+			<File Name="Footprints Legendary 1.00"
+			      LengthInBytes="11592585"
+			      CanonicalFileName="Footprints v1_00 - Legendary-22745-1-00.7z"
+			      MD5Checksum="c0134ae65636eb3cca1007b54aa7b17c"
+			      DownloadTags="nexus|skyrim|22745|1000153806" />
+
+			<File Name="Lanterns Of Skyrim - All In One - MCM Special Edition 2.5"
+			      LengthInBytes="565765"
+			      CanonicalFileName="Lanterns Of Skyrim - All In One - MCM Special Edition-18916-2-5.rar"
+			      MD5Checksum="87a871f8d22917533d3cd7d4f9cbfac5"
+			      DownloadTags="nexus|skyrim|18916|1000051381" />
+
+			<File Name="Re-Defined Dungeons - 1k 1.0"
+			      LengthInBytes="68910192"
+			      CanonicalFileName="Re-Defined Dungeons 1024x1024-3147-1-0.zip"
+			      MD5Checksum="a45f9970d76dfe50b755a6e5777cdadd"
+			      DownloadTags="nexus|skyrim|3147|28368" />
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">
@@ -134,6 +163,25 @@
 		<!-- <Group Name="2.F. Conflicting Graphics" /> -->
 
 		<Group Name="2.G. Landscape &amp; Environment">
+			<ExtractArchive ArchiveFile="aMidianBorn Caves and Mines - 2k 3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Whiterun - 1k 2.1" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywall01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywall01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywall01plaster.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywall01plaster_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywalltopcap01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywalltopcap01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywalltrims01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrcitywalltrims01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrslate02.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrslate02_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrslatefloor01.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Whiterun - 1k 2.1/textures/architecture/whiterun/wrslatefloor01_n.dds " />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Footprints Legendary 1.00" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Lanterns Of Skyrim - All In One - MCM Special Edition 2.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Re-Defined Dungeons - 1k 1.0" SimpleMO="Single" />
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">
