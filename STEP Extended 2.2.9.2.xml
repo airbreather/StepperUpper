@@ -468,6 +468,7 @@
 			<ExtractArchive ArchiveFile="Improved Weapon Impact EFFECTS Correct Metal 1.1CLEAN" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Minty's Lightning during Thunder Storms - Loose Files 23.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Skyrim Enhanced Camera 1.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Smaller Ice Spike and Ice Spear - 50% 1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Wonders of Weather 1.01">
 				<MapFolder From="00 Core" To="ModOrganizer/mods/Wonders of Weather 1.01" />
 				<MapFolder From="10 Less Opaque Splashes" To="ModOrganizer/mods/Wonders of Weather 1.01" />
