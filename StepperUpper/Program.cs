@@ -36,15 +36,6 @@ namespace StepperUpper
             Options options = new Options();
             CommandLine.Parser.Default.ParseArgumentsStrict(args, options);
 
-            DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
-            bool needsDelete = dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
-            if (needsDelete & !options.Scorch)
-            {
-                Console.Error.WriteLine("Output folder exists already.  Aborting...");
-                Console.WriteLine("(run with -x / --scorch to have us automatically delete instead).");
-                return 2;
-            }
-
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
             DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
@@ -73,11 +64,39 @@ namespace StepperUpper
                 return 3;
             }
 
+            // "Requires" was added in 0.9.1.0.
+            var requires = modpackElement.Attribute("Requires").Value;
+
+            DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
+            bool needsDelete = requires == "CleanSlate" && dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
+            if (needsDelete & !options.Scorch)
+            {
+                Console.Error.WriteLine("Output folder exists already.  Aborting...");
+                Console.WriteLine("(run with -x / --scorch to have us automatically delete instead).");
+                return 2;
+            }
+
             if (needsDelete)
             {
                 Console.WriteLine("Output folder exists already.  Deleting...");
                 await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
                 Console.WriteLine("Output folder deleted.");
+            }
+            else if (requires != "CleanSlate")
+            {
+                Console.WriteLine("This pack requires {0} to have been installed in order to work.  Do you promise that you installed that? (y/n)", requires);
+                string result;
+                while (!String.Equals((result = Console.ReadLine()), "y", StringComparison.OrdinalIgnoreCase) &&
+                       !String.Equals(result, "n", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("Please answer just plain y or n.");
+                }
+
+                if (String.Equals(result, "n", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.Error.WriteLine("{0} is not installed.  Please install that first before proceeding.", requires);
+                    return 4;
+                }
             }
 
             Console.WriteLine("Checking existing files...");
