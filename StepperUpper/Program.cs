@@ -40,236 +40,248 @@ namespace StepperUpper
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
             DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
 
-            XDocument doc;
-            using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(options.PackDefinitionFilePath))
-            using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
-            {
-                string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
-                docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
-                                 .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
-                                 .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
-                doc = XDocument.Parse(docText);
-            }
-
-            // lots of strings show up multiple times each.
-            doc = doc.PoolStrings();
-
-            var modpackElement = doc.Element("Modpack");
-
-            var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
-            var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
-            if (currentToolVersion < minimumToolVersion)
-            {
-                Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
-                return 3;
-            }
-
-            // "Requires" was added in 0.9.1.0.
-            var requires = modpackElement.Attribute("Requires").Value;
-
             DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
-            bool needsDelete = requires == "CleanSlate" && dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
-            if (needsDelete & !options.Scorch)
+            bool needsDelete = dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
+            if (needsDelete && !options.Scorch)
             {
                 Console.Error.WriteLine("Output folder exists already.  Aborting...");
                 Console.WriteLine("(run with -x / --scorch to have us automatically delete instead).");
                 return 2;
             }
 
-            if (needsDelete)
+            HashSet<string> doneSoFar = new HashSet<string>();
+
+            foreach (string packDefinitionFilePath in Tokenize(options.PackDefinitionFilePath))
             {
-                Console.WriteLine("Output folder exists already.  Deleting...");
-                await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
-                Console.WriteLine("Output folder deleted.");
-            }
-            else if (requires != "CleanSlate")
-            {
-                Console.WriteLine("This pack requires {0} to have been installed in order to work.  Do you promise that you installed that? (y/n)", requires);
-                string result;
-                while (!String.Equals((result = Console.ReadLine()), "y", StringComparison.OrdinalIgnoreCase) &&
-                       !String.Equals(result, "n", StringComparison.OrdinalIgnoreCase))
+                XDocument doc;
+                using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(packDefinitionFilePath))
+                using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
                 {
-                    Console.WriteLine("Please answer just plain y or n.");
+                    string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
+                    docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
+                                     .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
+                                     .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
+                    doc = XDocument.Parse(docText);
                 }
 
-                if (String.Equals(result, "n", StringComparison.OrdinalIgnoreCase))
+                // lots of strings show up multiple times each.
+                doc = doc.PoolStrings();
+
+                var modpackElement = doc.Element("Modpack");
+
+                var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
+                var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                if (currentToolVersion < minimumToolVersion)
                 {
-                    Console.Error.WriteLine("{0} is not installed.  Please install that first before proceeding.", requires);
+                    Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
+                    return 3;
+                }
+
+                string modpackName = modpackElement.Attribute("Name").Value;
+                string packVersion = modpackElement.Attribute("PackVersion").Value;
+                string fileVersion = modpackElement.Attribute("FileVersion").Value;
+
+                var requirements = Tokenize(modpackElement.Attribute("Requires")?.Value).ToArray();
+                if (!doneSoFar.IsSupersetOf(requirements))
+                {
+                    Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpackName, String.Join(", ", requirements));
                     return 4;
                 }
-            }
 
-            Console.WriteLine("Checking existing files...");
-
-            var groups = modpackElement
-                .Element("Files")
-                .Elements("Group")
-                .SelectMany(grp => grp.Elements("File"))
-                .GroupBy(fl => fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)
-                .ToArray();
-
-            // we hit all the files in the Skyrim directory, which has lots of gigabytes of BSAs we
-            // don't care about, and the MO download folder itself might have tons of crap we don't
-            // care about either.  quick and easy fix is to just look at files whose lengths match.
-            // not absolutely 100% perfect, but good enough.
-            var sizes = new HashSet<long>(groups.SelectMany(grp => grp.Select(el => Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture))));
-
-            FileInfo[] downloadDirectoryFiles = downloadDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
-            FileInfo[] skyrimDirectoryFiles = skyrimDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
-
-            int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
-
-            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
-            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
-                // uncomment to see what it's like if you don't have anything yet.
-                ////.Take(0)
-                ;
-
-            Dictionary<Md5Checksum, string> checkedFiles =
-                await ConcurrentMd5.Calculate(allFiles)
-                    .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
-                    .Distinct(f => f.Checksum)
-                    .ToDictionary(f => f.Checksum, f => f.Path)
-                    .Select(d => new Dictionary<Md5Checksum, string>(d))
-                    .ToTask()
-                    .ConfigureAwait(false);
-
-            Console.Write(Invariant($"\r{new string(' ', 32)}"));
-            Console.Write('\r');
-
-            IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.ContainsKey(Md5Checksum(fl)))).ToArray();
-
-            Console.WriteLine("Finished checking existing files.");
-
-            if (missingGroups.Length == 0)
-            {
-                goto success;
-            }
-
-            Console.WriteLine("Failed to find {0} files.  Checking to see if any missing ones can be downloaded automatically.", missingGroups.Length);
-
-            using (HttpClient client = new HttpClient())
-            {
-                // TODO: consider concurrency.  we have 2 downloadables, so it doesn't REALLY matter
-                // yet, but there's no reason we should be this limited.
-                for (int i = 0; i < missingGroups.Length; i++)
+                if (doneSoFar.Contains(modpackName))
                 {
-                    var grp = missingGroups[i];
-                    var downloadables = grp.Select(fl => new
-                    {
-                        Name = fl.Attribute("Name").Value,
-                        Md5Checksum = Md5Checksum(fl),
-                        DownloadUrl = fl.Attribute("DownloadUrl")?.Value,
-                        CanonicalFileName = fl.Attribute("CanonicalFileName").Value
-                    }).Where(x => x.DownloadUrl != null).ToArray();
+                    Console.Error.WriteLine("Trying to set up {0} twice in the same run", modpackName);
+                    return 5;
+                }
 
-                    if (downloadables.Length == 0)
+                doneSoFar.Add(modpackName);
+                doneSoFar.Add(modpackName + ", " + packVersion);
+                doneSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
+
+                if (needsDelete)
+                {
+                    Console.WriteLine("Output folder exists already.  Deleting...");
+                    await DeleteChildrenAsync(dumpDirectory).ConfigureAwait(false);
+                    Console.WriteLine("Output folder deleted.");
+
+                    needsDelete = false;
+                }
+
+                Console.WriteLine("Starting tasks for {0}", modpackName);
+                Console.WriteLine("Checking existing files...");
+
+                var groups = modpackElement
+                    .Element("Files")
+                    .Elements("Group")
+                    .SelectMany(grp => grp.Elements("File"))
+                    .GroupBy(fl => fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)
+                    .ToArray();
+
+                // we hit all the files in the Skyrim directory, which has lots of gigabytes of BSAs we
+                // don't care about, and the MO download folder itself might have tons of crap we don't
+                // care about either.  quick and easy fix is to just look at files whose lengths match.
+                // not absolutely 100% perfect, but good enough.
+                var sizes = new HashSet<long>(groups.SelectMany(grp => grp.Select(el => Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture))));
+
+                FileInfo[] downloadDirectoryFiles = downloadDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
+                FileInfo[] skyrimDirectoryFiles = skyrimDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
+
+                int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
+
+                Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
+                IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
+                    // uncomment to see what it's like if you don't have anything yet.
+                    ////.Take(0)
+                    ;
+
+                Dictionary<Md5Checksum, string> checkedFiles =
+                    await ConcurrentMd5.Calculate(allFiles)
+                        .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
+                        .Distinct(f => f.Checksum)
+                        .ToDictionary(f => f.Checksum, f => f.Path)
+                        .Select(d => new Dictionary<Md5Checksum, string>(d))
+                        .ToTask()
+                        .ConfigureAwait(false);
+
+                Console.Write(Invariant($"\r{new string(' ', 32)}"));
+                Console.Write('\r');
+
+                IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.ContainsKey(Md5Checksum(fl)))).ToArray();
+
+                Console.WriteLine("Finished checking existing files.");
+
+                if (missingGroups.Length == 0)
+                {
+                    goto success;
+                }
+
+                Console.WriteLine("Failed to find {0} files.  Checking to see if any missing ones can be downloaded automatically.", missingGroups.Length);
+
+                using (HttpClient client = new HttpClient())
+                {
+                    // TODO: consider concurrency.  we have 2 downloadables, so it doesn't REALLY matter
+                    // yet, but there's no reason we should be this limited.
+                    for (int i = 0; i < missingGroups.Length; i++)
                     {
-                        continue;
+                        var grp = missingGroups[i];
+                        var downloadables = grp.Select(fl => new
+                        {
+                            Name = fl.Attribute("Name").Value,
+                            Md5Checksum = Md5Checksum(fl),
+                            DownloadUrl = fl.Attribute("DownloadUrl")?.Value,
+                            CanonicalFileName = fl.Attribute("CanonicalFileName").Value
+                        }).Where(x => x.DownloadUrl != null).ToArray();
+
+                        if (downloadables.Length == 0)
+                        {
+                            continue;
+                        }
+
+                        // TODO: try more than one if the first fails?  ehh, that's rarely going to be
+                        // any better, and we don't even have any option groups with any downloadables.
+                        var downloadable = downloadables[0];
+                        Console.WriteLine("{0} can be downloaded automatically from {1}.  Trying now...", downloadable.Name, downloadable.DownloadUrl);
+
+                        var targetFile = new FileInfo(Path.Combine(downloadDirectory.FullName, downloadable.CanonicalFileName));
+                        try
+                        {
+                            using (Stream downloadStream = await client.GetStreamAsync(downloadable.DownloadUrl).ConfigureAwait(false))
+                            using (FileStream fileStream = AsyncFile.CreateSequential(targetFile.FullName))
+                            {
+                                await downloadStream.CopyToAsync(fileStream).ConfigureAwait(false);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // ehhhhhhhhhhh..................
+                            Console.Error.WriteLine(ex);
+                            continue;
+                        }
+
+                        var fileWithChecksum = await ConcurrentMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
+                        if (fileWithChecksum.Checksum == downloadable.Md5Checksum)
+                        {
+                            Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
+                            missingGroups[i] = null;
+                        }
+                        else
+                        {
+                            Console.WriteLine("{0} downloaded successfully, but the checksum did not match.  You're going to have to download it the hard way.", downloadable.Name);
+                        }
+                    }
+                }
+
+                missingGroups = Array.FindAll(missingGroups, grp => grp != null);
+                if (missingGroups.Length != 0)
+                {
+                    Console.Error.WriteLine("Some files could not be downloaded automatically.  Get them the hard way:");
+                    foreach (var grp in missingGroups)
+                    {
+                        switch (grp.Count())
+                        {
+                            case 1:
+                                XElement missing = grp.First();
+                                Console.WriteLine("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
+                                continue;
+
+                            case 2:
+                                Console.WriteLine("    Either of:");
+                                break;
+
+                            default:
+                                Console.WriteLine("    Any of:");
+                                break;
+                        }
+
+                        foreach (XElement missing in grp)
+                        {
+                            Console.WriteLine("        {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
+                        }
                     }
 
-                    // TODO: try more than one if the first fails?  ehh, that's rarely going to be
-                    // any better, and we don't even have any option groups with any downloadables.
-                    var downloadable = downloadables[0];
-                    Console.WriteLine("{0} can be downloaded automatically from {1}.  Trying now...", downloadable.Name, downloadable.DownloadUrl);
+                    return 1;
+                }
 
-                    var targetFile = new FileInfo(Path.Combine(downloadDirectory.FullName, downloadable.CanonicalFileName));
+                success:
+                Console.WriteLine("All file requirements satisfied!");
+
+                var dct = groups.ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(Md5Checksum).First(checkedFiles.ContainsKey)]));
+
+                Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
+                dumpDirectory.Create();
+                var dict = modpackElement.Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
+                var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
+
+                cnt = dict.Count;
+                Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
+                await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
+                {
+                    string id = kvp.Key;
+                    XElement taskElement = kvp.Value;
+
                     try
                     {
-                        using (Stream downloadStream = await client.GetStreamAsync(downloadable.DownloadUrl).ConfigureAwait(false))
-                        using (FileStream fileStream = AsyncFile.CreateSequential(targetFile.FullName))
-                        {
-                            await downloadStream.CopyToAsync(fileStream).ConfigureAwait(false);
-                        }
+                        await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
+
+                        await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2)
+                            .Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining...")))
+                            .ConfigureAwait(false);
+
+                        dict2[id].TrySetResult(null);
                     }
                     catch (Exception ex)
                     {
-                        // ehhhhhhhhhhh..................
-                        Console.Error.WriteLine(ex);
-                        continue;
+                        dict2[id].TrySetException(ex);
+                        throw;
                     }
+                }))).ConfigureAwait(false);
 
-                    var fileWithChecksum = await ConcurrentMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
-                    if (fileWithChecksum.Checksum == downloadable.Md5Checksum)
-                    {
-                        Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
-                        missingGroups[i] = null;
-                    }
-                    else
-                    {
-                        Console.WriteLine("{0} downloaded successfully, but the checksum did not match.  You're going to have to download it the hard way.", downloadable.Name);
-                    }
-                }
+                Console.Write(Invariant($"\r{new string(' ', 32)}"));
+                Console.Write('\r');
+                Console.WriteLine("All tasks completed for {0}!", modpackName);
+                Console.WriteLine();
             }
 
-            missingGroups = Array.FindAll(missingGroups, grp => grp != null);
-            if (missingGroups.Length != 0)
-            {
-                Console.Error.WriteLine("Some files could not be downloaded automatically.  Get them the hard way:");
-                foreach (var grp in missingGroups)
-                {
-                    switch (grp.Count())
-                    {
-                        case 1:
-                            XElement missing = grp.First();
-                            Console.WriteLine("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
-                            continue;
-
-                        case 2:
-                            Console.WriteLine("    Either of:");
-                            break;
-
-                        default:
-                            Console.WriteLine("    Any of:");
-                            break;
-                    }
-
-                    foreach (XElement missing in grp)
-                    {
-                        Console.WriteLine("        {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
-                    }
-                }
-
-                return 1;
-            }
-
-            success:
-            Console.WriteLine("All file requirements satisfied!");
-
-            var dct = groups.ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(Md5Checksum).First(checkedFiles.ContainsKey)]));
-
-            Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
-            dumpDirectory.Create();
-            var dict = doc.Element("Modpack").Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
-            var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
-
-            cnt = dict.Count;
-            Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
-            await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
-            {
-                string id = kvp.Key;
-                XElement taskElement = kvp.Value;
-
-                try
-                {
-                    await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
-
-                    await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2)
-                        .Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining...")))
-                        .ConfigureAwait(false);
-
-                    dict2[id].TrySetResult(null);
-                }
-                catch (Exception ex)
-                {
-                    dict2[id].TrySetException(ex);
-                    throw;
-                }
-            }))).ConfigureAwait(false);
-
-            Console.Write(Invariant($"\r{new string(' ', 32)}"));
-            Console.Write('\r');
-            Console.WriteLine("All tasks completed!");
             return 0;
         }
 

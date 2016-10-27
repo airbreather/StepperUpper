@@ -15,7 +15,7 @@ namespace StepperUpper
         internal static async Task ExtractArchiveAsync(string archivePath, DirectoryInfo outputDirectory)
         {
             string executablePath = await StandaloneExecutablePath.Value.ConfigureAwait(false);
-            int exitCode = await ProcessRunner.RunProcessAsync(executablePath, "x", "-aoa", "-o" + outputDirectory.FullName, archivePath);
+            int exitCode = await ProcessRunner.RunProcessAsync(executablePath, "x", "-o" + outputDirectory.FullName, archivePath);
             if (exitCode != 0)
             {
                 throw new Exception("Extraction failed with exit code " + exitCode.ToString(CultureInfo.InvariantCulture));
