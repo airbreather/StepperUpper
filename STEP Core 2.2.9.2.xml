@@ -1977,10 +1977,15 @@
 
 		<Group Name="2.N. Patches">
 			<ExtractArchive ArchiveFile="STEP Compilation 2.2.9.2l">
-				<MapFolder From="00 Core Files" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
-				<MapFolder From="01 STEP Core Comp" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
-				<MapFolder From="02 STEP Core Comp (skip if 03 is installed)" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
-				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation - Normal 2.2.9.2l (Core)" />
+				<MapFolder From="00 Core Files" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Common)" />
+				<MapFolder From="01 STEP Core Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Common)" />
+
+				<MapFolder From="02 STEP Core Comp (skip if 03 is installed)" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Core)" />
+				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Core)" />
+
+				<!-- While we're in here... -->
+				<MapFolder From="03 STEP Extended Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Extended)" />
+				<MapFolder From="04 STEP Extended Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Extended)" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.07">
@@ -2178,7 +2183,9 @@
 				<Line>-DynDOLOD Resources 2.19</Line>
 				<Line>+Bashed Patch (Core)</Line>
 				<Line>+LeanWolf's Better-Shaped Weapons 2.0.07</Line>
-				<Line>+STEP Compilation - Normal 2.2.9.2l (Core)</Line>
+				<Line>-STEP Compilation 2.2.9.2l (Extended)</Line>
+				<Line>+STEP Compilation 2.2.9.2l (Core)</Line>
+				<Line>+STEP Compilation 2.2.9.2l (Common)</Line>
 				<Line>+Wiseman303's Trap Fixes 2.0b</Line>
 				<Line>+Traps Make Noise 2.1</Line>
 				<Line>+The Paarthurnax Dilemma 1.2.9</Line>
