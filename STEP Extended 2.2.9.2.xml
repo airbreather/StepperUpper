@@ -45,6 +45,12 @@
 			      MD5Checksum="d228900bf0c3423f4d965bc2d35ed6a6"
 			      DownloadTags="nexus|skyrim|98|1724" />
 
+			<File Name="Lore-Based Loading Screens 1.1"
+			      LengthInBytes="16378"
+			      CanonicalFileName="Lore-Based Loading Screens 1_1 Release-21265-1-1.7z"
+			      MD5Checksum="dd6f2023bd36bbeb0b1177b9f011bdaa"
+			      DownloadTags="nexus|skyrim|21265|1000090703" />
+
 			<File Name="Main Menu Spinning Skyrim Emblem Average Speed 1.01"
 			      LengthInBytes="1573655"
 			      CanonicalFileName="Main Menu Spinning Skyrim Emblem Average Speed-7801.7z"
@@ -390,6 +396,7 @@
 		<Group Name="2.E. Interface">
 			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="KenMOD - Time on loading screen 5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Lore-Based Loading Screens 1.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Main Menu Spinning Skyrim Emblem Average Speed 1.01" SimpleMO="Root" />
 		</Group>
 
