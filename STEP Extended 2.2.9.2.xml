@@ -242,6 +242,101 @@
 		</Group>
 
 		<Group Name="2.M. Gameplay">
+			<File Name="Bring Out Your Dead - Legendary Edition 3.0.0"
+			      LengthInBytes="234119"
+			      CanonicalFileName="Bring Out Your Dead - Legendary Edition-14178-3-0-0.7z"
+			      MD5Checksum="068109f74d7a834c2bcc04be028d6ea9"
+			      DownloadTags="nexus|skyrim|14178|1000184123" />
+
+			<File Name="Convenient Horses 5.0"
+			      LengthInBytes="54523778"
+			      CanonicalFileName="Convenient Horses v5_0-14950-5-0.zip"
+			      MD5Checksum="23e1f34a637021d3a0ba14f3f2862c85"
+			      DownloadTags="nexus|skyrim|14950|1000087178" />
+
+			<File Name="Dual Wield Parrying 3.1b"
+			      LengthInBytes="8249"
+			      CanonicalFileName="00 Dual Wield Parrying SKSE 3_1 beta-9247-3-1b.zip"
+			      MD5Checksum="ffc4e51f1b36818d6de56823e1294ace"
+			      DownloadTags="nexus|skyrim|9247|1000085984" />
+
+			<File Name="Follower Trap Safety 1.3"
+			      LengthInBytes="5792"
+			      CanonicalFileName="Follower Trap Safety v1_3-11609-1-3.zip"
+			      MD5Checksum="e5a38819388743432b8fd5e01692356f"
+			      DownloadTags="nexus|skyrim|11609|1000096698" />
+
+			<File Name="Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3"
+			      LengthInBytes="2241662"
+			      CanonicalFileName="Hearthfire Extended - All DLCs (Legendary Edition)-66783-1-0-3.7z"
+			      MD5Checksum="b0acb9bb1890514d5f34f7daee6b92ba"
+			      DownloadTags="nexus|skyrim|66783|1000168435" />
+
+			<File Name="Lock Overhaul 1.2"
+			      LengthInBytes="69329"
+			      CanonicalFileName="Lock Overhaul-29979-1-2.rar"
+			      MD5Checksum="cdb486b7b0f401d245ce3b7f3f16f24c"
+			      DownloadTags="nexus|skyrim|29979|1000047530" />
+
+			<File Name="Not So Fast - Main Quest 1.4"
+			      LengthInBytes="49249"
+			      CanonicalFileName="NotSoFast-MainQuestV14-62894-1-4.7z"
+			      MD5Checksum="8031504233f3b0bebe401efa340a96ba"
+			      DownloadTags="nexus|skyrim|62894|1000215238" />
+
+			<File Name="Oblivion Gates Skyrim and Dawnguard DLC 3.2"
+			      LengthInBytes="6861698"
+			      CanonicalFileName="Oblivion Gates v3 Skyrim and Dawnguard DLC-22369-3-2.zip"
+			      MD5Checksum="4ea93aad59af03a5add0e9033c3e8e18"
+			      DownloadTags="nexus|skyrim|22369|1000162553" />
+
+			<File Name="SM Drop Lit Torches 3.0"
+			      LengthInBytes="7787"
+			      CanonicalFileName="Drop Lit Torches 3-10394-3-0.zip"
+			      MD5Checksum="180ffa42bf453d9f3d895893b54dbfa4"
+			      DownloadTags="nexus|skyrim|10394|1000090198" />
+
+			<File Name="Skyrim Coin Replacer Redux - Legendary Edition 1.2.2"
+			      LengthInBytes="4432320"
+			      CanonicalFileName="SCRR - Legendary Edition-48195-1-2-2.7z"
+			      MD5Checksum="157afe17a66023e52a0c5a5d6de5d4a5"
+			      DownloadTags="nexus|skyrim|48195|1000161645" />
+
+			<File Name="Skyrim Coin Replacer Redux - Septim HD Coinpiles X"
+			      LengthInBytes="335093"
+			      CanonicalFileName="Septim HD Coinpiles-48195-.7z"
+			      MD5Checksum="3cc826f633e32efc9a30e43a48c4634f"
+			      DownloadTags="nexus|skyrim|48195|1000124477" />
+
+			<File Name="The Choice is Yours - Legendary 1.6"
+			      LengthInBytes="803941"
+			      CanonicalFileName="The Choice is Yours-26359-1-6.7z"
+			      MD5Checksum="a47cd045a2ec514e046514a3a60309e0"
+			      DownloadTags="nexus|skyrim|26359|1000195946" />
+
+			<File Name="Thieves Guild Requirements 3.0"
+			      LengthInBytes="910449"
+			      CanonicalFileName="Thieves Guild Requirements-14157-3-0.7z"
+			      MD5Checksum="f3294c29e80379a4f222a3b2b275460e"
+			      DownloadTags="nexus|skyrim|14157|1000205146" />
+
+			<File Name="Timing is Everything 2.02"
+			      LengthInBytes="27220"
+			      CanonicalFileName="Timing is Everything-38151-2-02.7z"
+			      MD5Checksum="b8b3a42279fd026ed0e39e878937dc3f"
+			      DownloadTags="nexus|skyrim|38151|1000170401" />
+
+			<File Name="Wet and Cold 2.02"
+			      LengthInBytes="48943765"
+			      CanonicalFileName="Wet and Cold v2_02-27563-2-02.7z"
+			      MD5Checksum="697ea19b83736886bdc4d91e77f8f0ba"
+			      DownloadTags="nexus|skyrim|27563|1000169473" />
+
+			<File Name="Even Better Quest Objectives 1.5.8a"
+			      LengthInBytes="8225702"
+			      CanonicalFileName="Even Better Quest Objectives - 1.5.8a-32695-1-5-8a.7z"
+			      MD5Checksum="54441a99d82c454aae11db155b379468"
+			      DownloadTags="nexus|skyrim|32695|1000225704" />
 		</Group>
 
 		<!-- Some of these are from Core, but needed again for Extended. -->
@@ -421,6 +516,43 @@
 		</Group>
 
 		<Group Name="2.M. Gameplay">
+			<ExtractArchive ArchiveFile="Bring Out Your Dead - Legendary Edition 3.0.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Convenient Horses 5.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dual Wield Parrying 3.1b" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Follower Trap Safety 1.3" SimpleMO="Root" />
+			<ExtractArchive Id="HearthfireExtended" ArchiveFile="Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3" SimpleMO="Root" />
+			<Clean>
+				<Plugin WaitFor="HearthfireExtended" Path="ModOrganizer/mods/Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3/hearthfireextended.esp">
+					<!-- Note: since it's "deletes only", masters can be ignored. -->
+					<Delete Ids="4003076" />
+				</Plugin>
+			</Clean>
+
+			<ExtractArchive ArchiveFile="Lock Overhaul 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Not So Fast - Main Quest 1.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Oblivion Gates Skyrim and Dawnguard DLC 3.2" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 - Skyrim + Dawnguard DLC.esp" />
+
+				<!-- Swap the above "Hide" with this one if you want markers. -->
+				<!--
+				<Hide File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 without Markers - Skyrim + Dawnguard DLC.esp" />
+				-->
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SM Drop Lit Torches 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Legendary Edition 1.2.2" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Septim HD Coinpiles X" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="The Choice is Yours - Legendary 1.6" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Thieves Guild Requirements 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Timing is Everything 2.02" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Wet and Cold 2.02">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Wet and Cold 2.02" />
+				<MapFolder From="10 Ashes" To="ModOrganizer/mods/Wet and Cold 2.02" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Even Better Quest Objectives 1.5.8a">
+				<MapFolder From="00 Main File" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.N. Patches">
