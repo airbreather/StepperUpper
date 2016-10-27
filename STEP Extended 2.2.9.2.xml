@@ -228,6 +228,17 @@
 		</Group>
 
 		<Group Name="2.L. Sound">
+			<File Name="Immersive Skyrim Thunder V6"
+			      LengthInBytes="43792228"
+			      CanonicalFileName="Immersive Skyrim Thunder V6-1702-V6.rar"
+			      MD5Checksum="b594b25682030a02b0eb1f04e494de70"
+			      DownloadTags="nexus|skyrim|1702|106176" />
+
+			<File Name="Thundering Shouts - Loose Files 1.2"
+			      LengthInBytes="13222171"
+			      CanonicalFileName="Thundering Shouts - loose files-3799-1-2.7z"
+			      MD5Checksum="8f03c467a923c82536c20d72c919c26b"
+			      DownloadTags="nexus|skyrim|3799|1000104561" />
 		</Group>
 
 		<Group Name="2.M. Gameplay">
@@ -402,6 +413,11 @@
 		</Group>
 
 		<Group Name="2.L. Sound">
+			<ExtractArchive ArchiveFile="Immersive Skyrim Thunder V6">
+				<MapFolder From="ImmersiveSkyrimThunderV6/Data" To="ModOrganizer/mods/Immersive Skyrim Thunder V6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Thundering Shouts - Loose Files 1.2" SimpleMO="Root" />
 		</Group>
 
 		<Group Name="2.M. Gameplay">
