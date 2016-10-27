@@ -33,6 +33,23 @@
 		</Group>
 
 		<Group Name="2.E. Interface">
+			<File Name="Immersive HUD 3.0.03"
+			      LengthInBytes="17414"
+			      CanonicalFileName="Immersive HUD - iHUD-3222-3-0-03.rar"
+			      MD5Checksum="474bc7d98f37b7b1d2325bfb99ea498d"
+			      DownloadTags="nexus|skyrim|3222|1000147561" />
+
+			<File Name="KenMOD - Time on loading screen 5"
+			      LengthInBytes="15391"
+			      CanonicalFileName="Time on loading v5-98.zip"
+			      MD5Checksum="d228900bf0c3423f4d965bc2d35ed6a6"
+			      DownloadTags="nexus|skyrim|98|1724" />
+
+			<File Name="Main Menu Spinning Skyrim Emblem Average Speed 1.01"
+			      LengthInBytes="1573655"
+			      CanonicalFileName="Main Menu Spinning Skyrim Emblem Average Speed-7801.7z"
+			      MD5Checksum="6612c63b31276ab8b0560e6563d94636"
+			      DownloadTags="nexus|skyrim|7801|26812" />
 		</Group>
 
 		<!-- All of these are in Core. -->
@@ -108,6 +125,9 @@
 		</Group>
 
 		<Group Name="2.E. Interface">
+			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="KenMOD - Time on loading screen 5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Main Menu Spinning Skyrim Emblem Average Speed 1.01" SimpleMO="Root" />
 		</Group>
 
 		<!-- All of these are in Core. -->
