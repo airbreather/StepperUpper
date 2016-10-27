@@ -474,7 +474,10 @@
 				<MapFolder From="RUPPB v2 NON-GLOW/data" To="ModOrganizer/mods/Radiant and Unique Potions and Poisons HD - BOOZE NON GLOW 2.0" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Realistic Instruments X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Realistic Instruments X">
+				<MapFolder From="Data/Data" To="ModOrganizer/mods/Realistic Instruments X" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Rens HD Shrines - Ultimate 2.0">
 				<!-- Each of these has 3 options in the FOMOD: Version 1, Version 2, and Vanilla.
 				     Vanilla, of course, is just doing nothing (delete the line in this file).
