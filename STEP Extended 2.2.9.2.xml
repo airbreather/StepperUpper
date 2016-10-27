@@ -347,31 +347,11 @@
 
 		<!-- Some of these are from Core, but needed again for Extended. -->
 		<Group Name="2.N. Patches">
-			<File Name="STEP Compilation - High 2.2.9.2l"
-			      LengthInBytes="905471272"
-			      CanonicalFileName="STEP Compilation Installer - High Res - 2292l-11-2-2-9-2l.7z"
-			      Option="STEP Compilation 2.2.9.2l"
-			      MD5Checksum="5b3eb1c2bf754c25b5278d4ab2d21aa6"
-			      DownloadTags="nexus|skyrim|11|1000219783" />
-
-			<File Name="STEP Compilation - Normal 2.2.9.2l"
-			      LengthInBytes="582007771"
-			      CanonicalFileName="STEP Compilation Installer - Normal Res - 2292l-11-2-2-9-2l.7z"
-			      Option="STEP Compilation 2.2.9.2l"
-			      MD5Checksum="97d603bb582ad88623dd4ad1010724cb"
-			      DownloadTags="nexus|skyrim|11|1000219776" />
-
 			<File Name="Dual Sheath Redux 1.7.3"
 			      LengthInBytes="48259002"
 			      CanonicalFileName="Dual Sheath Redux-34155-1-7-3.7z"
 			      MD5Checksum="c46a9bbe8209b6d83a1e09fed1348352"
 			      DownloadTags="nexus|skyrim|34155|1000184038" />
-
-			<File Name="LeanWolf's Better-Shaped Weapons 2.0.07"
-			      LengthInBytes="20593080"
-			      CanonicalFileName="LeanWolfs Better-Shaped Weapons v2.0.07-39870-2-0-07.7z"
-			      MD5Checksum="6d2680d20e08ddf65f445a8b18ffd4ae"
-			      DownloadTags="nexus|skyrim|39870|1000223517" />
 
 			<File Name="FNIS Behavior V6.3"
 			      LengthInBytes="3496939"
@@ -666,6 +646,7 @@
 				<Line>-DynDOLOD Resources 2.19</Line>
 				<Line>+Bashed Patch (Extended)</Line>
 				<Line>-Bashed Patch (Core)</Line>
+				<Line>+LeanWolf's Better-Shaped Weapons 2.0.07 (DSR)</Line>
 				<Line>+LeanWolf's Better-Shaped Weapons 2.0.07</Line>
 				<Line>+STEP Compilation 2.2.9.2l (Extended)</Line>
 				<Line>-STEP Compilation 2.2.9.2l (Core)</Line>
