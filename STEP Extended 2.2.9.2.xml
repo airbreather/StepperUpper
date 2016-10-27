@@ -88,6 +88,23 @@
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">
+			<File Name="83Willows 101BugsHD - Lower Resolution 4.1"
+			      LengthInBytes="1981848"
+			      CanonicalFileName="83Willows 101BUGs V4_1 LowerResolution-4955-4-1.7z"
+			      MD5Checksum="bd87bc0f5fbc113db61f9f1b097dbd62"
+			      DownloadTags="nexus|skyrim|4955|68797" />
+
+			<File Name="Birds and Flocks - Hearthfire Edition Cleaned X"
+			      LengthInBytes="107870"
+			      CanonicalFileName="Hearthfire Edition Cleaned-11555-.zip"
+			      MD5Checksum="cb8083f3911068db59f6e803015d6485"
+			      DownloadTags="nexus|skyrim|11555|104514" />
+
+			<File Name="PondFish and Salmon Replacer 1.2"
+			      LengthInBytes="3233900"
+			      CanonicalFileName="PondFish and Salmon Replacer_1.2-38440-1-2.zip"
+			      MD5Checksum="c229c88c56acb17a20a476216cfa550a"
+			      DownloadTags="nexus|skyrim|38440|1000129542" />
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
@@ -185,6 +202,16 @@
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">
+			<ExtractArchive ArchiveFile="83Willows 101BugsHD - Lower Resolution 4.1" SimpleMO="Single" />
+			<ExtractArchive Id="BirdsAndFlocks" ArchiveFile="Birds and Flocks - Hearthfire Edition Cleaned X" SimpleMO="Root" />
+
+			<!-- "cleaned"... -->
+			<Clean>
+				<Plugin WaitFor="BirdsAndFlocks" Path="ModOrganizer/mods/Birds and Flocks - Hearthfire Edition Cleaned X/BirdsHFclean.esp">
+					<!-- Note: since it's "deletes only", masters can be ignored. -->
+					<Delete Ids="F59D3|46047|F80EE|37EEA|10D430|37EE7|E9571|10D433|1A275|20EEA|411F1|64070|CA839|9C60|6072C|9BC3|F1BE4|92C0|70A6E|BD74|ED6F8|971B|106B71|981A|1C750|107415|107416|90BC|10D5A1|10D5BB|F940C|37B0D|371DD|EB1F6|1526B|109666" />
+				</Plugin>
+			</Clean>
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
