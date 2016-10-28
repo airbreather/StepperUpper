@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Modpack Name="My STEP Core Tweaks"
+         Requires="STEP Core, 2.2.9.2, 1.0.1.0"
+         PackVersion="1.0.0.0"
+         FileVersion="1.0.0.0"
+         MinimumToolVersion="0.9.1.0">
+
+	<Files />
+
+	<Tasks>
+		<Group Name="Default">
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini">
+				<Set Section="Display" Property="bFull Screen" Value="1" />
+				<Set Section="Display" Property="iSize H" Value="1440" />
+				<Set Section="Display" Property="iSize W" Value="2560" />
+
+				<Set Section="MAIN" Property="bGamepadEnable" Value="1" />
+
+				<Set Section="Interface" Property="bGeneralSubtitles" Value="1" />
+				<Set Section="Interface" Property="bDialogueSubtitles" Value="1" />
+			</TweakINI>
+
+			<TweakINI File="{SteamInstallFolder}/steamapps/common/Skyrim/enblocal.ini">
+				<Set Section="WINDOW" Property="ForceBorderlessFullscreen" Value="true" />
+				<Set Section="WINDOW" Property="ForceBorderless" Value="true" />
+
+				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
+				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4096" />
+			</TweakINI>
+		</Group>
+	</Tasks>
+</Modpack>
