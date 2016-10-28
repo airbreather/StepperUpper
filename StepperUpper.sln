@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StepperUpper", "StepperUppe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{375B1BA1-5E64-4507-9BC0-4D9DEB704E07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBreather.Common", "..\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj", "{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBreather.Common", "External\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj", "{F04C8BB5-8838-4472-9B64-FAFDB5A27EBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BethFile", "BethFile\BethFile.csproj", "{B0193C00-C6CE-47E4-BE6C-D4434466C226}"
 EndProject

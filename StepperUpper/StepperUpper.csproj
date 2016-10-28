@@ -102,7 +102,7 @@
     <EmbeddedResource Include="7z-x86.exe" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj">
+    <ProjectReference Include="..\External\AirBreather.Common\Source\AirBreather.Common\AirBreather.Common\AirBreather.Common.csproj">
       <Project>{f04c8bb5-8838-4472-9b64-fafdb5a27ebc}</Project>
       <Name>AirBreather.Common</Name>
     </ProjectReference>
