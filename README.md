@@ -6,7 +6,7 @@ Building
 
 Requires Visual Studio 2015 to build.  Community Edition is what I use, and it works just fine.
 
-Also, you have to clone [AirBreather.Common](https://github.com/airbreather/AirBreather.Common) and put it in a magical location next to this repo.  *Oops.  I should make that a bit nicer.  Sorry about the mess.*
+Don't forget to clone recursively (`git clone `**`--recursive`**)  to get [AirBreather.Common](https://github.com/airbreather/AirBreather.Common) into the "External" folder.
 
 Usage
 --
