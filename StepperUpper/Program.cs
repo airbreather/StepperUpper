@@ -27,7 +27,7 @@ namespace StepperUpper
             Stopwatch sw = Stopwatch.StartNew();
             int result = MainAsync(args).GetAwaiter().GetResult();
             sw.Stop();
-            Console.WriteLine(Invariant($"Ran for {sw.ElapsedTicks / (double)Stopwatch.Frequency:N3} seconds."));
+            Console.WriteLine(Invariant($"Ran for {sw.ElapsedTicks / (double)Stopwatch.Frequency:N3} seconds.  Exiting with code {result}."));
             return result;
         }
 
@@ -222,33 +222,69 @@ namespace StepperUpper
             }
 
             missingGroups = Array.FindAll(missingGroups, grp => grp != null);
+
+            // don't indicate the same file multiple times in the same list.
+            // just in case a later pack reuses files found in an earlier pack.
+            var checksums = new HashSet<Md5Checksum>();
             if (missingGroups.Length != 0)
             {
-                Console.Error.WriteLine("Some files could not be downloaded automatically.  Get them the hard way:");
-                foreach (var grp in missingGroups)
+                Console.Error.WriteLine("Some files could not be downloaded automatically.  You'll have to get them the hard way.");
+                Console.Error.WriteLine("Displaying the details in your web browser...");
+                string htmlFilePath = Path.Combine(options.OutputDirectoryPath, "missing.html");
+                using (var writer = new StreamWriter(path: htmlFilePath, append: false, encoding: Encoding.UTF8))
                 {
-                    switch (grp.Count())
+                    await writer.WriteLineAsync("<html><h1>Missing Files</h1><table border=\"2\"><tr><td><strong>Pack</strong></td><td><strong>Missing File</strong></td><td><strong>URL(s)</strong></td></tr>").ConfigureAwait(false);
+
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var grp in missingGroups)
                     {
-                        case 1:
-                            XElement missing = grp.First();
-                            Console.WriteLine("    {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
-                            continue;
+                        string modpack;
+                        string file;
+                        using (var enumerator = Tokenize(grp.Key).GetEnumerator())
+                        {
+                            enumerator.MoveNext();
+                            modpack = enumerator.Current;
+                            enumerator.MoveNext();
+                            file = enumerator.Current;
+                        }
 
-                        case 2:
-                            Console.WriteLine("    Either of:");
-                            break;
+                        string urlIfSingle = null;
+                        int optionCount = 0;
+                        foreach (var el in grp)
+                        {
+                            if (!checksums.Add(Md5Checksum(el)))
+                            {
+                                continue;
+                            }
 
-                        default:
-                            Console.WriteLine("    Any of:");
-                            break;
+                            urlIfSingle = GetUrl(el);
+                            sb.Append(Invariant($"<tr><td>{el.Attribute("Name").Value}</td><td><a href=\"{urlIfSingle}\">{urlIfSingle}</a></td></tr>"));
+                            optionCount++;
+                        }
+
+                        string details;
+                        switch (optionCount)
+                        {
+                            case 0:
+                                continue;
+
+                            case 1:
+                                details = Invariant($"<a href=\"{urlIfSingle}\">{urlIfSingle}</a>");
+                                sb.Clear();
+                                break;
+
+                            default:
+                                details = Invariant($"<table border=\"1\">{sb.MoveToString()}</table>");
+                                break;
+                        }
+
+                        await writer.WriteLineAsync(Invariant($"<tr><td>{modpack}</td><td>{file}</td><td>{details}</td></tr>")).ConfigureAwait(false);
                     }
 
-                    foreach (XElement missing in grp)
-                    {
-                        Console.WriteLine("        {0}, URL: {1}", missing.Attribute("Name").Value, GetUrl(missing));
-                    }
+                    await writer.WriteLineAsync("</table>").ConfigureAwait(false);
                 }
 
+                Process.Start(htmlFilePath);
                 return 1;
             }
 
@@ -263,7 +299,7 @@ namespace StepperUpper
 
                 needsDelete = false;
             }
-                
+
             foreach (var modpackElement in modpackElements)
             {
                 string modpackName = modpackElement.Attribute("Name").Value;
