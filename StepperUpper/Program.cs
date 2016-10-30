@@ -213,6 +213,7 @@ namespace StepperUpper
                     {
                         Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
                         missingGroups[i] = null;
+                        checkedFiles[fileWithChecksum.Checksum] = fileWithChecksum.Path;
                     }
                     else
                     {
