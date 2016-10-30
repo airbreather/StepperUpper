@@ -19,11 +19,11 @@
 			      DownloadUrl="https://github.com/loot/loot/releases/download/0.9.2/loot_0.9.2-0-g6b58f92_dev.7z"
 			      DownloadTags="generic|https://loot.github.io/" />
 
-			<File Name="xEdit 3.1.3"
-			      LengthInBytes="2927436"
-			      CanonicalFileName="FO4Edit 3.1.3 - c9b7bf8-2737-3-1-3.7z"
-			      MD5Checksum="f709548eec2728b6fe830ed691c3eea2"
-			      DownloadTags="nexus|fallout4|2737|79682" />
+			<File Name="xEdit 3.1.3 - bb242bc"
+			      LengthInBytes="2920738"
+			      CanonicalFileName="FO4Edit 3.1.3 - bb242bc-2737-3-1-3.7z"
+			      MD5Checksum="dadef6f4a8c9668f34958c7a2bbd465d"
+			      DownloadTags="nexus|fallout4|2737|80283" />
 
 			<File Name="Wrye Bash 306 - Standalone Executable"
 			      LengthInBytes="17250882"
@@ -48,9 +48,9 @@
 
 		<Group Name="2.C. Extenders">
 			<File Name="ENBSeries v0308"
-			      LengthInBytes="3023637"
+			      LengthInBytes="3023865"
 			      CanonicalFileName="enbseries_skyrim_v0308.zip"
-			      MD5Checksum="2fec62db6ada4bc7ffe4a66e24ba5508"
+			      MD5Checksum="6bc7093f4079605e5f13f57df784bd74"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
 
 			<File Name="SKSE 1.7.3"
@@ -344,11 +344,11 @@
 			      MD5Checksum="13a3701049aa31de296a737145bf353c"
 			      DownloadTags="nexus|skyrim|40564|1000120179" />
 
-			<File Name="SMIM 1.95"
-			      LengthInBytes="892230373"
-			      CanonicalFileName="SMIM 1-95-8655-1-95.7z"
-			      MD5Checksum="c0a26827deecfad129483eeeb4657ad6"
-			      DownloadTags="nexus|skyrim|8655|1000225152" />
+			<File Name="SMIM 1.97"
+			      LengthInBytes="892616565"
+			      CanonicalFileName="SMIM 1-97-8655-1-97.7z"
+			      MD5Checksum="ebff543a25e80ca7de81fc8752ef6cb3"
+			      DownloadTags="nexus|skyrim|8655|1000225941" />
 
 			<File Name="Skyrim HD - Landscape LITE 1.7"
 			      LengthInBytes="114915892"
@@ -425,11 +425,11 @@
 			      MD5Checksum="d48ca4727826071415aafa891a1f2133"
 			      DownloadTags="nexus|skyrim|85|10856" />
 
-			<File Name="Farmhouse Chimneys 2.6"
-			      LengthInBytes="3703818"
-			      CanonicalFileName="Farmhouse Chimneys 2.6-51330-2-6.zip"
-			      MD5Checksum="33950178d72402ed1e33b271cd44dcee"
-			      DownloadTags="nexus|skyrim|51330|1000200734" />
+			<File Name="Farmhouse Chimneys 2.7"
+			      LengthInBytes="3611752"
+			      CanonicalFileName="Farmhouse Chimneys 2.7-51330-2-7.zip"
+			      MD5Checksum="73f6c947f37975481140e4db3d38fbf6"
+			      DownloadTags="nexus|skyrim|51330|1000226100" />
 
 			<File Name="HD Dark Brotherhood Door - No Glowing Eyes 1.0"
 			      LengthInBytes="13181789"
@@ -926,11 +926,11 @@
 			      MD5Checksum="2125950f71e499442e2a6169b02ce4cf"
 			      DownloadTags="nexus|skyrim|4260|25377" />
 
-			<File Name="SKELETON - 1k 1.1"
-			      LengthInBytes="4983612"
-			      CanonicalFileName="Skeleton.and.Human.Bones.1k-67871-1-1.7z"
-			      MD5Checksum="99083325d64992e7dceca2679860c5b3"
-			      DownloadTags="nexus|skyrim|67871|1000168237" />
+			<File Name="SKELETON - 2k 1.1"
+			      LengthInBytes="8823641"
+			      CanonicalFileName="Skeleton.and.Human.Bones.2k-67871-1-1.7z"
+			      MD5Checksum="68ac0900e03d612127579a2882118cc9"
+			      DownloadTags="nexus|skyrim|67871|1000168236" />
 
 			<File Name="Skyrim Redesigned 1.0"
 			      LengthInBytes="58178426"
@@ -1126,17 +1126,17 @@
 			      MD5Checksum="6d2680d20e08ddf65f445a8b18ffd4ae"
 			      DownloadTags="nexus|skyrim|39870|1000223517" />
 
-			<File Name="DynDOLOD 2.20"
-			      LengthInBytes="17185259"
-			      CanonicalFileName="DynDOLOD-59721-2-20.7z"
-			      MD5Checksum="2be861cd64d62983052da1c45f656cd5"
-			      DownloadTags="nexus|skyrim|59721|1000225355" />
+			<File Name="DynDOLOD 2.21"
+			      LengthInBytes="17184945"
+			      CanonicalFileName="DynDOLOD-59721-2-21.7z"
+			      MD5Checksum="807bc1a29c1080d4b445c53e71784cc9"
+			      DownloadTags="nexus|skyrim|59721|1000226108" />
 
-			<File Name="DynDOLOD Resources 2.19"
-			      LengthInBytes="35280470"
-			      CanonicalFileName="DynDOLOD Resources-59721-2-19.7z"
-			      MD5Checksum="06a370dd826a0182fabbfe17c2c74c37"
-			      DownloadTags="nexus|skyrim|59721|1000225252" />
+			<File Name="DynDOLOD Resources 2.20"
+			      LengthInBytes="35280546"
+			      CanonicalFileName="DynDOLOD Resources-59721-2-20.7z"
+			      MD5Checksum="cf9566db5dd08657dca52e281c10a871"
+			      DownloadTags="nexus|skyrim|59721|1000225965" />
 		</Group>
 	</Files>
 
@@ -1150,7 +1150,8 @@
 				<MapFolder From="loot_0.9.2-0-g6b58f92_dev" To="LOOT 0.9.2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="xEdit 3.1.3">
+			<ExtractArchive ArchiveFile="xEdit 3.1.3 - bb242bc">
+				<MapFile From="FO4Edit.exe" To="FO4Edit 3.1.3/TES5Edit.exe" />
 				<MapFolder To="FO4Edit 3.1.3" />
 			</ExtractArchive>
 
@@ -1362,68 +1363,68 @@
 				<MapFolder From="22 Waterfalls Realistic water 2" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SMIM 1.95">
-				<MapFolder From="00 Core" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="71 Candelabras Sconces Walltorches" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="72 Chandeliers" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="75 Dungeons Cliffs Snow Skirts" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="01 Furniture" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="40 Furniture Chests" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="42 Furniture Noble" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="02 Vanilla Barrel Textures Animations" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="61 Bowl Ingredients" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="46 Carriage Seats and Fixes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="03 Food" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="39 Dungeons 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="37 Riften 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="22 Solitude Docks Ropes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="14 Stockade 3D Ropes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="05 Chains 3D - Misc" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="06 Chains 3D - Signs" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="07 Chains 3D - Whiterun" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="09 Dwemer Clutter" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="10 Nordic Tables and Benches" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="11 Bridges" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="12 Whiterun Doors" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="15 Clothing Fixes" To="ModOrganizer/mods/SMIM 1.95" />
+			<ExtractArchive ArchiveFile="SMIM 1.97">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="71 Candelabras Sconces Walltorches" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="72 Chandeliers" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="01 Furniture" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="40 Furniture Chests" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="42 Furniture Noble" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="02 Vanilla Barrel Textures Animations" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="61 Bowl Ingredients" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="46 Carriage Seats and Fixes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="03 Food" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="39 Dungeons 3D Ropes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="37 Riften 3D Ropes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="22 Solitude Docks Ropes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="14 Stockade 3D Ropes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="05 Chains 3D - Misc" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="06 Chains 3D - Signs" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="07 Chains 3D - Whiterun" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="09 Dwemer Clutter" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="10 Nordic Tables and Benches" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="11 Bridges" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="12 Whiterun Doors" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="15 Clothing Fixes" To="ModOrganizer/mods/SMIM 1.97" />
 				<!-- I've had the flickering that the wiki talked about, so deviating like the wiki says to do. -->
-				<MapFolder From="18 Farmhouse Woven Fence" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="16 Tankard Dark Brushed Metal" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="57 Ruins Sarcophagus" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="19 Smelter" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="25 Solitude Gate Doors" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="41 Draugr Corpses" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="33 Orc Longhouse" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="44 Poor Coffin Custom Texture" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="17 Nordic Catacombs Skeletal Remains" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="26 Human Skull Fixes" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="27 Hawk" To="ModOrganizer/mods/SMIM 1.95" />
+				<MapFolder From="18 Farmhouse Woven Fence" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="16 Tankard Dark Brushed Metal" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="57 Ruins Sarcophagus" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="19 Smelter" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="25 Solitude Gate Doors" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="41 Draugr Corpses" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="33 Orc Longhouse" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="44 Poor Coffin Custom Texture" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="17 Nordic Catacombs Skeletal Remains" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="26 Human Skull Fixes" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="27 Hawk" To="ModOrganizer/mods/SMIM 1.97" />
 				<!-- Odd that "Strings" isn't copied here in the FOMOD... -->
-				<MapFile From="28 Hawk Dragonborn Fix/SMIM-DragonbornTernFix.esp" To="ModOrganizer/mods/SMIM 1.95/SMIM-DragonbornTernFix.esp" />
-				<MapFolder From="70 Rabbit" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="47 Juniper Tree" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="49 Tundra Tree" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="35 Shack Kit" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="36 Shack Kit Dragonborn" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.95 - Jewelry Rings (Vanilla)" />
-				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" To="ModOrganizer/mods/SMIM 1.95 - Jewelry Rings (CCO Remade)" />
-				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.95" />
-				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.95" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-DragonbornTernFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-DungeonsCliffsIceSkirts.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-FarmhouseFlickeringFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-FurnitureChestSnowFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-ShackRoofFixes.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.95/SMIM-ShackRoofFixesDragonborn.esp" />
+				<MapFile From="28 Hawk Dragonborn Fix/SMIM-DragonbornTernFix.esp" To="ModOrganizer/mods/SMIM 1.97/SMIM-DragonbornTernFix.esp" />
+				<MapFolder From="70 Rabbit" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="47 Juniper Tree" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="49 Tundra Tree" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="35 Shack Kit" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="36 Shack Kit Dragonborn" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 1.97 - Jewelry Rings (Vanilla)" />
+				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" To="ModOrganizer/mods/SMIM 1.97 - Jewelry Rings (CCO Remade)" />
+				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.97" />
+				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.97" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-DragonbornTernFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-DungeonsCliffsIceSkirts.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-FarmhouseFlickeringFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-FurnitureChestSnowFix.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixes.esp" />
+				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixesDragonborn.esp" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim HD - Landscape LITE 1.7" SimpleMO="Root">
@@ -1547,9 +1548,9 @@
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Enhanced Night Skyrim - Low Stars 0.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Farmhouse Chimneys 2.6">
-				<MapFolder From="00 - Thinner Meshes" To="ModOrganizer/mods/Farmhouse Chimneys 2.6" />
-				<MapFolder From="01 - Vanilla" To="ModOrganizer/mods/Farmhouse Chimneys 2.6" />
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys 2.7">
+				<MapFolder From="00 - Thinner Meshes" To="ModOrganizer/mods/Farmhouse Chimneys 2.7" />
+				<MapFolder From="01 - Vanilla" To="ModOrganizer/mods/Farmhouse Chimneys 2.7" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0">
@@ -1858,8 +1859,8 @@
 			<ExtractArchive ArchiveFile="Septim HD 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Full Pack 1.00" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Less Saturated Labels 1.00" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SKELETON - 1k 1.1">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/SKELETON - 1k 1.1" />
+			<ExtractArchive ArchiveFile="SKELETON - 2k 1.1">
+				<MapFolder From="00 Data" To="ModOrganizer/mods/SKELETON - 2k 1.1" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0">
@@ -2055,16 +2056,16 @@
 				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/124 DSR Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.07 (DSR)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.19">
-				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.19" />
-				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.19" />
-				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.19" />
-				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.19" />
-				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.19" />
+			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.20">
+				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD 2.20">
-				<MapFolder From="DynDOLOD" To="DynDOLOD 2.20" />
+			<ExtractArchive ArchiveFile="DynDOLOD 2.21">
+				<MapFolder From="DynDOLOD" To="DynDOLOD 2.21" />
 			</ExtractArchive>
 		</Group>
 
@@ -2178,18 +2179,18 @@
 				<Set Section="customExecutables" Property="7\custom" Value="true" />
 				<Set Section="customExecutables" Property="7\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="7\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.20/DynDOLOD.exe" />
+				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/DynDOLOD.exe" />
 				<Set Section="customExecutables" Property="7\arguments" Value="" />
-				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.20/" />
+				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
 				<Set Section="customExecutables" Property="7\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="7\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="8\title" Value="DynDOLOD TexGen" />
 				<Set Section="customExecutables" Property="8\custom" Value="true" />
 				<Set Section="customExecutables" Property="8\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="8\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.20/TexGen.exe" />
+				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/TexGen.exe" />
 				<Set Section="customExecutables" Property="8\arguments" Value="" />
-				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.20/" />
+				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
 				<Set Section="customExecutables" Property="8\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="8\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="size" Value="8" />
@@ -2204,7 +2205,7 @@
 
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
 				<Line># This file was automatically generated by Mod Organizer.</Line>
-				<Line>-DynDOLOD Resources 2.19</Line>
+				<Line>-DynDOLOD Resources 2.20</Line>
 				<Line>-LeanWolf's Better-Shaped Weapons 2.0.07 (DSR)</Line>
 				<Line>+LeanWolf's Better-Shaped Weapons 2.0.07</Line>
 				<Line>+Bashed Patch (Core)</Line>
@@ -2239,7 +2240,7 @@
 				<Line>+Super Realistic Ore Textures - Just the textures 1.0</Line>
 				<Line>+Soul Gems Differ - All-In-One 1.5.6</Line>
 				<Line>+Skyrim Redesigned 1.0</Line>
-				<Line>+SKELETON - 1k 1.1</Line>
+				<Line>+SKELETON - 2k 1.1</Line>
 				<Line>+SLOD Wine Cellar - Less Saturated Labels 1.00</Line>
 				<Line>+SLOD Wine Cellar - Full Pack 1.00</Line>
 				<Line>+Septim HD 1.0</Line>
@@ -2319,7 +2320,7 @@
 				<Line>+High Quality LODs - Meshes Hi-Res 2.1</Line>
 				<Line>+HD Enhanced Terrain and Map snow - 1024 8.0</Line>
 				<Line>+HD Dark Brotherhood Door - No Glowing Eyes 1.0</Line>
-				<Line>+Farmhouse Chimneys 2.6</Line>
+				<Line>+Farmhouse Chimneys 2.7</Line>
 				<Line>+Enhanced Night Skyrim - Low Stars 0.4</Line>
 				<Line>+Embers HD - All-in-One 1.32</Line>
 				<Line>+Skyrim Flora Overhaul - Basic Edition 1.87a</Line>
@@ -2330,9 +2331,9 @@
 				<Line>+Tobes Highres Textures - 1k 1.2</Line>
 				<Line>+HD Misc 1.0</Line>
 				<Line>+Skyrim HD - Landscape LITE 1.7</Line>
-				<Line>-SMIM 1.95 - Jewelry Rings (CCO Remade)</Line>
-				<Line>+SMIM 1.95 - Jewelry Rings (Vanilla)</Line>
-				<Line>+SMIM 1.95</Line>
+				<Line>-SMIM 1.97 - Jewelry Rings (CCO Remade)</Line>
+				<Line>+SMIM 1.97 - Jewelry Rings (Vanilla)</Line>
+				<Line>+SMIM 1.97</Line>
 				<Line>+SkyFalls and SkyMills All-in-One 3.3.1</Line>
 				<Line>+Ultimate HD Fire Effects - Medium 1.9</Line>
 				<Line>+Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8</Line>
