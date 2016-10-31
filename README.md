@@ -22,10 +22,10 @@ It's a command-line application.  Here are the parameters:
 
 Be careful when using "-x".  It deletes **everything** in the directory you specify with "-o", including saves.
 
-See the included "STEP Core 2.2.9.2.xml" file for an example of the XML file.
+See the included "STEP_Core-2.2.9.2.xml" file for an example of the XML file.
 
 Example:
-StepperUpper.exe -p "C:\path\to\STEP Core 2.2.9.2.xml" "C:\path\to\STEP Extended 2.2.9.2.xml" -d "C:\path\to\Downloads" -s "C:\Games\Steam" -o "C:\Games\STEPDump" --javaBinFolder "C:\Program Files (x86)\Java\jre1.8.0_111\bin"
+StepperUpper.exe -p "C:\path\to\STEP_Core-2.2.9.2.xml" "C:\path\to\STEP_Extended-2.2.9.2.xml" -d "C:\path\to\Downloads" -s "C:\Games\Steam" -o "C:\Games\STEPDump" --javaBinFolder "C:\Program Files (x86)\Java\jre1.8.0_111\bin"
 
 The "-d" folder is where we'll look for things that you've downloaded, in practice these will mostly be downloaded from Nexus.  If you've already been using Mod Organizer for less automated forays into Skyrim modding, you can reuse many files you've already downloaded by pointing this at the "downloads" subfolder of Mod Organizer, assuming you haven't been deleting them to save space.  *If you've been deleting them after manual installs, well... sorry, but you'll have to re-download for this tool to work with them.*
 
