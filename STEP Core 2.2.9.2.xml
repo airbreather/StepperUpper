@@ -104,11 +104,11 @@
 			      MD5Checksum="37d8cbffcb460011ce2bf3aabd007a2d"
 			      DownloadTags="steam|226880" />
 
-			<File Name="USLEEP 3.0.6"
-			      LengthInBytes="175362259"
-			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-6.7z"
-			      MD5Checksum="43319c9175efc90cf6b99ab48fefa346"
-			      DownloadTags="nexus|skyrim|71214|1000221296" />
+			<File Name="USLEEP 3.0.7"
+			      LengthInBytes="175559704"
+			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-7.7z"
+			      MD5Checksum="e1f32d03931429846b9439c25023696d"
+			      DownloadTags="nexus|skyrim|71214|1000226281" />
 
 			<File Name="High Resolution Texture Pack BSA (1 of 3)"
 			      LengthInBytes="1640626582"
@@ -1275,7 +1275,7 @@
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.6" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="USLEEP 3.0.7" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
@@ -2414,7 +2414,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.6
++USLEEP 3.0.7
 +Cleaned Dragonborn ESM
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
