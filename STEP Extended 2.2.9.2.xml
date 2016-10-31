@@ -345,7 +345,6 @@
 			      DownloadTags="nexus|skyrim|32695|1000225704" />
 		</Group>
 
-		<!-- Some of these are from Core, but needed again for Extended. -->
 		<Group Name="2.N. Patches">
 			<File Name="Dual Sheath Redux 1.7.3"
 			      LengthInBytes="48259002"
