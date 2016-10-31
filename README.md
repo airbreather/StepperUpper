@@ -13,18 +13,19 @@ Usage
 
 It's a command-line application.  Here are the parameters:
 
-- -p / --packDefinitionFile (required): The *.xml file that defines the pack.
+- -p / --packDefinitionFiles (required): The .xml files that define the packs.
 - -d / --downloadFolder (required): Folder containing downloaded mod files.
 - -s / --steamFolder (required): Folder containing "steamapps".
 - -o / --outputFolder (required): Folder to create everything in.
 - -x / --scorch (optional): Delete contents of output directory if non-empty (otherwise, fail).
+- --javaBinFolder (sometimes optional): Folder containing javaw.exe, if used by a pack (required if so, optional otherwise).
 
 Be careful when using "-x".  It deletes **everything** in the directory you specify with "-o", including saves.
 
 See the included "STEP Core 2.2.9.2.xml" file for an example of the XML file.
 
 Example:
-StepperUpper.exe -p "C:\path\to\STEP Core 2.2.9.2.xml" -d "C:\path\to\Downloads" -s "C:\Games\Steam" -o "C:\Games\STEPDump"
+StepperUpper.exe -p "C:\path\to\STEP Core 2.2.9.2.xml" "C:\path\to\STEP Extended 2.2.9.2.xml" -d "C:\path\to\Downloads" -s "C:\Games\Steam" -o "C:\Games\STEPDump" --javaBinFolder "C:\Program Files (x86)\Java\jre1.8.0_111\bin"
 
 The "-d" folder is where we'll look for things that you've downloaded, in practice these will mostly be downloaded from Nexus.  If you've already been using Mod Organizer for less automated forays into Skyrim modding, you can reuse many files you've already downloaded by pointing this at the "downloads" subfolder of Mod Organizer, assuming you haven't been deleting them to save space.  *If you've been deleting them after manual installs, well... sorry, but you'll have to re-download for this tool to work with them.*
 
@@ -79,3 +80,5 @@ At least at the time of writing, the following tasks are **not** automated:
 6. ENBoost memory config.  The tool sets the memory values for ENBoost to "safe" values that may not be ideal for your system.
     1. After running through the automated process, it is **very highly recommended** that you change the VideoMemorySizeMb value in the [MEMORY] group of enblocal.ini (located in steamapps\common\Skyrim under your Steam directory) according to the guidelines on the [STEP Wiki Page](http://wiki.step-project.com/ENBoost#Configure_enblocal.ini).
     2. You may also want to tweak ReservedMemorySizeMb in the same section, depending on your circumstance.
+
+See #19 for work on a post-process automation for STEP Extended, including the list of manual steps intended to be automated.
