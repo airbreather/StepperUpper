@@ -5,7 +5,7 @@ namespace StepperUpper
 {
     internal sealed class Options
     {
-        [OptionArray('p', "packDefinitionFile", Required = true, HelpText = "The .xml files that define the packs.")]
+        [OptionArray('p', "packDefinitionFiles", Required = true, HelpText = "The .xml files that define the packs.")]
         public string[] PackDefinitionFilePaths { get; set; }
 
         [Option('d', "downloadFolder", Required = true, HelpText = "Folder containing downloaded mod files.")]
