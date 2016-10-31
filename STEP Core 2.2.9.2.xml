@@ -2,7 +2,7 @@
 <Modpack Name="STEP Core"
          PackVersion="2.2.9.2"
          FileVersion="1.0.1.0"
-         MinimumToolVersion="0.9.0.0">
+         MinimumToolVersion="0.9.1.0">
 
 	<Files>
 		<Group Name="1.C. Install Utilities">
@@ -1419,12 +1419,12 @@
 				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 1.97" />
 				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 1.97" />
 				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 1.97" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-DragonbornTernFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-DungeonsCliffsIceSkirts.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-FarmhouseFlickeringFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-FurnitureChestSnowFix.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixes.esp" />
-				<Hide File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixesDragonborn.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-DragonbornTernFix.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-DungeonsCliffsIceSkirts.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-FarmhouseFlickeringFix.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-FurnitureChestSnowFix.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixes.esp" />
+				<Optional File="ModOrganizer/mods/SMIM 1.97/SMIM-ShackRoofFixesDragonborn.esp" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim HD - Landscape LITE 1.7" SimpleMO="Root">
@@ -1726,7 +1726,7 @@
 				<MapFolder From="06 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
 				<MapFolder From="09 staves" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
 				<MapFolder From="10 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9/aMidianborn_Skyforge_Weapons.esp" />
+				<Optional File="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9/aMidianborn_Skyforge_Weapons.esp" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" WaitFor="BoSUNIQUEITEMS">

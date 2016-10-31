@@ -371,7 +371,7 @@
 			<ExtractArchive ArchiveFile="Realistic Ragdolls and Force - Realistic Force 1.9">
 				<MapFolder To="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9" />
 				<Hide Folder="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9/fomod" />
-				<Hide File="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9/dD - Realistic Ragdoll Force - Realistic.esp" />
+				<Optional File="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9/dD - Realistic Ragdoll Force - Realistic.esp" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="XP32 Maximum Skeleton 1.96">
@@ -535,11 +535,11 @@
 			<ExtractArchive ArchiveFile="Lock Overhaul 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Not So Fast - Main Quest 1.4" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Oblivion Gates Skyrim and Dawnguard DLC 3.2" SimpleMO="Root">
-				<Hide File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 - Skyrim + Dawnguard DLC.esp" />
+				<Optional File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 - Skyrim + Dawnguard DLC.esp" />
 
-				<!-- Swap the above "Hide" with this one if you want markers. -->
+				<!-- Swap the above "Optional" with this one if you want markers. -->
 				<!--
-				<Hide File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 without Markers - Skyrim + Dawnguard DLC.esp" />
+				<Optional File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 without Markers - Skyrim + Dawnguard DLC.esp" />
 				-->
 			</ExtractArchive>
 

@@ -140,14 +140,20 @@ namespace StepperUpper
                         string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
                         if (folderToHide != null)
                         {
-                            await Program.DeleteDirectoryAsync(new DirectoryInfo(pathToHide)).ConfigureAwait(false);
+                            Directory.Move(pathToHide, pathToHide + ".mohidden");
                         }
                         else
                         {
-                            File.SetAttributes(pathToHide, FileAttributes.Normal);
-                            File.Delete(pathToHide);
+                            File.Move(pathToHide, pathToHide + ".mohidden");
                         }
 
+                        break;
+                    }
+
+                    case "Optional":
+                    {
+                        FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
+                        file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
                         break;
                     }
 
