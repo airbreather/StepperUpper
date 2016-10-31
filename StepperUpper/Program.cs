@@ -53,7 +53,7 @@ namespace StepperUpper
 
             HashSet<string> seenSoFar = new HashSet<string>();
 
-            foreach (string packDefinitionFilePath in Tokenize(options.PackDefinitionFilePath))
+            foreach (string packDefinitionFilePath in options.PackDefinitionFilePaths)
             {
                 XDocument doc;
                 using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(packDefinitionFilePath))
