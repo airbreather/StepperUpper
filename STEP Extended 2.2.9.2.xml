@@ -419,9 +419,8 @@
 			<ExtractArchive Id="BirdsAndFlocks" ArchiveFile="Birds and Flocks - Hearthfire Edition Cleaned X" SimpleMO="Root" />
 
 			<!-- "cleaned"... -->
-			<Clean>
-				<Plugin WaitFor="BirdsAndFlocks" Path="ModOrganizer/mods/Birds and Flocks - Hearthfire Edition Cleaned X/BirdsHFclean.esp">
-					<!-- Note: since it's "deletes only", masters can be ignored. -->
+			<Clean WaitFor="BirdsAndFlocks">
+				<Plugin Path="ModOrganizer/mods/Birds and Flocks - Hearthfire Edition Cleaned X/BirdsHFclean.esp">
 					<Delete Ids="F59D3|46047|F80EE|37EEA|10D430|37EE7|E9571|10D433|1A275|20EEA|411F1|64070|CA839|9C60|6072C|9BC3|F1BE4|92C0|70A6E|BD74|ED6F8|971B|106B71|981A|1C750|107415|107416|90BC|10D5A1|10D5BB|F940C|37B0D|371DD|EB1F6|1526B|109666" />
 				</Plugin>
 			</Clean>
@@ -525,9 +524,8 @@
 			<ExtractArchive ArchiveFile="Dual Wield Parrying 3.1b" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Follower Trap Safety 1.3" SimpleMO="Root" />
 			<ExtractArchive Id="HearthfireExtended" ArchiveFile="Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3" SimpleMO="Root" />
-			<Clean>
-				<Plugin WaitFor="HearthfireExtended" Path="ModOrganizer/mods/Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3/hearthfireextended.esp">
-					<!-- Note: since it's "deletes only", masters can be ignored. -->
+			<Clean WaitFor="HearthfireExtended">
+				<Plugin Path="ModOrganizer/mods/Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3/hearthfireextended.esp">
 					<Delete Ids="2003076" />
 				</Plugin>
 			</Clean>

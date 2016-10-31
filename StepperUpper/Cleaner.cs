@@ -17,7 +17,7 @@ namespace StepperUpper
 {
     internal static class Cleaner
     {
-        internal static Task DoCleaningAsync(IEnumerable<PluginForCleaning> plugins, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
+        internal static Task DoCleaningAsync(IEnumerable<PluginForCleaning> plugins)
         {
             var parentTasks = new Dictionary<string, TaskCompletionSource<Merged>>();
             var pluginsMap = new Dictionary<string, PluginForCleaning>();
@@ -68,7 +68,6 @@ namespace StepperUpper
                         parentTask.TrySetResult(default(Merged));
                     }
 
-                    await Task.WhenAll(plugin.TaskIds.Select(id => otherTasks[id].Task)).ConfigureAwait(false);
                     var root = await CleanPluginAsync(plugin, parentTask.Task).ConfigureAwait(false);
                     var saver = (plugin.RecordsToDelete.Length | plugin.RecordsToUDR.Length) == 0
                         ? Task.CompletedTask
@@ -171,7 +170,7 @@ namespace StepperUpper
         // own cleaning process, but some of it can start right away.
         internal sealed class PluginForCleaning
         {
-            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<FieldToDelete> fieldsToDelete, IEnumerable<string> taskIds)
+            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<FieldToDelete> fieldsToDelete)
             {
                 this.Name = name;
                 this.OutputFilePath = outputFilePath;
@@ -180,7 +179,6 @@ namespace StepperUpper
                 this.RecordsToDelete = recordsToDelete.ToImmutableArray();
                 this.RecordsToUDR = recordsToUDR.ToImmutableArray();
                 this.FieldsToDelete = fieldsToDelete.ToImmutableArray();
-                this.TaskIds = taskIds.ToImmutableArray();
             }
 
             internal string Name { get; }
@@ -196,8 +194,6 @@ namespace StepperUpper
             internal ImmutableArray<uint> RecordsToUDR { get; }
 
             internal ImmutableArray<FieldToDelete> FieldsToDelete { get; }
-
-            internal ImmutableArray<string> TaskIds { get; }
         }
 
         [StructLayout(LayoutKind.Auto)]

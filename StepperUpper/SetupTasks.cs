@@ -35,7 +35,7 @@ namespace StepperUpper
                     return WriteEmbeddedFileAsync(taskElement, dumpDirectory);
 
                 case "Clean":
-                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory), otherTasks));
+                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory)));
 
                 case "CreateEmptyFolder":
                     Directory.CreateDirectory(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value));
@@ -269,6 +269,11 @@ namespace StepperUpper
                     outputPath = null;
                 }
 
+                if (el.Attribute("WaitFor") != null)
+                {
+                    throw new NotSupportedException("Plugin elements no longer support the WaitFor attribute as of 0.9.1.0.");
+                }
+
                 yield return new PluginForCleaning(
                     name: name,
                     outputFilePath: outputPath,
@@ -276,8 +281,7 @@ namespace StepperUpper
                     parentNames: el.Elements("Master").Select(el2 => el2.Attribute("File").Value),
                     recordsToDelete: TokenizeIds(el.Element("Delete")?.Attribute("Ids").Value),
                     recordsToUDR: TokenizeIds(el.Element("UDR")?.Attribute("Ids").Value),
-                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))),
-                    taskIds: Program.Tokenize(el.Attribute("WaitFor")?.Value));
+                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))));
             }
         }
 
