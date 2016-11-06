@@ -23,6 +23,12 @@ namespace StepperUpper
         [Option("javaBinFolder", HelpText = "Folder containing javaw.exe, if needed.")]
         public string JavaBinDirectoryPath { get; set; }
 
+        [Option("allowLongPaths", HelpText = "Skip output folder length check.")]
+        public bool SkipOutputDirectoryPathLengthCheck { get; set; }
+
+        [Option("detectMaxPath", HelpText = "Detect max output path length for each pack.")]
+        public bool DetectMaxPath { get; set; }
+
         [ParserState]
         public IParserState LastParserState { get; set; }
 

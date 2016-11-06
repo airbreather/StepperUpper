@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+longest path I can detect winds up being:
+ModOrganizer\mods\Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3\Textures\Actors\Character\FaceGenData\FaceTint\hearthfireextended.esp\000ACEEF.dds
+we could reduce that further here, but STEP Core has a stricter requirement than this anyway.
+-->
 <Modpack Name="STEP Extended"
          Requires="STEP Core, 2.2.9.2, 1.0.1.0"
          PackVersion="2.2.9.2"
          FileVersion="1.0.0.0"
-         MinimumToolVersion="0.9.1.0">
+         MinimumToolVersion="0.9.1.0"
+         LongestOutputPathLength="157">
 
 	<Files>
 		<Group Name="2.D. Fixes">
@@ -531,7 +537,11 @@
 
 			<ExtractArchive ArchiveFile="Lock Overhaul 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Not So Fast - Main Quest 1.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Oblivion Gates Skyrim and Dawnguard DLC 3.2" SimpleMO="Root">
+
+			<!-- this could be SimpleMO="Root", but using the staging folder lets us get more room
+			     in the output paths to stay within the 255 char limit. -->
+			<ExtractArchive ArchiveFile="Oblivion Gates Skyrim and Dawnguard DLC 3.2">
+				<MapFolder To="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2" />
 				<Optional File="ModOrganizer/mods/Oblivion Gates Skyrim and Dawnguard DLC 3.2/Oblivion Gates v3 - Skyrim + Dawnguard DLC.esp" />
 
 				<!-- Swap the above "Optional" with this one if you want markers. -->

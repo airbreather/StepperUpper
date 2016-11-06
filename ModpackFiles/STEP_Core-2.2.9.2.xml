@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+longest path I can detect looks like:
+abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwarvencenturion\attack\forwardpowerrush\npc_dwarvencenturion_attack_forwardpowerrush_01.wav
+-->
 <Modpack Name="STEP Core"
          PackVersion="2.2.9.2"
          FileVersion="1.0.1.0"
-         MinimumToolVersion="0.9.1.0">
+         MinimumToolVersion="0.9.1.0"
+         LongestOutputPathLength="169">
 
 	<Files>
 		<Group Name="1.C. Install Utilities">
@@ -1679,8 +1684,15 @@
 
 			<ExtractArchive ArchiveFile="XCE 1.13" SimpleMO="SingleData" />
 			<ExtractArchive ArchiveFile="XCE - Dawnguard 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Better males - Genox Faces 1.2" SimpleMO="SingleData" />
-			<ExtractArchive ArchiveFile="Better males - Underwear - Default 2.3.2" SimpleMO="SingleData" />
+			<!-- these next two could be SimpleMO="SingleData", but using the staging folder lets us
+			     get more room in the output paths to stay within the 255 char limit. -->
+			<ExtractArchive ArchiveFile="Better males - Genox Faces 1.2">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better males - Genox Faces 1.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better males - Underwear - Default 2.3.2">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better males - Underwear - Default 2.3.2" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
@@ -1857,7 +1869,12 @@
 				<Hide File="ModOrganizer/mods/DROPS - v1 Optional 1.0/textures/effects/fxwaterdropripplestilebrt.dds"/>
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" SimpleMO="Single" />
+			<!-- this could be SimpleMO="Single", but using the staging folder lets us get more room
+			     in the output paths to stay within the 255 char limit. -->
+			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1">
+				<MapFolder From="NoMaaM Breathing Idles BBB V0.1 - Female non-BBB plus Male" To="ModOrganizer\mods\NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Running with Bows 1.0" SimpleMO="Single" />
 		</Group>
 

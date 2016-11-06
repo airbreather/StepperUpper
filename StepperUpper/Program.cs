@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -14,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using AirBreather.Collections;
 using AirBreather.IO;
 
 using static System.FormattableString;
@@ -51,8 +53,11 @@ namespace StepperUpper
 
             var modpackElements = new List<XElement>();
 
-            HashSet<string> seenSoFar = new HashSet<string>();
+            // lots of strings show up multiple times each.
+            StringPool pool = new StringPool();
 
+            HashSet<string> seenSoFar = new HashSet<string>();
+            int longestOutputPathLength = 0;
             foreach (string packDefinitionFilePath in options.PackDefinitionFilePaths)
             {
                 XDocument doc;
@@ -60,27 +65,28 @@ namespace StepperUpper
                 using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
                 {
                     string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
-                    docText = docText.Replace("{SteamInstallFolder}", steamDirectory.FullName)
-                                     .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
-                                     .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'))
-                                     .Replace("{DumpFolderEscapeBackslashes}", options.OutputDirectoryPath.Replace("\\", "\\\\"));
+                    int javaIdx = docText.IndexOf("{JavaBinFolderForwardSlashes}", StringComparison.Ordinal);
+                    StringBuilder docTextBuilder = new StringBuilder(docText);
+                    docTextBuilder = docTextBuilder.Replace("{SteamInstallFolder}", steamDirectory.FullName)
+                                                   .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
+                                                   .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'))
+                                                   .Replace("{DumpFolderEscapeBackslashes}", options.OutputDirectoryPath.Replace("\\", "\\\\"));
 
-                    if (0 <= docText.IndexOf("{JavaBinFolderForwardSlashes}", StringComparison.Ordinal))
+                    if (0 <= javaIdx)
                     {
                         if (options.JavaBinDirectoryPath == null)
                         {
-                            Console.Error.WriteLine("--javaBinFolder is required for {0}.", XDocument.Parse(docText).Element("Modpack").Attribute("Name").Value);
+                            Console.Error.WriteLine("--javaBinFolder is required for {0}.", XDocument.Parse(docTextBuilder.ToString()).Element("Modpack").Attribute("Name").Value);
                             return 6;
                         }
 
-                        docText = docText.Replace("{JavaBinFolderForwardSlashes}", options.JavaBinDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
+                        docTextBuilder = docTextBuilder.Replace("{JavaBinFolderForwardSlashes}", options.JavaBinDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
                     }
 
-                    doc = XDocument.Parse(docText);
+                    doc = XDocument.Parse(docTextBuilder.ToString());
                 }
 
-                // lots of strings show up multiple times each.
-                doc = doc.PoolStrings();
+                doc = doc.PoolStrings(pool);
 
                 var modpackElement = doc.Element("Modpack");
 
@@ -114,6 +120,22 @@ namespace StepperUpper
                 seenSoFar.Add(modpackName);
                 seenSoFar.Add(modpackName + ", " + packVersion);
                 seenSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
+
+                int currMaxOutputPathLength;
+                if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out currMaxOutputPathLength) &&
+                    longestOutputPathLength < currMaxOutputPathLength)
+                {
+                    longestOutputPathLength = currMaxOutputPathLength;
+                }
+            }
+
+            // minus 1 for the path separator char.
+            longestOutputPathLength = 255 - longestOutputPathLength - 1;
+            if (!options.SkipOutputDirectoryPathLengthCheck &&
+                longestOutputPathLength < dumpDirectory.FullName.Length)
+            {
+                Console.Error.WriteLine(Invariant($"Output directory ({options.OutputDirectoryPath}, {options.OutputDirectoryPath.Length} chars) exceeds the maximum supported length of {longestOutputPathLength} chars."));
+                return 7;
             }
 
             Console.WriteLine("Checking existing files...");
@@ -301,9 +323,14 @@ namespace StepperUpper
                 needsDelete = false;
             }
 
+            ManualResetEventSlim evt = new ManualResetEventSlim();
             foreach (var modpackElement in modpackElements)
             {
                 string modpackName = modpackElement.Attribute("Name").Value;
+
+                TaskCompletionSource<string> longestPathBox = new TaskCompletionSource<string>();
+                Thread th = options.DetectMaxPath ? new Thread(() => DetectLongestPathLength(dumpDirectory.FullName, evt, longestPathBox)){ IsBackground = true } : null;
+                th?.Start();
                 Console.WriteLine("Starting tasks for {0}", modpackName);
 
                 var dct = modpackElement
@@ -345,6 +372,15 @@ namespace StepperUpper
                 Console.Write(Invariant($"\r{new string(' ', 32)}"));
                 Console.Write('\r');
                 Console.WriteLine("All tasks completed for {0}!", modpackName);
+
+                evt.Set();
+                if (th != null)
+                {
+                    string longestPath = await longestPathBox.Task.ConfigureAwait(false);
+                    Console.WriteLine(Invariant($"Max path: {longestPath} ({longestPath.Length} chars)"));
+                }
+
+                evt.Reset();
                 Console.WriteLine();
             }
 
@@ -488,6 +524,48 @@ namespace StepperUpper
             }
 
             yield return sb.MoveToString();
+        }
+
+        private static void DetectLongestPathLength(string root, ManualResetEventSlim evt, TaskCompletionSource<string> box)
+        {
+            try
+            {
+                ConcurrentBag<string> filePaths = new ConcurrentBag<string>();
+                using (var fsw = new FileSystemWatcher(root))
+                {
+                    Action<string> onFile = filePaths.Add;
+
+                    fsw.Created += (sender, e) => onFile(e.FullPath);
+                    fsw.Changed += (sender, e) => onFile(e.FullPath);
+                    fsw.Renamed += (sender, e) => onFile(e.FullPath);
+
+                    fsw.IncludeSubdirectories = true;
+                    fsw.EnableRaisingEvents = true;
+
+                    evt.Wait();
+
+                    fsw.EnableRaisingEvents = false;
+                    string maxPath = String.Empty;
+                    foreach (var fl in filePaths)
+                    {
+                        if (maxPath.Length < fl.Length)
+                        {
+                            maxPath = fl;
+                        }
+                    }
+
+                    if (maxPath.StartsWith(root + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
+                    {
+                        maxPath = maxPath.Substring(root.Length + 1);
+                    }
+
+                    box.TrySetResult(maxPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                box.TrySetException(ex);
+            }
         }
     }
 }

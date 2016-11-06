@@ -64,7 +64,9 @@ namespace StepperUpper
             }
             else
             {
-                tempDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, "Staging_" + givenFile + "_" + randomFileName));
+                // previously, this added some user-friendly identifying marks to the folder name,
+                // but that caused some paths to exceed the max path length unnecessarily.
+                tempDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, randomFileName));
             }
 
             tempDirectory.Create();

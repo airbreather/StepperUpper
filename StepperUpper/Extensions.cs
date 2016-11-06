@@ -41,9 +41,8 @@ namespace StepperUpper
             }
         }
 
-        internal static XDocument PoolStrings(this XDocument doc)
+        internal static XDocument PoolStrings(this XDocument doc, StringPool pool)
         {
-            StringPool pool = new StringPool();
             Stack<XNode> stack = new Stack<XNode>();
             stack.Push(doc.Root);
             while (stack.Count != 0)
