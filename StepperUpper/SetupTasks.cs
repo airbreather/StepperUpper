@@ -40,6 +40,13 @@ namespace StepperUpper
                 case "CreateEmptyFolder":
                     Directory.CreateDirectory(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value));
                     return Task.CompletedTask;
+
+                case "RunAutoHotkeyScript":
+                    return RunAutoHotkeyScriptAsync(taskElement, dumpDirectory);
+
+                case "MoveFolder":
+                    return Program.MoveDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("From").Value)),
+                                                      new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value)));
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -288,5 +295,38 @@ namespace StepperUpper
         }
 
         private static IEnumerable<uint> TokenizeIds(string ids) => Program.Tokenize(ids).Select(id => UInt32.Parse(id, NumberStyles.HexNumber, CultureInfo.InvariantCulture));
+
+        private static async Task RunAutoHotkeyScriptAsync(XElement taskElement, DirectoryInfo dumpDirectory)
+        {
+            string path = Path.Combine(dumpDirectory.FullName, Path.GetRandomFileName() + ".ahk");
+
+            Encoding encoding = null;
+            switch (taskElement.Attribute("Encoding").Value)
+            {
+                case null:
+                    break;
+
+                case "UTF8NoBOM":
+                    encoding = EncodingEx.UTF8NoBOM;
+                    break;
+
+                default:
+                    throw new NotSupportedException("I don't know what encoding to use for " + taskElement.Attribute("Encoding").Value);
+            }
+
+            using (var st = AsyncFile.CreateSequential(path))
+            using (var writer = new StreamWriter(st, encoding, 4096, leaveOpen: true))
+            {
+                foreach (string line in taskElement.Elements("Line").Select(l => l.Value))
+                {
+                    await writer.WriteLineAsync(line).ConfigureAwait(false);
+                }
+            }
+
+            // TODO: obviously, fix AutoHotkey path.
+            await ProcessRunner.RunProcessAsync(@"C:\Apps\AutoHotkey\AutoHotkeyU64.exe", path).ConfigureAwait(false);
+
+            await Program.DeleteFileAsync(new FileInfo(path)).ConfigureAwait(false);
+        }
     }
 }
