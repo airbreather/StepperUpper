@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using AirBreather;
 using AirBreather.IO;
 using AirBreather.Text;
 
@@ -51,6 +52,9 @@ namespace StepperUpper
                 case "MoveFolder":
                     return Program.MoveDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("From").Value)),
                                                       new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value)));
+
+                case "EditFile":
+                    return EditFileAsync(taskElement, dumpDirectory);
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -299,6 +303,62 @@ namespace StepperUpper
         }
 
         private static IEnumerable<uint> TokenizeIds(string ids) => Program.Tokenize(ids).Select(id => UInt32.Parse(id, NumberStyles.HexNumber, CultureInfo.InvariantCulture));
+
+        private static async Task EditFileAsync(XElement taskElement, DirectoryInfo dumpDirectory)
+        {
+            var preAdds = taskElement.Elements("AddLineBefore").ToDictionary(el => el.Element("Before").Value, el => el.Elements("Line").Select(ln => ln.Value).ToArray());
+            var postAdds = taskElement.Elements("AddLineAfter").ToDictionary(el => el.Element("After").Value, el => el.Elements("Line").Select(ln => ln.Value).ToArray());
+            var edits = taskElement.Elements("ModifyLine").ToDictionary(el => el.Element("Old").Value, el => el.Element("New").Value);
+            var deletes = taskElement.Elements("DeleteLine").Select(el => el.Element("Line").Value).ToHashSet();
+
+            Encoding encoding = null;
+            switch (taskElement.Attribute("Encoding").Value)
+            {
+                case "UTF8NoBOM":
+                    encoding = EncodingEx.UTF8NoBOM;
+                    break;
+
+                default:
+                    throw new NotSupportedException("I don't know what encoding to use for " + taskElement.Attribute("Encoding").Value);
+            }
+
+            string path = Path.Combine(dumpDirectory.FullName, taskElement.Attribute("File").Value);
+            string tmp = Path.Combine(dumpDirectory.FullName, Path.GetRandomFileName());
+            using (var fl1 = AsyncFile.OpenReadSequential(path))
+            using (var rd = new StreamReader(fl1, encoding, detectEncodingFromByteOrderMarks: false, bufferSize: 4096, leaveOpen: true))
+            using (var fl2 = AsyncFile.CreateSequential(tmp))
+            using (var wr = new StreamWriter(fl2, encoding, 4096, leaveOpen: true))
+            {
+                string line;
+                while ((line = await rd.ReadLineAsync().ConfigureAwait(false)) != null)
+                {
+                    string[] adds;
+                    if (preAdds.TryGetValue(line, out adds))
+                    {
+                        foreach (var ln in adds)
+                        {
+                            await wr.WriteLineAsync(ln).ConfigureAwait(false);
+                        }
+                    }
+
+                    if (!deletes.Contains(line))
+                    {
+                        string ed;
+                        await wr.WriteLineAsync(edits.TryGetValue(line, out ed) ? ed : line).ConfigureAwait(false);
+                    }
+
+                    if (postAdds.TryGetValue(line, out adds))
+                    {
+                        foreach (var ln in adds)
+                        {
+                            await wr.WriteLineAsync(ln).ConfigureAwait(false);
+                        }
+                    }
+                }
+            }
+
+            await Program.MoveFileAsync(new FileInfo(tmp), new FileInfo(path)).ConfigureAwait(false);
+        }
 
         private static string GetArgument(XElement arg, DirectoryInfo dumpDirectory)
         {
