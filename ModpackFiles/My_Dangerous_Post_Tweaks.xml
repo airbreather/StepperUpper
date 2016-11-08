@@ -1065,7 +1065,7 @@ WinWaitActive, Generate FNIS for Users
 WinGet, FNISPID, PID, Generate FNIS for Users
 Send, {Tab}{Tab}{Tab}{Up}{Up}{Up}{Up}{Up}{Up}{Up}{Up}{Space}+{Tab}+{Tab}+{Tab}{Space}
 Check:
-ControlGetText, TXT, WindowsForms10.EDIT.app.0.141b42a_r32_ad13, Generate FNIS for Users
+WinGetText, TXT, Generate FNIS for Users
 IfNotInString, TXT, 47 animations for 1 mods successfully included (character)
 {
     Sleep, 30
