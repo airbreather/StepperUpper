@@ -45,6 +45,9 @@ namespace StepperUpper
                     return ProcessRunner.RunProcessAsync(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("ExecutablePath").Value),
                                                          taskElement.Elements("Argument").Select(arg => GetArgument(arg, dumpDirectory)).ToArray());
 
+                case "DeleteFolder":
+                    return Program.DeleteDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value)));
+
                 case "MoveFolder":
                     return Program.MoveDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("From").Value)),
                                                       new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value)));
