@@ -111,7 +111,7 @@ WinWait, Generate FNIS for Users
 WinActivate, Generate FNIS for Users
 WinWaitActive, Generate FNIS for Users
 WinGet, FNISPID, PID, Generate FNIS for Users
-Send, {Tab}{Tab}{Tab}{Up}{Up}{Up}{Up}{Up}{Up}{Up}{Up}{Space}+{Tab}+{Tab}+{Tab}{Space}
+Send, {Tab 3}{Up 8}{Space}+{Tab 3}{Space}
 Check:
 WinGetText, TXT, Generate FNIS for Users
 IfNotInString, TXT, 47 animations for 1 mods successfully included (character)
@@ -120,9 +120,9 @@ IfNotInString, TXT, 47 animations for 1 mods successfully included (character)
     Goto, Check
 }
 Sleep, 300
-Send, {Tab}{Tab}{Tab}{Space}
+Send, {Tab 3}{Space}
 WinWait, GenerateFNISforUsers
-Send, {Tab}{Tab}{Space}
+Send, {Tab 2}{Space}
 Process, WaitClose, %FNISPID%]]></Line>
 			</Embedded>
 
@@ -149,13 +149,12 @@ WinWait, DynDOLOD TexGen 2.21 (1) by Sheson
 WinGet, DYNPID, PID, DynDOLOD TexGen 2.21 (1) by Sheson
 WinActivate, DynDOLOD TexGen 2.21 (1) by Sheson
 WinWaitActive, DynDOLOD TexGen 2.21 (1) by Sheson
-Send, {Tab}{Tab}{Tab}{Tab}{Space}
+Send, {Tab 4}{Space}
 WinWait, ahk_class TMessageForm
 WinActivate, ahk_class TMessageForm
 WinWaitActive, ahk_class TMessageForm
 Send, {Tab}{Space}
-Process, WaitClose, %DYNPID%
-]]></Line>
+Process, WaitClose, %DYNPID%]]></Line>
 			</Embedded>
 
 			<RunProcess Id="TexGen_Gen" WaitFor="FNISFiles_MO_File1|BuildTexGenScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
@@ -174,6 +173,85 @@ Process, WaitClose, %DYNPID%
 			<DeleteFolder Id="TexGen_DeleteOverwrite" WaitFor="TexGen_Gen" Path="ModOrganizer/overwrite" />
 
 			<CreateEmptyFolder Id="TexGen_CreateEmptyOverwrite" WaitFor="TexGen_DeleteOverwrite" Path="ModOrganizer/overwrite" />
+		</Group>
+
+		<Group Name="DynDOLOD">
+			<Embedded Id="BuildDynDOLODScript" File="DynDOLOD.ahk" Encoding="UTF8NoBOM">
+				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Extended 2.2.9.2 (My Tweaks)" "DynDOLOD", {DumpFolderForwardSlashes}/ModOrganizer
+WinWait, DynDOLOD Help
+WinGet, DYNPID, PID, DynDOLOD Help
+WinGet, DYNRTFMWINDOWID, ID, DynDOLOD Help
+WinActivate, DynDOLOD Help
+WinWaitActive, DynDOLOD Help
+Control, Enable, , TButton2, DynDOLOD Help
+ControlClick, TButton2, DynDOLOD Help,, Left, 2,  x35 y8 NA
+WinWaitClose, %DYNRTFMWINDOWID%
+WinWait, ahk_class TForm
+WinActivate, ahk_class TForm
+WinWaitActive, ahk_class TForm
+Send, {Tab 7}{Space}
+WinGet, SIMPLEWINDOWID, ID, ahk_class TForm
+WinWaitClose, %SIMPLEWINDOWID%
+WinWait, ahk_class TForm
+WinActivate, ahk_class TForm
+WinWaitActive, ahk_class TForm
+Send, {AppsKey}S{Tab 7}{Space}+{Tab 2}{Space}
+Sleep, 5000
+Send, {Tab 21}{Space}
+WinWait, ahk_class TMessageForm
+WinActivate, ahk_class TMessageForm
+WinWaitActive, ahk_class TMessageForm
+WinGet, SAVEANDEXITID, ID, ahk_class TMessageForm
+Send, {Space}
+WinWaitClose, %SAVEANDEXITID%
+WinWait, ahk_class TfrmFileSelect
+WinActivate, ahk_class TfrmFileSelect
+WinWaitActive, ahk_class TfrmFileSelect
+Send, {Tab 3}{Space}
+Process, WaitClose, %DYNPID%]]></Line>
+			</Embedded>
+
+			<EditFile Id="DynDOLOD_DisableBirdsHFclean" WaitFor="TexGen_CreateEmptyOverwrite" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/plugins.txt" Encoding="UTF8NoBOM">
+				<DeleteLine>
+					<Line>BirdsHFclean.esp</Line>
+				</DeleteLine>
+			</EditFile>
+
+			<RunProcess Id="DynDOLOD_Gen" WaitFor="DynDOLOD_DisableBirdsHFclean|BuildDynDOLODScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
+				<Argument Type="PathUnderOutputFolder">DynDOLOD.ahk</Argument>
+			</RunProcess>
+
+			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" WaitFor="DynDOLOD_Gen" Path="ModOrganizer/overwrite" />
+
+			<CreateEmptyFolder Id="DynDOLOD_CreateEmptyOverwrite" WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
+
+			<MoveFolder Id="DynDOLOD_MoveFromOutput" WaitFor="DynDOLOD_Gen" From="DynDOLOD 2.21/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (My Tweaks)" />
+
+			<EditFile Id="DynDOLOD_MO_File1" WaitFor="DynDOLOD_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/plugins.txt" Encoding="UTF8NoBOM">
+				<AddLineBefore>
+					<Before>TheChoiceIsYours.esp</Before>
+					<Line>BirdsHFclean.esp</Line>
+				</AddLineBefore>
+
+				<AddLineAfter>
+					<After>Dual Sheath Redux Patch.esp</After>
+					<Line>DynDOLOD.esp</Line>
+				</AddLineAfter>
+			</EditFile>
+
+			<EditFile Id="DynDOLOD_MO_File2" WaitFor="DynDOLOD_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/modlist.txt" Encoding="UTF8NoBOM">
+				<AddLineBefore>
+					<Before>+DynDOLOD Textures (My Tweaks)</Before>
+					<Line>+DynDOLOD Worlds (My Tweaks)</Line>
+				</AddLineBefore>
+			</EditFile>
+
+			<EditFile Id="DynDOLOD_MO_File3" WaitFor="DynDOLOD_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/loadorder.txt" Encoding="UTF8NoBOM">
+				<AddLineAfter>
+					<After>Dual Sheath Redux Patch.esp</After>
+					<Line>DynDOLOD.esp</Line>
+				</AddLineAfter>
+			</EditFile>
 		</Group>
 	</Tasks>
 </Modpack>
