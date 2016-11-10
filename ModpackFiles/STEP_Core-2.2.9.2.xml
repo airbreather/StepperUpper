@@ -570,11 +570,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="b137c43ba0f82f9773365178785f28c9"
 			      DownloadTags="nexus|skyrim|67075|1000164887" />
 
-			<File Name="Immersive Citizens - AI Overhaul 0.3.5.1"
-			      LengthInBytes="2368675"
-			      CanonicalFileName="Immersive Citizens - AI Overhaul-65013-0-3-5-1.7z"
-			      MD5Checksum="d44ecb9999ed5830c760fe3c35fa127a"
-			      DownloadTags="nexus|skyrim|65013|1000227026" />
+			<File Name="Immersive Citizens - AI Overhaul 0.3.5.1a"
+			      LengthInBytes="2369566"
+			      CanonicalFileName="Immersive Citizens - AI Overhaul-65013-0-3-5-1a.7z"
+			      MD5Checksum="c1b81daca23280d85aed3f5460243cf0"
+			      DownloadTags="nexus|skyrim|65013|1000227129" />
 
 			<File Name="Realistic Hair 1.0"
 			      LengthInBytes="6246981"
@@ -1125,11 +1125,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="97d603bb582ad88623dd4ad1010724cb"
 			      DownloadTags="nexus|skyrim|11|1000219776" />
 
-			<File Name="LeanWolf's Better-Shaped Weapons 2.0.08"
-			      LengthInBytes="20581497"
-			      CanonicalFileName="LeanWolfs Better-Shaped Weapons v2.0.08-39870-2-0-08.7z"
-			      MD5Checksum="d8dade997a0683ccb6370616aeb2b1a4"
-			      DownloadTags="nexus|skyrim|39870|1000226363" />
+			<File Name="LeanWolf's Better-Shaped Weapons 2.0.09"
+			      LengthInBytes="20721263"
+			      CanonicalFileName="LeanWolfs Better-Shaped Weapons v2.0.09-39870-2-0-09.7z"
+			      MD5Checksum="47e2ff25748856a53777d363065b9534"
+			      DownloadTags="nexus|skyrim|39870|1000227598" />
 
 			<File Name="DynDOLOD 2.21"
 			      LengthInBytes="17184945"
@@ -1644,8 +1644,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="00 Data" To="ModOrganizer/mods/HAGRAVEN - 2k 1.0" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1">
-				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1" />
+			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a">
+				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Realistic Hair 1.0" SimpleMO="Root" />
@@ -2044,72 +2044,72 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="04 STEP Extended Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Extended)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.08">
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/018 Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08" />
+			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09">
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/018 Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
 
 				<!-- DSR-only things -->
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/101 DSR Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/102 DSR Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/103 DSR Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/104 DSR Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/105 DSR Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/107 DSR Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/108 DSR Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/109 DSR Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/110 DSR Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/111 DSR Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/112 DSR Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/113 DSR Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/114 DSR Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/115 DSR Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/117 DSR Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/118 DSR Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/118aDSR DawnbreakerAlt" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/119 DSR Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/120 DSR Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/121 DSR Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/122 DSR Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/123 DSR Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
-				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/124 DSR Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/101 DSR Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/102 DSR Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/103 DSR Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/104 DSR Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/105 DSR Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/107 DSR Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/108 DSR Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/109 DSR Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/110 DSR Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/111 DSR Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/112 DSR Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/113 DSR Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/114 DSR Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/115 DSR Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/117 DSR Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/118 DSR Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/118aDSR DawnbreakerAlt" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/119 DSR Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/120 DSR Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/121 DSR Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/122 DSR Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/123 DSR Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/124 DSR Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.20">
@@ -2288,8 +2288,8 @@ The Paarthurnax Dilemma.bsa]]></Line>
 			<Embedded File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
 -DynDOLOD Resources 2.20
--LeanWolf's Better-Shaped Weapons 2.0.08 (DSR)
-+LeanWolf's Better-Shaped Weapons 2.0.08
+-LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)
++LeanWolf's Better-Shaped Weapons 2.0.09
 +Bashed Patch (Core)
 -STEP Compilation 2.2.9.2l (Extended)
 +STEP Compilation 2.2.9.2l (Core)
@@ -2380,7 +2380,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +SLF Hair - Rough Hair - Lite 1k 2.0
 +New Children - Children Dirt Skin 1.0
 +Realistic Hair 1.0
-+Immersive Citizens - AI Overhaul 0.3.5.1
++Immersive Citizens - AI Overhaul 0.3.5.1a
 +HAGRAVEN - 2k 1.0
 +GIANT - 2k 1.0
 +Female Vampires Have Fangs 0.1

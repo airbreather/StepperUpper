@@ -84,7 +84,7 @@ Process, WaitClose, %DSRPID%]]></Line>
 
 			<EditFile Id="DSRPatch_MO_File1" WaitFor="DSRPatch_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/modlist.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
-					<Before>+DynDOLOD Resources 2.20</Before>
+					<Before>+Dual Sheath Redux 1.7.3</Before>
 					<Line>+Dual Sheath Redux Patch (My Tweaks)</Line>
 				</AddLineBefore>
 			</EditFile>
@@ -136,7 +136,7 @@ Process, WaitClose, %FNISPID%]]></Line>
 
 			<EditFile Id="FNISFiles_MO_File1" WaitFor="FNISFiles_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/modlist.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
-					<Before>+Dual Sheath Redux Patch (My Tweaks)</Before>
+					<Before>+FNIS Behavior V6.3</Before>
 					<Line>+FNIS Output (My Tweaks)</Line>
 				</AddLineBefore>
 			</EditFile>
@@ -163,7 +163,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 
 			<EditFile Id="TexGen_MO_File1" WaitFor="TexGen_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2 (My Tweaks)/modlist.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
-					<Before>+FNIS Output (My Tweaks)</Before>
+					<Before>+DynDOLOD Resources 2.20</Before>
 					<Line>+DynDOLOD Textures (My Tweaks)</Line>
 				</AddLineBefore>
 			</EditFile>
