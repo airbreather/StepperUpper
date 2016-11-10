@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="My STEP Core Tweaks"
-         Requires="STEP Core, 2.2.9.2, 1.0.1.0"
+         Requires="STEP Core, 2.2.9.2"
          PackVersion="1.0.0.0"
          FileVersion="1.0.0.0"
          MinimumToolVersion="0.9.1.0">

@@ -4,7 +4,7 @@ longest path I can detect looks like:
 abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH ANY OTHER VERSION)\BetterQuestObjectives-NECPatch.esp
 -->
 <Modpack Name="My STEP Extended Tweaks"
-         Requires="STEP Extended, 2.2.9.2, 1.0.0.0"
+         Requires="STEP Extended, 2.2.9.2, 1.0.1.0"
          PackVersion="1.0.0.0"
          FileVersion="1.0.0.0"
          MinimumToolVersion="0.9.1.0"
