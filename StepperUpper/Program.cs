@@ -347,27 +347,40 @@ namespace StepperUpper
 
                 cnt = dict.Count;
                 Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
-                await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
+                using (SemaphoreSlim consoleLock = new SemaphoreSlim(1, 1))
                 {
-                    string id = kvp.Key;
-                    XElement taskElement = kvp.Value;
-
-                    try
+                    await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
                     {
-                        await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
+                        string id = kvp.Key;
+                        XElement taskElement = kvp.Value;
 
-                        await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2)
-                            .Finally(() => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining...")))
-                            .ConfigureAwait(false);
+                        try
+                        {
+                            await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
 
-                        dict2[id].TrySetResult(null);
-                    }
-                    catch (Exception ex)
-                    {
-                        dict2[id].TrySetException(ex);
-                        throw;
-                    }
-                }))).ConfigureAwait(false);
+                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2).ConfigureAwait(false);
+
+                            dict2[id].TrySetResult(null);
+                        }
+                        catch (Exception ex)
+                        {
+                            dict2[id].TrySetException(ex);
+                            throw;
+                        }
+                        finally
+                        {
+                            await consoleLock.WaitAsync().ConfigureAwait(false);
+                            try
+                            {
+                                Console.Write(Invariant($"\r{(--cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
+                            }
+                            finally
+                            {
+                                consoleLock.Release();
+                            }
+                        }
+                    }))).ConfigureAwait(false);
+                }
 
                 Console.Write(Invariant($"\r{new string(' ', 32)}"));
                 Console.Write('\r');
