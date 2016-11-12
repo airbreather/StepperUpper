@@ -191,7 +191,7 @@ namespace StepperUpper
 
             using (HttpClient client = new HttpClient())
             {
-                // TODO: consider concurrency.  we have 2 downloadables, so it doesn't REALLY matter
+                // TODO: consider concurrency.  we have 3 downloadables, so it doesn't REALLY matter
                 // yet, but there's no reason we should be this limited.
                 for (int i = 0; i < missingGroups.Length; i++)
                 {
@@ -514,7 +514,7 @@ namespace StepperUpper
 
         internal static Md5Checksum Md5Checksum(XElement element) => new Md5Checksum(element.Attribute("MD5Checksum").Value);
 
-        internal static IEnumerable<string> Tokenize(string txt)
+        internal static IEnumerable<string> Tokenize(string txt, char split = '|')
         {
             if (txt == null)
             {
@@ -524,15 +524,13 @@ namespace StepperUpper
             StringBuilder sb = new StringBuilder(txt.Length);
             foreach (char ch in txt)
             {
-                switch (ch)
+                if (ch == split)
                 {
-                    case '|':
-                        yield return sb.MoveToString();
-                        break;
-
-                    default:
-                        sb.Append(ch);
-                        break;
+                    yield return sb.MoveToString();
+                }
+                else
+                {
+                    sb.Append(ch);
                 }
             }
 
