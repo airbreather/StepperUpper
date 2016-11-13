@@ -10,6 +10,8 @@ namespace StepperUpper
 {
     internal static class Extensions
     {
+        internal static bool Contains(this string haystack, string needle, StringComparison comparisonType) => haystack.IndexOf(needle, comparisonType) >= 0;
+
         internal static string MoveToString(this StringBuilder builder)
         {
             string result = builder.ToString();

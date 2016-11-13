@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,10 +13,10 @@ namespace StepperUpper
     {
         private static readonly Lazy<Task<string>> StandaloneExecutablePath = new Lazy<Task<string>>(UnpackExecutableAsync);
 
-        internal static async Task ExtractArchiveAsync(string archivePath, DirectoryInfo outputDirectory)
+        internal static async Task ExtractArchiveAsync(string archivePath, DirectoryInfo outputDirectory, ProcessPriorityClass priority)
         {
             string executablePath = await StandaloneExecutablePath.Value.ConfigureAwait(false);
-            int exitCode = await ProcessRunner.RunProcessAsync(executablePath, "x", "-o" + outputDirectory.FullName, archivePath);
+            int exitCode = await ProcessRunner.RunProcessAsync(executablePath, priority, "x", "-o" + outputDirectory.FullName, archivePath);
             if (exitCode != 0)
             {
                 throw new Exception("Extraction failed with exit code " + exitCode.ToString(CultureInfo.InvariantCulture));

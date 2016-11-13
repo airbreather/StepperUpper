@@ -5,10 +5,11 @@ ModOrganizer\mods\Hearthfire Extended - All DLCs (Legendary Edition) 1.0.3\Textu
 we could reduce that further here, but STEP Core has a stricter requirement than this anyway.
 -->
 <Modpack Name="STEP Extended"
-         Requires="STEP Core, 2.2.9.2, 1.0.2.1"
+         Game="Skyrim2011"
+         Requires="STEP Core, 2.2.9.2, 1.0.3.0"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.1.1"
-         MinimumToolVersion="0.9.1.0"
+         FileVersion="1.0.2.0"
+         MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="157">
 
 	<Files>
@@ -582,15 +583,13 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 		<Group Name="X. Final Cleanups">
 			<TweakINI File="ModOrganizer/ModOrganizer.ini">
 				<Set Section="General" Property="selected_profile" Value="STEP Extended 2.2.9.2" />
-				<Set Section="General" Property="gamePath" Value="{SteamInstallFolderEscapeBackslashes}\\steamapps\\common\\Skyrim" />
-				<Set Section="General" Property="selected_executable" Value="1" />
 
 				<Set Section="customExecutables" Property="9\title" Value="Dual Sheath Redux Patch" />
 				<Set Section="customExecutables" Property="9\custom" Value="true" />
 				<Set Section="customExecutables" Property="9\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="9\ownicon" Value="true" />
 				<Set Section="customExecutables" Property="9\binary" Value="{JavaBinFolderForwardSlashes}/javaw.exe" />
-				<Set Section="customExecutables" Property="9\arguments" Value="-jar \&quot;{DumpFolderEscapeBackslashes}\\ModOrganizer\\mods\\Dual Sheath Redux 1.7.3\\SkyProc Patchers\\Dual Sheath Redux Patch\\Dual Sheath Redux Patch.jar\&quot;" />
+				<Set Section="customExecutables" Property="9\arguments" Value="-jar \&quot;{DumpFolderForwardSlashes}/ModOrganizer/mods/Dual Sheath Redux 1.7.3/SkyProc Patchers/Dual Sheath Redux Patch/Dual Sheath Redux Patch.jar\&quot;" />
 				<Set Section="customExecutables" Property="9\workingDirectory" Value="{DumpFolderForwardSlashes}/ModOrganizer/mods/Dual Sheath Redux 1.7.3/SkyProc Patchers/Dual Sheath Redux Patch" />
 				<Set Section="customExecutables" Property="9\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="9\steamAppID" Value="" />

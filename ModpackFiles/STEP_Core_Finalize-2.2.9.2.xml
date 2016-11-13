@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Core (Finalize)"
-         Requires="STEP Core, 2.2.9.2, 1.0.2.1"
+         Game="Skyrim2011"
+         Requires="STEP Core, 2.2.9.2, 1.0.3.0"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.0.1"
-         MinimumToolVersion="0.9.2.0">
+         FileVersion="1.0.1.0"
+         MinimumToolVersion="0.9.3.0">
 
 	<Files>
 		<Group Name="Default">
@@ -69,7 +70,8 @@
 				<MapFolder To="AutoHotkey 1.1.24.02" />
 			</ExtractArchive>
 
-			<Embedded Id="BuildTexGenScript" File="TexGen.ahk" Encoding="UTF8NoBOM">
+			<!-- Write out a .ahk file that runs the DynDOLOD TexGen process, and run it. -->
+			<Embedded Id="BuildTexGenScript" File="AHKScripts/TexGen.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Core 2.2.9.2" "DynDOLOD TexGen", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, DynDOLOD TexGen 2.21 (1) by Sheson
 WinGet, DYNPID, PID, DynDOLOD TexGen 2.21 (1) by Sheson
@@ -84,7 +86,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 			</Embedded>
 
 			<RunProcess Id="TexGen_Gen" WaitFor="MO_File1|MO_File2|MO_File3|MO_File4|ExtractAHK|BuildTexGenScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">TexGen.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/TexGen.ahk</Argument>
 			</RunProcess>
 
 			<EditFile Id="TexGen_MO_File1" WaitFor="TexGen_Gen" File="ModOrganizer/profiles/STEP Core 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
@@ -102,7 +104,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		</Group>
 
 		<Group Name="DynDOLOD">
-			<Embedded Id="BuildDynDOLODScript" File="DynDOLOD.ahk" Encoding="UTF8NoBOM">
+			<Embedded Id="BuildDynDOLODScript" File="AHKScripts/DynDOLOD.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Core 2.2.9.2" "DynDOLOD", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, DynDOLOD Help
 WinGet, DYNPID, PID, DynDOLOD Help
@@ -136,7 +138,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 			</Embedded>
 
 			<RunProcess Id="DynDOLOD_Gen" WaitFor="TexGen_CreateEmptyOverwrite|BuildDynDOLODScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">DynDOLOD.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/DynDOLOD.ahk</Argument>
 			</RunProcess>
 
 			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" WaitFor="DynDOLOD_Gen" Path="ModOrganizer/overwrite" />

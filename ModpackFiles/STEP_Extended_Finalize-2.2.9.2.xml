@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Extended (Finalize)"
-         Requires="STEP Extended, 2.2.9.2, 1.0.1.1"
+         Game="Skyrim2011"
+         Requires="STEP Extended, 2.2.9.2, 1.0.2.0"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.0.1"
-         MinimumToolVersion="0.9.2.0">
+         FileVersion="1.0.1.0"
+         MinimumToolVersion="0.9.3.0">
 
 	<Files>
 		<Group Name="Default">
@@ -69,7 +70,8 @@
 				<MapFolder To="AutoHotkey 1.1.24.02" />
 			</ExtractArchive>
 
-			<Embedded Id="BuildDSRScript" File="DSR.ahk" Encoding="UTF8NoBOM">
+			<!-- Write out a .ahk file that runs the DSR patching process, and run it. -->
+			<Embedded Id="BuildDSRScript" File="AHKScripts/DSR.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Extended 2.2.9.2" "Dual Sheath Redux Patch", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, Dual Sheath Redux Patch
 WinActivate, Dual Sheath Redux Patch
@@ -79,9 +81,8 @@ WinClose, Dual Sheath Redux Patch
 Process, WaitClose, %DSRPID%]]></Line>
 			</Embedded>
 
-			<!-- Write out a .ahk file that runs the DSR patching process, and run it. -->
 			<RunProcess Id="DSRPatch_Gen" WaitFor="MO_File1|MO_File2|MO_File3|MO_File4|ExtractAHK|BuildDSRScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">DSR.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/DSR.ahk</Argument>
 			</RunProcess>
 
 			<MoveFolder Id="DSRPatch_MoveFromOverwrite" WaitFor="DSRPatch_Gen" From="ModOrganizer/overwrite" To="ModOrganizer/mods/Dual Sheath Redux Patch (Extended)" />
@@ -111,7 +112,7 @@ Process, WaitClose, %DSRPID%]]></Line>
 		</Group>
 
 		<Group Name="FNIS Output">
-			<Embedded Id="BuildFNISScript" File="FNIS.ahk" Encoding="UTF8NoBOM">
+			<Embedded Id="BuildFNISScript" File="AHKScripts/FNIS.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Extended 2.2.9.2" "GenerateFNISforUsers", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, Generate FNIS for Users
 WinActivate, Generate FNIS for Users
@@ -135,7 +136,7 @@ Process, WaitClose, %FNISPID%]]></Line>
 			</Embedded>
 
 			<RunProcess Id="FNISFiles_Gen" WaitFor="DSRPatch_CreateEmptyOverwrite|DSRPatch_MO_File1|DSRPatch_MO_File2|DSRPatch_MO_File3|BuildFNISScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">FNIS.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/FNIS.ahk</Argument>
 			</RunProcess>
 
 			<MoveFolder Id="FNISFiles_MoveFromOverwrite" WaitFor="FNISFiles_Gen" From="ModOrganizer/overwrite" To="ModOrganizer/mods/FNIS Output (Extended)" />
@@ -151,7 +152,7 @@ Process, WaitClose, %FNISPID%]]></Line>
 		</Group>
 
 		<Group Name="DynDOLOD TexGen">
-			<Embedded Id="BuildTexGenScript" File="TexGen.ahk" Encoding="UTF8NoBOM">
+			<Embedded Id="BuildTexGenScript" File="AHKScripts/TexGen.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Extended 2.2.9.2" "DynDOLOD TexGen", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, DynDOLOD TexGen 2.21 (1) by Sheson
 WinGet, DYNPID, PID, DynDOLOD TexGen 2.21 (1) by Sheson
@@ -166,7 +167,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 			</Embedded>
 
 			<RunProcess Id="TexGen_Gen" WaitFor="FNISFiles_MO_File1|BuildTexGenScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">TexGen.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/TexGen.ahk</Argument>
 			</RunProcess>
 
 			<EditFile Id="TexGen_MO_File1" WaitFor="TexGen_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2/modlist.txt" Encoding="UTF8NoBOM">
@@ -184,7 +185,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		</Group>
 
 		<Group Name="DynDOLOD">
-			<Embedded Id="BuildDynDOLODScript" File="DynDOLOD.ahk" Encoding="UTF8NoBOM">
+			<Embedded Id="BuildDynDOLODScript" File="AHKScripts/DynDOLOD.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Extended 2.2.9.2" "DynDOLOD", {DumpFolderForwardSlashes}/ModOrganizer
 WinWait, DynDOLOD Help
 WinGet, DYNPID, PID, DynDOLOD Help
@@ -224,7 +225,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 			</EditFile>
 
 			<RunProcess Id="DynDOLOD_Gen" WaitFor="DynDOLOD_DisableBirdsHFclean|BuildDynDOLODScript" ExecutablePath="AutoHotkey 1.1.24.02/AutoHotkeyU32.exe">
-				<Argument Type="PathUnderOutputFolder">DynDOLOD.ahk</Argument>
+				<Argument Type="PathUnderOutputFolder">AHKScripts/DynDOLOD.ahk</Argument>
 			</RunProcess>
 
 			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" WaitFor="DynDOLOD_Gen" Path="ModOrganizer/overwrite" />

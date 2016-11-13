@@ -18,6 +18,8 @@ using System.Xml.Linq;
 using AirBreather.Collections;
 using AirBreather.IO;
 
+using Microsoft.Win32;
+
 using static System.FormattableString;
 
 namespace StepperUpper
@@ -26,9 +28,9 @@ namespace StepperUpper
     {
         private static int Main(string[] args)
         {
+            Options options = new Options();
             try
             {
-                Options options = new Options();
                 if (!CommandLine.Parser.Default.ParseArguments(args, options))
                 {
                     Console.Error.WriteLine("Exiting with code 8.");
@@ -53,13 +55,23 @@ namespace StepperUpper
                 Console.Error.WriteLine(ex);
                 return 10;
             }
+            finally
+            {
+                if (options.PauseAtEnd)
+                {
+                    Console.Write("Press any key to continue . . . ");
+                    Console.ReadKey(intercept: true);
+                    Console.WriteLine();
+                }
+            }
         }
 
         private static async Task<int> MainAsync(Options options)
         {
-            DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
-            DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
-            DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
+            var sourceDirectories = new List<string>
+            {
+                new DirectoryInfo(options.DownloadDirectoryPath).FullName,
+            };
 
             DirectoryInfo dumpDirectory = new DirectoryInfo(options.OutputDirectoryPath);
             bool needsDelete = dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
@@ -79,27 +91,77 @@ namespace StepperUpper
             int longestOutputPathLength = 0;
             foreach (string packDefinitionFilePath in options.PackDefinitionFilePaths)
             {
+                bool requiresJava, requiresSteam, requiresSkyrim;
+                string skyrimPath = null;
+                string steamPath = null;
+
                 XDocument doc;
                 using (FileStream packDefinitionFileStream = AsyncFile.OpenReadSequential(packDefinitionFilePath))
                 using (StreamReader reader = new StreamReader(packDefinitionFileStream, Encoding.UTF8, false, 4096, true))
                 {
                     string docText = await reader.ReadToEndAsync().ConfigureAwait(false);
-                    int javaIdx = docText.IndexOf("{JavaBinFolderForwardSlashes}", StringComparison.Ordinal);
-                    StringBuilder docTextBuilder = new StringBuilder(docText);
-                    docTextBuilder = docTextBuilder.Replace("{SteamInstallFolder}", steamDirectory.FullName)
-                                                   .Replace("{SteamInstallFolderEscapeBackslashes}", steamDirectory.FullName.Replace("\\", "\\\\"))
-                                                   .Replace("{DumpFolderForwardSlashes}", options.OutputDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'))
-                                                   .Replace("{DumpFolderEscapeBackslashes}", options.OutputDirectoryPath.Replace("\\", "\\\\"));
+                    requiresJava = docText.Contains("{JavaBinFolderForwardSlashes}", StringComparison.Ordinal);
+                    requiresSteam = docText.Contains("{SteamInstallFolder}", StringComparison.Ordinal) ||
+                                    docText.Contains("{SteamInstallFolderEscapeBackslashes}", StringComparison.Ordinal);
 
-                    if (0 <= javaIdx)
+                    requiresSkyrim = docText.Contains("{SkyrimInstallFolder}", StringComparison.Ordinal) ||
+                                     docText.Contains("{SkyrimInstallFolderForwardSlashes}", StringComparison.Ordinal) ||
+                                     docText.Contains("{SkyrimInstallFolderEscapeBackslashes}", StringComparison.Ordinal);
+
+                    StringBuilder docTextBuilder = new StringBuilder(docText);
+                    docTextBuilder = docTextBuilder.Replace("{DumpFolderForwardSlashes}", dumpDirectory.FullName.Replace(Path.DirectorySeparatorChar, '/'))
+                                                   .Replace("{DumpFolderEscapeBackslashes}", dumpDirectory.FullName.Replace("\\", "\\\\"));
+
+                    if (requiresJava)
                     {
-                        if (options.JavaBinDirectoryPath == null)
+                        string javaBinPath = GetJavaBinDirectoryPath(options);
+                        if (String.IsNullOrEmpty(javaBinPath))
                         {
                             Console.Error.WriteLine("--javaBinFolder is required for {0}.", XDocument.Parse(docTextBuilder.ToString()).Element("Modpack").Attribute("Name").Value);
                             return 6;
                         }
 
-                        docTextBuilder = docTextBuilder.Replace("{JavaBinFolderForwardSlashes}", options.JavaBinDirectoryPath.Replace(Path.DirectorySeparatorChar, '/'));
+                        DirectoryInfo javaBinDirectory = new DirectoryInfo(javaBinPath);
+                        javaBinPath = javaBinDirectory.FullName;
+                        if (!javaBinDirectory.EnumerateFiles().Any(fl => "javaw.exe".Equals(fl.Name, StringComparison.OrdinalIgnoreCase)))
+                        {
+                            Console.Error.WriteLine("Java bin folder {0} does not contain a file called \"javaw.exe\".", javaBinPath);
+                            return 14;
+                        }
+
+                        docTextBuilder = docTextBuilder.Replace("{JavaBinFolderForwardSlashes}", javaBinPath.Replace(Path.DirectorySeparatorChar, '/'));
+                    }
+
+                    if (requiresSteam)
+                    {
+                        if (options.SteamDirectoryPath == null)
+                        {
+                            Console.Error.WriteLine("-s / --steamFolder is required for {0}.", XDocument.Parse(docTextBuilder.ToString()).Element("Modpack").Attribute("Name").Value);
+                            return 11;
+                        }
+
+                        steamPath = new DirectoryInfo(options.SteamDirectoryPath).FullName;
+                        docTextBuilder = docTextBuilder.Replace("{SteamInstallFolder}", steamPath)
+                                                       .Replace("{SteamInstallFolderEscapeBackslashes}", steamPath.Replace("\\", "\\\\"));
+
+                        // pack files targeting versions earlier than 0.9.3.0 would need this; other
+                        // pack files won't use this anyway, so it's just a small waste of time.
+                        skyrimPath = Path.Combine(steamPath, "steamapps", "common", "Skyrim");
+                    }
+
+                    if (requiresSkyrim)
+                    {
+                        skyrimPath = GetSkyrimDirectoryPath(options);
+                        if (String.IsNullOrEmpty(skyrimPath))
+                        {
+                            Console.Error.WriteLine("-s / --steamFolder, or a valid Skyrim registry key, is required for {0}.", XDocument.Parse(docTextBuilder.ToString()).Element("Modpack").Attribute("Name").Value);
+                            return 12;
+                        }
+
+                        skyrimPath = new DirectoryInfo(skyrimPath).FullName;
+                        docTextBuilder = docTextBuilder.Replace("{SkyrimInstallFolder}", skyrimPath)
+                                                       .Replace("{SkyrimInstallFolderForwardSlashes}", skyrimPath.Replace(Path.DirectorySeparatorChar, '/'))
+                                                       .Replace("{SkyrimInstallFolderEscapeBackslashes}", skyrimPath.Replace("\\", "\\\\"));
                     }
 
                     doc = XDocument.Parse(docTextBuilder.ToString());
@@ -146,6 +208,53 @@ namespace StepperUpper
                     {
                         longestOutputPathLength = currMaxOutputPathLength;
                     }
+
+                    string game;
+                    switch (game = modpackElement.Attribute("Game")?.Value)
+                    {
+                        case null:
+                            break;
+
+                        case "Skyrim2011":
+                            if (requiresSkyrim)
+                            {
+                                break;
+                            }
+
+                            skyrimPath = GetSkyrimDirectoryPath(options);
+                            if (String.IsNullOrEmpty(skyrimPath))
+                            {
+                                Console.Error.WriteLine("-s / --steamFolder, or a valid Skyrim registry key, is required for {0}.", modpackName);
+                                return 12;
+                            }
+
+                            skyrimPath = new DirectoryInfo(skyrimPath).FullName;
+                            break;
+
+                        default:
+                            Console.Error.WriteLine("Unrecognized game: {0}", game);
+                            return 13;
+                    }
+
+                    if (requiresSkyrim)
+                    {
+                        sourceDirectories.Add(Path.Combine(skyrimPath, "Data"));
+                    }
+                    else if (minimumToolVersion < new Version(0, 9, 3, 0))
+                    {
+                        // pack files for versions earlier than 0.9.3.0 always used Skyrim's Data
+                        // directory, relative to the Steam directory, as an additional source for
+                        // their input files; until we make a big enough breaking change, we might
+                        // as well continue to support those old pack files.
+                        if (options.SteamDirectoryPath == null)
+                        {
+                            Console.Error.WriteLine("-s / --steamFolder is required for {0}.", modpackName);
+                            return 11;
+                        }
+
+                        steamPath = new DirectoryInfo(options.SteamDirectoryPath).FullName;
+                        sourceDirectories.Add(Path.Combine(steamPath, "steamapps", "common", "Skyrim", "Data"));
+                    }
                 }
             }
 
@@ -175,13 +284,16 @@ namespace StepperUpper
             // not absolutely 100% perfect, but good enough.
             var sizes = new HashSet<long>(groups.SelectMany(grp => grp.Select(el => Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture))));
 
-            FileInfo[] downloadDirectoryFiles = downloadDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
-            FileInfo[] skyrimDirectoryFiles = skyrimDirectory.EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray();
+            FileInfo[][] sourceFiles = sourceDirectories.Distinct(StringComparer.OrdinalIgnoreCase).Select(dir => new DirectoryInfo(dir).EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray()).ToArray();
 
-            int cnt = checked(downloadDirectoryFiles.Length + skyrimDirectoryFiles.Length);
+            int cnt = 0;
+            for (int i = 0; i < sourceFiles.Length; i++)
+            {
+                cnt = checked(cnt + sourceFiles[i].Length);
+            }
 
             Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
-            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, downloadDirectoryFiles.ToObservable(), skyrimDirectoryFiles.ToObservable())
+            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, Array.ConvertAll(sourceFiles, Observable.ToObservable))
                 // uncomment to see what it's like if you don't have anything yet.
                 ////.Take(0)
                 ;
@@ -234,7 +346,7 @@ namespace StepperUpper
                     var downloadable = downloadables[0];
                     Console.WriteLine("{0} can be downloaded automatically from {1}.  Trying now...", downloadable.Name, downloadable.DownloadUrl);
 
-                    var targetFile = new FileInfo(Path.Combine(downloadDirectory.FullName, downloadable.CanonicalFileName));
+                    var targetFile = new FileInfo(Path.Combine(sourceDirectories[0], downloadable.CanonicalFileName));
                     try
                     {
                         using (Stream downloadStream = await client.GetStreamAsync(downloadable.DownloadUrl).ConfigureAwait(false))
@@ -378,7 +490,7 @@ namespace StepperUpper
                         {
                             await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
 
-                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, steamDirectory, checkedFiles, dict2).ConfigureAwait(false);
+                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, checkedFiles, dict2).ConfigureAwait(false);
 
                             dict2[id].TrySetResult(null);
                         }
@@ -596,6 +708,39 @@ namespace StepperUpper
             catch (Exception ex)
             {
                 box.TrySetException(ex);
+            }
+        }
+
+        private static string GetJavaBinDirectoryPath(Options options)
+        {
+            if (options.JavaBinDirectoryPath?.Length > 0)
+            {
+                return options.JavaBinDirectoryPath;
+            }
+
+            using (RegistryKey key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32))
+            using (RegistryKey sub = key?.OpenSubKey(@"SOFTWARE\JavaSoft\Java Runtime Environment", writable: false) ??
+                                     key?.OpenSubKey(@"SOFTWARE\JavaSoft\Java Development Kit", writable: false))
+            using (RegistryKey ver = sub?.OpenSubKey(sub.GetValue("CurrentVersion") as string ?? String.Empty, writable: false))
+            {
+                string javaHome = ver?.GetValue("JavaHome") as string;
+                return String.IsNullOrEmpty(javaHome)
+                    ? String.Empty
+                    : Path.Combine(javaHome, "bin");
+            }
+        }
+
+        private static string GetSkyrimDirectoryPath(Options options)
+        {
+            if (options.SteamDirectoryPath?.Length > 0)
+            {
+                return Path.Combine(options.SteamDirectoryPath, "steamapps", "common", "Skyrim");
+            }
+
+            using (RegistryKey key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32))
+            using (RegistryKey sub = key?.OpenSubKey(@"SOFTWARE\Bethesda Softworks\Skyrim", writable: false))
+            {
+                return sub?.GetValue("Installed Path") as string;
             }
         }
     }

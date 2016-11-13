@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="My STEP Core Tweaks"
+         Game="Skyrim2011"
          Requires="STEP Core, 2.2.9.2"
          PackVersion="1.0.0.0"
-         FileVersion="1.0.0.0"
-         MinimumToolVersion="0.9.1.0">
+         FileVersion="1.0.1.0"
+         MinimumToolVersion="0.9.3.0">
 
 	<Files />
 
@@ -20,7 +21,7 @@
 				<Set Section="Interface" Property="bDialogueSubtitles" Value="1" />
 			</TweakINI>
 
-			<TweakINI File="{SteamInstallFolder}/steamapps/common/Skyrim/enblocal.ini">
+			<TweakINI File="{SkyrimInstallFolder}/enblocal.ini">
 				<Set Section="WINDOW" Property="ForceBorderlessFullscreen" Value="true" />
 				<Set Section="WINDOW" Property="ForceBorderless" Value="true" />
 

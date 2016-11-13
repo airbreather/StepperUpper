@@ -7,7 +7,7 @@ namespace StepperUpper
 {
     internal static class ProcessRunner
     {
-        internal static Task<int> RunProcessAsync(string exePath, params string[] arguments)
+        internal static Task<int> RunProcessAsync(string exePath, ProcessPriorityClass priority, params string[] arguments)
         {
             var fullBuilder = new StringBuilder().Append(' ');
             var subBuilder = new StringBuilder();
@@ -41,10 +41,10 @@ namespace StepperUpper
             }
 
             --fullBuilder.Length;
-            return RunProcessAsync(exePath, fullBuilder.MoveToString());
+            return RunProcessAsync(exePath, priority, fullBuilder.MoveToString());
         }
 
-        private static Task<int> RunProcessAsync(string exePath, string arguments)
+        private static Task<int> RunProcessAsync(string exePath, ProcessPriorityClass priority, string arguments)
         {
             var process = new Process();
             try
@@ -63,6 +63,14 @@ namespace StepperUpper
                 if (!process.Start())
                 {
                     return Task.FromException<int>(new InvalidOperationException("Unable to start process."));
+                }
+
+                try
+                {
+                    process.PriorityClass = priority;
+                }
+                catch
+                {
                 }
 
                 return tcs.Task.Finally(process.Dispose);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -19,12 +20,12 @@ namespace StepperUpper
 {
     internal static class SetupTasks
     {
-        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, DirectoryInfo steamInstallDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
+        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
         {
             switch (taskElement.Name.LocalName)
             {
                 case "ExtractArchive":
-                    return ExtractArchiveAsync(taskElement, knownFiles, dumpDirectory, steamInstallDirectory);
+                    return ExtractArchiveAsync(taskElement, knownFiles, dumpDirectory);
 
                 case "TweakINI":
                     return Task.Run(() => WriteINI(taskElement, dumpDirectory));
@@ -44,6 +45,7 @@ namespace StepperUpper
 
                 case "RunProcess":
                     return ProcessRunner.RunProcessAsync(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("ExecutablePath").Value),
+                                                         ProcessPriorityClass.Normal,
                                                          taskElement.Elements("Argument").Select(arg => GetArgument(arg, dumpDirectory)).ToArray());
 
                 case "DeleteFolder":
@@ -60,7 +62,7 @@ namespace StepperUpper
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
         }
 
-        private static async Task ExtractArchiveAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, DirectoryInfo steamInstallDirectory)
+        private static async Task ExtractArchiveAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory)
         {
             string randomFileName = Path.GetRandomFileName();
             IEnumerable<XElement> elements = taskElement.Elements();
@@ -85,7 +87,7 @@ namespace StepperUpper
             }
 
             tempDirectory.Create();
-            await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory).ConfigureAwait(false);
+            await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory, ProcessPriorityClass.BelowNormal).ConfigureAwait(false);
 
             switch (simpleMO?.Value)
             {

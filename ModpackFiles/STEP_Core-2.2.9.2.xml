@@ -4,9 +4,10 @@ longest path I can detect looks like:
 abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwarvencenturion\attack\forwardpowerrush\npc_dwarvencenturion_attack_forwardpowerrush_01.wav
 -->
 <Modpack Name="STEP Core"
+         Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.2.1"
-         MinimumToolVersion="0.9.1.0"
+         FileVersion="1.0.3.0"
+         MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="169">
 
 	<Files>
@@ -1166,7 +1167,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="1.D. INI Tweaks">
-			<CopyFile Id="SkyrimINI" From="{SteamInstallFolder}/steamapps/common/Skyrim/Skyrim_default.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" />
+			<CopyFile Id="SkyrimINI" From="{SkyrimInstallFolder}/Skyrim_default.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" />
 			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" WaitFor="SkyrimINI">
 				<Set Section="Archive" Property="sResourceArchiveList" Value="Skyrim - Misc.bsa, Skyrim - Shaders.bsa, Skyrim - Textures.bsa, Skyrim - Interface.bsa, Skyrim - Animations.bsa, Skyrim - Meshes.bsa, Skyrim - Sounds.bsa" />
 				<Set Section="Archive" Property="sResourceArchiveList2" Value="Skyrim - Voices.bsa, Skyrim - VoicesExtra.bsa" />
@@ -1200,7 +1201,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Set Section="Water" Property="bReflectLODTrees" Value="1" />
 			</TweakINI>
 
-			<CopyFile Id="SkyrimPrefsINI" From="{SteamInstallFolder}/steamapps/common/Skyrim/VeryHigh.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" />
+			<CopyFile Id="SkyrimPrefsINI" From="{SkyrimInstallFolder}/VeryHigh.ini" To="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" />
 			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" WaitFor="SkyrimPrefsINI">
 				<!-- Don't change iMaxAnisotropy here.  Force it on in your graphics driver. -->
 				<Set Section="Display" Property="iMaxAnisotropy" Value="0" />
@@ -1233,12 +1234,12 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		<Group Name="2.C. Extenders">
 			<!-- ENBoost, just Wrapper for now. -->
 			<ExtractArchive Id="ExtractENB" ArchiveFile="ENBSeries v0308">
-				<MapFile From="WrapperVersion/d3d9.dll" To="{SteamInstallFolder}/steamapps/common/Skyrim/d3d9.dll" />
-				<MapFile From="WrapperVersion/enbhost.exe" To="{SteamInstallFolder}/steamapps/common/Skyrim/enbhost.exe" />
-				<MapFile From="WrapperVersion/enblocal.ini" To="{SteamInstallFolder}/steamapps/common/Skyrim/enblocal.ini" />
+				<MapFile From="WrapperVersion/d3d9.dll" To="{SkyrimInstallFolder}/d3d9.dll" />
+				<MapFile From="WrapperVersion/enbhost.exe" To="{SkyrimInstallFolder}/enbhost.exe" />
+				<MapFile From="WrapperVersion/enblocal.ini" To="{SkyrimInstallFolder}/enblocal.ini" />
 			</ExtractArchive>
 
-			<TweakINI File="{SteamInstallFolder}/steamapps/common/Skyrim/enblocal.ini" WaitFor="ExtractENB">
+			<TweakINI File="{SkyrimInstallFolder}/enblocal.ini" WaitFor="ExtractENB">
 				<Set Section="GLOBAL" Property="UsePatchSpeedhackWithoutGraphics" Value="true" />
 				<Set Section="GLOBAL" Property="UseDefferedRendering" Value="false" />
 
@@ -1261,9 +1262,9 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<!-- SKSE -->
 			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3">
 				<MapFolder From="skse_1_07_03/Data" To="ModOrganizer/mods/SKSE Support" />
-				<MapFile From="skse_1_07_03/skse_1_9_32.dll" To="{SteamInstallFolder}/steamapps/common/Skyrim/skse_1_9_32.dll" />
-				<MapFile From="skse_1_07_03/skse_loader.exe" To="{SteamInstallFolder}/steamapps/common/Skyrim/skse_loader.exe" />
-				<MapFile From="skse_1_07_03/skse_steam_loader.dll" To="{SteamInstallFolder}/steamapps/common/Skyrim/skse_steam_loader.dll" />
+				<MapFile From="skse_1_07_03/skse_1_9_32.dll" To="{SkyrimInstallFolder}/skse_1_9_32.dll" />
+				<MapFile From="skse_1_07_03/skse_loader.exe" To="{SkyrimInstallFolder}/skse_loader.exe" />
+				<MapFile From="skse_1_07_03/skse_steam_loader.dll" To="{SkyrimInstallFolder}/skse_steam_loader.dll" />
 			</ExtractArchive>
 
 			<TweakINI File="ModOrganizer/mods/SKSE Support/SKSE/SKSE.ini" WaitFor="ExtractSKSE">
@@ -2174,7 +2175,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 			<TweakINI File="ModOrganizer/ModOrganizer.ini">
 				<Set Section="General" Property="selected_profile" Value="STEP Core 2.2.9.2" />
-				<Set Section="General" Property="gamePath" Value="{SteamInstallFolderEscapeBackslashes}\\steamapps\\common\\Skyrim" />
+				<Set Section="General" Property="gamePath" Value="{SkyrimInstallFolderForwardSlashes}" />
 				<Set Section="General" Property="selected_executable" Value="1" />
 
 				<Set Section="customExecutables" Property="1\title" Value="SKSE" />
@@ -2636,7 +2637,7 @@ sBashModData={DumpFolderForwardSlashes}/ModOrganizer/profiles/STEP Core 2.2.9.2/
 
 			<Embedded File="ModOrganizer/bash-profile.bat" Encoding="UTF8NoBOM">
 				<Line><![CDATA[@ECHO OFF
-COPY "{SteamInstallFolder}\steamapps\common\Skyrim\Data\bash.ini" "{DumpFolderForwardSlashes}/Wrye Bash 306" >NUL
+COPY "{SkyrimInstallFolderForwardSlashes}/Data/bash.ini" "{DumpFolderForwardSlashes}/Wrye Bash 306" >NUL
 START "" "{DumpFolderForwardSlashes}/Wrye Bash 306/Wrye Bash.exe"]]></Line>
 			</Embedded>
 		</Group>
