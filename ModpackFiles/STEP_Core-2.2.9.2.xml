@@ -1873,7 +1873,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<!-- this could be SimpleMO="Single", but using the staging folder lets us get more room
 			     in the output paths to stay within the 255 char limit. -->
 			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1">
-				<MapFolder From="NoMaaM Breathing Idles BBB V0.1 - Female non-BBB plus Male" To="ModOrganizer\mods\NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" />
+				<MapFolder From="NoMaaM Breathing Idles BBB V0.1 - Female non-BBB plus Male" To="ModOrganizer/mods/NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Running with Bows 1.0" SimpleMO="Single" />
