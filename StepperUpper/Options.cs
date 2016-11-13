@@ -5,16 +5,16 @@ namespace StepperUpper
 {
     internal sealed class Options
     {
-        [OptionArray('p', "packDefinitionFiles", Required = true, HelpText = "The .xml files that define the packs.")]
+        [OptionArray('p', "packDefinitionFiles", HelpText = "The .xml files that define the packs.")]
         public string[] PackDefinitionFilePaths { get; set; }
 
-        [Option('d', "downloadFolder", Required = true, HelpText = "Folder containing downloaded mod files.")]
+        [Option('d', "downloadFolder", HelpText = "Folder containing downloaded mod files.")]
         public string DownloadDirectoryPath { get; set; }
 
-        [Option('s', "steamFolder", Required = true, HelpText = "Folder containing \"steamapps\".")]
+        [Option('s', "steamFolder", HelpText = "Folder containing \"steamapps\".")]
         public string SteamDirectoryPath { get; set; }
 
-        [Option('o', "outputFolder", Required = true, HelpText = "Folder to create everything in.")]
+        [Option('o', "outputFolder", HelpText = "Folder to create everything in.")]
         public string OutputDirectoryPath { get; set; }
 
         [Option('x', "scorch", HelpText = "Delete contents of output directory if non-empty (otherwise, fail).")]
@@ -31,6 +31,12 @@ namespace StepperUpper
 
         [ParserState]
         public IParserState LastParserState { get; set; }
+
+        internal bool MightBeValid =>
+            this.PackDefinitionFilePaths?.Length > 0 &&
+            this.DownloadDirectoryPath?.Length > 0 &&
+            this.SteamDirectoryPath?.Length > 0 &&
+            this.OutputDirectoryPath?.Length > 0;
 
         [HelpOption]
         public string GetUsage() => HelpText.AutoBuild(this, current => HelpText.DefaultParsingErrorsHandler(this, current));

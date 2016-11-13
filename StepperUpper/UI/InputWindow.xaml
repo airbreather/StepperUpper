@@ -1,0 +1,107 @@
+﻿<Window x:Class="StepperUpper.UI.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:StepperUpper.UI"
+        SizeToContent="WidthAndHeight"
+        Title="Select Inputs"
+        x:Name="TheWindow"
+        MinWidth="400"
+        MinHeight="220"
+        DataContext="{Binding ViewModel, RelativeSource={RelativeSource Self}, Mode=OneTime}">
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Pack Files: Label / Add button -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Pack Files:" />
+
+        <!-- Pack Files:  -->
+        <Border Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Content="Add Pack File..." Command="{Binding AddPackFileCommand, Mode=OneTime}" />
+
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding PackFiles, Mode=OneTime}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:FilePathViewModel}">
+                            <Grid Margin="0,5,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="PathButtons" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="0" Content="Delete" Command="{Binding DataContext.DeletePackFileCommand, ElementName=TheWindow, Mode=OneTime}" CommandParameter="{Binding ., Mode=OneTime}" />
+                                <TextBox Grid.Column="1" Margin="5,0,0,0" Text="{Binding Value}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Border>
+
+        <TextBlock Margin="0,5,0,0" Grid.Row="1" Grid.Column="0" Text="Download Folder:" />
+        <Grid Margin="5,5,0,0" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="PathButtons" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Select..." Command="{Binding SelectDownloadFolderCommand, Mode=OneTime}" />
+            <TextBox Grid.Column="1" Margin="5,0,0,0" Text="{Binding DownloadFolder}" />
+        </Grid>
+
+        <TextBlock Margin="0,5,0,0" Grid.Row="2" Grid.Column="0" Text="Output Folder:" />
+        <Grid Margin="5,5,0,0" Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="PathButtons" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Select..." Command="{Binding SelectOutputFolderCommand, Mode=OneTime}" />
+            <TextBox Grid.Column="1" Margin="5,0,0,0" Text="{Binding OutputFolder}" />
+        </Grid>
+
+        <TextBlock Margin="0,5,0,0" Grid.Row="3" Grid.Column="0" Text="Steam Folder:" />
+        <Grid Margin="5,5,0,0" Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="PathButtons" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Select..." Command="{Binding SelectSteamFolderCommand, Mode=OneTime}" />
+            <TextBox Grid.Column="1" Margin="5,0,0,0" Text="{Binding SteamFolder}" />
+        </Grid>
+
+        <TextBlock Margin="0,5,0,0" Grid.Row="4" Grid.Column="0" Text="x86 Java Bin Folder:" />
+        <Grid Margin="5,5,0,0" Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="PathButtons" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Select..." Command="{Binding SelectJavaBinFolderCommand, Mode=OneTime}" />
+            <TextBox Grid.Column="4" Margin="5,0,0,0" Text="{Binding JavaBinFolder}" />
+        </Grid>
+
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,5,0,0">
+            <Button Content="OK" IsDefault="True" Click="OnOKButtonClick" />
+            <Button Margin="5,0,0,0" Content="Cancel" IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -26,18 +26,37 @@ namespace StepperUpper
     {
         private static int Main(string[] args)
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            int result = MainAsync(args).GetAwaiter().GetResult();
-            sw.Stop();
-            Console.WriteLine(Invariant($"Ran for {sw.ElapsedTicks / (double)Stopwatch.Frequency:N3} seconds.  Exiting with code {result}."));
-            return result;
+            try
+            {
+                Options options = new Options();
+                if (!CommandLine.Parser.Default.ParseArguments(args, options))
+                {
+                    Console.Error.WriteLine("Exiting with code 8.");
+                    return 8;
+                }
+
+                if (!options.MightBeValid && !UI.Dialogs.FillOptionsAsync(options).ConfigureAwait(false).GetAwaiter().GetResult())
+                {
+                    Console.Error.WriteLine("Options are invalid.  Exiting with code 9.");
+                    return 9;
+                }
+
+                Stopwatch sw = Stopwatch.StartNew();
+                int result = MainAsync(options).GetAwaiter().GetResult();
+                sw.Stop();
+                Console.WriteLine(Invariant($"Ran for {sw.ElapsedTicks / (double)Stopwatch.Frequency:N3} seconds.  Exiting with code {result}."));
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Unexpected error.  Exiting with code 10.  Details:");
+                Console.Error.WriteLine(ex);
+                return 10;
+            }
         }
 
-        private static async Task<int> MainAsync(string[] args)
+        private static async Task<int> MainAsync(Options options)
         {
-            Options options = new Options();
-            CommandLine.Parser.Default.ParseArgumentsStrict(args, options);
-
             DirectoryInfo downloadDirectory = new DirectoryInfo(options.DownloadDirectoryPath);
             DirectoryInfo steamDirectory = new DirectoryInfo(options.SteamDirectoryPath);
             DirectoryInfo skyrimDirectory = new DirectoryInfo(Path.Combine(steamDirectory.FullName, "steamapps", "common", "Skyrim", "Data"));
@@ -46,7 +65,7 @@ namespace StepperUpper
             bool needsDelete = dumpDirectory.Exists && dumpDirectory.EnumerateFileSystemInfos().Any();
             if (needsDelete && !options.Scorch)
             {
-                Console.Error.WriteLine("Output folder exists already.  Aborting...");
+                Console.Error.WriteLine("Output folder exists already and is not empty.  Aborting...");
                 Console.WriteLine("(run with -x / --scorch to have us automatically delete instead).");
                 return 2;
             }
@@ -88,44 +107,45 @@ namespace StepperUpper
 
                 doc = doc.PoolStrings(pool);
 
-                var modpackElement = doc.Element("Modpack");
-
-                modpackElements.Add(modpackElement);
-
-                var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
-                var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
-                if (currentToolVersion < minimumToolVersion)
+                foreach (var modpackElement in doc.Descendants("Modpack"))
                 {
-                    Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
-                    return 3;
-                }
+                    modpackElements.Add(modpackElement);
 
-                string modpackName = modpackElement.Attribute("Name").Value;
-                string packVersion = modpackElement.Attribute("PackVersion").Value;
-                string fileVersion = modpackElement.Attribute("FileVersion").Value;
+                    var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
+                    var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                    if (currentToolVersion < minimumToolVersion)
+                    {
+                        Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
+                        return 3;
+                    }
 
-                var requirements = Tokenize(modpackElement.Attribute("Requires")?.Value).ToArray();
-                if (!seenSoFar.IsSupersetOf(requirements))
-                {
-                    Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpackName, String.Join(", ", requirements));
-                    return 4;
-                }
+                    string modpackName = modpackElement.Attribute("Name").Value;
+                    string packVersion = modpackElement.Attribute("PackVersion").Value;
+                    string fileVersion = modpackElement.Attribute("FileVersion").Value;
 
-                if (seenSoFar.Contains(modpackName))
-                {
-                    Console.Error.WriteLine("Trying to set up {0} twice in the same run", modpackName);
-                    return 5;
-                }
+                    var requirements = Tokenize(modpackElement.Attribute("Requires")?.Value).ToArray();
+                    if (!seenSoFar.IsSupersetOf(requirements))
+                    {
+                        Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpackName, String.Join(", ", requirements));
+                        return 4;
+                    }
 
-                seenSoFar.Add(modpackName);
-                seenSoFar.Add(modpackName + ", " + packVersion);
-                seenSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
+                    if (seenSoFar.Contains(modpackName))
+                    {
+                        Console.Error.WriteLine("Trying to set up {0} twice in the same run", modpackName);
+                        return 5;
+                    }
 
-                int currMaxOutputPathLength;
-                if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out currMaxOutputPathLength) &&
-                    longestOutputPathLength < currMaxOutputPathLength)
-                {
-                    longestOutputPathLength = currMaxOutputPathLength;
+                    seenSoFar.Add(modpackName);
+                    seenSoFar.Add(modpackName + ", " + packVersion);
+                    seenSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
+
+                    int currMaxOutputPathLength;
+                    if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out currMaxOutputPathLength) &&
+                        longestOutputPathLength < currMaxOutputPathLength)
+                    {
+                        longestOutputPathLength = currMaxOutputPathLength;
+                    }
                 }
             }
 
