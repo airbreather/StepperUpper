@@ -3,7 +3,7 @@
          Game="Skyrim2011"
          Requires="STEP Core, 2.2.9.2"
          PackVersion="1.0.0.0"
-         FileVersion="1.0.1.0"
+         FileVersion="1.1.0.0"
          MinimumToolVersion="0.9.3.0">
 
 	<Files />
@@ -26,7 +26,16 @@
 				<Set Section="WINDOW" Property="ForceBorderless" Value="true" />
 
 				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
-				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4096" />
+				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="10240" />
+
+				<!-- https://redd.it/5aa7w5 -->
+				<Set Section="LIMITER" Property="EnableFPSLimit" Value="false" />
+			</TweakINI>
+
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini">
+				<Set Section="HAVOK" Property="fMaxTime" Value="0.0069" />
+
+				<Set Section="Display" Property="iPresentInterval" Value="0" />
 			</TweakINI>
 		</Group>
 	</Tasks>
