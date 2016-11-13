@@ -29,8 +29,8 @@ namespace StepperUpper
         [Option("detectMaxPath", HelpText = "Detect max output path length for each pack.")]
         public bool DetectMaxPath { get; set; }
 
-        [Option("pauseAtEnd", DefaultValue = true, HelpText = "Wait for input at the end.")]
-        public bool PauseAtEnd { get; set; } = true;
+        [Option("noPauseAtEnd", HelpText = "Skip the wait for input at the end.")]
+        public bool NoPauseAtEnd { get; set; }
 
         [ParserState]
         public IParserState LastParserState { get; set; }

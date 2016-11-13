@@ -57,7 +57,7 @@ namespace StepperUpper
             }
             finally
             {
-                if (options.PauseAtEnd)
+                if (!options.NoPauseAtEnd)
                 {
                     Console.Write("Press any key to continue . . . ");
                     Console.ReadKey(intercept: true);
