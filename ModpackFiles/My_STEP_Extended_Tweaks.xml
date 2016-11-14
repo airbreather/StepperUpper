@@ -5,9 +5,9 @@ abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH 
 -->
 <Modpack Name="My STEP Extended Tweaks"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.0.2.0"
+         Requires="STEP Extended, 2.2.9.2, 1.0.2.1"
          PackVersion="1.0.0.0"
-         FileVersion="1.0.1.0"
+         FileVersion="1.0.1.1"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="133">
 
@@ -203,7 +203,7 @@ WetandCold.bsa]]></Line>
 +Timing is Everything 2.02
 +Thieves Guild Requirements 3.0
 +The Paarthurnax Dilemma 1.2.9
-+The Choice is Yours - Legendary 1.6
++The Choice is Yours - Legendary 2.0
 +Skyrim Community Uncapper 1.15.2.0
 +Skyrim Coin Replacer Redux - Septim HD Coinpiles X
 +Skyrim Coin Replacer Redux - Legendary Edition 1.2.2

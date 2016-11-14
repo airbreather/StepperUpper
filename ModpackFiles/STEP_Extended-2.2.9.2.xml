@@ -8,7 +8,7 @@ we could reduce that further here, but STEP Core has a stricter requirement than
          Game="Skyrim2011"
          Requires="STEP Core, 2.2.9.2, 1.0.3.0"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.2.0"
+         FileVersion="1.0.2.1"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="157">
 
@@ -321,11 +321,11 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 			      MD5Checksum="3cc826f633e32efc9a30e43a48c4634f"
 			      DownloadTags="nexus|skyrim|48195|1000124477" />
 
-			<File Name="The Choice is Yours - Legendary 1.6"
-			      LengthInBytes="803941"
-			      CanonicalFileName="The Choice is Yours-26359-1-6.7z"
-			      MD5Checksum="a47cd045a2ec514e046514a3a60309e0"
-			      DownloadTags="nexus|skyrim|26359|1000195946" />
+			<File Name="The Choice is Yours - Legendary 2.0"
+			      LengthInBytes="1027059"
+			      CanonicalFileName="The Choice is Yours-26359-2-0.zip"
+			      MD5Checksum="43a8c52c4d6b3977e153c0f673a17cab"
+			      DownloadTags="nexus|skyrim|26359|1000227946" />
 
 			<File Name="Thieves Guild Requirements 3.0"
 			      LengthInBytes="910449"
@@ -554,7 +554,7 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 			<ExtractArchive ArchiveFile="SM Drop Lit Torches 3.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Legendary Edition 1.2.2" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Septim HD Coinpiles X" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="The Choice is Yours - Legendary 1.6" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="The Choice is Yours - Legendary 2.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Thieves Guild Requirements 3.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Timing is Everything 2.02" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Wet and Cold 2.02">
@@ -685,7 +685,7 @@ WetandCold.bsa]]></Line>
 +Timing is Everything 2.02
 +Thieves Guild Requirements 3.0
 +The Paarthurnax Dilemma 1.2.9
-+The Choice is Yours - Legendary 1.6
++The Choice is Yours - Legendary 2.0
 +Skyrim Community Uncapper 1.15.2.0
 +Skyrim Coin Replacer Redux - Septim HD Coinpiles X
 +Skyrim Coin Replacer Redux - Legendary Edition 1.2.2
