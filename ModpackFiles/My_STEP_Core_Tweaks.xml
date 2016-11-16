@@ -26,7 +26,7 @@
 				<Set Section="WINDOW" Property="ForceBorderless" Value="true" />
 
 				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
-				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="10240" />
+				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4064" />
 
 				<!-- https://redd.it/5aa7w5 -->
 				<Set Section="LIMITER" Property="EnableFPSLimit" Value="false" />
