@@ -122,24 +122,13 @@ namespace BethFile.Editor
         {
             List<Field> result = new List<Field>();
 
-            uint? offsides = null;
             foreach (BethesdaField field in source)
             {
-                if (field.FieldType == XXXX)
-                {
-                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
-                    continue;
-                }
-
-                byte[] payload = new byte[offsides ?? field.StoredSize];
-                Buffer.BlockCopy(field.PayloadStart.Array, checked((int)field.PayloadStart.Offset), payload, 0, payload.Length);
                 result.Add(new Field
                 {
                     FieldType = field.FieldType,
-                    Payload = payload
+                    Payload = field.Payload.ToArray()
                 });
-
-                offsides = null;
             }
 
             return result;

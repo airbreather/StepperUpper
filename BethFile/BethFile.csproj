@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="B4S.cs" />
     <Compile Include="BethesdaFile.cs" />
+    <Compile Include="BethesdaFileComparer.cs" />
     <Compile Include="BethesdaFileDescriber.cs" />
     <Compile Include="BethesdaFileReader.cs" />
     <Compile Include="BethesdaFileVisitor.cs" />

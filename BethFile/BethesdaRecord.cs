@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Diagnostics;
 using static System.FormattableString;
 using static BethFile.B4S;
 
@@ -87,18 +87,19 @@ namespace BethFile
             uint? offsides = null;
             while (pos != payload.Count)
             {
-                uint sz = offsides ?? UBitConverter.ToUInt16(payload, pos + 4);
-                BethesdaField field = new BethesdaField(new UArraySegment<byte>(payload, pos, sz + 6u));
-                yield return field;
-                if (field.FieldType == XXXX)
+                B4S typ = UBitConverter.ToUInt32(payload, pos);
+                if (typ == XXXX)
                 {
-                    offsides = UBitConverter.ToUInt32(field.PayloadStart);
-                }
-                else
-                {
-                    offsides = null;
+                    Debug.Assert(UBitConverter.ToUInt16(payload, pos + 4) == 4, "XXXX has a special meaning for parsing.");
+                    offsides = UBitConverter.ToUInt32(payload, pos + 6);
+                    pos += 10u;
+                    continue;
                 }
 
+                uint sz = offsides ?? UBitConverter.ToUInt16(payload, pos + 4);
+                yield return new BethesdaField(typ, new UArraySegment<byte>(payload, pos + 6, sz));
+
+                offsides = null;
                 pos += sz + 6u;
             }
         }

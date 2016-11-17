@@ -7,27 +7,16 @@ namespace BethFile
     [StructLayout(LayoutKind.Auto)]
     public struct BethesdaField
     {
-        public BethesdaField(UArraySegment<byte> rawData)
+        public BethesdaField(B4S fieldType, UArraySegment<byte> payload)
         {
-            this.RawData = rawData;
+            this.FieldType = fieldType;
+            this.Payload = payload;
         }
 
-        public B4S FieldType => UBitConverter.ToUInt32(this.RawData, 0);
+        public B4S FieldType { get; }
 
-        public UArraySegment<byte> RawData { get; }
+        public UArraySegment<byte> Payload { get; }
 
-        public UArrayPosition<byte> Start => this.RawData.Pos;
-
-        public UArrayPosition<byte> PayloadStart => this.Start + 6;
-
-        public UArraySegment<byte> Payload => new UArraySegment<byte>(this.PayloadStart, this.RawData.Count - 6);
-
-        public ushort StoredSize
-        {
-            get { return UBitConverter.ToUInt16(this.Start + 4); }
-            set { UBitConverter.SetUInt16(this.Start + 4, value); }
-        }
-
-        public override string ToString() => $"{this.FieldType}: ({this.Payload.ToArray().ByteArrayToHexString()}";
+        public override string ToString() => $"{this.FieldType}: ({this.Payload.ToArray().ByteArrayToHexString()})";
     }
 }

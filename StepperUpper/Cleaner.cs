@@ -135,6 +135,8 @@ namespace StepperUpper
                 Doer.DeleteField(root, fieldToDelete.RecordId, fieldToDelete.FieldType);
             }
 
+            Doer.Optimize(root);
+
             return root;
         }
 
