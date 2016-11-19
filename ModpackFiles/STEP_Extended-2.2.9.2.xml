@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.0.3.1"
+         Requires="STEP Core, 2.2.9.2, 1.0.3.2"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.2.2"
+         FileVersion="1.0.2.3"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="157">
 

@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.0.3.1"
+         FileVersion="1.0.3.2"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="169">
 
@@ -18,12 +18,12 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="215ccbbca78af9cd3f833dd2efb81759"
 			      DownloadTags="nexus|skyrim|1334|1000174746" />
 
-			<File Name="LOOT 0.9.2 - Dev Archive"
-			      LengthInBytes="24693688"
-			      CanonicalFileName="loot_0.9.2-0-g6b58f92_dev.7z"
-			      MD5Checksum="7e22215ec99885695de6b5ee8f27dbf6"
-			      DownloadUrl="https://github.com/loot/loot/releases/download/0.9.2/loot_0.9.2-0-g6b58f92_dev.7z"
-			      DownloadTags="generic|https://loot.github.io/" />
+			<File Name="LOOT 0.10.1-9-g769f3dd - Dev Archive"
+			      LengthInBytes="30100478"
+			      CanonicalFileName="loot_0.10.1-9-g769f3dd_dev.7z"
+			      MD5Checksum="5f30d8ab82825eb362a9cf7e790c1d24"
+			      DownloadUrl="https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_0.10.1-9-g769f3dd_dev.7z"
+			      DownloadTags="generic|https://bintray.com/wrinklyninja/loot/LOOT/0.10.1-9-g769f3dd_dev#files" />
 
 			<File Name="xEdit 3.1.3 - 1dabbcd"
 			      LengthInBytes="3072144"
@@ -1152,8 +1152,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="ModOrganizer" To="ModOrganizer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LOOT 0.9.2 - Dev Archive">
-				<MapFolder From="loot_0.9.2-0-g6b58f92_dev" To="LOOT 0.9.2" />
+			<ExtractArchive ArchiveFile="LOOT 0.10.1-9-g769f3dd - Dev Archive">
+				<MapFolder From="loot_0.10.1-9-g769f3dd_dev" To="LOOT 0.10.1 (Pre-Alpha)" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 1dabbcd">
@@ -2170,9 +2170,23 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				</Plugin>
 			</Clean>
 
-			<!-- Do the rest of the cleaning that doesn't need to gobble up memory, so it can start
-			     early and stay active for a while without really hurting anyone. -->
-
+			<Embedded File="LOOT 0.10.1 (Pre-Alpha)/Data/Skyrim/userlist.yaml" Encoding="UTF8NoBOM">
+				<Line><![CDATA[bash_tags:
+  []
+plugins:
+  - name: 'RelightingSkyrim_Legendary.esp'
+    priority: 96
+  - name: 'AOS.esp'
+    after:
+      - 'ADS.esp'
+  - name: 'ELE_Legendary_Lite.esp'
+    priority: 97
+  - name: 'Book Covers Skyrim.esp'
+    after:
+      - 'TheChoiceIsYours.esp'
+globals:
+  []]]></Line>
+			</Embedded>
 
 			<TweakINI File="ModOrganizer/ModOrganizer.ini">
 				<Set Section="General" Property="selected_profile" Value="STEP Core 2.2.9.2" />
@@ -2195,9 +2209,9 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Set Section="customExecutables" Property="4\custom" Value="true" />
 				<Set Section="customExecutables" Property="4\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="4\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.9.2/LOOT.exe" />
-				<Set Section="customExecutables" Property="4\arguments" Value="" />
-				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.9.2/" />
+				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.1 (Pre-Alpha)/LOOT.exe" />
+				<Set Section="customExecutables" Property="4\arguments" Value="--loot-data-path=Data" />
+				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.1 (Pre-Alpha)/" />
 				<Set Section="customExecutables" Property="4\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="4\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="5\title" Value="TES5Edit" />
