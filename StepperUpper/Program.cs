@@ -329,9 +329,9 @@ namespace StepperUpper
             Console.Write(Invariant($"\r{new string(' ', 32)}"));
             Console.Write('\r');
 
-            IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.TryGetValue(new Md5Checksum(fl.Attribute("MD5Checksum").Value), out var val) &&
-                                                                                                                      new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value) == val.sha512Checksum))
-                                                                .ToArray();
+            var missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.TryGetValue(new Md5Checksum(fl.Attribute("MD5Checksum").Value), out var val) &&
+                                                                   new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value) == val.sha512Checksum))
+                                      .ToArray();
 
             Console.WriteLine("Finished checking existing files.");
 
