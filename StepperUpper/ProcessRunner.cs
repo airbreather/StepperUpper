@@ -71,6 +71,7 @@ namespace StepperUpper
                 }
                 catch
                 {
+                    // this seems to happen if the process terminates extraordinarily quickly.
                 }
 
                 return tcs.Task.Finally(process.Dispose);

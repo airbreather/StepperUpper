@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 using AirBreather.Collections;
 
 namespace StepperUpper
@@ -46,33 +47,34 @@ namespace StepperUpper
         internal static XDocument PoolStrings(this XDocument doc, StringPool pool)
         {
             Stack<XNode> stack = new Stack<XNode>();
+            List<XAttribute> attributesList = new List<XAttribute>();
             stack.Push(doc.Root);
             while (stack.Count != 0)
             {
-                XNode nod = stack.Pop();
-                XElement nxt = nod as XElement;
-                if (nxt != null)
+                switch (stack.Pop())
                 {
-                    nxt.Name = pool.Pool(nxt.Name);
-                    foreach (XAttribute attribute in nxt.Attributes().ToArray())
-                    {
-                        nxt.SetAttributeValue(pool.Pool(attribute.Name), pool.Pool(attribute.Value));
-                    }
-                }
+                    case XElement nxt:
+                        nxt.Name = pool.Pool(nxt.Name);
+                        attributesList.AddRange(nxt.Attributes());
+                        foreach (XAttribute attribute in attributesList)
+                        {
+                            nxt.SetAttributeValue(pool.Pool(attribute.Name), pool.Pool(attribute.Value));
+                        }
 
-                XText txt = nod as XText;
-                if (txt != null)
-                {
-                    txt.Value = pool.Pool(txt.Value);
-                }
+                        attributesList.Clear();
+                        break;
 
-                XContainer cont = nod as XContainer;
-                if (cont != null)
-                {
-                    foreach (XNode child in cont.Nodes())
-                    {
-                        stack.Push(child);
-                    }
+                    case XText txt:
+                        txt.Value = pool.Pool(txt.Value);
+                        break;
+
+                    case XContainer cont:
+                        foreach (XNode child in cont.Nodes())
+                        {
+                            stack.Push(child);
+                        }
+
+                        break;
                 }
             }
 

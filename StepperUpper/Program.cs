@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using AirBreather;
 using AirBreather.Collections;
 using AirBreather.IO;
 
@@ -202,8 +203,7 @@ namespace StepperUpper
                     seenSoFar.Add(modpackName + ", " + packVersion);
                     seenSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
 
-                    int currMaxOutputPathLength;
-                    if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out currMaxOutputPathLength) &&
+                    if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out var currMaxOutputPathLength) &&
                         longestOutputPathLength < currMaxOutputPathLength)
                     {
                         longestOutputPathLength = currMaxOutputPathLength;
@@ -282,9 +282,29 @@ namespace StepperUpper
             // don't care about, and the MO download folder itself might have tons of crap we don't
             // care about either.  quick and easy fix is to just look at files whose lengths match.
             // not absolutely 100% perfect, but good enough.
-            var sizes = new HashSet<long>(groups.SelectMany(grp => grp.Select(el => Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture))));
+            var sizes = new Dictionary<long, Hashes>();
+            foreach (var el in groups.SelectMany(grp => grp))
+            {
+                var size = Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture);
+                if (!sizes.TryGetValue(size, out var hashesToCheck))
+                {
+                    hashesToCheck = Hashes.Md5;
+                }
 
-            FileInfo[][] sourceFiles = sourceDirectories.Distinct(StringComparer.OrdinalIgnoreCase).Select(dir => new DirectoryInfo(dir).EnumerateFiles().Where(fl => sizes.Contains(fl.Length)).ToArray()).ToArray();
+                if (el.Attribute("SHA512Checksum") != null)
+                {
+                    hashesToCheck |= Hashes.Sha512;
+                }
+
+                sizes[size] = hashesToCheck;
+            }
+
+            var sourceFiles = sourceDirectories.Distinct(StringComparer.OrdinalIgnoreCase)
+                                               .Select(dir => new DirectoryInfo(dir).EnumerateFiles()
+                                                                                    .Where(fl => sizes.ContainsKey(fl.Length))
+                                                                                    .Select(fl => (fl, sizes[fl.Length]))
+                                                                                    .ToArray())
+                                               .ToArray();
 
             int cnt = 0;
             for (int i = 0; i < sourceFiles.Length; i++)
@@ -293,24 +313,25 @@ namespace StepperUpper
             }
 
             Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining..."));
-            IObservable<FileInfo> allFiles = Observable.Merge(TaskPoolScheduler.Default, Array.ConvertAll(sourceFiles, Observable.ToObservable))
+            IObservable<(FileInfo, Hashes)> allFiles = Observable.Merge(TaskPoolScheduler.Default, Array.ConvertAll(sourceFiles, Observable.ToObservable))
                 // uncomment to see what it's like if you don't have anything yet.
                 ////.Take(0)
                 ;
 
-            Dictionary<Md5Checksum, string> checkedFiles =
-                await ConcurrentMd5.Calculate(allFiles)
+            var checkedFiles =
+                await ConcurrentHashCheck.Calculate(allFiles)
                     .Do(_ => Console.Write(Invariant($"\r{Interlocked.Decrement(ref cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} file(s) remaining...")))
-                    .Distinct(f => f.Checksum)
-                    .ToDictionary(f => f.Checksum, f => f.Path)
-                    .Select(d => new Dictionary<Md5Checksum, string>(d))
+                    .Distinct(f => f.md5Checksum)
+                    .ToDictionary(f => f.md5Checksum)
                     .ToTask()
                     .ConfigureAwait(false);
 
             Console.Write(Invariant($"\r{new string(' ', 32)}"));
             Console.Write('\r');
 
-            IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.ContainsKey(Md5Checksum(fl)))).ToArray();
+            IGrouping<string, XElement>[] missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.TryGetValue(new Md5Checksum(fl.Attribute("MD5Checksum").Value), out var val) &&
+                                                                                                                      new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value) == val.sha512Checksum))
+                                                                .ToArray();
 
             Console.WriteLine("Finished checking existing files.");
 
@@ -331,7 +352,8 @@ namespace StepperUpper
                     var downloadables = grp.Select(fl => new
                     {
                         Name = fl.Attribute("Name").Value,
-                        Md5Checksum = Md5Checksum(fl),
+                        Md5Checksum = new Md5Checksum(fl.Attribute("MD5Checksum").Value),
+                        Sha512Checksum = new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value),
                         DownloadUrl = fl.Attribute("DownloadUrl")?.Value,
                         CanonicalFileName = fl.Attribute("CanonicalFileName").Value
                     }).Where(x => x.DownloadUrl != null).ToArray();
@@ -362,12 +384,13 @@ namespace StepperUpper
                         continue;
                     }
 
-                    var fileWithChecksum = await ConcurrentMd5.Calculate(Observable.Return(targetFile)).ToTask().ConfigureAwait(false);
-                    if (fileWithChecksum.Checksum == downloadable.Md5Checksum)
+                    var fileWithChecksum = await ConcurrentHashCheck.Calculate(Observable.Return((targetFile, Hashes.Md5 | Hashes.Sha512))).ToTask().ConfigureAwait(false);
+                    if (fileWithChecksum.md5Checksum == downloadable.Md5Checksum && 
+                        (downloadable.Sha512Checksum == default(Sha512Checksum) || fileWithChecksum.sha512Checksum == downloadable.Sha512Checksum))
                     {
                         Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
                         missingGroups[i] = null;
-                        checkedFiles[fileWithChecksum.Checksum] = fileWithChecksum.Path;
+                        checkedFiles[fileWithChecksum.md5Checksum] = fileWithChecksum;
                     }
                     else
                     {
@@ -407,7 +430,7 @@ namespace StepperUpper
                         int optionCount = 0;
                         foreach (var el in grp)
                         {
-                            if (!checksums.Add(Md5Checksum(el)))
+                            if (!checksums.Add(new Md5Checksum(el.Attribute("MD5Checksum").Value)))
                             {
                                 continue;
                             }
@@ -470,7 +493,7 @@ namespace StepperUpper
                     .Elements("Group")
                     .SelectMany(grp => grp.Elements("File"))
                     .GroupBy(fl => fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)
-                    .ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(Md5Checksum).First(checkedFiles.ContainsKey)]));
+                    .ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(el => new Md5Checksum(el.Attribute("MD5Checksum").Value)).First(checkedFiles.ContainsKey)].file.FullName));
 
                 Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
                 dumpDirectory.Create();
@@ -490,7 +513,7 @@ namespace StepperUpper
                         {
                             await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
 
-                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, checkedFiles, dict2).ConfigureAwait(false);
+                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, dict2).ConfigureAwait(false);
 
                             dict2[id].TrySetResult(null);
                         }
@@ -536,6 +559,7 @@ namespace StepperUpper
         {
             try
             {
+                toDirectory.Parent.Create();
                 fromDirectory.MoveTo(toDirectory.FullName);
                 return;
             }
@@ -556,6 +580,8 @@ namespace StepperUpper
             {
                 await DeleteFileAsync(toFile).ConfigureAwait(false);
             }
+
+            toFile.Directory.Create();
 
             while (true)
             {
@@ -643,8 +669,6 @@ namespace StepperUpper
                 }
             }
         }
-
-        internal static Md5Checksum Md5Checksum(XElement element) => new Md5Checksum(element.Attribute("MD5Checksum").Value);
 
         internal static IEnumerable<string> Tokenize(string txt, char split = '|')
         {

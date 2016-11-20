@@ -6,9 +6,7 @@ namespace BethFile.Editor
 {
     public sealed class Group
     {
-        public Group()
-        {
-        }
+        public Group() { }
 
         public Group(Group copyFrom)
         {

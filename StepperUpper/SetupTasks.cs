@@ -20,7 +20,7 @@ namespace StepperUpper
 {
     internal static class SetupTasks
     {
-        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
+        internal static Task DispatchAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory, IReadOnlyDictionary<string, TaskCompletionSource<object>> otherTasks)
         {
             switch (taskElement.Name.LocalName)
             {
@@ -31,7 +31,7 @@ namespace StepperUpper
                     return Task.Run(() => WriteINI(taskElement, dumpDirectory));
 
                 case "CopyFile":
-                    return Task.Run(() => CopyFile(taskElement, dumpDirectory, checkedFiles));
+                    return Task.Run(() => CopyFile(taskElement, dumpDirectory));
 
                 case "Embedded":
                     return WriteEmbeddedFileAsync(taskElement, dumpDirectory);
@@ -113,68 +113,67 @@ namespace StepperUpper
                 switch (element.Name.LocalName)
                 {
                     case "MapFolder":
-                    {
-                        string givenFromPath = element.Attribute("From")?.Value ?? String.Empty;
-                        string givenToPath = element.Attribute("To").Value;
-                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-                        DirectoryInfo toDirectory = new DirectoryInfo(toPath);
-                        toDirectory.Parent.Create();
-
-                        if (givenFromPath.Length == 0)
                         {
-                            explicitDelete = false;
+                            string givenFromPath = element.Attribute("From")?.Value ?? String.Empty;
+                            string givenToPath = element.Attribute("To").Value;
+                            string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+                            DirectoryInfo toDirectory = new DirectoryInfo(toPath);
+                            toDirectory.Parent.Create();
+
+                            if (givenFromPath.Length == 0)
+                            {
+                                explicitDelete = false;
+                            }
+
+                            string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                            DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
+
+                            await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
+                            break;
                         }
-
-                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
-                        DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
-
-                        await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
-                        break;
-                    }
 
                     case "MapFile":
-                    {
-                        string givenFromPath = element.Attribute("From").Value;
-                        string givenToPath = element.Attribute("To").Value;
-
-                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
-                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-
-                        FileInfo toFile = new FileInfo(toPath);
-                        toFile.Directory.Create();
-                        if (toFile.Exists)
                         {
-                            toFile.Delete();
-                            toFile.Refresh();
-                        }
+                            string givenFromPath = element.Attribute("From").Value;
+                            string givenToPath = element.Attribute("To").Value;
 
-                        File.Move(fromPath, toPath);
-                        break;
-                    }
+                            string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                            string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+
+                            FileInfo toFile = new FileInfo(toPath);
+                            toFile.Directory.Create();
+                            if (toFile.Exists)
+                            {
+                                toFile.Delete();
+                                toFile.Refresh();
+                            }
+
+                            File.Move(fromPath, toPath);
+                            break;
+                        }
 
                     case "Hide":
-                    {
-                        // "hide"... heh...
-                        string folderToHide = element.Attribute("Folder")?.Value;
-                        string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
-                        if (folderToHide != null)
                         {
-                            Directory.Move(pathToHide, pathToHide + ".mohidden");
-                        }
-                        else
-                        {
-                            File.Move(pathToHide, pathToHide + ".mohidden");
-                        }
+                            string folderToHide = element.Attribute("Folder")?.Value;
+                            string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
+                            if (folderToHide != null)
+                            {
+                                Directory.Move(pathToHide, pathToHide + ".mohidden");
+                            }
+                            else
+                            {
+                                File.Move(pathToHide, pathToHide + ".mohidden");
+                            }
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case "Optional":
-                    {
-                        FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
-                        file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
-                        break;
-                    }
+                        {
+                            FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
+                            file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
+                            break;
+                        }
 
                     default:
                         throw new NotSupportedException("Unsupported element: " + element.Name.LocalName);
@@ -201,21 +200,10 @@ namespace StepperUpper
             }
         }
 
-        private static void CopyFile(XElement taskElement, DirectoryInfo dumpDirectory, IReadOnlyDictionary<Md5Checksum, string> checkedFiles)
+        private static void CopyFile(XElement taskElement, DirectoryInfo dumpDirectory)
         {
             XAttribute fromAttribute = taskElement.Attribute("From");
-            XAttribute fileAttribute = taskElement.Attribute("File");
-            FileInfo fromFile = null;
-            if (fromAttribute != null)
-            {
-                fromFile = new FileInfo(Path.Combine(dumpDirectory.FullName, fromAttribute.Value));
-            }
-            else
-            {
-                // TODO: in reality, this may come from an earlier task.
-                fromFile = new FileInfo(checkedFiles[new Md5Checksum(fileAttribute.Value)]);
-            }
-
+            FileInfo fromFile = new FileInfo(Path.Combine(dumpDirectory.FullName, fromAttribute.Value));
             FileInfo toFile = new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value));
             toFile.Directory.Create();
             fromFile.CopyTo(toFile.FullName, true);
@@ -300,7 +288,9 @@ namespace StepperUpper
                     parentNames: el.Elements("Master").Select(el2 => el2.Attribute("File").Value),
                     recordsToDelete: TokenizeIds(el.Element("Delete")?.Attribute("Ids").Value),
                     recordsToUDR: TokenizeIds(el.Element("UDR")?.Attribute("Ids").Value),
-                    fieldsToDelete: el.Elements("RemoveField").Select(el2 => new FieldToDelete(UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture), new B4S(el2.Attribute("FieldType").Value))));
+                    fieldsToDelete: el.Elements("RemoveField")
+                                      .Select(el2 => (recordId: UInt32.Parse(el2.Attribute("RecordId").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture),
+                                                      fieldType: new B4S(el2.Attribute("FieldType").Value))));
             }
         }
 
@@ -313,7 +303,7 @@ namespace StepperUpper
             var edits = taskElement.Elements("ModifyLine").ToDictionary(el => el.Element("Old").Value, el => el.Element("New").Value);
             var deletes = taskElement.Elements("DeleteLine").Select(el => el.Element("Line").Value).ToHashSet();
 
-            Encoding encoding = null;
+            Encoding encoding;
             switch (taskElement.Attribute("Encoding").Value)
             {
                 case "UTF8NoBOM":
@@ -334,8 +324,7 @@ namespace StepperUpper
                 string line;
                 while ((line = await rd.ReadLineAsync().ConfigureAwait(false)) != null)
                 {
-                    string[] adds;
-                    if (preAdds.TryGetValue(line, out adds))
+                    if (preAdds.TryGetValue(line, out var adds))
                     {
                         foreach (var ln in adds)
                         {
@@ -345,8 +334,7 @@ namespace StepperUpper
 
                     if (!deletes.Contains(line))
                     {
-                        string ed;
-                        await wr.WriteLineAsync(edits.TryGetValue(line, out ed) ? ed : line).ConfigureAwait(false);
+                        await wr.WriteLineAsync(edits.TryGetValue(line, out var ed) ? ed : line).ConfigureAwait(false);
                     }
 
                     if (postAdds.TryGetValue(line, out adds))

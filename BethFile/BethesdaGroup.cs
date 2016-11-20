@@ -4,15 +4,9 @@ namespace BethFile
 {
     public struct BethesdaGroup
     {
-        public BethesdaGroup(byte[] rawData)
-        {
-            this.Start = new UArrayPosition<byte>(rawData);
-        }
+        public BethesdaGroup(byte[] rawData) => this.Start = new UArrayPosition<byte>(rawData);
 
-        public BethesdaGroup(UArrayPosition<byte> start)
-        {
-            this.Start = start;
-        }
+        public BethesdaGroup(UArrayPosition<byte> start) => this.Start = start;
 
         public UArrayPosition<byte> Start { get; }
 
@@ -24,50 +18,50 @@ namespace BethFile
 
         public B4S RecordType
         {
-            get { return UBitConverter.ToUInt32(this.PayloadStart); }
-            set { UBitConverter.SetUInt32(this.PayloadStart, value); }
+            get => UBitConverter.ToUInt32(this.PayloadStart);
+            set => UBitConverter.SetUInt32(this.PayloadStart, value);
         }
 
         public uint DataSize
         {
-            get { return UBitConverter.ToUInt32(this.Start + 4) - 24; }
-            set { UBitConverter.SetUInt32(this.Start + 4, value + 24); }
+            get => UBitConverter.ToUInt32(this.Start + 4) - 24;
+            set => UBitConverter.SetUInt32(this.Start + 4, value + 24);
         }
 
         public uint Label
         {
-            get { return UBitConverter.ToUInt32(this.Start + 8); }
-            set { UBitConverter.SetUInt32(this.Start + 8, value); }
+            get => UBitConverter.ToUInt32(this.Start + 8);
+            set => UBitConverter.SetUInt32(this.Start + 8, value);
         }
 
         public BethesdaGroupType GroupType
         {
-            get { return (BethesdaGroupType)UBitConverter.ToInt32(this.Start + 12); }
-            set { UBitConverter.SetUInt32(this.Start + 12, (uint)value); }
+            get => (BethesdaGroupType)UBitConverter.ToInt32(this.Start + 12);
+            set => UBitConverter.SetUInt32(this.Start + 12, (uint)value);
         }
 
         public ushort Stamp
         {
-            get { return UBitConverter.ToUInt16(this.Start + 16); }
-            set { UBitConverter.SetUInt16(this.Start + 16, value); }
+            get => UBitConverter.ToUInt16(this.Start + 16);
+            set => UBitConverter.SetUInt16(this.Start + 16, value);
         }
 
         public ushort UNKNOWN_18
         {
-            get { return UBitConverter.ToUInt16(this.Start + 18); }
-            set { UBitConverter.SetUInt16(this.Start + 18, value); }
+            get => UBitConverter.ToUInt16(this.Start + 18);
+            set => UBitConverter.SetUInt16(this.Start + 18, value);
         }
 
         public ushort Version
         {
-            get { return UBitConverter.ToUInt16(this.Start + 20); }
-            set { UBitConverter.SetUInt16(this.Start + 20, value); }
+            get => UBitConverter.ToUInt16(this.Start + 20);
+            set => UBitConverter.SetUInt16(this.Start + 20, value);
         }
 
         public ushort UNKNOWN_22
         {
-            get { return UBitConverter.ToUInt16(this.Start + 22); }
-            set { UBitConverter.SetUInt16(this.Start + 22, value); }
+            get => UBitConverter.ToUInt16(this.Start + 22);
+            set => UBitConverter.SetUInt16(this.Start + 22, value);
         }
 
         public override string ToString()

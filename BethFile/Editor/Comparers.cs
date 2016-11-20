@@ -10,48 +10,44 @@ namespace BethFile.Editor
     {
         public static readonly ObjectComparer Instance = new ObjectComparer();
 
-        private ObjectComparer()
-        {
-        }
+        private ObjectComparer() { }
 
         public override bool Equals(object x, object y)
         {
-            Field f1 = x as Field;
-            if (f1 != null)
+            switch (x)
             {
-                Field f2 = y as Field;
-                return f2 != null && FieldComparer.Instance.Equals(f1, f2);
-            }
+                case Field f1:
+                    return y is Field f2 && FieldComparer.Instance.Equals(f1, f2);
 
-            Record r1 = x as Record;
-            if (r1 != null)
-            {
-                Record r2 = y as Record;
-                return r2 != null && RecordComparer.Instance.Equals(r1, r2);
-            }
+                case Record r1:
+                    return y is Record r2 && RecordComparer.Instance.Equals(r1, r2);
 
-            Group g1 = x as Group;
-            Group g2 = y as Group;
-            return g2 != null && GroupComparer.Instance.Equals(g1, g2);
+                case Group g1:
+                    return y is Group g2 && GroupComparer.Instance.Equals(g1, g2);
+
+                default:
+                    throw new NotSupportedException("Unrecognized type.");
+            }
         }
 
         public override int GetHashCode(object obj)
         {
             int hc = HashCode.Seed;
-
-            Field f1 = obj as Field;
-            if (f1 != null)
+            switch (obj)
             {
-                return hc.HashWith(0).HashWith(FieldComparer.Instance.GetHashCode(f1));
-            }
+                case Field f1:
+                    return hc.HashWith(0).HashWith(FieldComparer.Instance.GetHashCode(f1));
 
-            Record r1 = obj as Record;
-            if (r1 != null)
-            {
-                return hc.HashWith(1).HashWith(RecordComparer.Instance.GetHashCode(r1));
-            }
+                case Record r1:
+                    return hc.HashWith(1).HashWith(RecordComparer.Instance.GetHashCode(r1));
 
-            return hc.HashWith(2).HashWith(GroupComparer.Instance.GetHashCode((Group)obj));
+                case Group g1:
+                    return hc.HashWith(2).HashWith(GroupComparer.Instance.GetHashCode(g1));
+
+                default:
+                    throw new NotSupportedException("Unrecognized type.");
+
+            }
         }
     }
 
@@ -59,9 +55,7 @@ namespace BethFile.Editor
     {
         public static readonly RecordComparer Instance = new RecordComparer();
 
-        private RecordComparer()
-        {
-        }
+        private RecordComparer() { }
 
         public override int Compare(Record x, Record y) => x.Id.CompareTo(y.Id);
 
@@ -74,9 +68,7 @@ namespace BethFile.Editor
     {
         public static readonly GroupComparer Instance = new GroupComparer();
 
-        private GroupComparer()
-        {
-        }
+        private GroupComparer() { }
 
         public override int Compare(Group x, Group y)
         {
@@ -95,9 +87,7 @@ namespace BethFile.Editor
     {
         public static readonly FieldComparer Instance = new FieldComparer();
 
-        private FieldComparer()
-        {
-        }
+        private FieldComparer() { }
 
         public override int Compare(Field x, Field y)
         {

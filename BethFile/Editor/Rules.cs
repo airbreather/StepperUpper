@@ -1,5 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+
+using AirBreather;
 
 using static BethFile.B4S;
 
@@ -18,10 +19,8 @@ namespace BethFile.Editor
                 return false;
             }
 
-            foreach (var tup in curr.Fields.OrderBy(f => f, FieldComparer.Instance).Zip(master.Fields.OrderBy(f => f, FieldComparer.Instance), Tuple.Create))
+            foreach (var (f1, f2) in curr.Fields.OrderBy(f => f, FieldComparer.Instance).Zip(master.Fields.OrderBy(f => f, FieldComparer.Instance)))
             {
-                var f1 = tup.Item1;
-                var f2 = tup.Item2;
                 if (f1.FieldType != f2.FieldType ||
                     !FieldsAreIdentical(curr.RecordType, f1, f2))
                 {

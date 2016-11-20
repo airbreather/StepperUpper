@@ -13,8 +13,8 @@ namespace BethFile.Editor
             FinalizeHeader(root);
             byte[] rec = new byte[CalculateSize(root, true)];
             UArrayPosition<byte> pos = new UArrayPosition<byte>(rec);
-            Saved saved = Write(root, ref pos);
-            return new BethesdaFile(saved.Record, saved.Subgroups);
+            var (record, subgroups) = Write(root, ref pos);
+            return new BethesdaFile(record, subgroups);
         }
 
         private static void FinalizeHeader(Record root)
@@ -53,16 +53,16 @@ namespace BethFile.Editor
             UBitConverter.SetUInt32(new UArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
         }
 
-        private static Saved Write(Record record, ref UArrayPosition<byte> pos)
+        private static (BethesdaRecord record, BethesdaGroup[] subgroups) Write(Record record, ref UArrayPosition<byte> pos)
         {
-            Saved saved = new Saved();
+            var result = default((BethesdaRecord record, BethesdaGroup[] subgroups));
 
             if (record.IsDummy)
             {
                 goto groups;
             }
 
-            BethesdaRecord rec = saved.Record = new BethesdaRecord(pos)
+            result.record = new BethesdaRecord(pos)
             {
                 RecordType = record.RecordType,
                 DataSize = CalculateSize(record, false) - 24,
@@ -83,13 +83,13 @@ namespace BethFile.Editor
             pos += payloadLength;
 
             groups:
-            saved.Subgroups = new BethesdaGroup[record.Subgroups.Count];
-            for (int i = 0; i < saved.Subgroups.Length; i++)
+            result.subgroups = new BethesdaGroup[record.Subgroups.Count];
+            for (int i = 0; i < result.subgroups.Length; i++)
             {
-                saved.Subgroups[i] = Write(record.Subgroups[i], ref pos);
+                result.subgroups[i] = Write(record.Subgroups[i], ref pos);
             }
 
-            return saved;
+            return result;
         }
 
         private static BethesdaGroup Write(Group group, ref UArrayPosition<byte> pos)
@@ -199,13 +199,6 @@ namespace BethFile.Editor
             }
 
             return payloadSize;
-        }
-
-        private struct Saved
-        {
-            internal BethesdaRecord Record;
-
-            internal BethesdaGroup[] Subgroups;
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 using static System.FormattableString;
-using static BethFile.B4S;
 
 namespace BethFile.Editor
 {
@@ -12,9 +11,7 @@ namespace BethFile.Editor
 
         private Lazy<List<Field>> fields = new Lazy<List<Field>>();
 
-        public Record()
-        {
-        }
+        public Record() { }
 
         public Record(Record copyFrom)
         {
@@ -136,7 +133,7 @@ namespace BethFile.Editor
 
         private void MakeFieldsNotLazy()
         {
-            if (!this.fields.IsValueCreated && this.fields.Value == null)
+            if (this.fields.Value == null)
             {
                 throw new Exception("This is not actually possible unless there's a bug in Lazy<T>.");
             }

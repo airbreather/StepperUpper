@@ -5,13 +5,9 @@ namespace BethFile
     [StructLayout(LayoutKind.Auto)]
     public struct UArrayPosition<T>
     {
-        public UArrayPosition(T[] array) : this(array, 0)
-        {
-        }
+        public UArrayPosition(T[] array) => this = new UArrayPosition<T>(array, 0);
 
-        public UArrayPosition(UArrayPosition<T> pos, uint offset) : this(pos.Array, pos.Offset + offset)
-        {
-        }
+        public UArrayPosition(UArrayPosition<T> pos, uint offset) => this = new UArrayPosition<T>(pos.Array, pos.Offset + offset);
 
         public UArrayPosition(T[] array, uint offset)
         {
@@ -21,8 +17,8 @@ namespace BethFile
 
         public T this[uint idx]
         {
-            get { return this.Array[this.Offset + idx]; }
-            set { this.Array[this.Offset + idx] = value; }
+            get => this.Array[this.Offset + idx];
+            set => this.Array[this.Offset + idx] = value;
         }
 
         public T[] Array { get; }

@@ -7,10 +7,7 @@ namespace BethFile.Editor
     {
         private readonly Dictionary<uint, Record>[] allRecords;
 
-        public Merged(int masterCount)
-        {
-            this.allRecords = new Dictionary<uint, Record>[masterCount];
-        }
+        public Merged(int masterCount) => this.allRecords = new Dictionary<uint, Record>[masterCount];
 
         public bool IsFinalized
         {
@@ -28,17 +25,13 @@ namespace BethFile.Editor
             }
         }
 
-        public void SetRoot(int index, Dictionary<uint, Record> map)
-        {
-            Volatile.Write(ref this.allRecords[index], map);
-        }
+        public void SetRoot(int index, Dictionary<uint, Record> map) => Volatile.Write(ref this.allRecords[index], map);
 
         public Record FindRecord(uint id)
         {
             for (int i = 0; i < this.allRecords.Length; i++)
             {
-                Record rec;
-                if ((this.allRecords[i] ?? Volatile.Read(ref this.allRecords[i])).TryGetValue(id, out rec))
+                if ((this.allRecords[i] ?? Volatile.Read(ref this.allRecords[i])).TryGetValue(id, out var rec))
                 {
                     return rec;
                 }

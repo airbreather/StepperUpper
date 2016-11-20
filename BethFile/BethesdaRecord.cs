@@ -8,15 +8,9 @@ namespace BethFile
 {
     public struct BethesdaRecord
     {
-        public BethesdaRecord(byte[] rawData)
-        {
-            this.Start = new UArrayPosition<byte>(rawData);
-        }
+        public BethesdaRecord(byte[] rawData) => this.Start = new UArrayPosition<byte>(rawData);
 
-        public BethesdaRecord(UArrayPosition<byte> rawData)
-        {
-            this.Start = rawData;
-        }
+        public BethesdaRecord(UArrayPosition<byte> rawData) => this.Start = rawData;
 
         public UArrayPosition<byte> Start { get; }
 
@@ -28,44 +22,44 @@ namespace BethFile
 
         public B4S RecordType
         {
-            get { return UBitConverter.ToUInt32(this.Start); }
-            set { UBitConverter.SetUInt32(this.Start, value); }
+            get => UBitConverter.ToUInt32(this.Start);
+            set => UBitConverter.SetUInt32(this.Start, value);
         }
 
         public uint DataSize
         {
-            get { return UBitConverter.ToUInt32(this.Start + 4); }
-            set { UBitConverter.SetUInt32(this.Start + 4, value); }
+            get => UBitConverter.ToUInt32(this.Start + 4);
+            set => UBitConverter.SetUInt32(this.Start + 4, value);
         }
 
         public BethesdaRecordFlags Flags
         {
-            get { return (BethesdaRecordFlags)UBitConverter.ToUInt32(this.Start + 8); }
-            set { UBitConverter.SetUInt32(this.Start + 8, (uint)value); }
+            get => (BethesdaRecordFlags)UBitConverter.ToUInt32(this.Start + 8);
+            set => UBitConverter.SetUInt32(this.Start + 8, (uint)value);
         }
 
         public uint Id
         {
-            get { return UBitConverter.ToUInt32(this.Start + 12); }
-            set { UBitConverter.SetUInt32(this.Start + 12, value); }
+            get => UBitConverter.ToUInt32(this.Start + 12);
+            set => UBitConverter.SetUInt32(this.Start + 12, value);
         }
 
         public uint Revision
         {
-            get { return UBitConverter.ToUInt32(this.Start + 16); }
-            set { UBitConverter.SetUInt32(this.Start + 16, value); }
+            get => UBitConverter.ToUInt32(this.Start + 16);
+            set => UBitConverter.SetUInt32(this.Start + 16, value);
         }
 
         public ushort Version
         {
-            get { return UBitConverter.ToUInt16(this.Start + 20); }
-            set { UBitConverter.SetUInt32(this.Start + 20, value); }
+            get => UBitConverter.ToUInt16(this.Start + 20);
+            set => UBitConverter.SetUInt32(this.Start + 20, value);
         }
 
         public ushort UNKNOWN_22
         {
-            get { return UBitConverter.ToUInt16(this.Start + 22); }
-            set { UBitConverter.SetUInt32(this.Start + 22, value); }
+            get => UBitConverter.ToUInt16(this.Start + 22);
+            set => UBitConverter.SetUInt32(this.Start + 22, value);
         }
 
         public IEnumerable<BethesdaField> Fields

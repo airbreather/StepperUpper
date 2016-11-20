@@ -9,17 +9,11 @@ namespace BethFile
     [StructLayout(LayoutKind.Auto)]
     public struct UArraySegment<T> : IReadOnlyList<T>
     {
-        public UArraySegment(T[] array) : this(array, 0, checked((uint)array.LongLength))
-        {
-        }
+        public UArraySegment(T[] array) => this = new UArraySegment<T>(array, 0, checked((uint)array.LongLength));
 
-        public UArraySegment(UArrayPosition<T> pos, uint count) : this(pos.Array, pos.Offset, count)
-        {
-        }
+        public UArraySegment(UArrayPosition<T> pos, uint count) => this = new UArraySegment<T>(pos.Array, pos.Offset, count);
         
-        public UArraySegment(UArraySegment<T> seg, uint offset, uint count) : this(seg.Array, seg.Offset + offset, count)
-        {
-        }
+        public UArraySegment(UArraySegment<T> seg, uint offset, uint count) => this = new UArraySegment<T>(seg.Array, seg.Offset + offset, count);
 
         public UArraySegment(T[] array, uint offset, uint count)
         {
@@ -30,8 +24,8 @@ namespace BethFile
 
         public T this[uint idx]
         {
-            get { return this.Array[this.Offset + idx]; }
-            set { this.Array[this.Offset + idx] = value; }
+            get => this.Array[this.Offset + idx];
+            set => this.Array[this.Offset + idx] = value;
         }
 
         public T[] Array { get; }
@@ -71,18 +65,13 @@ namespace BethFile
 
             private uint curr;
 
-            internal Enumerator(UArraySegment<T> seg)
-            {
-                this.seg = seg;
-            }
+            internal Enumerator(UArraySegment<T> seg) => this.seg = seg;
 
             public T Current => this.seg[this.curr - 1];
 
             object IEnumerator.Current => this.seg[this.curr - 1];
 
-            void IDisposable.Dispose()
-            {
-            }
+            void IDisposable.Dispose() { }
 
             public bool MoveNext() => this.curr <= this.seg.Count &&
                                       ++this.curr <= this.seg.Count;

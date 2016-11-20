@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
 using AirBreather;
 
 using static System.FormattableString;
@@ -14,10 +15,7 @@ namespace BethFile
 
         private readonly Stack<BethesdaGroup> activeGroups = new Stack<BethesdaGroup>();
 
-        public BethesdaFileDescriber(TextWriter writer)
-        {
-            this.writer = writer.ValidateNotNull(nameof(writer));
-        }
+        public BethesdaFileDescriber(TextWriter writer) => this.writer = writer.ValidateNotNull(nameof(writer));
 
         protected override void OnEnterGroup(BethesdaGroup group)
         {

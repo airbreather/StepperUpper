@@ -3,7 +3,7 @@ using System.Text;
 
 namespace BethFile
 {
-    public struct B4S : IEquatable<B4S>, IComparable<B4S>
+    public struct B4S : IEquatable<B4S>, IComparable<B4S>, IComparable
     {
         // get values by running this in C# Interactive:
         ////System.BitConverter.ToUInt32(System.Text.Encoding.ASCII.GetBytes("TES4"), 0)
@@ -125,10 +125,7 @@ namespace BethFile
             }
         }
 
-        private B4S(uint val)
-        {
-            this.val = val;
-        }
+        private B4S(uint val) => this.val = val;
 
         public static implicit operator uint(B4S val) => val.val;
         public static implicit operator B4S(uint val) => new B4S(val);
@@ -140,8 +137,10 @@ namespace BethFile
         public static bool operator <=(B4S first, B4S second) => first.val <= second.val;
         public static bool operator >=(B4S first, B4S second) => first.val >= second.val;
 
+        public int CompareTo(object obj) => obj is B4S other ? this.val.CompareTo(other.val) : throw new ArgumentException("Must be of the same type.", nameof(obj));
         public int CompareTo(B4S other) => this.val.CompareTo(other.val);
-        public override bool Equals(object obj) => obj is B4S && this.val == ((B4S)obj).val;
+
+        public override bool Equals(object obj) => obj is B4S other && this.val == other.val;
         public bool Equals(B4S other) => this.val == other.val;
         public override int GetHashCode() => unchecked((int)this.val);
 

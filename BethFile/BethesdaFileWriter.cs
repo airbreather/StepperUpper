@@ -8,10 +8,7 @@ namespace BethFile
     {
         private readonly Stream stream;
 
-        public BethesdaFileWriter(Stream stream)
-        {
-            this.stream = stream;
-        }
+        public BethesdaFileWriter(Stream stream) => this.stream = stream;
 
         public async Task WriteAsync(BethesdaFile file)
         {

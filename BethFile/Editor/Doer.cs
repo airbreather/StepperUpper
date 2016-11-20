@@ -159,11 +159,11 @@ namespace BethFile.Editor
                     where record.Id == recordId
                     from field in record.Fields
                     where field.FieldType == fieldType
-                    select new { Record = record, Field = field };
+                    select (record, field);
 
-            var result = q.First();
-            result.Record.Fields.Remove(result.Field);
-            result.Record.CompressedFieldData = null;
+            var (foundRecord, foundField) = q.First();
+            foundRecord.Fields.Remove(foundField);
+            foundRecord.CompressedFieldData = null;
         }
 
         public static IEnumerable<Record> FindRecords(Record rec)

@@ -10,10 +10,7 @@ namespace BethFile
 
         private uint pos;
 
-        public BethesdaGroupReader(BethesdaGroup group)
-        {
-            this.Group = group;
-        }
+        public BethesdaGroupReader(BethesdaGroup group) => this.Group = group;
 
         public BethesdaGroup Group { get; }
 
@@ -54,14 +51,9 @@ namespace BethFile
             return this.state;
         }
 
-        private UArrayPosition<byte> EnsureInState(BethesdaGroupReaderState state)
-        {
-            if (this.state != state)
-            {
-                throw new InvalidOperationException("You can only do that after a previous call to Read() returned " + state + ".  Last call actually returned " + this.state);
-            }
-
-            return this.Group.PayloadStart + this.pos;
-        }
+        private UArrayPosition<byte> EnsureInState(BethesdaGroupReaderState state) =>
+            this.state == state
+                ? this.Group.PayloadStart + this.pos
+                : throw new InvalidOperationException("You can only do that after a previous call to Read() returned " + state + ".  Last call actually returned " + this.state);
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,7 +27,7 @@ namespace StepperUpper
             }
 
             var parents = new Dictionary<string, Merged>();
-            var children = new Dictionary<string, List<Tuple<Merged, int, string>>>();
+            var children = new Dictionary<string, List<(Merged parent, int i, string childName)>>();
 
             foreach (var kvp in pluginsMap)
             {
@@ -45,13 +44,12 @@ namespace StepperUpper
                 {
                     var parentName = plugin.ParentNames[i];
                     var parentPlugin = pluginsMap[parentName];
-                    List<Tuple<Merged, int, string>> childrenList;
-                    if (!children.TryGetValue(parentName, out childrenList))
+                    if (!children.TryGetValue(parentName, out var childrenList))
                     {
-                        childrenList = children[parentName] = new List<Tuple<Merged, int, string>>();
+                        childrenList = children[parentName] = new List<(Merged parent, int idx, string childName)>();
                     }
 
-                    childrenList.Add(Tuple.Create(parent, i, pluginName));
+                    childrenList.Add((parent, i, pluginName));
                 }
             }
 
@@ -73,15 +71,11 @@ namespace StepperUpper
                         ? Task.CompletedTask
                         : Task.Run(() => SavePluginAsync(root, plugin.OutputFilePath));
 
-                    List<Tuple<Merged, int, string>> childrenList;
-                    if (children.TryGetValue(pluginName, out childrenList))
+                    if (children.TryGetValue(pluginName, out var childrenList))
                     {
                         var records = Doer.FindRecords(root).ToDictionary(r => r.Id);
-                        foreach (var child in childrenList)
+                        foreach (var (merged, idx, childName) in childrenList)
                         {
-                            var merged = child.Item1;
-                            var idx = child.Item2;
-                            var childName = child.Item3;
                             merged.SetRoot(idx, records);
                             if (merged.IsFinalized)
                             {
@@ -130,9 +124,9 @@ namespace StepperUpper
 
             Doer.PerformDeletes(root, deletes);
             Doer.PerformUDRs(root, await parentTask.ConfigureAwait(false), udrs);
-            foreach (var fieldToDelete in plugin.FieldsToDelete)
+            foreach (var (recordId, fieldType) in plugin.FieldsToDelete)
             {
-                Doer.DeleteField(root, fieldToDelete.RecordId, fieldToDelete.FieldType);
+                Doer.DeleteField(root, recordId, fieldType);
             }
 
             Doer.Optimize(root);
@@ -172,7 +166,7 @@ namespace StepperUpper
         // own cleaning process, but some of it can start right away.
         internal sealed class PluginForCleaning
         {
-            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<FieldToDelete> fieldsToDelete)
+            internal PluginForCleaning(string name, string outputFilePath, FileInfo dirtyFile, IEnumerable<string> parentNames, IEnumerable<uint> recordsToDelete, IEnumerable<uint> recordsToUDR, IEnumerable<(uint recordId, B4S fieldType)> fieldsToDelete)
             {
                 this.Name = name;
                 this.OutputFilePath = outputFilePath;
@@ -195,21 +189,7 @@ namespace StepperUpper
 
             internal ImmutableArray<uint> RecordsToUDR { get; }
 
-            internal ImmutableArray<FieldToDelete> FieldsToDelete { get; }
-        }
-
-        [StructLayout(LayoutKind.Auto)]
-        internal struct FieldToDelete
-        {
-            internal FieldToDelete(uint recordId, B4S fieldType)
-            {
-                this.RecordId = recordId;
-                this.FieldType = fieldType;
-            }
-
-            internal uint RecordId { get; }
-
-            internal B4S FieldType { get; }
+            internal ImmutableArray<(uint recordId, B4S fieldType)> FieldsToDelete { get; }
         }
     }
 }

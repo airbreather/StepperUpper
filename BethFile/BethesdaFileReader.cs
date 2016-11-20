@@ -15,10 +15,7 @@ namespace BethFile
 
         private readonly byte[] header = new byte[24];
 
-        public BethesdaFileReader(Stream stream)
-        {
-            this.stream = stream;
-        }
+        public BethesdaFileReader(Stream stream) { this.stream = stream; }
 
         public async Task<BethesdaFile> ReadFileAsync()
         {

@@ -6,9 +6,7 @@ namespace BethFile.Editor
 {
     public sealed class Field
     {
-        public Field()
-        {
-        }
+        public Field() { }
 
         public Field(Field copyFrom)
         {
