@@ -113,67 +113,67 @@ namespace StepperUpper
                 switch (element.Name.LocalName)
                 {
                     case "MapFolder":
+                    {
+                        string givenFromPath = element.Attribute("From")?.Value ?? String.Empty;
+                        string givenToPath = element.Attribute("To").Value;
+                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+                        DirectoryInfo toDirectory = new DirectoryInfo(toPath);
+                        toDirectory.Parent.Create();
+
+                        if (givenFromPath.Length == 0)
                         {
-                            string givenFromPath = element.Attribute("From")?.Value ?? String.Empty;
-                            string givenToPath = element.Attribute("To").Value;
-                            string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-                            DirectoryInfo toDirectory = new DirectoryInfo(toPath);
-                            toDirectory.Parent.Create();
-
-                            if (givenFromPath.Length == 0)
-                            {
-                                explicitDelete = false;
-                            }
-
-                            string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
-                            DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
-
-                            await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
-                            break;
+                            explicitDelete = false;
                         }
+
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                        DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
+
+                        await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
+                        break;
+                    }
 
                     case "MapFile":
+                    {
+                        string givenFromPath = element.Attribute("From").Value;
+                        string givenToPath = element.Attribute("To").Value;
+
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+
+                        FileInfo toFile = new FileInfo(toPath);
+                        toFile.Directory.Create();
+                        if (toFile.Exists)
                         {
-                            string givenFromPath = element.Attribute("From").Value;
-                            string givenToPath = element.Attribute("To").Value;
-
-                            string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
-                            string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
-
-                            FileInfo toFile = new FileInfo(toPath);
-                            toFile.Directory.Create();
-                            if (toFile.Exists)
-                            {
-                                toFile.Delete();
-                                toFile.Refresh();
-                            }
-
-                            File.Move(fromPath, toPath);
-                            break;
+                            toFile.Delete();
+                            toFile.Refresh();
                         }
+
+                        File.Move(fromPath, toPath);
+                        break;
+                    }
 
                     case "Hide":
+                    {
+                        string folderToHide = element.Attribute("Folder")?.Value;
+                        string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
+                        if (folderToHide != null)
                         {
-                            string folderToHide = element.Attribute("Folder")?.Value;
-                            string pathToHide = Path.Combine(dumpDirectory.FullName, folderToHide ?? element.Attribute("File").Value);
-                            if (folderToHide != null)
-                            {
-                                Directory.Move(pathToHide, pathToHide + ".mohidden");
-                            }
-                            else
-                            {
-                                File.Move(pathToHide, pathToHide + ".mohidden");
-                            }
-
-                            break;
+                            Directory.Move(pathToHide, pathToHide + ".mohidden");
                         }
+                        else
+                        {
+                            File.Move(pathToHide, pathToHide + ".mohidden");
+                        }
+
+                        break;
+                    }
 
                     case "Optional":
-                        {
-                            FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
-                            file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
-                            break;
-                        }
+                    {
+                        FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
+                        file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
+                        break;
+                    }
 
                     default:
                         throw new NotSupportedException("Unsupported element: " + element.Name.LocalName);
