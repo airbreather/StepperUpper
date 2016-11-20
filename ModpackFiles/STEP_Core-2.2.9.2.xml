@@ -22,6 +22,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      LengthInBytes="30100478"
 			      CanonicalFileName="loot_0.10.1-9-g769f3dd_dev.7z"
 			      MD5Checksum="5f30d8ab82825eb362a9cf7e790c1d24"
+			      SHA512Checksum="1ecb9a4e5ab5c8e828f853efb70f6db3ae6dae2a5144a3b65806292e4a2d3df5f4fdbbb6317728b9525c243b390334909cd5fa070e163c4dc8bbc6bad971ba0a"
 			      DownloadUrl="https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_0.10.1-9-g769f3dd_dev.7z"
 			      DownloadTags="generic|https://bintray.com/wrinklyninja/loot/LOOT/0.10.1-9-g769f3dd_dev#files" />
 
@@ -57,12 +58,14 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      LengthInBytes="3023865"
 			      CanonicalFileName="enbseries_skyrim_v0308.zip"
 			      MD5Checksum="6bc7093f4079605e5f13f57df784bd74"
+			      SHA512Checksum="2823ba3b09fbcba43d5c6a77e2d96c62da735ff3b45150ed0a6028ce772d4ffa65b6b50a6223ad8a3de68fef45c00c3289d60a233871ea07a95f4d9da786a3ea"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
 
 			<File Name="SKSE 1.7.3"
 			      LengthInBytes="624845"
 			      CanonicalFileName="skse_1_07_03.7z"
 			      MD5Checksum="62f8aad6db2270fdf29618ad90018207"
+			      SHA512Checksum="982074e6e47a5f051533b689379391dc2a954ffc7ef986d702f8fb50b03e8f73e81e3b116b838a6dbfb16c8a36b7874bad2c105d2e0473b04ac740ccc266fe9b"
 			      DownloadUrl="http://skse.silverlock.org/beta/skse_1_07_03.7z"
 			      DownloadTags="generic|http://skse.silverlock.org/" />
 
