@@ -5,9 +5,9 @@ abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH 
 -->
 <Modpack Name="My STEP Extended Tweaks"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.1.0.0"
+         Requires="STEP Extended, 2.2.9.2, 1.1.0.1"
          PackVersion="1.0.0.0"
-         FileVersion="1.1.0.0"
+         FileVersion="1.1.0.1"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="133">
 
@@ -329,7 +329,7 @@ WetandCold.bsa]]></Line>
 +Birds and Flocks - Hearthfire Edition Cleaned X
 +Better Freckles 1.0.1
 +Better Beast Races - Lite 2.0
-+Beards - 1k 2.0
++Beards - 1k 4.1
 +83Willows 101BugsHD - Lower Resolution 4.1
 +Whiterun Trellis Redesigned - 1k 1.1
 +Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4

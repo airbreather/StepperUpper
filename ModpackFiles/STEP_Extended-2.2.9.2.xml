@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.1.0.0"
+         Requires="STEP Core, 2.2.9.2, 1.1.0.1"
          PackVersion="2.2.9.2"
-         FileVersion="1.1.0.0"
+         FileVersion="1.1.0.1"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="157">
 
@@ -581,7 +581,7 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 		</Group>
 
 		<Group Name="X. Final Cleanups">
-			<TweakINI File="ModOrganizer/ModOrganizer.ini">
+			<TweakINI IsIndependent="False" File="ModOrganizer/ModOrganizer.ini">
 				<Set Section="General" Property="selected_profile" Value="STEP Extended 2.2.9.2" />
 
 				<Set Section="customExecutables" Property="9\title" Value="Dual Sheath Redux Patch" />
@@ -613,9 +613,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 			     file entirely, for some reason. -->
 			<CreateEmptyFolder Path="ModOrganizer/profiles/STEP Extended 2.2.9.2/saves" />
 
-			<CopyFile From="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" To="ModOrganizer/profiles/STEP Extended 2.2.9.2/skyrim.ini" />
+			<CopyFile IsIndependent="False" From="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrim.ini" To="ModOrganizer/profiles/STEP Extended 2.2.9.2/skyrim.ini" />
 
-			<CopyFile From="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" To="ModOrganizer/profiles/STEP Extended 2.2.9.2/skyrimprefs.ini" />
+			<CopyFile IsIndependent="False" From="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini" To="ModOrganizer/profiles/STEP Extended 2.2.9.2/skyrimprefs.ini" />
 
 			<Embedded File="ModOrganizer/profiles/STEP Extended 2.2.9.2/archives.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Skyrim - Misc.bsa
@@ -810,7 +810,7 @@ WetandCold.bsa]]></Line>
 +Birds and Flocks - Hearthfire Edition Cleaned X
 +Better Freckles 1.0.1
 +Better Beast Races - Lite 2.0
-+Beards - 1k 2.0
++Beards - 1k 4.1
 +83Willows 101BugsHD - Lower Resolution 4.1
 +Whiterun Trellis Redesigned - 1k 1.1
 +Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4
