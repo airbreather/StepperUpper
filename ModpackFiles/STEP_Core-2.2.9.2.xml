@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.1.0.1"
+         FileVersion="1.1.0.2"
          MinimumToolVersion="0.9.3.0"
          LongestOutputPathLength="169">
 
@@ -77,35 +77,17 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<File Name="Dawnguard BSA"
-			      LengthInBytes="1187540597"
-			      CanonicalFileName="Dawnguard.bsa"
-			      MD5Checksum="7c697985df6b795b804ca64bfb7c8883"
-			      DownloadTags="steam|211720" />
-
 			<File Name="Dawnguard ESM"
 			      LengthInBytes="25056932"
 			      CanonicalFileName="Dawnguard.esm"
 			      MD5Checksum="5bd2f339925a5fb96f9f0da7f96fd8ce"
 			      DownloadTags="steam|211720" />
 
-			<File Name="Hearthfire BSA"
-			      LengthInBytes="140252452"
-			      CanonicalFileName="HearthFires.bsa"
-			      MD5Checksum="c69f207f8be14857d0a5cd9f2b5fd7da"
-			      DownloadTags="steam|220760" />
-
 			<File Name="Hearthfire ESM"
 			      LengthInBytes="3565491"
 			      CanonicalFileName="HearthFires.esm"
 			      MD5Checksum="71c3d20ea9f8510e29c36f2a426247c2"
 			      DownloadTags="steam|220760" />
-
-			<File Name="Dragonborn BSA"
-			      LengthInBytes="1803105365"
-			      CanonicalFileName="Dragonborn.bsa"
-			      MD5Checksum="87561ba424df97b3b205952241b6917f"
-			      DownloadTags="steam|226880" />
 
 			<File Name="Dragonborn ESM"
 			      LengthInBytes="64510413"
@@ -118,24 +100,6 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-7.7z"
 			      MD5Checksum="e1f32d03931429846b9439c25023696d"
 			      DownloadTags="nexus|skyrim|71214|1000226281" />
-
-			<File Name="High Resolution Texture Pack BSA (1 of 3)"
-			      LengthInBytes="1640626582"
-			      CanonicalFileName="HighResTexturePack01.bsa"
-			      MD5Checksum="c26fab356fa44e61ede3961bb4f281c0"
-			      DownloadTags="steam|202485" />
-
-			<File Name="High Resolution Texture Pack BSA (2 of 3)"
-			      LengthInBytes="1875868906"
-			      CanonicalFileName="HighResTexturePack02.bsa"
-			      MD5Checksum="c0817f76bce07fd4fc02020b750c5a99"
-			      DownloadTags="steam|202485" />
-
-			<File Name="High Resolution Texture Pack BSA (3 of 3)"
-			      LengthInBytes="1201576510"
-			      CanonicalFileName="HighResTexturePack03.bsa"
-			      MD5Checksum="a6cf3a8898e40e7b82784ddfb0fc8b68"
-			      DownloadTags="steam|202485" />
 
 			<!-- All 3 dummy ESPs are identical. -->
 			<File Name="High Resolution Texture Pack Dummy ESPs"
