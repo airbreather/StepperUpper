@@ -6,8 +6,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.1.0.2"
-         MinimumToolVersion="0.9.3.0"
+         FileVersion="1.2.0.0"
+         MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
 	<Files>
@@ -18,13 +18,13 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="215ccbbca78af9cd3f833dd2efb81759"
 			      DownloadTags="nexus|skyrim|1334|1000174746" />
 
-			<File Name="LOOT 0.10.1-9-g769f3dd - Dev Archive"
-			      LengthInBytes="30100478"
-			      CanonicalFileName="loot_0.10.1-9-g769f3dd_dev.7z"
-			      MD5Checksum="5f30d8ab82825eb362a9cf7e790c1d24"
-			      SHA512Checksum="1ecb9a4e5ab5c8e828f853efb70f6db3ae6dae2a5144a3b65806292e4a2d3df5f4fdbbb6317728b9525c243b390334909cd5fa070e163c4dc8bbc6bad971ba0a"
-			      DownloadUrl="https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_0.10.1-9-g769f3dd_dev.7z"
-			      DownloadTags="generic|https://bintray.com/wrinklyninja/loot/LOOT/0.10.1-9-g769f3dd_dev#files" />
+			<File Name="LOOT 0.10.2 - Dev Archive"
+			      LengthInBytes="32801561"
+			      CanonicalFileName="loot_0.10.2-0-g9eb7d26_dev.7z"
+			      MD5Checksum="5701558726a6c31ecf6b176bb32d9a49"
+			      SHA512Checksum="f57c27d6673463fc748d44703c194a407a65a242db48549d7bac9d5212c05f926fa920aff1670041e9530d6b0ab80c70dc77a8c957d94e17046e61d2a234b25b"
+			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.2/loot_0.10.2-0-g9eb7d26_dev.7z"
+			      DownloadTags="generic|https://loot.github.io/" />
 
 			<File Name="xEdit 3.1.3 - 1dabbcd"
 			      LengthInBytes="3072144"
@@ -1119,8 +1119,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="ModOrganizer" To="ModOrganizer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LOOT 0.10.1-9-g769f3dd - Dev Archive">
-				<MapFolder From="loot_0.10.1-9-g769f3dd_dev" To="LOOT 0.10.1 (Pre-Alpha)" />
+			<ExtractArchive ArchiveFile="LOOT 0.10.2 - Dev Archive">
+				<MapFolder From="loot_0.10.2-0-g9eb7d26_dev" To="LOOT 0.10.2" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 1dabbcd">
@@ -1186,6 +1186,9 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Set Section="Display" Property="iMaxDecalsPerFrame" Value="250" />
 				<Set Section="Display" Property="iMaxSkinDecalsPerFrame" Value="100" />
 				<Set Section="Display" Property="iMultiSample" Value="4" />
+				<Set Section="Display" Property="bFull Screen" Value="{IsFullScreenNumeric}" />
+				<Set Section="Display" Property="iSize H" Value="{ScreenHeight}" />
+				<Set Section="Display" Property="iSize W" Value="{ScreenWidth}" />
 
 				<Set Section="Launcher" Property="bEnableFileSelection" Value="1" />
 
@@ -1218,6 +1221,9 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				     http://wiki.step-project.com/ENBoost#Recommendations -->
 				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="128" />
 				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="1878" />
+
+				<Set Section="WINDOW" Property="ForceBorderless" Value="{IsBorderlessTrueFalse}" />
+				<Set Section="WINDOW" Property="ForceBorderlessFullscreen" Value="{IsBorderlessFullScreenTrueFalse}" />
 
 				<Set Section="ENGINE" Property="EnableVSync" Value="true" />
 				<Set Section="ENGINE" Property="VSyncSkipNumFrames" Value="0" />
@@ -2124,7 +2130,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				</Plugin>
 			</Clean>
 
-			<Embedded File="LOOT 0.10.1 (Pre-Alpha)/Data/Skyrim/userlist.yaml" Encoding="UTF8NoBOM">
+			<Embedded File="LOOT 0.10.2/Data/Skyrim/userlist.yaml" Encoding="UTF8NoBOM">
 				<Line><![CDATA[bash_tags:
   []
 plugins:
@@ -2163,9 +2169,9 @@ globals:
 				<Set Section="customExecutables" Property="4\custom" Value="true" />
 				<Set Section="customExecutables" Property="4\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="4\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.1 (Pre-Alpha)/LOOT.exe" />
+				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/LOOT.exe" />
 				<Set Section="customExecutables" Property="4\arguments" Value="--loot-data-path=Data" />
-				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.1 (Pre-Alpha)/" />
+				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/" />
 				<Set Section="customExecutables" Property="4\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="4\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="5\title" Value="TES5Edit" />

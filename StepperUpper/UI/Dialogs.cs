@@ -52,6 +52,9 @@ namespace StepperUpper.UI
                     options.OutputDirectoryPath = viewModel.OutputFolder;
                     options.DownloadDirectoryPath = viewModel.DownloadFolder;
                     options.SteamDirectoryPath = viewModel.SteamFolder;
+                    options.ScreenHeight = viewModel.ScreenHeight;
+                    options.ScreenWidth = viewModel.ScreenWidth;
+                    options.FullScreenMode = viewModel.SelectedFullScreenMode;
                     return options.MightBeValid;
                 }).Task.ConfigureAwait(false);
             }

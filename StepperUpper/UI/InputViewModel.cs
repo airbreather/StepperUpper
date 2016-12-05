@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -9,16 +10,6 @@ namespace StepperUpper.UI
 {
     public sealed class InputViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<FilePathViewModel> packFiles = new ObservableCollection<FilePathViewModel>();
-
-        private string downloadFolder;
-
-        private string outputFolder;
-
-        private string steamFolder;
-
-        private string javaBinFolder;
-
         public InputViewModel()
         {
             this.PackFiles = new ReadOnlyObservableCollection<FilePathViewModel>(this.packFiles);
@@ -39,36 +30,67 @@ namespace StepperUpper.UI
             this.OutputFolder = options.OutputDirectoryPath;
             this.JavaBinFolder = options.JavaBinDirectoryPath;
             this.SteamFolder = options.SteamDirectoryPath;
+            this.SelectedFullScreenMode = options.FullScreenMode;
+            this.ScreenWidth = options.ScreenWidth;
+            this.ScreenHeight = options.ScreenHeight;
             foreach (var packFile in options.PackDefinitionFilePaths ?? Enumerable.Empty<string>())
             {
                 this.packFiles.Add(new FilePathViewModel(packFile));
             }
         }
 
+        private readonly ObservableCollection<FilePathViewModel> packFiles = new ObservableCollection<FilePathViewModel>();
         public ReadOnlyObservableCollection<FilePathViewModel> PackFiles { get; }
 
+        public ImmutableArray<FullScreenModeContainer> AvailableFullScreenModes { get; } = ImmutableArray.Create<FullScreenModeContainer>(FullScreenMode.Windowed, FullScreenMode.FullScreen, FullScreenMode.WindowedNoBorders, FullScreenMode.FullScreenNoBorders);
+
+        private string downloadFolder;
         public string DownloadFolder
         {
-            get { return this.downloadFolder; }
-            set { this.Set(() => this.DownloadFolder, ref this.downloadFolder, value); }
+            get => this.downloadFolder;
+            set => this.Set(() => this.DownloadFolder, ref this.downloadFolder, value);
         }
 
+        private string outputFolder;
         public string OutputFolder
         {
-            get { return this.outputFolder; }
-            set { this.Set(() => this.OutputFolder, ref this.outputFolder, value); }
+            get => this.outputFolder;
+            set => this.Set(() => this.OutputFolder, ref this.outputFolder, value);
         }
 
+        private string steamFolder;
         public string SteamFolder
         {
-            get { return this.steamFolder; }
-            set { this.Set(() => this.SteamFolder, ref this.steamFolder, value); }
+            get => this.steamFolder;
+            set => this.Set(() => this.SteamFolder, ref this.steamFolder, value);
         }
 
+        private string javaBinFolder;
         public string JavaBinFolder
         {
-            get { return this.javaBinFolder; }
-            set { this.Set(() => this.JavaBinFolder, ref this.javaBinFolder, value); }
+            get => this.javaBinFolder;
+            set => this.Set(() => this.JavaBinFolder, ref this.javaBinFolder, value);
+        }
+
+        private uint screenHeight;
+        public uint ScreenHeight
+        {
+            get => this.screenHeight;
+            set => this.Set(() => this.ScreenHeight, ref this.screenHeight, value);
+        }
+
+        private uint screenWidth;
+        public uint ScreenWidth
+        {
+            get => this.screenWidth;
+            set => this.Set(() => this.ScreenWidth, ref this.screenWidth, value);
+        }
+
+        private FullScreenModeContainer selectedFullScreenMode;
+        public FullScreenModeContainer SelectedFullScreenMode
+        {
+            get => this.selectedFullScreenMode;
+            set => this.Set(() => this.SelectedFullScreenMode, ref this.selectedFullScreenMode, value);
         }
 
         public RelayCommand AddPackFileCommand { get; }
@@ -112,6 +134,37 @@ namespace StepperUpper.UI
             if (msg.SelectedFolderPath != null)
             {
                 setter(msg.SelectedFolderPath);
+            }
+        }
+
+        public struct FullScreenModeContainer
+        {
+            internal FullScreenModeContainer(FullScreenMode value) => this.Value = value;
+
+            internal FullScreenMode Value { get; }
+
+            public static implicit operator FullScreenModeContainer(FullScreenMode value) => new FullScreenModeContainer(value);
+            public static implicit operator FullScreenMode(FullScreenModeContainer value) => value.Value;
+
+            public override string ToString()
+            {
+                switch (this.Value)
+                {
+                    case FullScreenMode.Windowed:
+                        return "Windowed";
+
+                    case FullScreenMode.FullScreen:
+                        return "Full-screen";
+
+                    case FullScreenMode.WindowedNoBorders:
+                        return "Windowed (no borders)";
+
+                    case FullScreenMode.FullScreenNoBorders:
+                        return "Full-screen (no borders)";
+
+                    default:
+                        throw new NotSupportedException("Changed AvailableFullScreenModes without changing this switch-case block.");
+                }
             }
         }
     }

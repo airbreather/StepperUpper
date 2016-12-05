@@ -1,4 +1,6 @@
-﻿using CommandLine;
+﻿using System;
+
+using CommandLine;
 using CommandLine.Text;
 
 namespace StepperUpper
@@ -31,6 +33,15 @@ namespace StepperUpper
 
         [Option("noPauseAtEnd", HelpText = "Skip the wait for input at the end.")]
         public bool NoPauseAtEnd { get; set; }
+
+        [Option("screenHeight", HelpText = "Vertical resolution for the game, in pixels (default: primary screen height).")]
+        public uint ScreenHeight { get; set; } = Convert.ToUInt32(System.Windows.SystemParameters.PrimaryScreenHeight);
+
+        [Option("screenWidth", HelpText = "Horizontal resolution for the game, in pixels (default: primary screen width).")]
+        public uint ScreenWidth { get; set; } = Convert.ToUInt32(System.Windows.SystemParameters.PrimaryScreenWidth);
+
+        [Option("fullScreenMode", HelpText = "Full-screen mode (options: windowed, fullScreen, windowedNoBorders, fullScreenNoBorders) (default: fullScreen)")]
+        public FullScreenMode FullScreenMode { get; set; } = FullScreenMode.FullScreen;
 
         [ParserState]
         public IParserState LastParserState { get; set; }

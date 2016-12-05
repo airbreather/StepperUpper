@@ -3,18 +3,14 @@
          Game="Skyrim2011"
          Requires="STEP Core, 2.2.9.2"
          PackVersion="1.0.0.0"
-         FileVersion="1.1.0.2"
-         MinimumToolVersion="0.9.3.0">
+         FileVersion="1.2.0.0"
+         MinimumToolVersion="0.9.4.0">
 
 	<Files />
 
 	<Tasks>
 		<Group Name="Default">
 			<TweakINI File="ModOrganizer/profiles/STEP Core 2.2.9.2/skyrimprefs.ini">
-				<Set Section="Display" Property="bFull Screen" Value="1" />
-				<Set Section="Display" Property="iSize H" Value="1440" />
-				<Set Section="Display" Property="iSize W" Value="2560" />
-
 				<Set Section="MAIN" Property="bGamepadEnable" Value="1" />
 
 				<Set Section="Interface" Property="bGeneralSubtitles" Value="1" />
@@ -22,9 +18,6 @@
 			</TweakINI>
 
 			<TweakINI File="{SkyrimInstallFolder}/enblocal.ini">
-				<Set Section="WINDOW" Property="ForceBorderlessFullscreen" Value="true" />
-				<Set Section="WINDOW" Property="ForceBorderless" Value="true" />
-
 				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="768" />
 				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="4064" />
 

@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="ConcurrentMd5.cs" />
     <Compile Include="Cleaner.cs" />
+    <Compile Include="FullScreenMode.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="NonCapturingYield.cs" />
     <Compile Include="Options.cs" />

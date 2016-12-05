@@ -83,6 +83,16 @@ namespace StepperUpper
                 return 2;
             }
 
+            // HACK: these really shouldn't be hardcoded like this, but it's better than nothing.
+            // ideal would be to dynamically detect parameters from the pack files themselves and
+            // offer up a dynamic UI that lets the user specify whatever they want from that.  this
+            // works for now, though, and it might be good enough for a long time.
+            uint screenHeight = options.ScreenHeight;
+            uint screenWidth = options.ScreenWidth;
+            bool isFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsFullScreen);
+            bool isBorderless = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless);
+            bool isBorderlessFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless | FullScreenMode.IsFullScreen);
+
             var modpackElements = new List<XElement>();
 
             // lots of strings show up multiple times each.
@@ -111,7 +121,15 @@ namespace StepperUpper
 
                     StringBuilder docTextBuilder = new StringBuilder(docText);
                     docTextBuilder = docTextBuilder.Replace("{DumpFolderForwardSlashes}", dumpDirectory.FullName.Replace(Path.DirectorySeparatorChar, '/'))
-                                                   .Replace("{DumpFolderEscapeBackslashes}", dumpDirectory.FullName.Replace("\\", "\\\\"));
+                                                   .Replace("{DumpFolderEscapeBackslashes}", dumpDirectory.FullName.Replace("\\", "\\\\"))
+                                                   .Replace("{ScreenHeight}", screenHeight.ToString(CultureInfo.InvariantCulture))
+                                                   .Replace("{ScreenWidth}", screenWidth.ToString(CultureInfo.InvariantCulture))
+                                                   .Replace("{IsFullScreenTrueFalse}", isFullScreen ? "true" : "false")
+                                                   .Replace("{IsFullScreenNumeric}", isFullScreen ? "1" : "0")
+                                                   .Replace("{IsBorderlessTrueFalse}", isBorderless ? "true" : "false")
+                                                   .Replace("{IsBorderlessNumeric}", isBorderless ? "1" : "0")
+                                                   .Replace("{IsBorderlessFullScreenTrueFalse}", isBorderlessFullScreen ? "true" : "false")
+                                                   .Replace("{IsBorderlessFullScreenNumeric}", isBorderlessFullScreen ? "1" : "0");
 
                     if (requiresJava)
                     {
