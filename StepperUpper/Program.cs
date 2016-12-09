@@ -623,6 +623,7 @@ namespace StepperUpper
             {
                 try
                 {
+                    directory.Attributes = FileAttributes.Directory;
                     directory.Delete();
                     return;
                 }
