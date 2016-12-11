@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Extended (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.2.0.0"
+         Requires="STEP Extended, 2.2.9.2, 1.2.0.1"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.0.0"
+         FileVersion="1.2.0.1"
          MinimumToolVersion="0.9.4.0">
 
 	<Files>

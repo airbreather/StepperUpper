@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.0.0"
+         FileVersion="1.2.0.1"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -353,7 +353,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="54048289401c6b0e5b88beb75e8dedd3"
 			      DownloadTags="nexus|skyrim|1192|5417" />
 
-			<!-- Consider additionally supporting more targeted downloads. -->
+			<!-- Note: Check 9.0 out sometime. -->
 			<File Name="A Quality World Map - New Installer 8.4"
 			      LengthInBytes="7410533"
 			      CanonicalFileName="A Quality World Map - New Installer-4929-8-4.7z"
@@ -372,7 +372,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      LengthInBytes="18932957"
 			      CanonicalFileName="aMidianBorn Solstheim Land 1K-50013-1.7z"
 			      MD5Checksum="43146594a0b710e9a0ac27be2a7d193f"
-			      DownloadTags="nexus|skyrim|49040|1000091884" />
+			      DownloadTags="nexus|skyrim|50013|1000091884" />
 
 			<File Name="Skyrim Flora Overhaul - Basic Edition 1.87a"
 			      LengthInBytes="66019598"

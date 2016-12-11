@@ -83,6 +83,8 @@ namespace StepperUpper
                 return 2;
             }
 
+            dumpDirectory.Create();
+
             // HACK: these really shouldn't be hardcoded like this, but it's better than nothing.
             // ideal would be to dynamically detect parameters from the pack files themselves and
             // offer up a dynamic UI that lets the user specify whatever they want from that.  this
@@ -247,6 +249,7 @@ namespace StepperUpper
                             }
 
                             skyrimPath = new DirectoryInfo(skyrimPath).FullName;
+                            requiresSkyrim = true;
                             break;
 
                         default:
@@ -426,7 +429,7 @@ namespace StepperUpper
             {
                 Console.Error.WriteLine("Some files could not be downloaded automatically.  You'll have to get them the hard way.");
                 Console.Error.WriteLine("Displaying the details in your web browser...");
-                string htmlFilePath = Path.Combine(options.OutputDirectoryPath, "missing.html");
+                string htmlFilePath = Path.Combine(dumpDirectory.FullName, "missing.html");
                 using (var writer = new StreamWriter(path: htmlFilePath, append: false, encoding: Encoding.UTF8))
                 {
                     await writer.WriteLineAsync("<html><h1>Missing Files</h1><table border=\"2\"><tr><td><strong>Pack</strong></td><td><strong>Missing File</strong></td><td><strong>URL(s)</strong></td></tr>").ConfigureAwait(false);
@@ -514,7 +517,6 @@ namespace StepperUpper
                     .ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(el => new Md5Checksum(el.Attribute("MD5Checksum").Value)).First(checkedFiles.ContainsKey)].file.FullName));
 
                 Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
-                dumpDirectory.Create();
                 var dict = modpackElement.Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
                 var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
 
