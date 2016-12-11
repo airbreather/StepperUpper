@@ -6,6 +6,52 @@
          MinimumToolVersion="0.9.4.0">
 
 	<Files>
+		<Group Name="2.2 Script Extenders">
+			<File Name="SKSE 1.7.3"
+			      LengthInBytes="624845"
+			      CanonicalFileName="skse_1_07_03.7z"
+			      MD5Checksum="62f8aad6db2270fdf29618ad90018207"
+			      SHA512Checksum="982074e6e47a5f051533b689379391dc2a954ffc7ef986d702f8fb50b03e8f73e81e3b116b838a6dbfb16c8a36b7874bad2c105d2e0473b04ac740ccc266fe9b"
+			      DownloadUrl="http://skse.silverlock.org/beta/skse_1_07_03.7z"
+			      DownloadTags="generic|http://skse.silverlock.org/" />
+
+			<File Name="SKSE Plugin Preloader - d3dx9_42 - Wrapper 3"
+			      LengthInBytes="115077"
+			      CanonicalFileName="D3DX9_42 - Wrapper v3-75795-3.zip"
+			      MD5Checksum="dfcc25e0725938505fbd414c675267b0"
+			      DownloadTags="nexus|skyrim|75795|1000207412" />
+		</Group>
+
+		<Group Name="2.3 Tools">
+			<File Name="LOOT 0.10.2 - Dev Archive"
+			      LengthInBytes="32801561"
+			      CanonicalFileName="loot_0.10.2-0-g9eb7d26_dev.7z"
+			      MD5Checksum="5701558726a6c31ecf6b176bb32d9a49"
+			      SHA512Checksum="f57c27d6673463fc748d44703c194a407a65a242db48549d7bac9d5212c05f926fa920aff1670041e9530d6b0ab80c70dc77a8c957d94e17046e61d2a234b25b"
+			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.2/loot_0.10.2-0-g9eb7d26_dev.7z"
+			      DownloadTags="generic|https://loot.github.io/" />
+
+			<File Name="xEdit 3.1.3 - 1dabbcd"
+			      LengthInBytes="3072144"
+			      CanonicalFileName="FO4Edit 3.1.3 - 1dabbcd-2737-3-1-3.7z"
+			      MD5Checksum="b2cd387640863b9c822ac05a1e6a19a5"
+			      DownloadTags="nexus|fallout4|2737|81663" />
+
+			<File Name="Wrye Bash 306 - Standalone Executable"
+			      LengthInBytes="17250882"
+			      CanonicalFileName="Wrye Bash 306 - Standalone Executable-1840-306.7z"
+			      MD5Checksum="4e38717c674c1e90b71a44f474cef77e"
+			      DownloadTags="nexus|skyrim|1840|1000210067" />
+		</Group>
+
+		<Group Name="3.3 Configure Mod Organizer">
+			<File Name="Mod Organizer 1.3.1.1"
+			      LengthInBytes="22240010"
+			      CanonicalFileName="Mod Organizer v1_3_11-1334-1-3-11.7z"
+			      MD5Checksum="215ccbbca78af9cd3f833dd2efb81759"
+			      DownloadTags="nexus|skyrim|1334|1000174746" />
+		</Group>
+
 		<Group Name="3.5 Clean The Bethesda ESMs">
 			<File Name="Skyrim ESM"
 			      LengthInBytes="249371467"
@@ -44,6 +90,7 @@
 			      DownloadTags="steam|202485" />
 		</Group>
 
+		<!-- TODO: vet everything earlier than 4.1 -->
 		<Group Name="4.1 Unofficial Patches">
 			<File Name="USLEEP 3.0.7"
 			      LengthInBytes="175559704"
@@ -157,9 +204,689 @@
 			      MD5Checksum="fbb3402c802370a19b7d0f23ca97866c"
 			      DownloadTags="nexus|skyrim|52269|1000229168" />
 		</Group>
+
+		<Group Name="4.4.1 General User Interface Improvement">
+			<File Name="Blocksteal Redux 1.5"
+			      LengthInBytes="72527"
+			      CanonicalFileName="blocksteal redux 1_5-61605-1-5.7z"
+			      MD5Checksum="b8cd65fb6189687f3d74fb589f145215"
+			      DownloadTags="nexus|skyrim|61605|1000164936" />
+
+			<File Name="Blocksteal Redux - All vannila miscItem basket text X"
+			      LengthInBytes="570"
+			      CanonicalFileName="All vannila miscItem basket text by White Shadow-61605-.7z"
+			      MD5Checksum="05be35c82fb080a27f4a531d0334fafc"
+			      DownloadTags="nexus|skyrim|61605|1000144207" />
+
+			<File Name="Easy Wheelmenu 4.2"
+			      LengthInBytes="47348"
+			      CanonicalFileName="Easy Wheel Menu-69878-4-2.7z"
+			      MD5Checksum="f6a65fdc0a7d624fa8d60aa19ce5f3c5"
+			      DownloadTags="nexus|skyrim|69878|1000196975" />
+
+			<File Name="Extended UI 1.2.0d"
+			      LengthInBytes="71780"
+			      CanonicalFileName="Extended UI-57873-1-2-0d.zip"
+			      MD5Checksum="58e9abd795d7c2a39d4f517ff810644f"
+			      DownloadTags="nexus|skyrim|57873|1000147852" />
+
+			<!-- deviation from the guide, which uses SSIRT 2.0.  STEP Core uses SSIRT 3.0. -->
+			<File Name="SSIRT 3.0"
+			      LengthInBytes="44951317"
+			      CanonicalFileName="SSIRT v3.0-62238-v3-0.zip"
+			      MD5Checksum="ed38f781e36d9a840131173be81a9e71"
+			      DownloadTags="nexus|skyrim|62238|1000221000" />
+
+			<File Name="SkyUI 5.1"
+			      LengthInBytes="1346875"
+			      CanonicalFileName="SkyUI_5_1-3863-5-1.7z"
+			      MD5Checksum="6eb992c7509b2a53c429b23a34766c7c"
+			      DownloadTags="nexus|skyrim|3863|1000172397" />
+		</Group>
+
+		<Group Name="4.4.2 Heads Up Display">
+			<File Name="A Matter of Time 2.0.7"
+			      LengthInBytes="1250108"
+			      CanonicalFileName="AMatterOfTime_v2_0_7-44091-2-0-7.7z"
+			      MD5Checksum="b98dfb6ceb4fe16a0b2dee2f031ec7c7"
+			      DownloadTags="nexus|skyrim|44091|1000106856" />
+
+			<File Name="Better MessageBox Controls 1.2"
+			      LengthInBytes="17621"
+			      CanonicalFileName="Better MessageBox Controls v1_2-28170-1-2.zip"
+			      MD5Checksum="5115644839800edd51228e658ed50394"
+			      DownloadTags="nexus|skyrim|28170|105432" />
+
+			<File Name="Immersive HUD 3.0.03"
+			      LengthInBytes="17414"
+			      CanonicalFileName="Immersive HUD - iHUD-3222-3-0-03.rar"
+			      MD5Checksum="474bc7d98f37b7b1d2325bfb99ea498d"
+			      DownloadTags="nexus|skyrim|3222|1000147561" />
+
+			<File Name="iWASM 1.0"
+			      LengthInBytes="500129"
+			      CanonicalFileName="iWASM V 1-51087-1-0.rar"
+			      MD5Checksum="19448f86667bc50885ba5e4010ed9afc"
+			      DownloadTags="nexus|skyrim|51087|1000096935" />
+
+			<File Name="Main Font Replacement - Centaur 2.0"
+			      LengthInBytes="35072"
+			      CanonicalFileName="Centaur Font-95-2-0.rar"
+			      MD5Checksum="b774883e7e81b4add00dce089bfb48be"
+			      DownloadTags="nexus|skyrim|95|1498" />
+
+			<File Name="moreHUD 2.1.3"
+			      LengthInBytes="100535"
+			      CanonicalFileName="AHZmoreHUD_v2_1_3-51956-2-1-3.7z"
+			      MD5Checksum="6c9c1dc913519d9b11e06c269e5e3d3d"
+			      DownloadTags="nexus|skyrim|51956|1000117602" />
+
+			<File Name="No Poison Dialogues 1.0"
+			      LengthInBytes="108407"
+			      CanonicalFileName="MDX_NoPoisonDialogs-1_0-33916-1-0.7z"
+			      MD5Checksum="bf2d50c55401174491c0a254b240fb5b"
+			      DownloadTags="nexus|skyrim|33916|1000020181" />
+
+			<File Name="Smaller Cursor X"
+			      LengthInBytes="703"
+			      CanonicalFileName="SmallerCursor-2317.rar"
+			      MD5Checksum="a07ae30a573adf85a6fe8aeaef0c0a95"
+			      DownloadTags="nexus|skyrim|2317|6127" />
+		</Group>
+
+		<Group Name="4.4.3 Character Creation">
+			<File Name="RaceMenu 3.4.5"
+			      LengthInBytes="13982702"
+			      CanonicalFileName="RaceMenu v3-4-5-29624-3-4-5.7z"
+			      MD5Checksum="9030a42e841b3ba23037945154fc39db"
+			      DownloadTags="nexus|skyrim|29624|1000184041" />
+
+			<File Name="RaceMenu - Overlays Plugin 2.5.0"
+			      LengthInBytes="7654482"
+			      CanonicalFileName="Overlays Plugin v2-5-0-29624-2-5-0.7z"
+			      MD5Checksum="9a9e3adb5472972211b6a9b56d02f213"
+			      DownloadTags="nexus|skyrim|29624|1000096761" />
+		</Group>
+
+		<Group Name="4.4.4 Dialogue and Follower Control">
+			<File Name="Better Dialogue Controls 1.2"
+			      LengthInBytes="24869"
+			      CanonicalFileName="Better Dialogue Controls v1_2-27371-1-2.zip"
+			      MD5Checksum="129f4128d42746317d5f8978e9d062b6"
+			      DownloadTags="nexus|skyrim|27371|103702" />
+
+			<File Name="Extensible Follower Framework 4.0.2"
+			      LengthInBytes="743745"
+			      CanonicalFileName="Extensible Follower Framework v4-0-2-12933-4-0-2.7z"
+			      MD5Checksum="ba48cb633f822ed0e0a5a3a11682d274"
+			      DownloadTags="nexus|skyrim|12933|1000162321" />
+
+			<File Name="Extensible Follower Framework - Disable Autosort X"
+			      LengthInBytes="2265"
+			      CanonicalFileName="EFF Inventory Autosort Disable.7z"
+			      MD5Checksum="3f47e4e0ddabb028002de1d8ee2c97eb"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Extensible%20Follower%20Framework/EFF%20Inventory%20Autosort%20Disable.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Extensible_Follower_Framework" />
+
+			<File Name="Face to face conversation 3.2"
+			      LengthInBytes="44961"
+			      CanonicalFileName="Face to face conversation 3_2-30533-3-2.7z"
+			      MD5Checksum="c4204135eb39ee946d767a7b74855ef4"
+			      DownloadTags="nexus|skyrim|30533|1000113016" />
+		</Group>
+
+		<Group Name="4.4.5 World Map">
+			<File Name="Atlas Map Markers 1.7"
+			      LengthInBytes="4139777"
+			      CanonicalFileName="Atlas Map Markers v1-7 Complete-14976-1-7.7z"
+			      MD5Checksum="270815c83a4dec3cdcc27b4b851bfeb7"
+			      DownloadTags="nexus|skyrim|14976|1000109324" />
+
+			<File Name="Atlas Map Markers - Updated with MCM - Legendary Update 2.0"
+			      LengthInBytes="164218"
+			      CanonicalFileName="Atlas Map Markers - Legendary Update-74045-2-0.7z"
+			      MD5Checksum="5efbd2b4bc94d21806ab6ab75adef13c"
+			      DownloadTags="nexus|skyrim|74045|1000198545" />
+		</Group>
+
+		<Group Name="4.5.1 Dynamic LOD">
+			<File Name="DynDOLOD 2.21"
+			      LengthInBytes="17184945"
+			      CanonicalFileName="DynDOLOD-59721-2-21.7z"
+			      MD5Checksum="807bc1a29c1080d4b445c53e71784cc9"
+			      DownloadTags="nexus|skyrim|59721|1000226108" />
+
+			<File Name="DynDOLOD Resources 2.20"
+			      LengthInBytes="35280546"
+			      CanonicalFileName="DynDOLOD Resources-59721-2-20.7z"
+			      MD5Checksum="cf9566db5dd08657dca52e281c10a871"
+			      DownloadTags="nexus|skyrim|59721|1000225965" />
+
+			<File Name="Vanilla Skyrim LOD Billboards 1.0"
+			      LengthInBytes="718281"
+			      CanonicalFileName="Vanilla Skyrim LOD Billboards-62698-1-0.zip"
+			      MD5Checksum="a798e29d80f6c5d943fb3bb4638bfd2b"
+			      DownloadTags="nexus|skyrim|62698|1000150945" />
+		</Group>
+
+		<Group Name="4.5.2 World Expansions">
+			<File Name="Falskaar 1.2.1final"
+			      LengthInBytes="494957484"
+			      CanonicalFileName="Falskaar V1_2_1final-37994-1-2-1final.7z"
+			      MD5Checksum="6e704d9f9c7230f65ea6d98b7735b787"
+			      DownloadTags="nexus|skyrim|37994|1000189153" />
+		</Group>
+
+		<Group Name="4.5.3 Modified and Expanded Quests">
+			<File Name="Alternate Start - Live Another Life 3.1.5a"
+			      LengthInBytes="5077915"
+			      CanonicalFileName="Alternate Start - Live Another Life-9557-3-1-5a.7z"
+			      MD5Checksum="e14e479ddef6c8f4bb43ffd15912ea70"
+			      DownloadTags="nexus|skyrim|9557|1000219880" />
+
+			<File Name="Cutting Room Floor - Legendary Edition 2.0.3"
+			      LengthInBytes="6007711"
+			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-3.7z"
+			      MD5Checksum="e3778a2b026ddbf435c588a4dc4b4064"
+			      DownloadTags="nexus|skyrim|47327|1000221306" />
+
+			<File Name="Cutting Room Floor - RSC - CRF Patch 1.0"
+			      LengthInBytes="98629"
+			      CanonicalFileName="RSC - CRF Patch-47327-1-0.7z"
+			      MD5Checksum="b88cf954edec56fa69c3c3c78caef8ce"
+			      DownloadTags="nexus|skyrim|47327|1000166061" />
+
+			<File Name="Even Better Quest Objectives 1.5.8a"
+			      LengthInBytes="8225702"
+			      CanonicalFileName="Even Better Quest Objectives - 1.5.8a-32695-1-5-8a.7z"
+			      MD5Checksum="54441a99d82c454aae11db155b379468"
+			      DownloadTags="nexus|skyrim|32695|1000225704" />
+
+			<File Name="Gildergreen Regrown 1.2.6"
+			      LengthInBytes="33533"
+			      CanonicalFileName="Gildergreen Regrown-12254-1-2-6.7z"
+			      MD5Checksum="db6785d5bed399c04fc0dfb5025a6b95"
+			      DownloadTags="nexus|skyrim|12254|1000098503" />
+
+			<File Name="Provincial Courier Service 2.0.0"
+			      LengthInBytes="590624"
+			      CanonicalFileName="Provincial Courier Service-46693-2-0-0.7z"
+			      MD5Checksum="b0def33f08ab28a1abbc21035a3a832d"
+			      DownloadTags="nexus|skyrim|46693|1000207484" />
+
+			<File Name="The Choice is Yours - Legendary 2.0"
+			      LengthInBytes="1027059"
+			      CanonicalFileName="The Choice is Yours-26359-2-0.zip"
+			      MD5Checksum="43a8c52c4d6b3977e153c0f673a17cab"
+			      DownloadTags="nexus|skyrim|26359|1000227946" />
+
+			<File Name="The Notice Board 2.2"
+			      LengthInBytes="2357119"
+			      CanonicalFileName="The Notice Board-70142-2-2.rar"
+			      MD5Checksum="e85d7fb3435e49d0e830163f7116fa87"
+			      DownloadTags="nexus|skyrim|70142|1000198559" />
+
+			<File Name="The Notice Board - Falskaar 2.5a"
+			      LengthInBytes="27679"
+			      CanonicalFileName="The Notice Board for Falskaar-70273-2-5a.rar"
+			      MD5Checksum="43df386426ddd0be5121f946d3cf13bb"
+			      DownloadTags="nexus|skyrim|70273|1000189213" />
+
+			<File Name="The Paarthurnax Dilemma 1.2.9"
+			      LengthInBytes="463972"
+			      CanonicalFileName="The Paarthurnax Dilemma-18465-1-2-9.7z"
+			      MD5Checksum="431c92517ac7012f21e4aa29a04c25c5"
+			      DownloadTags="nexus|skyrim|18465|1000177457" />
+
+			<File Name="Thieves Guild Requirements 3.0"
+			      LengthInBytes="910449"
+			      CanonicalFileName="Thieves Guild Requirements-14157-3-0.7z"
+			      MD5Checksum="f3294c29e80379a4f222a3b2b275460e"
+			      DownloadTags="nexus|skyrim|14157|1000205146" />
+
+			<File Name="Timing is Everything 2.02"
+			      LengthInBytes="27220"
+			      CanonicalFileName="Timing is Everything-38151-2-02.7z"
+			      MD5Checksum="b8b3a42279fd026ed0e39e878937dc3f"
+			      DownloadTags="nexus|skyrim|38151|1000170401" />
+		</Group>
+
+		<Group Name="4.5.4 Weather Systems">
+			<File Name="Vivid Weathers 1.51"
+			      LengthInBytes="364289383"
+			      CanonicalFileName="Vivid Weathers-73937-1-51.7z"
+			      MD5Checksum="c66cd104c29e49b97ff8fb82e33742f2"
+			      DownloadTags="nexus|skyrim|73937|1000230128" />
+		</Group>
+
+		<Group Name="4.5.5 ENB Related Data Files">
+			<File Name="Vividian ENB 7.50"
+			      LengthInBytes="45054212"
+			      CanonicalFileName="Vividian ENB 7-36067-7-50.7z"
+			      MD5Checksum="5e19710cfd4213a24a976db0f809825b"
+			      DownloadTags="nexus|skyrim|36067|1000213985" />
+
+			<File Name="ENB Terrain Parallax Fix - for Vivid Landscapes Users 1.0"
+			      LengthInBytes="469441"
+			      CanonicalFileName="Terrain Parallax Fix - for Vivid Landscapes Users-63456-1-0.7z"
+			      MD5Checksum="038fc121b17e2770c73b76a1cf67c49e"
+			      DownloadTags="nexus|skyrim|63456|1000150415" />
+
+			<File Name="Enhanced Lighting for ENB (ELE) - LITE - Only IL - NMM_BAIN 0.9.5b"
+			      LengthInBytes="5763370"
+			      CanonicalFileName="ELE_Lite_v0_95b_Only IL-59733-0-9-5b.7z"
+			      MD5Checksum="8390d9559043e49797455794264ee31e"
+			      DownloadTags="nexus|skyrim|59733|1000163721" />
+		</Group>
+
+		<Group Name="4.5.6 General World Improvement">
+			<File Name="The Ruffled Feather 4.4"
+			      LengthInBytes="41979174"
+			      CanonicalFileName="The Ruffled Feather v4.4-11-4-4.7z"
+			      MD5Checksum="74d84e101ee2075cfa764fcfcc132178"
+			      DownloadTags="nexus|skyrim|11|1000227386" />
+
+			<File Name="Enhanced Distant Terrain 1.1.1"
+			      LengthInBytes="147416040"
+			      CanonicalFileName="Enhanced Distant Terrain v1.1.1-11-1-1-1.7z"
+			      MD5Checksum="d109d72818f57e8c78459ff9298ebfba"
+			      DownloadTags="nexus|skyrim|11|1000227251" />
+
+			<File Name="No stretching - USKP compatible 2.2"
+			      LengthInBytes="31730158"
+			      CanonicalFileName="No stretching USKP compatible -26126-2-2.7z"
+			      MD5Checksum="a96f4e16db7074d510588e5b6d8dc95a"
+			      DownloadTags="nexus|skyrim|26126|1000112484" />
+
+			<File Name="SMIM 2.04"
+			      LengthInBytes="1017442545"
+			      CanonicalFileName="SMIM 2-04-8655-2-04.7z"
+			      MD5Checksum="b633054d9c166b3d08491fb0900a2331"
+			      DownloadTags="nexus|skyrim|8655|1000228204" />
+
+			<File Name="Noble Skyrim Mod - FULL PACK - 2K 5.3.0"
+			      LengthInBytes="2481956540"
+			      CanonicalFileName="A. NSM - FULL PACK_v.5.3.0_2K - For Original Skyrim Game-45807-5-3-0.7z"
+			      MD5Checksum="00066e5d6499730aa6aec904a5b2c9cd"
+			      DownloadTags="nexus|skyrim|45807|1000229894" />
+
+			<File Name="Enhanced Lights and FX 3.01"
+			      LengthInBytes="123555148"
+			      CanonicalFileName="Enhanced Lights and FX-27043-3-01.7z"
+			      MD5Checksum="b24a345fb5a90e1c8c394f094b6d685f"
+			      DownloadTags="nexus|skyrim|27043|1000198610" />
+
+			<File Name="Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4"
+			      LengthInBytes="91259439"
+			      CanonicalFileName="Noble Skyrim HD Parallax Patch-71400-1-4.zip"
+			      MD5Checksum="221417332bf768a276edc4d75c5e5cf0"
+			      DownloadTags="nexus|skyrim|71400|1000223263" />
+
+			<File Name="Relighting Skyrim FULL - Tailored for ELFX X"
+			      LengthInBytes="69957"
+			      CanonicalFileName="Relighting Skyrim FULL - Tailored for ELFX.7z"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Relighting%20Skyrim/Relighting%20Skyrim%20FULL%20-%20Tailored%20for%20ELFX.7z"
+			      MD5Checksum="9c0bf0924185a72ce189cfe5aa0eaac5"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Relighting_Skyrim" />
+		</Group>
+
+		<Group Name="4.5.7 Clutter and Miscellaneous">
+			<File Name="Animated clutter 1.9"
+			      LengthInBytes="61821561"
+			      CanonicalFileName="animated clutter-48287-1-9.7z"
+			      MD5Checksum="767f4b80d5af721ea3289d17f2a2764f"
+			      DownloadTags="nexus|skyrim|48287|1000107949" />
+
+			<File Name="Barenziah's Glory 2.1"
+			      LengthInBytes="21046049"
+			      CanonicalFileName="Barenziahs Glory v2-1-63902-2-1.7z"
+			      MD5Checksum="964b99c61cb4bf59e4fff921368497cf"
+			      DownloadTags="nexus|skyrim|63902|1000195554" />
+
+			<File Name="Better-Shaped Talos Statue with Greatsword 1.2a"
+			      LengthInBytes="10045266"
+			      CanonicalFileName="LeanWolfs Better-Shaped and Armed Talos-62655-1-2a.7z"
+			      MD5Checksum="0ca0f53f23d338f90ee6f0e9a8b20e12"
+			      DownloadTags="nexus|skyrim|62655|1000150378" />
+
+			<File Name="Better-Shaped Talos Statue with Greatsword - NSUtR Patch 1.2"
+			      LengthInBytes="593477"
+			      CanonicalFileName="LeanWolfs Better-Shaped Talos with Greatsword - NSUtR Patch-62655-1-2.7z"
+			      MD5Checksum="9344c85138cfabbb74be072021d1e3ea"
+			      DownloadTags="nexus|skyrim|62655|1000152880" />
+
+			<File Name="BLOODSTONE CHALICE REBORN 2K 1.1"
+			      LengthInBytes="13685313"
+			      CanonicalFileName="BLOODSTONE CHALICE REBORN 2K -63551-.zip"
+			      MD5Checksum="4d6ca6f68943819343acf1300159ad8f"
+			      DownloadTags="nexus|skyrim|63551|1000152102" />
+
+			<File Name="Bloody Dragon Bones - 2k 1.1"
+			      LengthInBytes="8507164"
+			      CanonicalFileName="Bloody Dragon Bones 2k-30620-1-1.rar"
+			      MD5Checksum="15bdbc107cdd755a5ea8de6cce40bafb"
+			      DownloadTags="nexus|skyrim|30620|1000091625" />
+
+			<File Name="Book Covers Skyrim LEGENDARY - Desaturated 3.6"
+			      LengthInBytes="478231320"
+			      CanonicalFileName="Book Covers Skyrim 3_6 LEGENDARY - Desaturated-35399-3-6.7z"
+			      MD5Checksum="94a5a8a94ba85c446f9fb7719291394e"
+			      DownloadTags="nexus|skyrim|35399|1000225868" />
+
+			<File Name="Book Covers Skyrim - Lost Library - DESATUATED 1.7"
+			      LengthInBytes="202325358"
+			      CanonicalFileName="Book Covers Skyrim - Lost Library - DESATURATED-57120-1-7.7z"
+			      MD5Checksum="67b341b5b1b5344f6f2be782351a776a"
+			      DownloadTags="nexus|skyrim|57120|1000131112" />
+
+			<File Name="Dressed Hearthfire Doll 3.0"
+			      LengthInBytes="3121012"
+			      CanonicalFileName="Dressed Hearthfire Doll-75362-3-0.7z"
+			      MD5Checksum="de6500f08aaf9c3f2dbe0d1faca51794"
+			      DownloadTags="nexus|skyrim|75362|1000230571" />
+
+			<File Name="Easier Lockpicking - Nordic Locks 1.2"
+			      LengthInBytes="2932773"
+			      CanonicalFileName="Easier Lockpicking 1_2 - Nordic Locks-53071-1-2.zip"
+			      MD5Checksum="c04e7e0ef7a9f13b3e249fbd33979f17"
+			      DownloadTags="nexus|skyrim|53071|1000132865" />
+
+			<File Name="LeanWolf's Improved Enchanter Candle Meshes 1.1"
+			      LengthInBytes="339124"
+			      CanonicalFileName="EnchantingCandlesImproved_LeanWolf-53638-1-1.7z"
+			      MD5Checksum="a93bd398cc17b597490474d16d6a48e4"
+			      DownloadTags="nexus|skyrim|53638|1000107539" />
+
+			<File Name="Enhanced HD Dragon Bones - 2k 1.6a"
+			      LengthInBytes="42848946"
+			      CanonicalFileName="Enhanced HD Dragon Bones 2k v1_6a all options-28741-1-6a.rar"
+			      MD5Checksum="f6a9e0022e741cbc3791747a25735396"
+			      DownloadTags="nexus|skyrim|28741|1000004232" />
+
+			<File Name="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0"
+			      LengthInBytes="2631364"
+			      CanonicalFileName="SOLID with REFRACTIONS v3-0-51769-3-0.zip"
+			      MD5Checksum="9a72c6337fa00d6ba77ac77082fe9b2c"
+			      DownloadTags="nexus|skyrim|51769|1000100788" />
+
+			<File Name="Hold Border Banners 1.0"
+			      LengthInBytes="544815"
+			      CanonicalFileName="Hold Border Banners-43493-1-0.rar"
+			      MD5Checksum="f0150faf6a50a0fa06acbb4c1b1e0030"
+			      DownloadTags="nexus|skyrim|43493|1000061205" />
+
+			<File Name="HQ Paper 2.3"
+			      LengthInBytes="38862659"
+			      CanonicalFileName="HQ Paper-5988-2-3.rar"
+			      MD5Checksum="aecf6dba2b79a496962baae466ff4603"
+			      DownloadTags="nexus|skyrim|5988|20804" />
+
+			<File Name="PELTAPALOOZA - FULL 1.2"
+			      LengthInBytes="22625113"
+			      CanonicalFileName="PELTAPALOOZA - FULL-60412-1-2.7z"
+			      MD5Checksum="0093d12fed94e6f0baabc61d0bf09252"
+			      DownloadTags="nexus|skyrim|60412|1000205336" />
+
+			<File Name="Realistic Boat Bobbing 2.4.8"
+			      LengthInBytes="28577321"
+			      CanonicalFileName="Realistic Boat Bobbing 2.4.8-52694-2-4-8.7z"
+			      MD5Checksum="c05a6a4a59a3aad327c2a1fadbb9f142"
+			      DownloadTags="nexus|skyrim|52694|1000211681" />
+
+			<File Name="Realistic HD Food - HIGH QUALITY 0.22"
+			      LengthInBytes="75763192"
+			      CanonicalFileName="Realistic HD Food HIGH QUALITY-62665-0-22.rar"
+			      MD5Checksum="f1f815a26fe2b6212e6a1ebea089f109"
+			      DownloadTags="nexus|skyrim|62665|1000148381" />
+
+			<File Name="Realistic HD Food and Beverages - Havok Physics Fix 1.0a"
+			      LengthInBytes="1243883"
+			      CanonicalFileName="Realistic HD Food and Beverages - Havok Physics Fix-75194-1-0a.rar"
+			      MD5Checksum="b247afbc0424cb6e2c7e30fd75a632b8"
+			      DownloadTags="nexus|skyrim|75194|1000205166" />
+
+			<File Name="Rens HD Shrines - Ultimate 2.0"
+			      LengthInBytes="35068728"
+			      CanonicalFileName="Rens HD Shrines - Ultimate-50327-2-0.rar"
+			      MD5Checksum="563ef24b130c2de653b369c07375cbbb"
+			      DownloadTags="nexus|skyrim|50327|1000095361" />
+
+			<File Name="Retexture for Soup - For SMIM Mesh - Poor Version 1.3"
+			      LengthInBytes="10184317"
+			      CanonicalFileName="For SMIM Mesh - Poor Version-65238-1-3.7z"
+			      MD5Checksum="312c24ded9aeadd233cb3c7231509e87"
+			      DownloadTags="nexus|skyrim|65238|1000158195" />
+
+			<File Name="Revamped Assets Skyrim - High 0.31"
+			      LengthInBytes="212181637"
+			      CanonicalFileName="Revamped Assets Skyrim - High-75380-0-31.7z"
+			      MD5Checksum="0d95c5b6c24217f78da09daa0df16007"
+			      DownloadTags="nexus|skyrim|75380|1000205331" />
+
+			<File Name="RUGNAROK - 2K 1.5"
+			      LengthInBytes="113893542"
+			      CanonicalFileName="RUGNAROK - 2K-64830-1-5.7z"
+			      MD5Checksum="81f3e6892f7de065767242505127d02d"
+			      DownloadTags="nexus|skyrim|64830|1000194673" />
+
+			<File Name="RUSTIC ALCHEMY and ENCHANTING TABLES - 2K 1.0"
+			      LengthInBytes="21166984"
+			      CanonicalFileName="RUSTIC ALCHEMY and ENCHANTING TABLES 2K-62328-1-0.zip"
+			      MD5Checksum="62229a95f1f7fddeccd8fdb780f1ffc5"
+			      DownloadTags="nexus|skyrim|62328|1000146083" />
+
+			<File Name="RUSTIC CLUTTER COLLECTION - 2K 2.3.1"
+			      LengthInBytes="104588938"
+			      CanonicalFileName="RUSTIC CLUTTER COLLECTION - 2K-62506-2-3-1.7z"
+			      MD5Checksum="ecb176def878305bb91b106786da3b5e"
+			      DownloadTags="nexus|skyrim|62506|1000213001" />
+
+			<File Name="RUSTIC COOKING STATION - 2K 1.1"
+			      LengthInBytes="38225627"
+			      CanonicalFileName="RUSTIC COOKING STATION 2K-62800-1-1.zip"
+			      MD5Checksum="0452c4929a1407be8087af6f28c6eac1"
+			      DownloadTags="nexus|skyrim|62800|1000147996" />
+
+			<File Name="RUSTIC ELDERSCROLL - 2K 1.0"
+			      LengthInBytes="7492041"
+			      CanonicalFileName="RUSTIC ELDERSCROLL - 2K-73287-1-0.7z"
+			      MD5Checksum="8ce76b148f11dd3870aa8f4e062e3be1"
+			      DownloadTags="nexus|skyrim|73287|1000194511" />
+
+			<File Name="RUSTIC OVEN - Hearthfires - SparrowDome Edition - 2K 1.1"
+			      LengthInBytes="12958822"
+			      CanonicalFileName="RUSTIC OVEN - Hearthfires - SparrowDome Edition - 2K-68387-1-1.zip"
+			      MD5Checksum="6afbfc206325c55f8ac5fc56ce4120fc"
+			      DownloadTags="nexus|skyrim|68387|1000170218" />
+
+			<File Name="RUSTIC POTIONS and POISONS - 2K 1.1"
+			      LengthInBytes="16744818"
+			      CanonicalFileName="RUSTIC POTIONS and POISONS - 2K-62701-1-1.7z"
+			      MD5Checksum="9bf87a051788a7269dd5748310f49ef8"
+			      DownloadTags="nexus|skyrim|62701|1000215633" />
+
+			<File Name="RUSTIC SOULGEMS - 2K - UNSORTED 2.0"
+			      LengthInBytes="25730692"
+			      CanonicalFileName="RUSTIC SOULGEMS 2K - UNSORTED-63766-2-0.zip"
+			      MD5Checksum="6ae4584eda905d1e5315075f09c3d6e8"
+			      DownloadTags="nexus|skyrim|63766|1000153122" />
+
+			<File Name="Septim HD 1.0"
+			      LengthInBytes="8138141"
+			      CanonicalFileName="Septim HD 1 point 0-3018-1-0.zip"
+			      MD5Checksum="df671a38d044426e8ad877e6a1a42489"
+			      DownloadTags="nexus|skyrim|3018|8188" />
+
+			<File Name="Spice Of Life - Barrels 1.0.5"
+			      LengthInBytes="37161700"
+			      CanonicalFileName="Spice Of Life - Barrels 1.0.5-75390-1-0-5.7z"
+			      MD5Checksum="478b32abcfa5f855ac4464377796c68f"
+			      DownloadTags="nexus|skyrim|75390|1000208150" />
+
+			<File Name="Spice Of Life - Fences 1.0.7"
+			      LengthInBytes="194447"
+			      CanonicalFileName="Spice Of Life - Fences 1.0.7-75390-1-0-7.7z"
+			      MD5Checksum="5dbf8397971c2e5a5e1059bc9fb6d808"
+			      DownloadTags="nexus|skyrim|75390|1000210687" />
+
+			<File Name="Stunning Statues of Skyrim 1.4"
+			      LengthInBytes="261336254"
+			      CanonicalFileName="Stunning Statues of Skyrim-56588-v1-4.7z"
+			      MD5Checksum="1d635ced8402ec82e44fe4e03e4343f7"
+			      DownloadTags="nexus|skyrim|56588|1000227644" />
+
+			<File Name="Subliminal Traps 2.1"
+			      LengthInBytes="2526470"
+			      CanonicalFileName="Suubliminal Traps 2dot1-2653-2-1.rar"
+			      MD5Checksum="532b41af3810c295e698581572b1c683"
+			      DownloadTags="nexus|skyrim|2653|1000086800" />
+
+			<File Name="Subliminal Traps - Sovngarde Edition 1death"
+			      LengthInBytes="54978"
+			      CanonicalFileName="Sovngarde Edition-2653-1death.zip"
+			      MD5Checksum="cbe1a3d25e1546649e071b79668b8b2c"
+			      DownloadTags="nexus|skyrim|2653|1000114274" />
+
+			<File Name="The Notice Board Redefined - 4K 1.0"
+			      LengthInBytes="14812389"
+			      CanonicalFileName="The Notice Board Redefined 4K (DEFAULT)-70260-1-0.rar"
+			      MD5Checksum="c6092d03338584da423585620f206008"
+			      DownloadTags="nexus|skyrim|70260|1000179150" />
+
+			<File Name="Weathered Road Signs 1.5"
+			      LengthInBytes="17282723"
+			      CanonicalFileName="Weathered Road Signs v1.5-2810-1-5.zip"
+			      MD5Checksum="b113ecbfccbf05547186948e530be6ec"
+			      DownloadTags="nexus|skyrim|2810|1000185886" />
+
+			<File Name="White Phial Replacer - All-in-One 1.2"
+			      LengthInBytes="15480016"
+			      CanonicalFileName="White Phial Replacer - All In One Installer v1-2-54078-1-2.7z"
+			      MD5Checksum="60dbd8ebb8ad96395e2085e6b18fa362"
+			      DownloadTags="nexus|skyrim|54078|1000114605" />
+		</Group>
 	</Files>
 
 	<Tasks>
+		<Group Name="2.2 Script Extenders">
+			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3">
+				<MapFolder From="skse_1_07_03/Data" To="ModOrganizer/mods/SKSE Support" />
+				<MapFile From="skse_1_07_03/skse_1_9_32.dll" To="{SkyrimInstallFolder}/skse_1_9_32.dll" />
+				<MapFile From="skse_1_07_03/skse_loader.exe" To="{SkyrimInstallFolder}/skse_loader.exe" />
+				<MapFile From="skse_1_07_03/skse_steam_loader.dll" To="{SkyrimInstallFolder}/skse_steam_loader.dll" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="2.3 Tools">
+			<ExtractArchive ArchiveFile="Mod Organizer 1.3.1.1">
+				<MapFolder From="ModOrganizer" To="ModOrganizer" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="LOOT 0.10.2 - Dev Archive">
+				<MapFolder From="loot_0.10.2-0-g9eb7d26_dev" To="LOOT 0.10.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 1dabbcd">
+				<!-- For a while there, they had it named this instead. -->
+				<!--<MapFile From="FO4Edit.exe" To="FO4Edit 3.1.3/TES5Edit.exe" />-->
+				<MapFolder To="FO4Edit 3.1.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Wrye Bash 306 - Standalone Executable">
+				<MapFolder From="Mopy" To="Wrye Bash 306" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="3.3 Configure Mod Organizer">
+			<TweakINI File="ModOrganizer/ModOrganizer.ini">
+				<Set Section="General" Property="selected_profile" Value="SRLE" />
+				<Set Section="General" Property="gamePath" Value="{SkyrimInstallFolderEscapeBackslashes}" />
+				<Set Section="General" Property="selected_executable" Value="1" />
+
+				<Set Section="customExecutables" Property="1\title" Value="SKSE" />
+				<Set Section="customExecutables" Property="1\custom" Value="false" />
+				<Set Section="customExecutables" Property="1\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="1\ownicon" Value="false" />
+				<Set Section="customExecutables" Property="2\title" Value="Skyrim" />
+				<Set Section="customExecutables" Property="2\custom" Value="false" />
+				<Set Section="customExecutables" Property="2\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="2\ownicon" Value="false" />
+				<Set Section="customExecutables" Property="3\title" Value="Skyrim Launcher" />
+				<Set Section="customExecutables" Property="3\custom" Value="false" />
+				<Set Section="customExecutables" Property="3\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="3\ownicon" Value="false" />
+				<Set Section="customExecutables" Property="4\title" Value="LOOT" />
+				<Set Section="customExecutables" Property="4\custom" Value="true" />
+				<Set Section="customExecutables" Property="4\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="4\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/LOOT.exe" />
+				<Set Section="customExecutables" Property="4\arguments" Value="--loot-data-path=Data" />
+				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/" />
+				<Set Section="customExecutables" Property="4\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="4\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="5\title" Value="TES5Edit" />
+				<Set Section="customExecutables" Property="5\custom" Value="true" />
+				<Set Section="customExecutables" Property="5\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="5\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="5\binary" Value="{DumpFolderForwardSlashes}/FO4Edit 3.1.3/TES5Edit.exe" />
+				<Set Section="customExecutables" Property="5\arguments" Value="" />
+				<Set Section="customExecutables" Property="5\workingDirectory" Value="{DumpFolderForwardSlashes}/FO4Edit 3.1.3/" />
+				<Set Section="customExecutables" Property="5\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="5\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="6\title" Value="Wrye Bash" />
+				<Set Section="customExecutables" Property="6\custom" Value="true" />
+				<Set Section="customExecutables" Property="6\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="6\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="6\binary" Value="{DumpFolderForwardSlashes}/ModOrganizer/bash-profile.bat" />
+				<Set Section="customExecutables" Property="6\arguments" Value="" />
+				<Set Section="customExecutables" Property="6\workingDirectory" Value="{DumpFolderForwardSlashes}/Wrye Bash 306/" />
+				<Set Section="customExecutables" Property="6\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="6\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="7\title" Value="DynDOLOD" />
+				<Set Section="customExecutables" Property="7\custom" Value="true" />
+				<Set Section="customExecutables" Property="7\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="7\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/DynDOLOD.exe" />
+				<Set Section="customExecutables" Property="7\arguments" Value="" />
+				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
+				<Set Section="customExecutables" Property="7\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="7\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="8\title" Value="DynDOLOD TexGen" />
+				<Set Section="customExecutables" Property="8\custom" Value="true" />
+				<Set Section="customExecutables" Property="8\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="8\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/TexGen.exe" />
+				<Set Section="customExecutables" Property="8\arguments" Value="" />
+				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
+				<Set Section="customExecutables" Property="8\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="8\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="9\title" Value="Dual Sheath Redux Patch" />
+				<Set Section="customExecutables" Property="9\custom" Value="true" />
+				<Set Section="customExecutables" Property="9\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="9\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="9\binary" Value="{JavaBinFolderForwardSlashes}/javaw.exe" />
+				<Set Section="customExecutables" Property="9\arguments" Value="-jar \&quot;{DumpFolderForwardSlashes}/ModOrganizer/mods/Dual Sheath Redux 1.7.3/SkyProc Patchers/Dual Sheath Redux Patch/Dual Sheath Redux Patch.jar\&quot;" />
+				<Set Section="customExecutables" Property="9\workingDirectory" Value="{DumpFolderForwardSlashes}/ModOrganizer/mods/Dual Sheath Redux 1.7.3/SkyProc Patchers/Dual Sheath Redux Patch" />
+				<Set Section="customExecutables" Property="9\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="9\steamAppID" Value="" />
+				<Set Section="customExecutables" Property="10\title" Value="GenerateFNISforUsers" />
+				<Set Section="customExecutables" Property="10\custom" Value="true" />
+				<Set Section="customExecutables" Property="10\toolbar" Value="false" />
+				<Set Section="customExecutables" Property="10\ownicon" Value="true" />
+				<Set Section="customExecutables" Property="10\binary" Value="{DumpFolderForwardSlashes}/ModOrganizer/mods/FNIS Behavior V6.3/tools/GenerateFNIS_for_Users/GenerateFNISforUsers.exe" />
+				<Set Section="customExecutables" Property="10\arguments" Value="" />
+				<Set Section="customExecutables" Property="10\workingDirectory" Value="{DumpFolderForwardSlashes}/ModOrganizer/mods/FNIS Behavior V6.3/tools/GenerateFNIS_for_Users" />
+				<Set Section="customExecutables" Property="10\closeOnStart" Value="false" />
+				<Set Section="customExecutables" Property="10\steamAppID" Value="" />
+
+				<Set Section="customExecutables" Property="size" Value="10" />
+			</TweakINI>
+		</Group>
+
+		<Group Name="3.4 Create The Skyrim Revisited Profile">
+			<CreateEmptyFolder Path="ModOrganizer/profiles/SRLE/saves" />
+		</Group>
+
 		<Group Name="3.5 Clean The Bethesda ESMs">
 			<Clean>
 				<Plugin CleanFile="Skyrim ESM" />
@@ -201,6 +928,7 @@
 			</Clean>
 		</Group>
 
+		<!-- TODO: vet everything earlier than 4.1 -->
 		<Group Name="4.1 Unofficial Patches">
 			<ExtractArchive ArchiveFile="USLEEP 3.0.7" SimpleMO="Root">
 				<Hide Folder="ModOrganizer/mods/USLEEP 3.0.7/Docs" />
@@ -244,12 +972,17 @@
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
-			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Smart Souls 9.0/Smart Souls_readme.rtf" />
+			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06">
+				<MapFolder From="WM Critter Fixes - ReadMe.txt" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06/Docs/WM Critter Fixes - ReadMe.txt" />
 				<MapFolder From="00 base" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
 				<MapFolder From="10 flipped monarch wings" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
 				<MapFolder From="30 PondFish and Salmon Replacer" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
+
+				<Hide Folder="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06/Docs" />
 			</ExtractArchive>
 		</Group>
 
@@ -260,6 +993,646 @@
 
 			<ExtractArchive ArchiveFile="EatingSleepingDrinking 3.1.47 Update" WaitFor="ESDMain">
 				<MapFolder To="ModOrganizer/mods/EatingSleepingDrinking 3.1.47" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.4.1 General User Interface Improvement">
+			<ExtractArchive ArchiveFile="Blocksteal Redux 1.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Blocksteal Redux - All vannila miscItem basket text X">
+				<MapFile From="PreventsAccidentPickUp.basket" To="ModOrganizer/mods/Blocksteal Redux 1.5/SKSE/Plugins/PreventsAccidentPickUp.basket" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Easy Wheelmenu 4.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Extended UI 1.2.0d" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Extended UI 1.2.0d/Readme - Extended UI.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SSIRT 3.0">
+				<MapFolder From="docs" To="ModOrganizer/mods/SSIRT 3.0/docs" />
+				<MapFolder From="100 BACKGROUND/HDR Nebula Irradiant Stars" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="100 BACKGROUND/shared files/HDR Nebula" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="100 BACKGROUND/shared files/Irradiant Stars" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="110 MESH FIXES" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="200 PERK LINES/Option 3" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="300 LINE COLOUR/Yellow" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="400 CONSTELLATIONS/Option 2" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="500 PERK STARS/Option 2" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="600 Dawnguard Constellations/Option 2" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="610 DG MOONS/HD Masser and Secunda" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="610 DG MOONS/shared files/MasSec Stars" To="ModOrganizer/mods/SSIRT 3.0" />
+				<MapFolder From="620 DG MORE STARS/textures" To="ModOrganizer/mods/SSIRT 3.0/textures" />
+				<MapFolder From="630 DG BACKGROUND/HDR Vampire" To="ModOrganizer/mods/SSIRT 3.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SkyUI 5.1" SimpleMO="Root" />
+		</Group>
+
+		<Group Name="4.4.2 Heads Up Display">
+			<ExtractArchive ArchiveFile="A Matter of Time 2.0.7" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/A Matter of Time 2.0.7/fomod" />
+				<Hide File="ModOrganizer/mods/A Matter of Time 2.0.7/AMatterOfTime_Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better MessageBox Controls 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="iWASM 1.0">
+				<MapFolder From="iWASM V1.0/Data" To="ModOrganizer/mods/iWASM 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Main Font Replacement - Centaur 2.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="moreHUD 2.1.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="No Poison Dialogues 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Smaller Cursor X" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.4.3 Character Creation">
+			<ExtractArchive ArchiveFile="RaceMenu 3.4.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="RaceMenu - Overlays Plugin 2.5.0" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.4.4 Dialogue and Follower Control">
+			<ExtractArchive ArchiveFile="Better Dialogue Controls 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Extensible Follower Framework 4.0.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Extensible Follower Framework - Disable Autosort X">
+				<MapFolder From="Scripts" To="ModOrganizer/mods/Extensible Follower Framework 4.0.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Face to face conversation 3.2" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Face to face conversation 3.2/towConversation.bsl" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.4.5 World Map">
+			<ExtractArchive ArchiveFile="Atlas Map Markers 1.7">
+				<MapFolder From="12 Atlas Map Markers LE" To="ModOrganizer/mods/Atlas Map Markers 1.7" />
+				<MapFolder From="35 Atlas Map for SkyUI" To="ModOrganizer/mods/Atlas Map Markers 1.7" />
+
+				<!-- I like these... -->
+				<MapFolder From="31 Atlas Compass Tweaks" To="ModOrganizer/mods/Atlas Map Markers 1.7 (Extras)" />
+				<MapFolder From="32 Atlas World Encounters" To="ModOrganizer/mods/Atlas Map Markers 1.7 (Extras)" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Atlas Map Markers - Updated with MCM - Legendary Update 2.0" SimpleMO="Root" />
+		</Group>
+
+		<Group Name="4.5.1 Dynamic LOD">
+			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.20">
+				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="03 High Hrothgar Window Glow" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="DynDOLOD 2.21">
+				<MapFolder From="DynDOLOD" To="DynDOLOD 2.21" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Vanilla Skyrim LOD Billboards 1.0" SimpleMO="Root" />
+		</Group>
+
+		<Group Name="4.5.2 World Expansions">
+			<!-- TODO: DDSOpt processing -->
+			<ExtractArchive ArchiveFile="Falskaar 1.2.1final" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Falskaar 1.2.1final/Falskaar1.2.1ReadMe.txt" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.5.3 Modified and Expanded Quests">
+			<ExtractArchive ArchiveFile="Alternate Start - Live Another Life 3.1.5a" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life Dungeon Compatibility.txt" />
+				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life Extension Documentation.txt" />
+				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life.bsl" />
+				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - RSC - CRF Patch 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Even Better Quest Objectives 1.5.8a">
+				<MapFolder From="00 Main File" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="11 Dark Brotherhood Forever to Misc. Quests" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="51 Alternate Start - Live Another Life" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="55 Cutting Room Floor" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="56 Extensible Follower Framework" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="61 The Paarthurnax Dilemma" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Gildergreen Regrown 1.2.6" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Gildergreen Regrown 1.2.6/Gildergreen Regrown.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Provincial Courier Service 2.0.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Provincial Courier Service 2.0.0/Provincial Courier Service.bsl" />
+				<Hide File="ModOrganizer/mods/Provincial Courier Service 2.0.0/Provincial Courier Service.txt" />
+			</ExtractArchive>
+
+			<!-- SR:LE guide says to hide "Readmes", but that folder was removed in 2.0. -->
+			<ExtractArchive ArchiveFile="The Choice is Yours - Legendary 2.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="The Notice Board 2.2" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/The Notice Board 2.2/notice board - readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="The Notice Board - Falskaar 2.5a" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Thieves Guild Requirements 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Timing is Everything 2.02" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Timing is Everything 2.02/Readmes" />
+			</ExtractArchive>
+
+			<!-- This is Kryptopyr's defaults, with Kelmych's tweak, from:
+			     http://wiki.step-project.com/Project:MCM_Recommendations#tab=Timing_is_Everything -->
+			<Embedded File="ModOrganizer/mods/Timing is Everything 2.02/SKSE/Plugins/FISS/TimingIsEverythingPresets.xml" Encoding="UTF8NoBOM">
+				<Line><![CDATA[<fiss>
+	<Header>
+		<Version>1.2</Version>
+		<ModName>TimingIsEverything</ModName>
+	</Header>
+	<Data>
+		<DA02MinLevel>30.000000</DA02MinLevel>
+		<DA04MinLevel>15.000000</DA04MinLevel>
+		<DA06MinLevel>10.000000</DA06MinLevel>
+		<DA08MinLevel>20.000000</DA08MinLevel>
+		<DA09MinLevel>12.000000</DA09MinLevel>
+		<DA13MinLevel>12.000000</DA13MinLevel>
+		<DA14MinLevel_KRY>14.000000</DA14MinLevel_KRY>
+		<DA07MinLevel_KRY>20.000000</DA07MinLevel_KRY>
+		<DLC1VQMinLevel>29.000000</DLC1VQMinLevel>
+		<DLC1VQMinLevelVampireAttacks>25.000000</DLC1VQMinLevelVampireAttacks>
+		<DLC1RadiantDisguisedVampireLordChance>25.000000</DLC1RadiantDisguisedVampireLordChance>
+		<DLC1ScoutPatrolChance>25.000000</DLC1ScoutPatrolChance>
+		<DLC1EclipseAttackNextMaxWait>20.000000</DLC1EclipseAttackNextMaxWait>
+		<DLC1EclipseAttackNextWait>5.000000</DLC1EclipseAttackNextWait>
+		<DLC2QuestStartSelection_KRY>1</DLC2QuestStartSelection_KRY>
+		<DLC2CultistAttackMinLevel_KRY>25.000000</DLC2CultistAttackMinLevel_KRY>
+		<BYOHHouseBuilding>20.000000</BYOHHouseBuilding>
+		<DLC2WE09Chance>100.000000</DLC2WE09Chance>
+		<MS06MinLevel>10.000000</MS06MinLevel>
+		<MS04MinLevel>14.000000</MS04MinLevel>
+		<FFRiften09Gate>14.000000</FFRiften09Gate>
+		<Favor153MinLevel_KRY>15.000000</Favor153MinLevel_KRY>
+		<Favor157MinLevel_KRY>20.000000</Favor157MinLevel_KRY>
+		<Favor109MinLevel_KRY>10.000000</Favor109MinLevel_KRY>
+		<WIWaitDragon>5.000000</WIWaitDragon>
+		<RandomDragonChance_KRY>20.000000</RandomDragonChance_KRY>
+		<WerewolfEncounters_KRY>1.000000</WerewolfEncounters_KRY>
+		<DLC2dunHaknirTreasureQSTMinLevel>36.000000</DLC2dunHaknirTreasureQSTMinLevel>
+		<DLC2EbonyWarriorMinLevel_KRY>75.000000</DLC2EbonyWarriorMinLevel_KRY>
+		<WEbountyCollectorCrimeGoldRequirement>1500.000000</WEbountyCollectorCrimeGoldRequirement>
+		<WEBountyCollectorChance>30.000000</WEBountyCollectorChance>
+		<MeridiaNoVampire_KRY>1.000000</MeridiaNoVampire_KRY>
+		<QuestLockThalmorSquad_KRY>1.000000</QuestLockThalmorSquad_KRY>
+		<WEThalmorVal>10.000000</WEThalmorVal>
+		<WEHiredThugsAmtVal>150.000000</WEHiredThugsAmtVal>
+		<WEAssassinLvlVal>15.000000</WEAssassinLvlVal>
+		<WEAssassinAVal>5.000000</WEAssassinAVal>
+		<WEAssassinMVal>0.000000</WEAssassinMVal>
+	</Data>
+</fiss>]]></Line>
+			</Embedded>
+		</Group>
+
+		<Group Name="4.5.4 Weather Systems">
+			<ExtractArchive ArchiveFile="Vivid Weathers 1.51">
+				<MapFolder From="Data" To="ModOrganizer/mods/Vivid Weathers 1.51" />
+				<MapFolder From="Textures2k" To="ModOrganizer/mods/Vivid Weathers 1.51/Textures" />
+				<MapFolder From="Rainsounds" To="ModOrganizer/mods/Vivid Weathers 1.51" />
+				<MapFolder From="Galaxyandstars" To="ModOrganizer/mods/Vivid Weathers 1.51" />
+				<MapFile From="Compatibility patches/Vivid Weathers - AOS patch.esp" To="ModOrganizer/mods/Vivid Weathers 1.51/Vivid Weathers - AOS patch.esp" />
+				<MapFile From="Compatibility patches/Vivid Weathers - Falskaar.esp" To="ModOrganizer/mods/Vivid Weathers 1.51/Vivid Weathers - Falskaar.esp" />
+				<MapFile From="Compatibility patches/Vivid Weathers - Minty Lightning patch.esp" To="ModOrganizer/mods/Vivid Weathers 1.51/Vivid Weathers - Minty Lightning patch.esp" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.5.5 ENB Related Data Files">
+			<ExtractArchive ArchiveFile="Vividian ENB 7.50">
+				<MapFolder From="Vividian/Special Editions/Weather - Vivid Weathers/Main Files" To="{SkyrimInstallFolder}" />
+				<MapFolder From="Required Files and Presets/Sun" To="ModOrganizer/mods/Vividian ENB 7.50" />
+				<MapFolder From="Required Files and Presets/mindflux/Particle_Patch/data" To="ModOrganizer/mods/Vividian ENB 7.50" />
+				<MapFolder From="Required Files and Presets/mindflux/SSS_Patch/data" To="ModOrganizer/mods/Vividian ENB 7.50" />
+				<MapFile From="Required Files and Presets/Vividian - Torches Preset.esp" To="ModOrganizer/mods/Vividian ENB 7.50/Vividian - Torches Preset.esp" />
+				<MapFile From="Required Files and Presets/Vividian - Wearable Lanterns Preset.esp" To="ModOrganizer/mods/Vividian ENB 7.50/Vividian - Wearable Lanterns Preset.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="ENB Terrain Parallax Fix - for Vivid Landscapes Users 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - NMM_BAIN 0.9.5b">
+				<MapFolder From="10_Legendary" To="ModOrganizer/mods/Enhanced Lighting for ENB (ELE) - LITE - Only IL - NMM_BAIN 0.9.5b" />
+				<MapFolder From="51_Falskaar" To="ModOrganizer/mods/Enhanced Lighting for ENB (ELE) - LITE - Only IL - NMM_BAIN 0.9.5b" />
+			</ExtractArchive>
+
+			<!-- TODO: in ELE_Legendary_Lite.esp, revert:
+			     [WRLD:00020DCB]
+			         NAM0: X=-37, Y=-1 (both float32) (x was changed to -40)
+			         NAM9: X=  1, Y= 9 (both float32) (y was changed to   9) -->
+		</Group>
+
+		<Group Name="4.5.6 General World Improvement">
+			<ExtractArchive ArchiveFile="The Ruffled Feather 4.4">
+				<MapFolder From="000 Core Files" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
+				<MapFolder From="010 Better Dynamic Snow - SMIM" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
+				<MapFolder From="050 Moss Rocks" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
+				<MapFolder From="080 Suped-Up Stalhrim" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Enhanced Distant Terrain 1.1.1">
+				<MapFolder From="01 EDT QWM" To="ModOrganizer/mods/Enhanced Distant Terrain 1.1.1" />
+				<MapFolder From="03 Dragonborn QWM" To="ModOrganizer/mods/Enhanced Distant Terrain 1.1.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="No stretching - USKP compatible 2.2" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/No stretching - USKP compatible 2.2/No_stretching.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SMIM 2.04">
+				<MapFolder From="00 Core/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="00 Core/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="01 Furniture/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="01 Furniture/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="02 SMIM Barrel Textures Animations/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="03 Food/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="03 Food/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="05 Chains 3D - Misc/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="05 Chains 3D - Misc/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="06 Chains 3D - Signs/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="06 Chains 3D - Signs/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="07 Chains 3D - Whiterun/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="08 Chains 3D - Pull Levers Small Rings/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="09 Dwemer Clutter/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="09 Dwemer Clutter/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="10 Nordic Tables and Benches/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="10 Nordic Tables and Benches/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="11 Bridges Real Roads/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="11 Bridges Real Roads/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="12 Whiterun Doors/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="13 Lanterns/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="13 Lanterns/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="14 Stockade 3D Ropes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="14 Stockade 3D Ropes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="15 Clothing Fixes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="15 Clothing Fixes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="16 Tankard Pewter Metal/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="16 Tankard Pewter Metal/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="17 Nordic Catacombs Skeletal Remains/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="17 Nordic Catacombs Skeletal Remains/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="18 Farmhouse Woven Fence Less Flicker/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="19 Smelter/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="19 Smelter/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="22 Solitude Docks Ropes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="22 Solitude Docks Ropes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="25 Solitude Gate Doors/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="25 Solitude Gate Doors/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="26 Human Skull Fixes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="26 Human Skull Fixes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="27 Hawk/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="27 Hawk/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="30 Rocks - Generic/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="31 Rocks - Blackreach/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="32 Rocks - Mountains/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="33 Orc Longhouse/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="33 Orc Longhouse/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="35 Shack Kit/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="35 Shack Kit/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="37 Riften 3D Ropes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="37 Riften 3D Ropes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="39 Dungeons 3D Ropes and Glorious Scaffolding/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="39 Dungeons 3D Ropes and Glorious Scaffolding/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="40 Furniture Chests/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="40 Furniture Chests/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="41 Draugr Corpses/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="42 Furniture Noble/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="42 Furniture Noble/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="43 Whiterun Castle Wood Carvings Celtic/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="43 Whiterun Castle Wood Carvings Celtic/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="44 Poor Coffin Custom Texture/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="44 Poor Coffin Custom Texture/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="45 Hanging Rings/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="45 Hanging Rings/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="46 Carriage Seats and Fixes/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="46 Carriage Seats and Fixes/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="47 Juniper Tree/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="47 Juniper Tree/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="49 Tundra Tree/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="49 Tundra Tree/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="50 Dawnguard Soulcairn Bone Piles/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="50 Dawnguard Soulcairn Bone Piles/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="55 Windmills Base Vanilla Version Sails/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="55 Windmills Base Vanilla Version Sails/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="56 Windmills SkyMills Compatibility Sails/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="57 Ruins Sarcophagus/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="57 Ruins Sarcophagus/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="58 Jewelry Rings/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="58 Jewelry Rings/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="60 Hearthfires Stuff/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="60 Hearthfires Stuff/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="61 Bowl Ingredients/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="61 Bowl Ingredients/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="70 Rabbit/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="70 Rabbit/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="71 Candelabras Sconces Walltorches/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="71 Candelabras Sconces Walltorches/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="72 Chandeliers/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="72 Chandeliers/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts/Meshes" To="ModOrganizer/mods/SMIM 2.04/meshes"/>
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts/Textures" To="ModOrganizer/mods/SMIM 2.04/textures"/>
+				<MapFile From="95 Merged ESP OS All/SMIM-Merged-All.esp" To="ModOrganizer/mods/SMIM 2.04/SMIM-Merged-All.esp"/>
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Noble Skyrim Mod - FULL PACK - 2K 5.3.0" SimpleMO="Single" />
+
+			<ExtractArchive ArchiveFile="Enhanced Lights and FX 3.01">
+				<MapFolder From="Enhanced Lights and FX 3.1/00 Core Files" To="ModOrganizer/mods/Enhanced Lights and FX 3.01" />
+				<MapFolder From="Enhanced Lights and FX 3.1/02 ELFXExteriors" To="ModOrganizer/mods/Enhanced Lights and FX 3.01" />
+				<MapFolder From="Enhanced Lights and FX 3.1/03 SMIM Meshes" To="ModOrganizer/mods/Enhanced Lights and FX 3.01" />
+				<MapFolder From="Enhanced Lights and FX 3.1/03 SMIM Lantern" To="ModOrganizer/mods/Enhanced Lights and FX 3.01" />
+
+				<Hide File="ModOrganizer/mods/Enhanced Lights and FX 3.01/meshes/architecture/windhelm/whlanddead2.nif" />
+			</ExtractArchive>
+
+			<!-- TODO: in ELFX - Exteriors.esp, revert:
+			     [WRLD:00016BB4]
+			         NAM9: X= 45, Y=  1 (both float32) (x was changed to  46)
+			     [WRLD:00037EDF]
+			         NAM9: X=  4, Y= 30 (both float32) (y was changed to  32) -->
+
+			<ExtractArchive ArchiveFile="Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4" SimpleMO="Root">
+				<!-- Already removed in 1.4. -->
+				<!--
+				<Hide File="ModOrganizer/mods/Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4/meshes/architecture/solitude/sbluepalaceentrance.nif" />
+				<Hide File="ModOrganizer/mods/Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4/meshes/architecture/windhelm/whdockdoortrim.nif" />
+				<Hide File="ModOrganizer/mods/Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4/meshes/architecture/windhelm/whshorttower.nif" />
+				<Hide File="ModOrganizer/mods/Project Parallax Revived - Noble Skyrim HD Parallax Patch 1.4/meshes/architecture/windhelm/whstatuetalos02.nif" />
+				-->
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Relighting Skyrim FULL - Tailored for ELFX X" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.5.7 Clutter and Miscellaneous">
+			<!-- Same as STEP Core. -->
+			<ExtractArchive ArchiveFile="Animated clutter 1.9">
+				<MapFolder From="Animated Clutter/Animal Related Containers/Beehive" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Animal Related Containers/Spider sack" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Animal Related Containers/Spider sack albino" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Coffins/Coffin common" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Coffins/Coffin dwemer" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Coffins/Coffin noble and poor" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Coffins/Coffin riften" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Coffins/Coffin whiterun" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Doors/Whiterun underforge outside door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Doors/Whiterun underforge inside door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Doors/Solitude palace inner door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Doors/Orc longhouse" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Doors/Windhelm gray quarters door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Falmer Chests/Falmer chests" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Barrel" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Burial urn" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Dwemer convector" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Dwemer dresser" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Elder scroll chest" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Guild Cache" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Knapsack" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Noble chest" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Orc end table" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Sacks closed" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Sacks opened" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Satchel" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Sovngarde mead barrels" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Strongbox" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Wall cage" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Winterhold bookcase" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Misc Containers/Wrapped draugr" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Sewers and Wells/Imperial sewer entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Sewers and Wells/Imperial well entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Sewers and Wells/Riften sewer entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<!-- this is the single one we skip. -->
+				<!-- <MapFolder From="Animated Clutter/Ships/Ships idles" To="ModOrganizer/mods/Animated clutter 1.9" /> -->
+				<MapFolder From="Animated Clutter/Ships/Ships trap doors" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Trap Doors/Farmhouse trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Trap Doors/Hearthfire basement home trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Trap Doors/Imperial trap doors" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Trap Doors/Winterhold trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Fixes/Button animation fix" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<MapFolder From="Animated Clutter/Fixes/Fort Dawnguard wall fix" To="ModOrganizer/mods/Animated clutter 1.9" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1">
+				<MapFolder From="00 - MAIN" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+				<MapFolder From="01d - Gamwich Crown Texture 2k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+				<MapFolder From="02c - Gamwich Jewelrybox Texture 2k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better-Shaped Talos Statue with Greatsword 1.2a">
+				<MapFolder From="LeanWolfs Better-Shaped and Armed Talos/00 Sword Textures" To="ModOrganizer/mods/Better-Shaped Talos Statue with Greatsword 1.2a" />
+				<MapFolder From="LeanWolfs Better-Shaped and Armed Talos/23 Hi-Poly+NordHero" To="ModOrganizer/mods/Better-Shaped Talos Statue with Greatsword 1.2a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better-Shaped Talos Statue with Greatsword - NSUtR Patch 1.2">
+				<MapFolder From="33 NSUtR HP+NordHero" To="ModOrganizer/mods/Better-Shaped Talos Statue with Greatsword - NSUtR Patch 1.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="BLOODSTONE CHALICE REBORN 2K 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Bloody Dragon Bones - 2k 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Book Covers Skyrim LEGENDARY - Desaturated 3.6" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Book Covers Skyrim - Lost Library - DESATUATED 1.7" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Dressed Hearthfire Doll 3.0">
+				<MapFolder From="LoadScreen" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
+				<MapFolder From="FaceDefault/defaultcol" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
+				<MapFolder From="MeshManMer" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
+				<MapFolder From="DressRed" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Easier Lockpicking - Nordic Locks 1.2" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="LeanWolf's Improved Enchanter Candle Meshes 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Enhanced HD Dragon Bones - 2k 1.6a">
+				<MapFolder From="Option 4 - No Flesh" To="ModOrganizer/mods/Enhanced HD Dragon Bones - 2k 1.6a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Hold Border Banners 1.0">
+				<MapFolder From="Hold Border Banners/Data" To="ModOrganizer/mods/Hold Border Banners 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HQ Paper 2.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="PELTAPALOOZA - FULL 1.2" SimpleMO="Single" />
+
+			<ExtractArchive ArchiveFile="Realistic Boat Bobbing 2.4.8">
+				<MapFolder From="Realistic Boat Bobbing/010 Large Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/020 Long Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/030 Row Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/022 Long BFT Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/023 Long FS Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/201 Merged DLC ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/211 Merged Travel ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/212 Merged NL ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/213 Merged Snowy ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/221 Merged Travel NL ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/222 Merged Travel Snowy ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/223 Merged NL Snowy ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/231 Merged Travel NL Snowy ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/312 SMIM Barrels A" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+				<MapFolder From="Realistic Boat Bobbing/315 SMIM Crates" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+
+				<!-- download page says "Please do NOT install manually, this is fairly complex."
+				     After going through all that, I echo the sentiment. -->
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic HD Food - HIGH QUALITY 0.22">
+				<MapFolder From="REALISTIC HD Food HIGH QUALITY/Data" To="ModOrganizer/mods/Realistic HD Food - HIGH QUALITY 0.22" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic HD Food and Beverages - Havok Physics Fix 1.0a">
+				<MapFolder From="meshes/clutter/wine" To="ModOrganizer/mods/Realistic HD Food and Beverages - Havok Physics Fix 1.0a/meshes/clutter/wine" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Rens HD Shrines - Ultimate 2.0">
+				<!-- Each of these has 3 options in the FOMOD: Version 1, Version 2, and Vanilla.
+				     Vanilla, of course, is just doing nothing (delete the line in this file).
+				     Version 1 (called something different each time) is the odd number.
+				     Version 2 is always exactly one number higher than Version 1.
+				     So 01Akatosh is Akatosh's Version 1, and 02Akatosh would be Version 2.
+				     This first list is what SR:LE says to do.  It's all Version 1 except Mara. -->
+				<MapFolder From="RenHDShrines/01Akatosh" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/03Arkay" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/05Dibella" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/07Julianos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/09Kynareth" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/12Mara" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/13Stendarr" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/15Talos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/17Zenithar" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+
+				<!-- airbreather's personal favorites: -->
+				<!--
+				<MapFolder From="RenHDShrines/01Akatosh" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/03Arkay" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/06Dibella" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/08Julianos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/09Kynareth" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/11Mara" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/13Stendarr" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/16Talos" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				<MapFolder From="RenHDShrines/18Zenithar" To="ModOrganizer/mods/Rens HD Shrines - Ultimate 2.0" />
+				-->
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Retexture for Soup - For SMIM Mesh - Poor Version 1.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Revamped Assets Skyrim - High 0.31">
+				<MapFolder From="JiFFY - Revamped Assets Skyrim/13 FURNITURE 000" To="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31" />
+
+				<Hide Folder="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/textures/jiffymm/ras" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/furniture/workbenches/disenchantworkbench01.nif" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/furniture/workbenches/enchantingworkbench01.nif" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/furniture/workbenches/enchantingworkstation01.nif" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/furniture/enchantingworkbench.nif" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/furniture/enchantingworkstation.nif" />
+				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/loadscreenart/loadscreenenchantingworkbench.nif" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUGNAROK - 2K 1.5" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/architecture/whiterun/Thumbs.db" />
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/architecture/windhelm/Thumbs.db" />
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/clutter/common/Thumbs.db" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC ALCHEMY and ENCHANTING TABLES - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC CLUTTER COLLECTION - 2K 2.3.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC COOKING STATION - 2K 1.1" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/RUSTIC COOKING STATION - 2K 1.1/textures/architecture/whiterun/Thumbs.db" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC ELDERSCROLL - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC OVEN - Hearthfires - SparrowDome Edition - 2K 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC SOULGEMS - 2K - UNSORTED 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Septim HD 1.0">
+				<MapFolder From="Alternates/Default BPP/Mipmaps" To="ModOrganizer/mods/Septim HD 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Spice Of Life - Barrels 1.0.5">
+				<MapFolder From="00Base Required/Textures" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5/Textures" />
+				<MapFolder From="01Animated Barrels" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="02WithSymbols Black Briar" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="03WithSymbols Common" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="04With Symbols HonnyBrew" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="05WithSymbols Meat" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="06WithSymbols UnCommon" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="07With Symbols Mead" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+				<MapFolder From="09VanillaPlugin" To="ModOrganizer/mods/Spice Of Life - Barrels 1.0.5" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Spice Of Life - Fences 1.0.7">
+				<MapFolder From="00Base" To="ModOrganizer/mods/Spice Of Life - Fences 1.0.7" />
+				<MapFolder From="01Vanilla" To="ModOrganizer/mods/Spice Of Life - Fences 1.0.7" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Stunning Statues of Skyrim 1.4" Id="StunningStatuesMain">
+				<MapFolder From="01-BellaDibella/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="01-BellaDibella/textures 2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="02-NeatNocturnal/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="02-NeatNocturnal/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="03-AstonichAzura/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="03-AstonichAzura/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<!-- <MapFolder From="04-TerrificTalos/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" /> -->
+				<MapFolder From="04-TerrificTalos/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="05-YstericalYsgramor/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="05-YstericalYsgramor/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="06-MelancholicMeridia/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="06-MelancholicMeridia/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="07-MadnessMalacath/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="07-MadnessMalacath/2k3" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="08-WakenedWinterhold/meshes4" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="08-WakenedWinterhold/4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="09-CleverClavicus/meshes2" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="09-CleverClavicus/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="10-BucolicBoethiah/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="10-BucolicBoethiah/4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="11-NecroticNamira/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="11-NecroticNamira/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="12-MagneticMara/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="12-MagneticMara/2k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="13-MaleficMehrunes/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="13-MaleficMehrunes/2k2" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="14-VehementVaermina/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="14-VehementVaermina/4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="15-SpicySkyforge/4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="16-FancyFalmer/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="16-FancyFalmer/Falmer Rusty Copper 4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="17-SweetSovngarde/meshes" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+				<MapFolder From="17-SweetSovngarde/sovngarde 4k" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4" />
+			</ExtractArchive>
+
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/architecture/winterhold/magestatue.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/magestatuesnow.nif" />
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/clutter/Mehrunes/shrinemehrunes01.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/mehrunesdagonsnow.nif" />
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/clutter/statues/malacathstatue01.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/malacathstatuesnow.nif" />
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/clutter/statues/shrineofazura01.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/azurastatuesnow.nif" />
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/clutter/statues/statuedibella.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/statuedibellasnow.nif" />
+			<CopyFile WaitFor="StunningStatuesMain" From="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/clutter/statues/statueofmeridia01.nif" To="ModOrganizer/mods/Stunning Statues of Skyrim 1.4/meshes/prometheus/architecture/statuessnow/statueofmeridiasnow.nif" />
+
+			<ExtractArchive ArchiveFile="Subliminal Traps 2.1">
+				<MapFolder From="RLO/Tripwire" To="ModOrganizer/mods/Subliminal Traps 2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Subliminal Traps - Sovngarde Edition 1death">
+				<MapFolder From="Sovngarde Edition/data" To="ModOrganizer/mods/Subliminal Traps - Sovngarde Edition 1death" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="The Notice Board Redefined - 4K 1.0" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/The Notice Board Redefined - 4K 1.0/fomod" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Weathered Road Signs 1.5" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Weathered Road Signs 1.5/textures/tos_laintardale" />
+				<Hide Folder="ModOrganizer/mods/Weathered Road Signs 1.5/textures/tos_oakwood" />
+
+				<Hide File="ModOrganizer/mods/Weathered Road Signs 1.5/Weathered Road Signs Readme.txt" />
+				<Hide File="ModOrganizer/mods/Weathered Road Signs 1.5/Weathered Road Signs.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2">
+				<MapFolder From="01b - textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+				<MapFolder From="02b - DG textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+				<MapFolder From="11b - DG meshes 0.8x" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
 			</ExtractArchive>
 		</Group>
 	</Tasks>
