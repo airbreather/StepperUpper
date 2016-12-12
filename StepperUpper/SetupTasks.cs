@@ -57,6 +57,9 @@ namespace StepperUpper
 
                 case "EditFile":
                     return EditFileAsync(taskElement, dumpDirectory);
+
+                case "Materialize":
+                    return MaterializeFileAsync(taskElement, knownFiles, dumpDirectory);
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -362,6 +365,14 @@ namespace StepperUpper
             }
 
             throw new NotSupportedException("Argument type " + arg.Attribute("Type")?.Value + " was not recognized.");
+        }
+
+        private static Task MaterializeFileAsync(XElement taskElement, IReadOnlyDictionary<string, FileInfo> knownFiles, DirectoryInfo dumpDirectory)
+        {
+            FileInfo fromFile = knownFiles[taskElement.Attribute("File").Value];
+            FileInfo toFile = new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value));
+            toFile.Directory.Create();
+            return AsyncFile.CopyAsync(fromFile.FullName, toFile.FullName);
         }
     }
 }

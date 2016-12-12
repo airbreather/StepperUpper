@@ -539,6 +539,7 @@ namespace StepperUpper
                         }
                         catch (Exception ex)
                         {
+                            Console.Error.WriteLine("{1}Error when trying to do this task:{1}{0}{1}{1}{2}{1}", taskElement, Environment.NewLine, ex);
                             dict2[id].TrySetException(ex);
                             throw;
                         }

@@ -3,7 +3,7 @@
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
          FileVersion="1.0.0.0"
-         MinimumToolVersion="0.9.4.0">
+         MinimumToolVersion="1.0.1.0">
 
 	<Files>
 		<Group Name="2.2 Script Extenders">
@@ -765,6 +765,351 @@
 			      MD5Checksum="60dbd8ebb8ad96395e2085e6b18fa362"
 			      DownloadTags="nexus|skyrim|54078|1000114605" />
 		</Group>
+
+		<Group Name="4.5.8 Landscape and Environment">
+			<File Name="A Quality World Map - New Installer 8.4"
+			      LengthInBytes="7410533"
+			      CanonicalFileName="A Quality World Map - New Installer-4929-8-4.7z"
+			      MD5Checksum="072542143cd3f13fb3ee8f7cf1a1a074"
+			      DownloadTags="nexus|skyrim|4929|1000153868" />
+
+			<File Name="aMidianBorn Caves and Mines - 2k 3"
+			      LengthInBytes="150742029"
+			      CanonicalFileName="aMidianBorn Caves and Mines 2k-39190-3.7z"
+			      MD5Checksum="380f578b8c66f3192fa64b5c055af239"
+			      DownloadTags="nexus|skyrim|39190|1000086758" />
+
+			<File Name="aMidianBorn Solstheim Landscape - 2k 1"
+			      LengthInBytes="79328317"
+			      CanonicalFileName="aMidianBorn Solstheim Land-50013-1.7z"
+			      MD5Checksum="1270ceac324f57ccde1deb39e8640432"
+			      DownloadTags="nexus|skyrim|50013|1000091880" />
+
+			<File Name="Ash Rocks - All-In-One Installer 1.2.1"
+			      LengthInBytes="70635566"
+			      CanonicalFileName="Ash Rocks - All-In-One Installer - NMM and BAIN-41335-1-2-1.7z"
+			      MD5Checksum="18f1de9d11bba51e36e12e0e97dbc536"
+			      DownloadTags="nexus|skyrim|41335|1000056063" />
+
+			<File Name="Ash Rocks - Sulfur Rocks 0.3.beta"
+			      LengthInBytes="10047025"
+			      CanonicalFileName="Sulfur Rocks - v030 -41335-0-3-beta.7z"
+			      MD5Checksum="a4536bcab2dad87219bb3156f37ec78a"
+			      DownloadTags="nexus|skyrim|41335|1000059757" />
+
+			<File Name="Better Falskaar Map With Roads 1.1"
+			      LengthInBytes="330572"
+			      CanonicalFileName="Better Falskaar Map With Roads-51339-1-1.rar"
+			      MD5Checksum="f1de2ada197c0f6652707ad411e27b83"
+			      DownloadTags="nexus|skyrim|51339|1000098164" />
+
+			<File Name="Deathbell HD - 2K 1.1"
+			      LengthInBytes="3251118"
+			      CanonicalFileName="Deathbell HD - 2K-70133-1-1.rar"
+			      MD5Checksum="9611f44d66ed709723f1e612fb7e4e3f"
+			      DownloadTags="nexus|skyrim|70133|1000179330" />
+
+			<File Name="DROPS 1.0"
+			      LengthInBytes="18801998"
+			      CanonicalFileName="DROPS v1-63991-1-0.7z"
+			      MD5Checksum="7eac81f10c33f3c77d50fb41b47376b6"
+			      DownloadTags="nexus|skyrim|63991|1000153304" />
+
+			<File Name="Dynamic snow For Map - Type 2 V8"
+			      LengthInBytes="2924325"
+			      CanonicalFileName="Type 2-29877-V8.rar"
+			      MD5Checksum="5966d97c23d2fc9ed2794195945f2cfd"
+			      DownloadTags="nexus|skyrim|29877|1000002043" />
+
+			<File Name="Embers HD - All-in-One 1.32"
+			      LengthInBytes="82105322"
+			      CanonicalFileName="Embers HD 1.32-62425-1-32.zip"
+			      MD5Checksum="fc417a808a30356791dec2bc910af40f"
+			      DownloadTags="nexus|skyrim|62425|1000200670" />
+
+			<File Name="HD Enhanced Terrain PRO - Blended Version PRO"
+			      LengthInBytes="2154573"
+			      CanonicalFileName="HD Enhanced Terrain PRO - Blended Version-29782-PRO.rar"
+			      MD5Checksum="3120789261aee22617d060ad5863f028"
+			      DownloadTags="nexus|skyrim|29782|1000067556" />
+
+			<File Name="HDLODs All In One - 512 FullV2"
+			      LengthInBytes="17335304"
+			      CanonicalFileName="HDLODs All In One 512 V2-76931-FullV2.zip"
+			      MD5Checksum="d839fab890917261dab22e79fa0d93b9"
+			      DownloadTags="nexus|skyrim|76931|1000217689" />
+
+			<File Name="HD Stone Quarry and Clay Deposit for Hearthfire - 2K 1.0"
+			      LengthInBytes="16787423"
+			      CanonicalFileName="HD Stone Quarry and Clay Deposit 2K-38479-1-0.7z"
+			      MD5Checksum="d35854fc0432a1387e02d33bc1b02b1f"
+			      DownloadTags="nexus|skyrim|38479|1000039564" />
+
+			<File Name="High Quality 3D Map - Meshes Hi-Res 2.0"
+			      LengthInBytes="9004850"
+			      CanonicalFileName="HQ3DMap - Meshes Hi-Res-4817-2-0.7z"
+			      MD5Checksum="411f1abdd65437dcdc37d98530fee290"
+			      DownloadTags="nexus|skyrim|4817|17019" />
+
+			<File Name="High Quality 3D Map - Normals Original 2.0"
+			      LengthInBytes="32267645"
+			      CanonicalFileName="HQ3DMap - Normals Original-4817-2-0.7z"
+			      MD5Checksum="b4f5ff7a8a5fc62c48560c8da22fdaa1"
+			      DownloadTags="nexus|skyrim|4817|17060" />
+
+			<File Name="High Quality LODs - Meshes Hi-Res 2.1"
+			      LengthInBytes="33602524"
+			      CanonicalFileName="HQLODs - Meshes Hi-Res-4834.7z"
+			      MD5Checksum="252e1286fa170b79035e8e02ede896d6"
+			      DownloadTags="nexus|skyrim|4834|21854" />
+
+			<File Name="High Quality LODs - Normals Original 2.0"
+			      LengthInBytes="31988901"
+			      CanonicalFileName="HQLODs - Normals Original-4834-2-0.7z"
+			      MD5Checksum="19af356db038b1c53dcb44acc9454514"
+			      DownloadTags="nexus|skyrim|4834|18750" />
+
+			<File Name="Minty's Lightning during Thunder Storms - Loose Files 23.0"
+			      LengthInBytes="4892928"
+			      CanonicalFileName="MintyLightningModV23_Loose_Files-15506-23-0.zip"
+			      MD5Checksum="a48ba227c1450f547f431f69477b8ad7"
+			      DownloadTags="nexus|skyrim|15506|1000028438" />
+
+			<File Name="Moon Glow 1.01"
+			      LengthInBytes="2450193"
+			      CanonicalFileName="Moon Glow v1_01-50696-1-01.7z"
+			      MD5Checksum="3704eb49b404d12a2c53afc6a2438e87"
+			      DownloadTags="nexus|skyrim|50696|1000149593" />
+
+			<File Name="No Snow Under the Roof and 3D snow 2.3"
+			      LengthInBytes="22960206"
+			      CanonicalFileName="No Snow Under the Roof and 3D snow 2_3-51188-2-3.7z"
+			      MD5Checksum="b8aad57884df33ec22ee4e358be478a4"
+			      DownloadTags="nexus|skyrim|51188|1000149593" />
+
+			<File Name="NSutR RRRE Patch X"
+			      LengthInBytes="14307"
+			      CanonicalFileName="NSutR RRRE Patch.esp"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/NSUTR/NSutR%20RRRE%20Patch.esp"
+			      MD5Checksum="479e300989289d5be1747b128f41ab8b"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#No_Snow_Under_The_Roof" />
+
+			<File Name="Northfire's Skidmarks 1.0"
+			      LengthInBytes="3108467"
+			      CanonicalFileName="Northfire's Skidmarks-72245-1-0.rar"
+			      MD5Checksum="4033129f81566fe7f1e29065720d86eb"
+			      DownloadTags="nexus|skyrim|72245|1000189268" />
+
+			<File Name="Northfire's Dragons Footprint - 2K X"
+			      LengthInBytes="11618725"
+			      CanonicalFileName="Northfire's Dragons Footprint 2K-72245-.rar"
+			      MD5Checksum="1e0f83986852c467531e12ac5972c2e1"
+			      DownloadTags="nexus|skyrim|72245|1000189355" />
+
+			<File Name="Pilgrims Delight - Zul Do Dov 1.1"
+			      LengthInBytes="2539898"
+			      CanonicalFileName="Pilgrims Delight - Zul Do Dov-10940-1-1.zip"
+			      MD5Checksum="6c3db5387c2eeb380118eddf7315c24a"
+			      DownloadTags="nexus|skyrim|10940|70697" />
+
+			<File Name="Real Ice ALL-IN-ONE Installer V3"
+			      LengthInBytes="23958109"
+			      CanonicalFileName="Real Ice ALL-IN-ONE Installer by morpheas768-5388-V3.7z"
+			      MD5Checksum="ea3ca3a7d91517a3ad82b03d2fb59b56"
+			      DownloadTags="nexus|skyrim|5388|22993" />
+
+			<File Name="Real Roads for Skyrim - Loose files 1.01"
+			      LengthInBytes="57424284"
+			      CanonicalFileName="Rea-55518-1-01.zip"
+			      MD5Checksum="1ae7cde74df5fc15c919010a01b77f28"
+			      DownloadTags="nexus|skyrim|55518|1000115714" />
+
+			<File Name="Real Roads for Skyrim - Dawnguard and Dragonborn 1.01"
+			      LengthInBytes="4487"
+			      CanonicalFileName="Real Roads for Skyrim (Dawnguard and Dragonborn)-55518-1-01.zip"
+			      MD5Checksum="6e1223213996ec328fb979648b53c145"
+			      DownloadTags="nexus|skyrim|55518|1000116934" />
+
+			<File Name="Real Roads for Skyrim - MrTroublemaker Patch 1.01"
+			      LengthInBytes="1756457"
+			      CanonicalFileName="Rea-patch-55518-1-01.7z"
+			      MD5Checksum="fd8609f6fb2d1400f2f1679289e0a56f"
+			      DownloadTags="generic|http://www.mediafire.com/file/cpt0kf67cukaz75/Rea-patch-55518-1-01.7z" />
+
+			<File Name="Realistic Aspen Trees 3.5"
+			      LengthInBytes="12778682"
+			      CanonicalFileName="Realistic Aspen Trees 3-5-51069-3-5.7z"
+			      MD5Checksum="cb4328c2e5b6f39ead30dc723e8e3557"
+			      DownloadTags="nexus|skyrim|51069|1000228369" />
+
+			<File Name="Realistic Aspen Trees - Billboards for TES5LodGen 3.5"
+			      LengthInBytes="1147941"
+			      CanonicalFileName="RAT-51069-3-4.7z"
+			      MD5Checksum="cd8d4b307cafa1f3e727ab6493deb509"
+			      DownloadTags="nexus|skyrim|51069|1000164812" />
+
+			<File Name="Realistic Smoke and Embers - Medium 1.4"
+			      LengthInBytes="4049906"
+			      CanonicalFileName="RSE Medium v1_4-836.7z"
+			      MD5Checksum="834268192679baff1b4fb7b779525b2b"
+			      DownloadTags="nexus|skyrim|836|22476" />
+
+			<File Name="Realistic Water Two 1.11"
+			      LengthInBytes="52687423"
+			      CanonicalFileName="Realistic Water Two v1_11-41076-1-11.7z"
+			      MD5Checksum="e03fbe240f2daf61faec323066cf7bd2"
+			      DownloadTags="nexus|skyrim|41076|1000081546" />
+
+			<File Name="Realistic Water Two - ENB Textures 1.11"
+			      LengthInBytes="61454277"
+			      CanonicalFileName="Realistic Water Two - ENB Textures-41076-1-11.7z"
+			      MD5Checksum="919107cfffcdaf4fa6448dddb6290c44"
+			      DownloadTags="nexus|skyrim|41076|1000081559" />
+
+			<File Name="RUSTIC MONUMENTS and TOMBSTONES 2.6"
+			      LengthInBytes="34729218"
+			      CanonicalFileName="RUSTIC MONUMENTS and TOMBSTONES V2.6-68884-2-6.7z"
+			      MD5Checksum="56756586344dcf2b60e410d3c93c6142"
+			      DownloadTags="nexus|skyrim|68884|1000213456" />
+
+			<File Name="RUSTIC NORDIC MURALS - 2K 1.0"
+			      LengthInBytes="86890292"
+			      CanonicalFileName="RUSTIC NORDIC MURALS 2K-65602-1-0.zip"
+			      MD5Checksum="aa100573d6ec8d68b472582a6b4235a2"
+			      DownloadTags="nexus|skyrim|65602|1000159049" />
+
+			<File Name="Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0"
+			      LengthInBytes="601463938"
+			      CanonicalFileName="Serious HD Retexture LANDSCAPE 2048px-2146-v2-0.rar"
+			      MD5Checksum="4ec2783b9f448babd383b03f2f10e28b"
+			      DownloadTags="nexus|skyrim|2146|1000009483" />
+
+			<File Name="Skyrim Flora Overhaul 2.5b"
+			      LengthInBytes="191758983"
+			      CanonicalFileName="Skyrim Flora Overhaul v2.5b-141-2-5b.7z"
+			      MD5Checksum="a6e3cb032de3a1c74fdc1624b2c5449c"
+			      DownloadTags="nexus|skyrim|141|1000201723" />
+
+			<File Name="SFO Billboards 2.5b"
+			      LengthInBytes="5426448"
+			      CanonicalFileName="SFO Billboards for v2.5b (updated)-141-.7z"
+			      MD5Checksum="9d00c86b8ab1a5a2139af4a6792819a3"
+			      DownloadTags="nexus|skyrim|141|1000202763" />
+
+			<File Name="SFO - Large Juniper Trees X"
+			      LengthInBytes="13205066"
+			      CanonicalFileName="Large Juniper Trees (updated)-141-.zip"
+			      MD5Checksum="a11f78474e9a99a9fddfac3c6038a273"
+			      DownloadTags="nexus|skyrim|141|1000202847" />
+
+			<File Name="SFO - Tall Pines (Scots Pine Replacement) X"
+			      LengthInBytes="5501166"
+			      CanonicalFileName="Tall Pines (Scots Pine Replacement)-141-.7z"
+			      MD5Checksum="7867f10d205724bbe2482c7f0bba5f08"
+			      DownloadTags="nexus|skyrim|141|1000203716" />
+
+			<File Name="Telvanni Reborn - 2048x2048"
+			      LengthInBytes="168149633"
+			      CanonicalFileName="Telvanni Reborn-34601-1.7z"
+			      MD5Checksum="7fff28a8a7c63474f863cb9cf045bd6a"
+			      DownloadTags="generic|https://sites.google.com/site/telvannireborn" />
+
+			<File Name="Trees HD - ULTRA 1.6"
+			      LengthInBytes="95592581"
+			      CanonicalFileName="TreesHD_Skyrim_variation_ULTRA_NEW-3812-1-6.rar"
+			      MD5Checksum="0c1833a59caa4c5c918e84bbbd40fb5e"
+			      DownloadTags="nexus|skyrim|3812|24951" />
+
+			<File Name="Upgrade and fix for TreesHD 1.0"
+			      LengthInBytes="36756411"
+			      CanonicalFileName="1.0-63930-.rar"
+			      MD5Checksum="6e4d7887a55ea933574c616ccdcebb71"
+			      DownloadTags="nexus|skyrim|63930|1000152303" />
+
+			<File Name="Ultimate HD Fire Effects - Medium 1.9"
+			      LengthInBytes="19586614"
+			      CanonicalFileName="Ultimate HD Fire Effects -Medium Resolution--28642-1-9.rar"
+			      MD5Checksum="39183abe111a659b3b17a9f873b99c93"
+			      DownloadTags="nexus|skyrim|28642|1000017615" />
+
+			<File Name="Ultimate HD Candle Flames 1.9"
+			      LengthInBytes="140216"
+			      CanonicalFileName="Ultimate HD Candle Flames-28642-1-9.rar"
+			      MD5Checksum="cc6676ca492877ae6917da1308f02e37"
+			      DownloadTags="nexus|skyrim|28642|1000027580" />
+
+			<File Name="Vivid Landscapes - All in One - Loose Files - 2048px 2.8"
+			      LengthInBytes="489381085"
+			      CanonicalFileName="Vivid Landscapes - All in One - Loose Files 2048-49344-2-8.7z"
+			      MD5Checksum="a950456f2b87e9cdae0e1d3f74922232"
+			      DownloadTags="nexus|skyrim|49344|1000149798" />
+
+			<File Name="Vivid Landscapes - Enhanced Lights and FX Compatibility Patch 2.7"
+			      LengthInBytes="23096345"
+			      CanonicalFileName="Vivid Landscapes - Enhanced Lights and FX Compatibility patch-49344-2-7.7z"
+			      MD5Checksum="45ab5e73b4183a9d076af2d9075e9999"
+			      DownloadTags="nexus|skyrim|49344|1000140985" />
+
+			<File Name="Vivid Landscapes - Moss Rocks Compatibility Patch 2.8"
+			      LengthInBytes="1964252"
+			      CanonicalFileName="Vivid Landscapes - Moss Rocks - Compatibility Patch-49344-2-8.7z"
+			      MD5Checksum="41c396807a0e38ab07b36d542d7e618d"
+			      DownloadTags="nexus|skyrim|49344|1000149883" />
+
+			<File Name="Vivid Landscapes - All in One - Smim Farmhouse stuff 2.7"
+			      LengthInBytes="5063115"
+			      CanonicalFileName="Vivid Landscapes - All in One - Smim Farmhouse stuff-49344-2-7.7z"
+			      MD5Checksum="9b57acc401fb199107038aa791917576"
+			      DownloadTags="nexus|skyrim|49344|1000141024" />
+
+			<File Name="Vivid Landscapes - Tundra Ground from Skyrim HD 2k 2.8"
+			      LengthInBytes="8264083"
+			      CanonicalFileName="Vivid Landscapes - Tundra Ground from Skyrim HD 2k-49344-2-8.7z"
+			      MD5Checksum="8a0c648579f8feb94dc78304bcb6a4eb"
+			      DownloadTags="nexus|skyrim|49344|1000158911" />
+
+			<File Name="Vivid Landscapes - Castle Volkihar - 2048 - Uncompressed Normals 1.3"
+			      LengthInBytes="139830761"
+			      CanonicalFileName="Vivid Landscapes - Castle Volkihar 2048 - Uncompressed NormalMaps-52677-1-3.7z"
+			      MD5Checksum="694420f6d49601d8d3eb17d496143c58"
+			      DownloadTags="nexus|skyrim|52677|1000110588" />
+
+			<File Name="Vivid Landscapes - Castle Volkihar - ELFX Compatibility patch 1.1"
+			      LengthInBytes="413435"
+			      CanonicalFileName="Vivid Landscapes - Castle Volkihar - ELFX Compatibility patch-52677-1-1.7z"
+			      MD5Checksum="0d4b5645cdb782ae532aebd981ff0669"
+			      DownloadTags="nexus|skyrim|52677|1000103910" />
+
+			<File Name="WEBS extended - x2048 3.0"
+			      LengthInBytes="81198686"
+			      CanonicalFileName="WEBS extended v3 x2048-48538-3-0.7z"
+			      MD5Checksum="1512c09ac07358dc2793d4cc95b51334"
+			      DownloadTags="nexus|skyrim|48538|1000153493" />
+
+			<File Name="WEBS extended - Animated Clutter Compatibility Patch X"
+			      LengthInBytes="400996"
+			      CanonicalFileName="WEBS extended Animated Clutter 1_9 compatibility patch-48538-.7z"
+			      MD5Checksum="19888096f888c0c28ffaddd7ab965c7a"
+			      DownloadTags="nexus|skyrim|48538|1000107868" />
+
+			<File Name="Wiseman303's Flora Fixes 2.01"
+			      LengthInBytes="1318047"
+			      CanonicalFileName="WM Flora Fixes-70656-2-01.7z"
+			      MD5Checksum="907e292777870305146648138c7699f9"
+			      DownloadTags="nexus|skyrim|70656|1000188271" />
+
+			<File Name="WM Flora Fixes SMIM Patch 2.0"
+			      LengthInBytes="319798"
+			      CanonicalFileName="WM Flora Fixes SMIM Patch-70656-2-0.7z"
+			      MD5Checksum="af20ac72ad52d637294b50d958ceb94d"
+			      DownloadTags="nexus|skyrim|70656|1000185659" />
+
+			<File Name="Wonders of Weather 1.01"
+			      LengthInBytes="4129763"
+			      CanonicalFileName="Wonders of Weather v1_01-64941-1-01.7z"
+			      MD5Checksum="aeb589a317b460c6d17de6c868a0076d"
+			      DownloadTags="nexus|skyrim|64941|1000162113" />
+		</Group>
 	</Files>
 
 	<Tasks>
@@ -884,6 +1229,59 @@
 
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++Wonders of Weather 1.01
++WM Flora Fixes SMIM Patch 2.0
++Wiseman303's Flora Fixes 2.01
++WEBS extended - Animated Clutter Compatibility Patch X
++WEBS extended - x2048 3.0
++Vivid Landscapes - Castle Volkihar - ELFX Compatibility patch 1.1
++Vivid Landscapes - Castle Volkihar - 2048 - Uncompressed Normals 1.3
++Vivid Landscapes - Tundra Ground from Skyrim HD 2k 2.8
++Vivid Landscapes - All in One - Smim Farmhouse stuff 2.7
++Vivid Landscapes - Moss Rocks Compatibility Patch 2.8
++Vivid Landscapes - Enhanced Lights and FX Compatibility Patch 2.7
++Vivid Landscapes - All in One - Loose Files - 2048px 2.8
++Ultimate HD Candle Flames 1.9
++Ultimate HD Fire Effects - Medium 1.9
++Upgrade and fix for TreesHD 1.0
++Trees HD - ULTRA 1.6
++Telvanni Reborn - 2048x2048
++SFO - Tall Pines (Scots Pine Replacement) X
++SFO - Large Juniper Trees X
++SFO Billboards 2.5b
++Skyrim Flora Overhaul 2.5b
++Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0
++RUSTIC NORDIC MURALS - 2K 1.0
++RUSTIC MONUMENTS and TOMBSTONES 2.6
++Realistic Water Two - ENB Textures 1.11
++Realistic Water Two 1.11
++Realistic Smoke and Embers - Medium 1.4
++Realistic Aspen Trees 3.5
++Real Roads for Skyrim - Loose files 1.01
++Real Ice ALL-IN-ONE Installer V3
++Pilgrims Delight - Zul Do Dov 1.1
++Northfire's Dragons Footprint - 2K X
++Northfire's Skidmarks 1.0
++No Snow Under the Roof and 3D snow 2.3
++Moon Glow 1.01
++Minty's Lightning during Thunder Storms - Loose Files 23.0
++High Quality LODs - Normals Original 2.0
++High Quality LODs - Meshes Hi-Res 2.1
++High Quality 3D Map - Normals Original 2.0
++High Quality 3D Map - Meshes Hi-Res 2.0
++HD Stone Quarry and Clay Deposit for Hearthfire - 2K 1.0
++HDLODs All In One - 512 FullV2
++HD Enhanced Terrain PRO - Blended Version PRO
++Embers HD - All-in-One 1.32
++Dynamic snow For Map - Type 2 V8
++DROPS 1.0
++Deathbell HD - 2K 1.1
++Better Falskaar Map With Roads 1.1
++Ash Rocks - Sulfur Rocks 0.3.beta
++Ash Rocks - All-In-One Installer 1.2.1
++aMidianBorn Solstheim Landscape - 2k 1
++aMidianBorn Caves and Mines - 2k 3
++A Quality World Map - New Installer 8.4
 +White Phial Replacer - All-in-One 1.2
 +Weathered Road Signs 1.5
 +The Notice Board Redefined - 4K 1.0
@@ -1753,6 +2151,258 @@
 				<MapFolder From="01b - textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
 				<MapFolder From="02b - DG textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
 				<MapFolder From="11b - DG meshes 0.8x" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.5.8 Landscape and Environment">
+			<ExtractArchive ArchiveFile="A Quality World Map - New Installer 8.4">
+				<MapFolder From="A Quality World Map - New Installer/Hi-Res Quality Map - All Roads" To="ModOrganizer/mods/A Quality World Map - New Installer 8.4" />
+				<MapFolder From="A Quality World Map - New Installer/Solstheim Map" To="ModOrganizer/mods/A Quality World Map - New Installer 8.4" />
+
+				<!-- airbreather likes this... -->
+				<!-- <MapFolder From="A Quality World Map - New Installer/Optional Clear Map" To="ModOrganizer/mods/A Quality World Map - New Installer 8.4" /> -->
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Caves and Mines - 2k 3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Solstheim Landscape - 2k 1" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/dlc2basaltcolumnsingle.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/dlc2basaltcolumnsingle_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/dlc2basaltside.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/dlc2basaltside_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/dlc2road01ash01_n.dds" />
+				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 2k 1/textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Ash Rocks - All-In-One Installer 1.2.1">
+				<MapFolder From="00 Core Files - REQUIRED" To="ModOrganizer/mods/Ash Rocks - All-In-One Installer 1.2.1" />
+				<MapFolder From="10 High Poly SMIM, Less Ash" To="ModOrganizer/mods/Ash Rocks - All-In-One Installer 1.2.1" />
+				<MapFolder From="20 New - 2k diffuse, 1k normal" To="ModOrganizer/mods/Ash Rocks - All-In-One Installer 1.2.1" />
+
+				<Hide File="ModOrganizer/mods/Ash Rocks - All-In-One Installer 1.2.1/AshRocks_1.2.0_readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Ash Rocks - Sulfur Rocks 0.3.beta" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Ash Rocks - Sulfur Rocks 0.3.beta/screenshots" />
+				<Hide File="ModOrganizer/mods/Ash Rocks - Sulfur Rocks 0.3.beta/SulfurRocks v0.3 readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better Falskaar Map With Roads 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Deathbell HD - 2K 1.1" SimpleMO="Root" />
+
+			<ExtractArchive ArchiveFile="DROPS 1.0">
+				<MapFolder From="DROPS/00 DROPS x512" To="ModOrganizer/mods/DROPS 1.0" />
+				<MapFolder From="DROPS/01 DROPS x512 at" To="ModOrganizer/mods/DROPS 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dynamic snow For Map - Type 2 V8">
+				<MapFolder From="Dynamic snow for map/Data" To="ModOrganizer/mods/Dynamic snow For Map - Type 2 V8" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.32">
+				<MapFolder From="EHD 2K" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDFireplaces" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDForges" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDLavaCrater" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+				<MapFolder From="EHDPatchUHDFE" To="ModOrganizer/mods/Embers HD - All-in-One 1.32" />
+
+				<Hide File="ModOrganizer/mods/Embers HD - All-in-One 1.32/meshes/furniture/workbenches/alchemyworkstation01.nif" />
+				<Hide File="ModOrganizer/mods/Embers HD - All-in-One 1.32/meshes/furniture/alchemyworkstation.nif" />
+				<Hide File="ModOrganizer/mods/Embers HD - All-in-One 1.32/meshes/furniture/alchemyworkbench.nif" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HD Enhanced Terrain PRO - Blended Version PRO" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="HDLODs All In One - 512 FullV2" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="HD Stone Quarry and Clay Deposit for Hearthfire - 2K 1.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/HD Stone Quarry and Clay Deposit for Hearthfire - 2K 1.0/Readme HD StoneQuarry&amp;ClayDep.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High Quality 3D Map - Meshes Hi-Res 2.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="High Quality 3D Map - Normals Original 2.0">
+				<MapFolder From="04 - Ultra 2048x2048" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0" />
+				<MapFolder From="Docs" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/Docs" />
+				<MapFile From="HQ3DMap.txt" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/HQ3DMap.txt" />
+
+				<Hide Folder="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/Docs" />
+				<Hide File="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/HQ3DMap.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High Quality LODs - Meshes Hi-Res 2.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="High Quality LODs - Normals Original 2.0">
+				<MapFolder From="03 - High 256x256" To="ModOrganizer/mods/High Quality LODs - Normals Original 2.0" />
+				<MapFolder From="Docs" To="ModOrganizer/mods/High Quality LODs - Normals Original 2.0/Docs" />
+				<MapFile From="HQLODs.txt" To="ModOrganizer/mods/High Quality LODs - Normals Original 2.0/HQLODs.txt" />
+
+				<Hide Folder="ModOrganizer/mods/High Quality LODs - Normals Original 2.0/Docs" />
+				<Hide File="ModOrganizer/mods/High Quality LODs - Normals Original 2.0/HQLODs.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Minty's Lightning during Thunder Storms - Loose Files 23.0" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/Minty's Lightning during Thunder Storms - Loose Files 23.0/readmes" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Moon Glow 1.01" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Moon Glow 1.01/MoonGlow.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="No Snow Under the Roof and 3D snow 2.3">
+				<MapFolder From="01 BSA - Static Mesh Improvement Mod" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
+				<MapFolder From="12 Vanilla + Dawnguard + Dragonborn" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
+				<MapFolder From="20 Compatibility Patches" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
+
+				<!-- Only possible once we start extracting BSAs. -->
+				<!--
+				<Hide Folder="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3/meshes/prometheus/architecture/statuessnow" />
+				-->
+			</ExtractArchive>
+
+			<Materialize File="NSutR RRRE Patch X" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3/NSutR RRRE Patch.esp" />
+			<ExtractArchive ArchiveFile="Northfire's Skidmarks 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Northfire's Dragons Footprint - 2K X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Pilgrims Delight - Zul Do Dov 1.1" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Pilgrims Delight - Zul Do Dov 1.1/Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Real Ice ALL-IN-ONE Installer V3">
+				<MapFolder From="Real Ice ALL-IN-ONE Installer/Real Ice/Real Ice_Half Icecube - Half Dull" To="ModOrganizer/mods/Real Ice ALL-IN-ONE Installer V3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Real Roads for Skyrim - Loose files 1.01" SimpleMO="Root" Id="ReaMain" />
+
+			<ExtractArchive ArchiveFile="Real Roads for Skyrim - Dawnguard and Dragonborn 1.01" WaitFor="ReaMain">
+				<MapFolder To="ModOrganizer/mods/Real Roads for Skyrim - Loose files 1.01" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Real Roads for Skyrim - MrTroublemaker Patch 1.01" WaitFor="ReaMain">
+				<MapFolder From="Rea-patch-55518-1-01" To="ModOrganizer/mods/Real Roads for Skyrim - Loose files 1.01" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Aspen Trees 3.5">
+				<MapFolder From="1 - Core/2k" To="ModOrganizer/mods/Realistic Aspen Trees 3.5" />
+				<MapFolder From="1-2 SFO" To="ModOrganizer/mods/Realistic Aspen Trees 3.5" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Smoke and Embers - Medium 1.4" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Realistic Smoke and Embers - Medium 1.4/textures/effects/smokeparticles01.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Water Two 1.11">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="10 High Resolution" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="20 Legendary (21 + 22 + 30 + 31)" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="24 Falskaar Water" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+				<MapFolder From="33 Falskaar Waves" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Water Two - ENB Textures 1.11">
+				<MapFolder From="00 High Resolution" To="ModOrganizer/mods/Realistic Water Two - ENB Textures 1.11" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC MONUMENTS and TOMBSTONES 2.6">
+				<MapFolder From="RUSTIC MONUMENTS AND TOMBSTONES V2.6/00 - Textures Monument 2k" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
+				<MapFolder From="RUSTIC MONUMENTS AND TOMBSTONES V2.6/01 - Textures Tomb 2k" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
+				<MapFolder From="RUSTIC MONUMENTS AND TOMBSTONES V2.6/02 - ELFX Mesh" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC NORDIC MURALS - 2K 1.0" SimpleMO="Single" />
+
+			<ExtractArchive ArchiveFile="Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0">
+				<MapFile From="Textures/dlc02/landscape/dlc2road01ash01.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/dlc2road01ash01.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_darkcliff_01.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_darkcliff_01.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_darkcliff_01_n.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_darkcliff_01_n.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_rocks_01_d.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_rocks_01_d.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_tundra_01.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_tundra_01.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_tundra_03.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_tundra_03.dds" />
+				<MapFile From="Textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" To="ModOrganizer/mods/Serious HD Retexture Skyrim - LANDSCAPE - 2048px v2.0/Textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul 2.5b" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul 2.5b/textures/landscape/fieldgrass02.dds" />
+				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul 2.5b/textures/landscape/fieldgrass02_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SFO Billboards 2.5b" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen01_0006A9E6.dds" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen01_0006A9E6.txt" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen02_0006C9D5.dds" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen02_0006C9D5.txt" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen03_0006C9D4.dds" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen03_0006C9D4.txt" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen05_0007614B.dds" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen05_0007614B.txt" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen06_0007614A.dds" />
+				<Hide File="ModOrganizer/mods/SFO Billboards 2.5b/Textures/Terrain/LODGen/Skyrim.esm/TreeAspen06_0007614A.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SFO - Large Juniper Trees X">
+				<MapFolder From="data/meshes" To="ModOrganizer/mods/SFO - Large Juniper Trees X/meshes" />
+				<MapFolder From="data/textures/landscape" To="ModOrganizer/mods/SFO - Large Juniper Trees X/textures/landscape" />
+				<MapFile From="data/textures/terrain/LODGen/Skyrim.esm/florajuniper01_000BB948.dds" To="ModOrganizer/mods/SFO - Large Juniper Trees X/textures/terrain/LODGen/Skyrim.esm/florajuniper01_000BB948.dds" />
+				<MapFile From="data/textures/terrain/LODGen/Skyrim.esm/florajuniper01_000BB948.txt" To="ModOrganizer/mods/SFO - Large Juniper Trees X/textures/terrain/LODGen/Skyrim.esm/florajuniper01_000BB948.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SFO - Tall Pines (Scots Pine Replacement) X">
+				<MapFolder From="data/Meshes/Landscape/Trees" To="ModOrganizer/mods/SFO - Tall Pines (Scots Pine Replacement) X/Meshes/Landscape/Trees" />
+				<MapFile From="data/textures/terrain/LODGen/Skyrim.esm/TreePineForest04_0004FBB0.dds" To="ModOrganizer/mods/SFO - Tall Pines (Scots Pine Replacement) X/textures/terrain/LODGen/Skyrim.esm/TreePineForest04_0004FBB0.dds" />
+				<MapFile From="data/textures/terrain/LODGen/Skyrim.esm/TreePineForest04_0004FBB0.txt" To="ModOrganizer/mods/SFO - Tall Pines (Scots Pine Replacement) X/textures/terrain/LODGen/Skyrim.esm/TreePineForest04_0004FBB0.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Telvanni Reborn - 2048x2048" SimpleMO="Single" />
+
+			<ExtractArchive ArchiveFile="Trees HD - ULTRA 1.6" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/Trees HD - ULTRA 1.6/meshes" />
+				<Hide File="ModOrganizer/mods/Trees HD - ULTRA 1.6/textures/landscape/trees/treepineforestbarkcomp3.dds" />
+				<Hide File="ModOrganizer/mods/Trees HD - ULTRA 1.6/textures/landscape/trees/treepineforestbarkcomp3_n.dds" />
+				<Hide File="ModOrganizer/mods/Trees HD - ULTRA 1.6/textures/landscape/trees/Vurt_Pine01.dds" />
+				<Hide File="ModOrganizer/mods/Trees HD - ULTRA 1.6/textures/landscape/trees/Vurt_Pine02.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Upgrade and fix for TreesHD 1.0" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Upgrade and fix for TreesHD 1.0/textures/landscape/trees/treepineforestbarkcomp3.dds" />
+				<Hide File="ModOrganizer/mods/Upgrade and fix for TreesHD 1.0/textures/landscape/trees/treepineforestbarkcomp3_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Ultimate HD Fire Effects - Medium 1.9" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/Ultimate HD Fire Effects - Medium 1.9/meshes/clutter" />
+				<Hide Folder="ModOrganizer/mods/Ultimate HD Fire Effects - Medium 1.9/meshes/effects" />
+				<Hide File="ModOrganizer/mods/Ultimate HD Fire Effects - Medium 1.9/textures/effects/cloudtile.dds" />
+				<Hide Folder="ModOrganizer/mods/Ultimate HD Fire Effects - Medium 1.9/textures/effects/smokeparticles01.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Ultimate HD Candle Flames 1.9" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - All in One - Loose Files - 2048px 2.8" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/meshes/clutter/pelts" />
+				<Hide Folder="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/meshes/traps/pressureplate" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt01.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt01_n.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt02.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt02_n.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt03.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/architecture/farmhouse/pelt03_n.dds" />
+				<Hide File="ModOrganizer/mods/Vivid Landscapes - All in One - Loose Files - 2048px 2.8/textures/terrain/noise.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Enhanced Lights and FX Compatibility Patch 2.7" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Moss Rocks Compatibility Patch 2.8" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - All in One - Smim Farmhouse stuff 2.7" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Ground from Skyrim HD 2k 2.8" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Castle Volkihar - 2048 - Uncompressed Normals 1.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Castle Volkihar - ELFX Compatibility patch 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="WEBS extended - x2048 3.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="WEBS extended - Animated Clutter Compatibility Patch X" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Wiseman303's Flora Fixes 2.01">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Wiseman303's Flora Fixes 2.01" />
+				<MapFile From="WM Flora Fixes Readme.txt" To="ModOrganizer/mods/Wiseman303's Flora Fixes 2.01/Docs/WM Flora Fixes Readme.txt" />
+
+				<Hide Folder="ModOrganizer/mods/Wiseman303's Flora Fixes 2.01/Docs" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="WM Flora Fixes SMIM Patch 2.0" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/WM Flora Fixes SMIM Patch 2.0/docs" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Wonders of Weather 1.01">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Wonders of Weather 1.01" />
 			</ExtractArchive>
 		</Group>
 	</Tasks>
