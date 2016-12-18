@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.0.1"
+         Requires="STEP Core, 2.2.9.2, 1.2.0.2"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.0.1"
+         FileVersion="1.2.0.2"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -564,6 +564,10 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 
 			<ExtractArchive ArchiveFile="Even Better Quest Objectives 1.5.8a">
 				<MapFolder From="00 Main File" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="11 Dark Brotherhood Forever to Misc. Quests" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="55 Cutting Room Floor" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH ANY OTHER VERSION)" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
+				<MapFolder From="61 The Paarthurnax Dilemma" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
 			</ExtractArchive>
 		</Group>
 
@@ -878,7 +882,7 @@ WetandCold.bsa]]></Line>
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
 +Cutting Room Floor - Legendary Edition 2.0.3
-+Consistent Older People 31a All NPCs USLEEP 3.1a
++Consistent Older People 31b All NPCs USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
 +Appropriately Attired Jarls 1.1.1
