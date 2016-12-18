@@ -5,9 +5,9 @@ abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH 
 -->
 <Modpack Name="My STEP Extended Tweaks"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.2.0.2"
+         Requires="STEP Extended, 2.2.9.2, 1.2.0.3"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.0.2"
+         FileVersion="1.2.0.3"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="133">
 
@@ -534,6 +534,10 @@ RelightingSkyrim_Legendary.esp
 ELE_Legendary_Lite.esp
 TimingIsEverything.esp
 FISS.esp
+BetterQuestObjectives-CRFPatch.esp
+BetterQuestObjectives-DBForevertoMisc.esp
+BetterQuestObjectives-NECPatch.esp
+BetterQuestObjectives-PaarDilemmaPatch.esp
 STEP Extended Patch.esp
 Alternate Start - Live Another Life.esp
 BetterQuestObjectives-AlternateStartPatch.esp
@@ -649,6 +653,10 @@ RelightingSkyrim_Legendary.esp
 ELE_Legendary_Lite.esp
 TimingIsEverything.esp
 FISS.esp
+BetterQuestObjectives-CRFPatch.esp
+BetterQuestObjectives-DBForevertoMisc.esp
+BetterQuestObjectives-NECPatch.esp
+BetterQuestObjectives-PaarDilemmaPatch.esp
 STEP Extended Patch.esp
 Alternate Start - Live Another Life.esp
 BetterQuestObjectives-AlternateStartPatch.esp

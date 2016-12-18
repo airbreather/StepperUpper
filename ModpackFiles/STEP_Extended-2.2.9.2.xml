@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.0.2"
+         Requires="STEP Core, 2.2.9.2, 1.2.0.3"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.0.2"
+         FileVersion="1.2.0.3"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -1015,6 +1015,10 @@ TimingIsEverything.esp
 WetandCold - Ashes.esp
 Dual Sheath Redux.esp
 FNIS.esp
+BetterQuestObjectives-CRFPatch.esp
+BetterQuestObjectives-DBForevertoMisc.esp
+BetterQuestObjectives-NECPatch.esp
+BetterQuestObjectives-PaarDilemmaPatch.esp
 STEP Extended Patch.esp
 Bashed Patch, 0.esp]]></Line>
 			</Embedded>
@@ -1125,6 +1129,10 @@ TimingIsEverything.esp
 WetandCold - Ashes.esp
 Dual Sheath Redux.esp
 FNIS.esp
+BetterQuestObjectives-CRFPatch.esp
+BetterQuestObjectives-DBForevertoMisc.esp
+BetterQuestObjectives-NECPatch.esp
+BetterQuestObjectives-PaarDilemmaPatch.esp
 STEP Extended Patch.esp
 Bashed Patch, 0.esp]]></Line>
 			</Embedded>
