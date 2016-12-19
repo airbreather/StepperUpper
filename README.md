@@ -1,8 +1,6 @@
 # StepperUpper
 An automated application to ease STEP (and similar) modpack setup.
 
-Note: this documentation is outdated.  I'll get to proper documentation [later](https://github.com/airbreather/StepperUpper/issues/29).
-
 Building
 --
 
