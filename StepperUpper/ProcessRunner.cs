@@ -52,7 +52,8 @@ namespace StepperUpper
                 process.StartInfo = new ProcessStartInfo(exePath, arguments)
                 {
                     UseShellExecute = false,
-                    RedirectStandardOutput = true
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
                 };
 
                 process.EnableRaisingEvents = true;

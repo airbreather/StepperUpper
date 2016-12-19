@@ -42,6 +42,12 @@
 			      CanonicalFileName="Wrye Bash 306 - Standalone Executable-1840-306.7z"
 			      MD5Checksum="4e38717c674c1e90b71a44f474cef77e"
 			      DownloadTags="nexus|skyrim|1840|1000210067" />
+
+			<File Name="BSAopt - beta 2 - risky 2.0.0b2"
+			      LengthInBytes="2632120"
+			      CanonicalFileName="BSAopt - beta 2 - risky-247-2-0-0b2.zip"
+			      MD5Checksum="907785af7ddde656fd61e338866874d2"
+			      DownloadTags="nexus|skyrim|247|1000002246" />
 		</Group>
 
 		<Group Name="3.3 Configure Mod Organizer">
@@ -1110,6 +1116,104 @@
 			      MD5Checksum="aeb589a317b460c6d17de6c868a0076d"
 			      DownloadTags="nexus|skyrim|64941|1000162113" />
 		</Group>
+
+		<Group Name="4.5.9 Effects">
+			<File Name="Alternate Summoning Visuals - NO ESP 1.0"
+			      LengthInBytes="34020"
+			      CanonicalFileName="Alternate Summoning Visuals NO ESP-44782-.7z"
+			      MD5Checksum="1a8514b3c9116412dc7bf562c98621d9"
+			      DownloadTags="nexus|skyrim|44782|1000067632" />
+
+			<File Name="Burn Freeze Shock Effects - Loose 3.6"
+			      LengthInBytes="2610503"
+			      CanonicalFileName="BFS Effects 3_6 - Loose-14692-3-6.rar"
+			      MD5Checksum="3684918ed2f497575335bc6a6a83860c"
+			      DownloadTags="nexus|skyrim|14692|1000026418" />
+
+			<File Name="Burn Freeze Shock Effects - Dragonborn Dawnguard 3.6"
+			      LengthInBytes="7157"
+			      CanonicalFileName="BFS Effects 3_6 - Dragonborn Dawnguard-14692-3-6.rar"
+			      MD5Checksum="3aa9d8adf4895c817042304ac87e719a"
+			      DownloadTags="nexus|skyrim|14692|1000026420" />
+
+			<File Name="Deadly Spell Impacts - Medium 1.6.1"
+			      LengthInBytes="9257142"
+			      CanonicalFileName="DSI Med 1_6_1-2947-1-6-1.7z"
+			      MD5Checksum="35c5ed4dd96d8161d1b8d400cf3fc38f"
+			      DownloadTags="nexus|skyrim|2947|90831" />
+
+			<File Name="Enhanced Blood Textures NMM 3.6c"
+			      LengthInBytes="76207541"
+			      CanonicalFileName="Enhanced Blood Textures 3_6c NMM -60-3-6c.7z"
+			      MD5Checksum="d89c327f632dd5793d5af95519c5323e"
+			      DownloadTags="nexus|skyrim|60|1000182468" />
+
+			<File Name="Footprints Legendary 1.00"
+			      LengthInBytes="11592585"
+			      CanonicalFileName="Footprints v1_00 - Legendary-22745-1-00.7z"
+			      MD5Checksum="c0134ae65636eb3cca1007b54aa7b17c"
+			      DownloadTags="nexus|skyrim|22745|1000153806" />
+
+			<File Name="SOUL - x2048 2.0"
+			      LengthInBytes="10818628"
+			      CanonicalFileName="SOUL v2 x2048-64840-2-0.7z"
+			      MD5Checksum="92a36d194592fa8c4baad00dd22ffc02"
+			      DownloadTags="nexus|skyrim|64840|1000159105" />
+		</Group>
+
+		<Group Name="4.5.10 Expanded Cities, Towns, and Villages">
+			<File Name="Books of Skyrim 1.1"
+			      LengthInBytes="502777"
+			      CanonicalFileName="Books of Skyrim-55607-1-1.rar"
+			      MD5Checksum="a853f6414ba1550a007dfb35908a8ad4"
+			      DownloadTags="nexus|skyrim|55607|1000116016" />
+
+			<File Name="Farmhouse Chimneys 2.8"
+			      LengthInBytes="3597479"
+			      CanonicalFileName="Farmhouse Chimneys 2.8-51330-2-8.zip"
+			      MD5Checksum="7631458b8ced52f3e1ebb0928b01ee31"
+			      DownloadTags="nexus|skyrim|51330|1000226663" />
+
+			<File Name="Farmhouse Chimneys - Thinner Mesh Parallax Patch X"
+			      LengthInBytes="3269"
+			      CanonicalFileName="Farmhouse Chimneys - Thinner Meshes Parallax Patch.7z"
+			      MD5Checksum="dd58ad39bc915bd1ca04a2e523a5a707"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/VL-FC%20Patch/Farmhouse%20Chimneys%20-%20Thinner%20Meshes%20Parallax%20Patch.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Farmhouse_Chimneys" />
+
+			<File Name="Spice of Life - Forts 1.0.5"
+			      LengthInBytes="265503076"
+			      CanonicalFileName="Spice of Life - Forts 1.0.5-75856-1-0-5.7z"
+			      MD5Checksum="a6c0ee8eaaa06f62128d6cf81021c4eb"
+			      DownloadTags="nexus|skyrim|75856|1000213195" />
+
+			<File Name="Spice of Life - Forts - Custom ESP X"
+			      LengthInBytes="140189"
+			      CanonicalFileName="SpiceOfLife - Forts.7z"
+			      MD5Checksum="c659852f1993d434193ad281f770380f"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Spice%20of%20Life%20-%20Forts/SpiceOfLife%20-%20Forts.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Spice_of_Life_-_Forts" />
+		</Group>
+
+		<Group Name="4.5.11 Late Loaders">
+			<File Name="aMidianBorn Imperial Forts - 2k 2"
+			      LengthInBytes="95453235"
+			      CanonicalFileName="A amb forts 2k-49710-2.7z"
+			      MD5Checksum="93f8570e1eb31acd5478a3b0bec6bcaa"
+			      DownloadTags="nexus|skyrim|49710|1000134075" />
+
+			<File Name="amb forts exterior wall vanilla style - 2k 1"
+			      LengthInBytes="8595630"
+			      CanonicalFileName="amb forts exterior wall vanilla style 2k-49710-1.7z"
+			      MD5Checksum="65e3d3fce3a0f1201f708369b09f887e"
+			      DownloadTags="nexus|skyrim|49710|1000134092" />
+
+			<File Name="Blowing in the Wind 2.03.0"
+			      LengthInBytes="76452307"
+			      CanonicalFileName="Blowing in the Wind-73916-2-03-0.rar"
+			      MD5Checksum="1804355f333cefa06d2e855b5c1ee8cb"
+			      DownloadTags="nexus|skyrim|73916|1000230466" />
+		</Group>
 	</Files>
 
 	<Tasks>
@@ -1140,6 +1244,39 @@
 			<ExtractArchive ArchiveFile="Wrye Bash 306 - Standalone Executable">
 				<MapFolder From="Mopy" To="Wrye Bash 306" />
 			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="BSAopt - beta 2 - risky 2.0.0b2" Id="ExtractBSAopt">
+				<MapFolder To="BSAopt" />
+			</ExtractArchive>
+
+			<Embedded File="BSAopt/KeepOnlyAppropriateAndRename.bat" Encoding="UTF8NoBOM" Id="CreateBSAoptBatchFile">
+				<Line><![CDATA[@ECHO OFF
+REM Move to the current batch file's location.
+CD %~dp0
+
+REM Detect 32-bit / 64-bit, http://stackoverflow.com/a/24590583/1083771
+reg Query "HKLM\Hardware\Description\System\CentralProcessor\0" | find /I "x86" > NUL && SET KEEP="BSAopt x32.exe" || SET KEEP="BSAopt x64.exe"
+
+REM Rename the appropriate BSAopt executable file to just plain BSAopt.exe
+MOVE %KEEP% BSAopt.exe
+
+REM Delete all the files in the folder except BSAopt.exe and the current batch file.
+FOR %%A IN (*) DO IF /I "%%A" NEQ "BSAopt.exe" IF /I "%%A" NEQ "%~f0" DEL "%%A"
+
+REM Delete this batch file, http://stackoverflow.com/a/20333152/1083771
+START /B "" cmd /c DEL "%~f0" & EXIT /B]]></Line>
+			</Embedded>
+
+			<RunProcess ExecutablePath="BSAopt/KeepOnlyAppropriateAndRename.bat" WaitFor="ExtractBSAopt|CreateBSAoptBatchFile" Id="CleanBSAoptFolder" />
+
+			<Embedded File="BSAopt/BSAopt.bat" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder">
+				<Line><![CDATA[@ECHO OFF
+START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
+			</Embedded>
+
+			<Embedded File="BSAopt/blankline.txt" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder">
+				<Line />
+			</Embedded>
 		</Group>
 
 		<Group Name="3.3 Configure Mod Organizer">
@@ -2404,6 +2541,86 @@
 			<ExtractArchive ArchiveFile="Wonders of Weather 1.01">
 				<MapFolder From="00 Core" To="ModOrganizer/mods/Wonders of Weather 1.01" />
 			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.5.9 Effects">
+			<ExtractArchive ArchiveFile="Alternate Summoning Visuals - NO ESP 1.0" SimpleMO="Root" />
+			<ExtractArchive Id="BFSMain" ArchiveFile="Burn Freeze Shock Effects - Loose 3.6" SimpleMO="Single" />
+			<ExtractArchive WaitFor="BFSMain" ArchiveFile="Burn Freeze Shock Effects - Dragonborn Dawnguard 3.6">
+				<MapFolder From="data" To="ModOrganizer/mods/Burn Freeze Shock Effects - Loose 3.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Deadly Spell Impacts - Medium 1.6.1">
+				<MapFolder From="00 Data - Required" To="ModOrganizer/mods/Deadly Spell Impacts - Medium 1.6.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Enhanced Blood Textures NMM 3.6c">
+				<MapFolder From="1 core files" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c"/>
+				<MapFolder From="2 patches/IC DG DB" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c" />
+
+				<Hide File="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c/EBT - Changelog.txt" />
+				<Hide File="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c/Enhanced Blood Textures.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Footprints Legendary 1.00" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Footprints Legendary 1.00/Footprints.bsl" />
+				<Hide File="ModOrganizer/mods/Footprints Legendary 1.00/Footprints.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SOUL - x2048 2.0" SimpleMO="Root" />
+		</Group>
+
+		<Group Name="4.5.10 Expanded Cities, Towns, and Villages">
+			<ExtractArchive ArchiveFile="Books of Skyrim 1.1" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Books of Skyrim 1.1/Books of Skyrim - Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys 2.8">
+				<MapFolder From="00 - Thinner Meshes" To="ModOrganizer/mods/Farmhouse Chimneys 2.8" />
+				<MapFolder From="01 - Vanilla" To="ModOrganizer/mods/Farmhouse Chimneys 2.8" />
+				<MapFolder From="02 - Falskaar" To="ModOrganizer/mods/Farmhouse Chimneys 2.8" />
+				<MapFolder From="04 - LAL + CRF" To="ModOrganizer/mods/Farmhouse Chimneys 2.8" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys - Thinner Mesh Parallax Patch X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Spice of Life - Forts 1.0.5" Id="SpiceOfLifeFortsMain">
+				<MapFolder From="00Base" To="ModOrganizer/mods/Spice of Life - Forts 1.0.5" />
+				<MapFolder From="01Textures2k" To="ModOrganizer/mods/Spice of Life - Forts 1.0.5" />
+				<MapFolder From="05Parallax+UVScale" To="ModOrganizer/mods/Spice of Life - Forts 1.0.5" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Spice of Life - Forts - Custom ESP X" WaitFor="SpiceOfLifeFortsMain">
+				<MapFolder To="ModOrganizer/mods/Spice of Life - Forts 1.0.5" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.5.11 Late Loaders">
+			<ExtractArchive ArchiveFile="aMidianBorn Imperial Forts - 2k 2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="amb forts exterior wall vanilla style - 2k 1">
+				<MapFolder To="ModOrganizer/mods/amb forts exterior wall vanilla style - 2k 1/textures/SpiceOfLife/Forts/AmbFortsVanillaStyle/Imperial" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Blowing in the Wind 2.03.0">
+				<MapFolder From="001 - Core ESP with Dawnguard support" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="002 - SMIM - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="003 - Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="004 - SMIM Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="107 - Provincial Courier Service - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="111 - No Snow Under the Roof - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - Falskaar Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - Falskaar Patch.esp" />
+				<MapFolder From="112 - Falskaar - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFolder From="113 - Books of Skyrim - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - SMIM Merged All Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - SMIM Merged All Patch.esp" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - ELFX Exteriors Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - ELFX Exteriors Patch.esp" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="InFinalize">
+			<!-- Do this in the Finalize step, since it depends on everything with a BSA,
+			     and I don't want to have to write them all out. -->
+			<!--
+			<ExtractBSAContent BSAoptPath="BSAopt/BSAopt.bat" RootDirectoryPath="ModOrganizer/mods" />
+			-->
 		</Group>
 	</Tasks>
 </Modpack>

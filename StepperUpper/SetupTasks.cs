@@ -60,6 +60,9 @@ namespace StepperUpper
 
                 case "Materialize":
                     return MaterializeFileAsync(taskElement, knownFiles, dumpDirectory);
+
+                case "ExtractBSAContent":
+                    return ExtractBSAContentAsync(taskElement, dumpDirectory);
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
@@ -373,6 +376,26 @@ namespace StepperUpper
             FileInfo toFile = new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value));
             toFile.Directory.Create();
             return AsyncFile.CopyAsync(fromFile.FullName, toFile.FullName);
+        }
+
+        private static Task ExtractBSAContentAsync(XElement taskElement, DirectoryInfo dumpDirectory)
+        {
+            List<Task> extractionTasks = new List<Task>();
+
+            string bsaOptPath = Path.Combine(dumpDirectory.FullName, taskElement.Attribute("BSAoptPath").Value);
+            DirectoryInfo rootDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("RootDirectoryPath").Value));
+            foreach (var bsaFile in rootDirectory.GetFiles("*.bsa", SearchOption.AllDirectories))
+            {
+                extractionTasks.Add(ExtractAndDeleteBSAFileAsync(bsaOptPath, bsaFile));
+            }
+
+            return Task.WhenAll(extractionTasks);
+        }
+
+        private static async Task ExtractAndDeleteBSAFileAsync(string bsaOptPath, FileInfo bsaFile)
+        {
+            await ProcessRunner.RunProcessAsync(bsaOptPath, ProcessPriorityClass.BelowNormal, "-criticals", "-skiphashcheck", "-processhidden", "-copy", "-game", "sk", bsaFile.FullName, bsaFile.Directory.FullName).ConfigureAwait(false);
+            await Program.DeleteFileAsync(bsaFile).ConfigureAwait(false);
         }
     }
 }
