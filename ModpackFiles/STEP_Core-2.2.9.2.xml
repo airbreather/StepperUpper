@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.0.3"
+         FileVersion="1.2.0.4"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -26,11 +26,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.2/loot_0.10.2-0-g9eb7d26_dev.7z"
 			      DownloadTags="generic|https://loot.github.io/" />
 
-			<File Name="xEdit 3.1.3 - 1dabbcd"
-			      LengthInBytes="3072144"
-			      CanonicalFileName="FO4Edit 3.1.3 - 1dabbcd-2737-3-1-3.7z"
-			      MD5Checksum="b2cd387640863b9c822ac05a1e6a19a5"
-			      DownloadTags="nexus|fallout4|2737|81663" />
+			<File Name="xEdit 3.1.3 - 823f317"
+			      LengthInBytes="3090422"
+			      CanonicalFileName="FO4Edit 3.1.3 - 823f317-2737-3-1-3.7z"
+			      MD5Checksum="6a40f7915d6909998ef14d89890aa78f"
+			      DownloadTags="nexus|fallout4|2737|84636" />
 
 			<File Name="Wrye Bash 306 - Standalone Executable"
 			      LengthInBytes="17250882"
@@ -1123,9 +1123,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="loot_0.10.2-0-g9eb7d26_dev" To="LOOT 0.10.2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 1dabbcd">
-				<!-- For a while there, they had it named this instead. -->
-				<!--<MapFile From="FO4Edit.exe" To="FO4Edit 3.1.3/TES5Edit.exe" />-->
+			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 823f317">
+				<MapFile From="FO4Edit.exe" To="FO4Edit 3.1.3/TES5Edit.exe" />
 				<MapFolder To="FO4Edit 3.1.3" />
 			</ExtractArchive>
 
