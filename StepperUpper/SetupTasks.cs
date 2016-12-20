@@ -28,16 +28,18 @@ namespace StepperUpper
                     return ExtractArchiveAsync(taskElement, knownFiles, dumpDirectory);
 
                 case "TweakINI":
-                    return Task.Run(() => WriteINI(taskElement, dumpDirectory));
+                    WriteINI(taskElement, dumpDirectory);
+                    return Task.CompletedTask;
 
                 case "CopyFile":
-                    return Task.Run(() => CopyFile(taskElement, dumpDirectory));
+                    CopyFile(taskElement, dumpDirectory);
+                    return Task.CompletedTask;
 
                 case "Embedded":
                     return WriteEmbeddedFileAsync(taskElement, dumpDirectory);
 
                 case "Clean":
-                    return Task.Run(() => DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory)));
+                    return DoCleaningAsync(GetPlugins(taskElement, knownFiles, dumpDirectory));
 
                 case "CreateEmptyFolder":
                     Directory.CreateDirectory(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value));
