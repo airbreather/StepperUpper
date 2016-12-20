@@ -1214,6 +1214,143 @@
 			      MD5Checksum="1804355f333cefa06d2e855b5c1ee8cb"
 			      DownloadTags="nexus|skyrim|73916|1000230466" />
 		</Group>
+
+		<Group Name="4.6.1 Vanilla Creature Retextures and Tweaks">
+			<File Name="Ancient Dwemer Metal - Ancient Automatons - 2K 1.06"
+			      LengthInBytes="28548881"
+			      CanonicalFileName="Ancient Automatons 2K-75610-1-06.7z"
+			      MD5Checksum="d4cead80a330f2d465e77141542550b6"
+			      DownloadTags="nexus|skyrim|75610|1000213503" />
+
+			<File Name="Ancient Dwemer Metal - Ancient Dwemer Metal - 2K 1.06"
+			      LengthInBytes="68088725"
+			      CanonicalFileName="Ancient Dwemer Metal 2K-75610-1-01.7z"
+			      MD5Checksum="32a4967f3e32acd6b92afffca86e1a81"
+			      DownloadTags="nexus|skyrim|75610|1000213510" />
+
+			<File Name="Bellyache HD Dragon Replacer Final 1.3"
+			      LengthInBytes="48314787"
+			      CanonicalFileName="Bellyache HD Dragon Replacer Final-29631-1-3.7z"
+			      MD5Checksum="47c2faa18e84165ec664dd9de8d82397"
+			      DownloadTags="nexus|skyrim|29631|1000031681" />
+
+			<File Name="HAPPY HORKER - 2K 1.0"
+			      LengthInBytes="5602768"
+			      CanonicalFileName="HAPPY HORKER - 2K-77243-1-0.7z"
+			      MD5Checksum="a74553c2a3317684cd23669d404199e1"
+			      DownloadTags="nexus|skyrim|77243|1000213886" />
+
+			<File Name="HD Horker - Horker X"
+			      LengthInBytes="11875453"
+			      CanonicalFileName="Horker-74402-.7z"
+			      MD5Checksum="a77315ce8c1aef133827b60506f2880b"
+			      DownloadTags="nexus|skyrim|74402|1000210218" />
+
+			<File Name="High-Res Dartwing (Dragonfly) Texture 1.02"
+			      LengthInBytes="138870"
+			      CanonicalFileName="High-Res Dartwing (Dragonfly) Texture 1.02-62809-1-02.rar"
+			      MD5Checksum="5f2c4dced2d4296f1123111695d41e5f"
+			      DownloadTags="nexus|skyrim|62809|1000147957" />
+
+			<File Name="Lepidoptera Of Skyrim for Complete Alchemy and Cooking Overhaul V2.0b"
+			      LengthInBytes="943918"
+			      CanonicalFileName="Lepidoptera Of Skyrim for Complete Alchemy and Cooking Overhaul-69543-V2-0b.7z"
+			      MD5Checksum="97e147ca3c2e5e5aef23e8e765c956a0"
+			      DownloadTags="nexus|skyrim|69543|1000178939" />
+
+			<File Name="PondFish and Salmon Replacer 1.2"
+			      LengthInBytes="3233900"
+			      CanonicalFileName="PondFish and Salmon Replacer_1.2-38440-1-2.zip"
+			      MD5Checksum="c229c88c56acb17a20a476216cfa550a"
+			      DownloadTags="nexus|skyrim|38440|1000129542" />
+
+			<File Name="RUSTIC DEATH HOUND - 2K 1.0"
+			      LengthInBytes="5864308"
+			      CanonicalFileName="RUSTIC DEATH HOUND - 2K-77415-1-0.7z"
+			      MD5Checksum="d692d2811beec29162ded061e85f19b9"
+			      DownloadTags="nexus|skyrim|77415|1000214596" />
+
+			<File Name="RUSTIC GARGOYLE - 2K 2.0"
+			      LengthInBytes="14529197"
+			      CanonicalFileName="RUSTIC GARGOYLE - 2K-77778-2-0.7z"
+			      MD5Checksum="408a8d615447eaf87f279816cffe26c7"
+			      DownloadTags="nexus|skyrim|77778|1000216525" />
+
+			<File Name="Vampire Lord Retexture - Vampire Lord Armoured 1.3"
+			      LengthInBytes="25746222"
+			      CanonicalFileName="Vampire Lord Armoured 3-1-23775-1-3.zip"
+			      MD5Checksum="173fb4c592f297f9a8cde2a6ead5f4b4"
+			      DownloadTags="nexus|skyrim|23775|88779" />
+
+			<File Name="Vampire Lord Retexture - light face patch fixed seams 1.3"
+			      LengthInBytes="5309856"
+			      CanonicalFileName="light face patch fixed seams-23775-1-3.zip"
+			      MD5Checksum="3fa41bea8bf2362da7dd852f57445285"
+			      DownloadTags="nexus|skyrim|23775|89463" />
+		</Group>
+
+		<Group Name="4.6.2 Animal Companions and Mounts">
+			<File Name="Horses Revamped - Animations 1.0"
+			      LengthInBytes="42958"
+			      CanonicalFileName="Horses Revamped - Animations-70640-1-0.7z"
+			      MD5Checksum="d10f4da576ce75d164f521ea40a11cb5"
+			      DownloadTags="nexus|skyrim|70640|1000181348" />
+
+			<File Name="Immersive Horses 2.3"
+			      LengthInBytes="18084257"
+			      CanonicalFileName="Immersive Horses-64067-2-3.7z"
+			      MD5Checksum="8b46d078e6b6a315b77d646deba7d57f"
+			      DownloadTags="nexus|skyrim|64067|1000228499" />
+
+			<File Name="Immersive Horses - 2K Textures 2.1"
+			      LengthInBytes="49275574"
+			      CanonicalFileName="Immersive Horses 2K Horse Textures-64067-1-0.7z"
+			      MD5Checksum="fbeacd4e8c5cacff6ded06cc535684d5"
+			      DownloadTags="nexus|skyrim|64067|1000196259" />
+
+			<File Name="Dawnguard Rewritten - Arvak 1.1.1"
+			      LengthInBytes="30185354"
+			      CanonicalFileName="Dawnguard Rewritten - Arvak-24019-1-1-1.7z"
+			      MD5Checksum="ecfa2da0e4e2fd268a0c3debe25d2ead"
+			      DownloadTags="nexus|skyrim|24019|1000016203" />
+		</Group>
+
+		<Group Name="4.6.3 New Creatures and Encounters">
+			<File Name="Deadly Dragons 6.4.1b"
+			      LengthInBytes="76205526"
+			      CanonicalFileName="Deadly Dragons v 6.4.1-3829-6-4-1b.rar"
+			      MD5Checksum="a27b2ca3143132fd758e5c91e85e2e96"
+			      DownloadTags="nexus|skyrim|3829|1000197840" />
+
+			<File Name="Deadly Dragons Script Patch 1.3"
+			      LengthInBytes="19346"
+			      CanonicalFileName="DD Script Patch 1.3-77547-1-3.7z"
+			      MD5Checksum="7b7750b3dcedff0ecafa765e23d6ecd4"
+			      DownloadTags="nexus|skyrim|77547|1000218078" />
+
+			<File Name="Skyrim Immersive Creatures 6.5.2b"
+			      LengthInBytes="672876832"
+			      CanonicalFileName="Skyrim Immersive Creatures v6_5_2b NMM BAIN-24913-6-5-2b.7z"
+			      MD5Checksum="49612b4fbba691a2f1f063a551d7da57"
+			      DownloadTags="nexus|skyrim|24913|1000196583" />
+		</Group>
+
+		<!--
+		<Group Name="4.10.1 Basic Needs and Survival">
+			<File Name="Bathing in Skyrim 1.11"
+			      LengthInBytes="21429473"
+			      CanonicalFileName="Bathing in Skyrim 1.11-60421-1-11.zip"
+			      MD5Checksum="76bd040ffb6728798683e4df9b141673"
+			      DownloadTags="nexus|skyrim|60421|1000171339" />
+
+			<File Name="Bathing in Skyrim - Followers Only Patch X"
+			      LengthInBytes="521"
+			      CanonicalFileName="Bathing In Skyrim - Followers Only.7z"
+			      MD5Checksum="a33e5cfd964fb77473bc1c0e8ceac076"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Bathing%20in%20Skyrim/Bathing%20In%20Skyrim%20-%20Followers%20Only.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Bathing_in_Skyrim" />
+		</Group>
+		-->
 	</Files>
 
 	<Tasks>
@@ -1366,6 +1503,37 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++Skyrim Immersive Creatures 6.5.2b
++Deadly Dragons Script Patch 1.3
++Deadly Dragons 6.4.1b
++Dawnguard Rewritten - Arvak 1.1.1
++Immersive Horses 2.3
++Horses Revamped - Animations 1.0
++Vampire Lord Retexture - light face patch fixed seams 1.3
++Vampire Lord Retexture - Vampire Lord Armoured 1.3
++RUSTIC GARGOYLE - 2K 2.0
++RUSTIC DEATH HOUND - 2K 1.0
++PondFish and Salmon Replacer 1.2
++Lepidoptera Of Skyrim for Complete Alchemy and Cooking Overhaul V2.0b
++High-Res Dartwing (Dragonfly) Texture 1.02
++HD Horker - Horker X
++HAPPY HORKER - 2K 1.0
++Bellyache HD Dragon Replacer Final 1.3
++Ancient Dwemer Metal - Ancient Automatons - 2K 1.06
++Ancient Dwemer Metal - Ancient Dwemer Metal - 2K 1.06
++Blowing in the Wind 2.03.0
++amb forts exterior wall vanilla style - 2k 1
++aMidianBorn Imperial Forts - 2k 2
++Spice of Life - Forts 1.0.5
++Farmhouse Chimneys - Thinner Mesh Parallax Patch X
++Farmhouse Chimneys 2.8
++Books of Skyrim 1.1
++SOUL - x2048 2.0
++Footprints Legendary 1.00
++Enhanced Blood Textures NMM 3.6c
++Deadly Spell Impacts - Medium 1.6.1
++Burn Freeze Shock Effects - Loose 3.6
++Alternate Summoning Visuals - NO ESP 1.0
 +Wonders of Weather 1.01
 +WM Flora Fixes SMIM Patch 2.0
 +Wiseman303's Flora Fixes 2.01
@@ -2614,6 +2782,104 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFile From="005 - ESPs/Blowing in the Wind - ELFX Exteriors Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - ELFX Exteriors Patch.esp" />
 			</ExtractArchive>
 		</Group>
+
+		<Group Name="4.6.1 Vanilla Creature Retextures and Tweaks">
+			<ExtractArchive ArchiveFile="Ancient Dwemer Metal - Ancient Automatons - 2K 1.06" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Ancient Dwemer Metal - Ancient Dwemer Metal - 2K 1.06" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Ancient Dwemer Metal - Ancient Dwemer Metal - 2K 1.06/meshes/clutter/containers/dwesoulgemcontainer01.nif" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Bellyache HD Dragon Replacer Final 1.3" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Bellyache HD Dragon Replacer Final 1.3/Bellyache's Vanilla Dragonreplacer README.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HAPPY HORKER - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="HD Horker - Horker X" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/HD Horker - Horker X/textures" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High-Res Dartwing (Dragonfly) Texture 1.02">
+				<MapFolder From="Dartwing Dragonfly HD/data" To="ModOrganizer/mods/High-Res Dartwing (Dragonfly) Texture 1.02" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Lepidoptera Of Skyrim for Complete Alchemy and Cooking Overhaul V2.0b">
+				<MapFolder From="LOS_DLC1_CACO_v2.1/data" To="ModOrganizer/mods/Lepidoptera Of Skyrim for Complete Alchemy and Cooking Overhaul V2.0b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="PondFish and Salmon Replacer 1.2">
+				<MapFolder From="PondFish_Salmon_replacer_1.2/Data" To="ModOrganizer/mods/PondFish and Salmon Replacer 1.2" />
+				<Hide File="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/pond fish/pondfish01.nif" />
+				<Hide File="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/pond fish/pondfish02.nif" />
+				<Hide File="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/pond fish/pondfish03.nif" />
+				<Hide File="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/pond fish/pondfish04.nif" />
+				<Hide File="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/pond fish/pondfish05.nif" />
+				<Hide Folder="ModOrganizer/mods/PondFish and Salmon Replacer 1.2/Meshes/critters/fish/salmon" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC DEATH HOUND - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC GARGOYLE - 2K 2.0" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/RUSTIC GARGOYLE - 2K 2.0/textures/dlc01" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Vampire Lord Retexture - Vampire Lord Armoured 1.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Vampire Lord Retexture - light face patch fixed seams 1.3" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.6.2 Animal Companions and Mounts">
+			<ExtractArchive ArchiveFile="Horses Revamped - Animations 1.0" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Horses Revamped - Animations 1.0/meshes/actors/horse/animations/idle.hkx" />
+				<Hide Folder="ModOrganizer/mods/Horses Revamped - Animations 1.0/meshes/actors/horse/behaviors" />
+				<Hide Folder="ModOrganizer/mods/Horses Revamped - Animations 1.0/meshes/actors/horse/characters" />
+				<Hide File="ModOrganizer/mods/Horses Revamped - Animations 1.0/DSerHorsesRevamped.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Horses 2.3" Id="ImmersiveHorsesMain">
+				<MapFolder From="install" To="ModOrganizer/mods/Immersive Horses 2.3" />
+				<MapFolder From="options/full" To="ModOrganizer/mods/Immersive Horses 2.3" />
+				<MapFolder From="options/whistle/benboncan" To="ModOrganizer/mods/Immersive Horses 2.3" />
+				<MapFolder From="options/hearthfire" To="ModOrganizer/mods/Immersive Horses 2.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Horses - 2K Textures 2.1" WaitFor="ImmersiveHorsesMain">
+				<MapFolder To="ModOrganizer/mods/Immersive Horses 2.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dawnguard Rewritten - Arvak 1.1.1">
+				<MapFolder From="00 Plugin" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
+				<MapFolder From="01 XD" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
+				<MapFolder From="02 Soul Cairn" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.6.3 New Creatures and Encounters">
+			<ExtractArchive ArchiveFile="Deadly Dragons 6.4.1b">
+				<MapFolder From="Deadly_Dragons/bsa" To="ModOrganizer/mods/Deadly Dragons 6.4.1b" />
+				<MapFolder From="Deadly_Dragons/normal" To="ModOrganizer/mods/Deadly Dragons 6.4.1b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Deadly Dragons Script Patch 1.3" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Deadly Dragons Script Patch 1.3/Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Immersive Creatures 6.5.2b">
+				<MapFolder From="01 Main" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
+				<MapFolder From="02 DLC2" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
+			</ExtractArchive>
+		</Group>
+
+		<!--
+		<Group Name="4.10.1 Basic Needs and Survival">
+			<ExtractArchive ArchiveFile="Bathing in Skyrim 1.11">
+				<MapFolder From="Data" To="ModOrganizer/mods/Bathing in Skyrim 1.11" />
+				<MapFolder From="Plugins/Dirt/Ekirts" To="ModOrganizer/mods/Bathing in Skyrim 1.11/Textures/mzin/Bathe" />
+				<MapFile From="Plugins/Other/Bathing in Skyrim - Realistic Room Rental.esp" To="ModOrganizer/mods/Bathing in Skyrim 1.11/Bathing in Skyrim - Realistic Room Rental.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Bathing in Skyrim - Followers Only Patch X">
+				<MapFolder To="ModOrganizer/mods/Bathing in Skyrim 1.11" />
+			</ExtractArchive>
+		</Group>
+		-->
 
 		<Group Name="InFinalize">
 			<!-- Do this in the Finalize step, since it depends on everything with a BSA,
