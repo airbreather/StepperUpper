@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+longest path I can detect looks like:
+abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\Voice\RDO - Follower Live Package Patch.esp\DLC2MaleDarkElfCynical\_RDO_Addit__RDO_Additional_00033241_1.fuz
+-->
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
          FileVersion="1.0.0.0"
-         MinimumToolVersion="1.0.1.0">
+         MinimumToolVersion="1.0.1.0"
+         LongestOutputPathLength="188">
 
 	<Files>
 		<Group Name="2.2 Script Extenders">
@@ -1704,6 +1709,399 @@
 			      DownloadTags="nexus|skyrim|27563|1000169473" />
 		</Group>
 
+		<Group Name="4.8.1 Dynamic Patches">
+			<File Name="Dual Sheath Redux 1.7.3"
+			      LengthInBytes="48259002"
+			      CanonicalFileName="Dual Sheath Redux-34155-1-7-3.7z"
+			      MD5Checksum="c46a9bbe8209b6d83a1e09fed1348352"
+			      DownloadTags="nexus|skyrim|34155|1000184038" />
+
+			<File Name="Dual Sheath Redux - JaySuS Swords Pack X"
+			      LengthInBytes="2604725"
+			      CanonicalFileName="Dual Sheath for JaySuS.7z"
+			      MD5Checksum="c3f90ad10dbb5a0e485d6ba03c5b5dc8"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/26438059/Dual%20Sheath%20for%20JaySuS.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Dual_Sheath_Redux" />
+		</Group>
+
+		<Group Name="4.8.2 Vanilla Item Retextures and Tweaks">
+			<File Name="Aetherial Crown 1.2"
+			      LengthInBytes="22896095"
+			      CanonicalFileName="Aetherial Crown v1-2-74766-1-2.7z"
+			      MD5Checksum="4d48e8e7bd9348bd95c41cad74b32907"
+			      DownloadTags="nexus|skyrim|74766|1000202203" />
+
+			<File Name="Aetherial Crown - CCF Improved Artifacts Patch 1.1"
+			      LengthInBytes="1042"
+			      CanonicalFileName="Aetherial Crown - CCF Improved Artifacts Patch-74766-1-1.zip"
+			      MD5Checksum="4394b502acdf1443de228ab9a7e1168a"
+			      DownloadTags="nexus|skyrim|74766|1000202131" />
+
+			<File Name="aMidianBorn Blade of Woe 1.1"
+			      LengthInBytes="4229041"
+			      CanonicalFileName="aMidianBorn Blade of Woe-51130-1-1.7z"
+			      MD5Checksum="8ccccbd20380f00662be9b7051bc4b95"
+			      DownloadTags="nexus|skyrim|51130|1000097759" />
+
+			<File Name="aMidianBorn Book of Silence - ARMORS 1.9"
+			      LengthInBytes="372634763"
+			      CanonicalFileName="aMidianBorn book of silence_ARMORS-24909-1-9.7z"
+			      MD5Checksum="75e83fad4377b9a2d026d71ad8a81739"
+			      DownloadTags="nexus|skyrim|24909|1000057539" />
+
+			<File Name="aMidianBorn Book of Silence - Creatures 1.9"
+			      LengthInBytes="74440359"
+			      CanonicalFileName="aMidianBorn book of silence_Creatures-24909-1-9.7z"
+			      MD5Checksum="b4965192e197c91674bf8c6178c60a93"
+			      DownloadTags="nexus|skyrim|24909|1000057444" />
+
+			<File Name="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9"
+			      LengthInBytes="115103998"
+			      CanonicalFileName="aMidianBorn book of silence_DRAGONBORN DLC-24909-1-9.7z"
+			      MD5Checksum="580440a5691d0640866d5cba4e04f4b8"
+			      DownloadTags="nexus|skyrim|24909|1000057507" />
+
+			<File Name="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9"
+			      LengthInBytes="102628905"
+			      CanonicalFileName="aMidianBorn book of silence_UNIQUE ITEMS-24909-1-9.7z"
+			      MD5Checksum="d3420a70879b17eac0bc556722698d34"
+			      DownloadTags="nexus|skyrim|24909|1000057469" />
+
+			<File Name="aMidianBorn Book of Silence - WEAPONS 1.9"
+			      LengthInBytes="312325097"
+			      CanonicalFileName="aMidianBorn book of silence_WEAPONS-24909-1-9.7z"
+			      MD5Checksum="63b705c52cdd1cc8a61235a40e72aa55"
+			      DownloadTags="nexus|skyrim|24909|1000057498" />
+
+			<File Name="aMidianBorn - Content Addon 1.9"
+			      LengthInBytes="303267059"
+			      CanonicalFileName="aMidianBorn - Content Addon-24909-1-9.7z"
+			      MD5Checksum="1f6e8a5312d6a377ee9e67772349c036"
+			      DownloadTags="nexus|skyrim|24909|1000151780" />
+
+			<File Name="aMidianBorn Hide and Studded Hide 2"
+			      LengthInBytes="17019514"
+			      CanonicalFileName="aMidianBorn Hide and Studded Hide v2-26770-2.7z"
+			      MD5Checksum="fe8281e07c5064f0ac77a1649b3535f9"
+			      DownloadTags="nexus|skyrim|26770|1000063096" />
+
+			<File Name="aMidianBorn Imperial Light and Studded - 2k 1.1"
+			      LengthInBytes="15177688"
+			      CanonicalFileName="aMidianBorn Imperial Light 1dot1_2k-50887-1-1.7z"
+			      MD5Checksum="2b01b9f87310777d24880d007ac603af"
+			      DownloadTags="nexus|skyrim|50887|1000097047" />
+
+			<File Name="aMidianBorn Iron and Banded Armor - Cabal's Cut 2K IV"
+			      LengthInBytes="21593437"
+			      CanonicalFileName="aMidianBorn Iron cabals cut 2k-19340-IV.7z"
+			      MD5Checksum="bea998414b760bcdfb71a3cf1725fe23"
+			      DownloadTags="nexus|skyrim|19340|1000096537" />
+
+			<File Name="aMidianBorn Scaled Armor 2"
+			      LengthInBytes="12203045"
+			      CanonicalFileName="aMidianBorn Scaled V2-33196-2.7z"
+			      MD5Checksum="28f7c3151366b2fdd81e0b26723e2523"
+			      DownloadTags="nexus|skyrim|33196|1000063166" />
+
+			<File Name="aMidianBorn Steel Armor RC4"
+			      LengthInBytes="19751106"
+			      CanonicalFileName="aMidianBorn steel RC4-18272-RC4.7z"
+			      MD5Checksum="1993006ed42d0a89e8f38a781851d91e"
+			      DownloadTags="nexus|skyrim|18272|1000085698" />
+
+			<File Name="aMidianBorn Stormcloak Officer Armour - 2k 1.0"
+			      LengthInBytes="12824462"
+			      CanonicalFileName="aMidianBorn Stormcloak officer-45692-1.7z"
+			      MD5Checksum="42deb8951c5929d59272f2258fdac19e"
+			      DownloadTags="nexus|skyrim|45692|1000071512" />
+
+			<File Name="Apophysis Dragon Priest Masks - Main File 5.0a"
+			      LengthInBytes="115312742"
+			      CanonicalFileName="Apophysis Dragon Priest Masks - Main File-15052-5-0a.rar"
+			      MD5Checksum="97271c0c93dc408bf8bf51ffe3f31698"
+			      DownloadTags="nexus|skyrim|15052|1000091024" />
+
+			<!-- sorry, Better Circlets HQ disappeared from the Nexus, but not before allowing the
+			     STEP folks to embed it into their compilation.  -->
+			<File Name="STEP Compilation - High 2.2.9.2l"
+			      LengthInBytes="905471272"
+			      CanonicalFileName="STEP Compilation Installer - High Res - 2292l-11-2-2-9-2l.7z"
+			      MD5Checksum="5b3eb1c2bf754c25b5278d4ab2d21aa6"
+			      DownloadTags="nexus|skyrim|11|1000219783" />
+
+			<File Name="LeanWolf's Better-Shaped Weapons 2.0.09"
+			      LengthInBytes="20721263"
+			      CanonicalFileName="LeanWolfs Better-Shaped Weapons v2.0.09-39870-2-0-09.7z"
+			      MD5Checksum="47e2ff25748856a53777d363065b9534"
+			      DownloadTags="nexus|skyrim|39870|1000227598" />
+
+			<File Name="Dragonborn Mages Robes Retexture Pack 0.0"
+			      LengthInBytes="46536576"
+			      CanonicalFileName="DragonbornMagesRobesRetexturePack-35965-0-0.rar"
+			      MD5Checksum="332d307053ef307ead38956e28fa63d1"
+			      DownloadTags="nexus|skyrim|35965|1000029512" />
+
+			<File Name="EotW The Dawnguard - Textures Re-mastered 1.0"
+			      LengthInBytes="53370252"
+			      CanonicalFileName="EotW The Dawnguard-69101-1-0.rar"
+			      MD5Checksum="b7dbb792ae9414433c1cc779a5fe62e3"
+			      DownloadTags="nexus|skyrim|69101|1000173412" />
+
+			<File Name="EotW Mage Equipment Overhaul - All in one 1.4"
+			      LengthInBytes="67351689"
+			      CanonicalFileName="EcthelionOtW Mage Equipment Overhaul - All in one 1_4-40592-1-4.rar"
+			      MD5Checksum="6df260259c413bde80ea7340a5adfd14"
+			      DownloadTags="nexus|skyrim|40592|1000049543" />
+
+			<File Name="Gemling Queen Jewelry - All In One 4.1c"
+			      LengthInBytes="19880929"
+			      CanonicalFileName="Gemling Queen Jewelry - All In One Installer v4-1c-52266-4-1c.7z"
+			      MD5Checksum="73f73489d72d4074d6a3de9c5a5a65e2"
+			      DownloadTags="nexus|skyrim|52266|1000142242" />
+
+			<File Name="Improved Closefaced Helmets (Legendary Edition) 1.57"
+			      LengthInBytes="11009398"
+			      CanonicalFileName="Improved Closefaced Helmets (Legendary Edition)-15927-1-57.zip"
+			      MD5Checksum="a4d7cd3c2bd8fbfe5d8fd94f3c1f2c3c"
+			      DownloadTags="nexus|skyrim|15927|1000154235" />
+
+			<File Name="Improved Closefaced Helmets - Patches 1.00"
+			      LengthInBytes="22378226"
+			      CanonicalFileName="Improved Closedfaced Helmets - PATCHES -15927-1-57.rar"
+			      MD5Checksum="3bb8f2963417a88123ea7e9389263115"
+			      DownloadTags="nexus|skyrim|15927|1000170603" />
+
+			<File Name="Improved Closefaced Helmets - Guard helmets with tight eye holes 1.5"
+			      LengthInBytes="401262"
+			      CanonicalFileName="ICH (Guard helmets with tight eye holes)-15927-1-5.zip"
+			      MD5Checksum="f4f5f0ca9af4d4d98eae93f222db69a8"
+			      DownloadTags="nexus|skyrim|15927|1000153695" />
+
+			<File Name="Improved Closefaced Helmets - WAF Replacer ESP X"
+			      LengthInBytes="64338"
+			      CanonicalFileName="imp_helm_legend.esp"
+			      MD5Checksum="9544987fe7cd39b88e0e580b13cc75d4"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Improved%20Closefaced%20Helmets/imp_helm_legend.esp"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Improved_Closefaced_Helmets" />
+
+			<File Name="New Jewels for Circlets - Normal and Greyscale X"
+			      LengthInBytes="1435298"
+			      CanonicalFileName="NewStonesNormalandGreyscale-3480-1.zip"
+			      MD5Checksum="5f7fa7f2afc63d709cb29bd6bd81cdfd"
+			      DownloadTags="nexus|skyrim|3480|10045" />
+
+			<File Name="Nightingale Prime HD Final"
+			      LengthInBytes="16767298"
+			      CanonicalFileName="Nightingale Prime HD-28899-Final.zip"
+			      MD5Checksum="9d28930668b92e529f7cf57f76ef3e4e"
+			      DownloadTags="nexus|skyrim|28899|107527" />
+
+			<File Name="Nightingale Weapons Retexture - Carbon Fiber 2"
+			      LengthInBytes="17135105"
+			      CanonicalFileName="Nightingale carbon Fiber-3087-2.rar"
+			      MD5Checksum="4fdf8eb300bc2b032e43a15d70569c0e"
+			      DownloadTags="nexus|skyrim|3087|69004" />
+
+			<File Name="Nightingale Weapons Retexture - Arrows, CCOR Compatibility Patch X"
+			      LengthInBytes="1099"
+			      CanonicalFileName="Nightingale Arrows - CCO compatibility patch-3087-.7z"
+			      MD5Checksum="87068f5fe7e1c7a5f78501e7c5288bc0"
+			      DownloadTags="nexus|skyrim|3087|1000093603" />
+
+			<File Name="RUSTIC CLOTHING - COMPLETE - 2K 1.0"
+			      LengthInBytes="596864405"
+			      CanonicalFileName="RUSTIC CLOTHING - COMPLETE - 2K-69784-1-0.7z"
+			      MD5Checksum="bacb8e81c979deb067cda4259567d2d4"
+			      DownloadTags="nexus|skyrim|69784|1000228578" />
+
+			<File Name="RUSTIC FORSWORN - 2K 2.0"
+			      LengthInBytes="19781570"
+			      CanonicalFileName="RUSTIC FORSWORN - 2K-73515-2-0.7z"
+			      MD5Checksum="86e05b5cd097e5515df6824115a9c36b"
+			      DownloadTags="nexus|skyrim|73515|1000197487" />
+
+			<File Name="Frankly HD Stormcloak and City Guards - 2K 1b"
+			      LengthInBytes="59409633"
+			      CanonicalFileName="2k-42404-1b.7z"
+			      MD5Checksum="73abe0338a5cab7cf2fb84c4a138c763"
+			      DownloadTags="nexus|skyrim|42404|1000055974" />
+
+			<File Name="Frankly HD Stormcloak and City Guards - 2K Fix 2"
+			      LengthInBytes="38552192"
+			      CanonicalFileName="Fix by SpriterSan for 2k version-42404-2.7z"
+			      MD5Checksum="579f08e35db2d80eedf874fde8007440"
+			      DownloadTags="nexus|skyrim|42404|1000099270" />
+		</Group>
+
+		<Group Name="4.8.3 UNP Blessed Body Vanilla Armor Conversions">
+			<File Name="UNP Dawnguard Armors - UNPB 1.5"
+			      LengthInBytes="7487823"
+			      CanonicalFileName="UNP Dawnguard Armors for the UNPB body-22033-1-5.7z"
+			      MD5Checksum="f8c044106438ee68d7ba056e2e3b0cf5"
+			      DownloadTags="nexus|skyrim|22033|83869" />
+
+			<File Name="UNP Dragonborn Armors - UNPB 1.5"
+			      LengthInBytes="6922345"
+			      CanonicalFileName="UNPB Dragonborn Armors-31392-1-0.7z"
+			      MD5Checksum="80c419369c31e2f3883141079a61aac7"
+			      DownloadTags="nexus|skyrim|31392|1000009661" />
+
+			<File Name="UNP Female Armors 2.1"
+			      LengthInBytes="76463691"
+			      CanonicalFileName="UNP Armors version 2_1-7305-2-1.7z"
+			      MD5Checksum="4765d5fe5cabbf37f1e196c9a8d80532"
+			      DownloadTags="nexus|skyrim|7305|1000005292" />
+
+			<File Name="UNP Female Armors - Boot Pack 2.0"
+			      LengthInBytes="3697672"
+			      CanonicalFileName="UNP Boot Pack-7305-2-0.7z"
+			      MD5Checksum="2e9018afd872c3f41f801a69c2397863"
+			      DownloadTags="nexus|skyrim|7305|1000003050" />
+
+			<File Name="TroubleMakers Clothing Replacers UNPB - BBP 2.01"
+			      LengthInBytes="2720919"
+			      CanonicalFileName="Tavern Clothes Replacers UNPB - BBP-20227-2-01.7z"
+			      MD5Checksum="9438f298e6b5f506044f7f4c8080a905"
+			      DownloadTags="nexus|skyrim|20227|106731" />
+
+			<File Name="TroubleMakers Forsworn Armor UNPB -BBP 1.51"
+			      LengthInBytes="987292"
+			      CanonicalFileName="TroubleMakers ForswornArmor UNPB -BBP-20966-1-51.7z"
+			      MD5Checksum="cec4c5f5008e98975a60ec74de684007"
+			      DownloadTags="nexus|skyrim|20966|1000001873" />
+
+			<File Name="Collected Lore Friendly UNPB-BBP 3.4"
+			      LengthInBytes="8279524"
+			      CanonicalFileName="Collected Lore Friendly UNPB_BBP 3dot4-37806-3-4.7z"
+			      MD5Checksum="853eadca1db793dd2b1075e0133b8462"
+			      DownloadTags="nexus|skyrim|37806|1000041473" />
+		</Group>
+
+		<Group Name="4.8.4 New Items">
+			<File Name="Bandolier - Bags and Pouches 1.2"
+			      LengthInBytes="9713940"
+			      CanonicalFileName="Bandolier - Bags and Pouches v1dot2-16438-1-2.7z"
+			      MD5Checksum="5486403f7e38b65d115094348e989f8a"
+			      DownloadTags="nexus|skyrim|16438|1000043520" />
+
+			<File Name="Bandolier - Dawnguard 1.0"
+			      LengthInBytes="969092"
+			      CanonicalFileName="Bandolier - Dawnguard v1-22119-1-0.zip"
+			      MD5Checksum="e2e3ee813cf4da8e4e64668699439477"
+			      DownloadTags="nexus|skyrim|22119|80342" />
+
+			<File Name="Cloaks of Skyrim 1.2"
+			      LengthInBytes="86482786"
+			      CanonicalFileName="Cloaks of Skyrim 1-2 -12092-1-2.rar"
+			      MD5Checksum="79a918ee4cdd7a97b640c4f4dd9400ca"
+			      DownloadTags="nexus|skyrim|12092|1000014777" />
+
+			<File Name="Cloaks of Skyrim - Dawnguard 1.2"
+			      LengthInBytes="1189627"
+			      CanonicalFileName="Cloaks of Skyrim 1-2 Dawnguard-12092-1-2.rar"
+			      MD5Checksum="dd9d29aca96e4cb9a15a8e674f47f525"
+			      DownloadTags="nexus|skyrim|12092|1000014778" />
+
+			<File Name="Craftable Horse Barding 3.0"
+			      LengthInBytes="105173195"
+			      CanonicalFileName="Craftable Horse Barding-64069-3-0.7z"
+			      MD5Checksum="f1a8d187174e005674cc98521a545ef5"
+			      DownloadTags="nexus|skyrim|64069|1000228508" />
+
+			<File Name="Immersive Armors 8"
+			      LengthInBytes="989941859"
+			      CanonicalFileName="Immersive Armors v8-19733-8.7z"
+			      MD5Checksum="2552319b6a9feb6e1c048cd2264daed9"
+			      DownloadTags="nexus|skyrim|19733|1000183703" />
+
+			<File Name="Immersive Armors - Mesh Fix X"
+			      LengthInBytes="192076"
+			      CanonicalFileName="IA Mesh Fix.7z"
+			      MD5Checksum="487cc12ea518dcb0ad303c4eb6c2a030"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Immersive%20Armors/IA%20Mesh%20Fix.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Immersive_Armors" />
+
+			<File Name="JaySuS Swords 13C"
+			      LengthInBytes="147645334"
+			      CanonicalFileName="JaySuS Swords V13C-1002-13C.rar"
+			      MD5Checksum="bcff1906c1ffe20df806ab739b7eebd9"
+			      DownloadTags="nexus|skyrim|1002|34121" />
+
+			<File Name="JaySuS Swords - Update 13D"
+			      LengthInBytes="13148708"
+			      CanonicalFileName="JaySuS Swords V13C to V13D Update-1002-13D.rar"
+			      MD5Checksum="22efe9b5b4f796f249855710343b09b2"
+			      DownloadTags="nexus|skyrim|1002|54010" />
+
+			<File Name="Wearable Lanterns 4.0.2"
+			      LengthInBytes="2954143"
+			      CanonicalFileName="Wearable Lanterns 4.0.2 Release-17416-4-0-2.zip"
+			      MD5Checksum="5771707ad003f99b4fe35acf769fd54b"
+			      DownloadTags="nexus|skyrim|17416|1000210308" />
+
+			<File Name="Winter is Coming - Cloaks 2.4"
+			      LengthInBytes="67104711"
+			      CanonicalFileName="WIC Cloaks 2_4-13486-2-4.7z"
+			      MD5Checksum="d89400180d19b4da446e2cd320cc37ea"
+			      DownloadTags="nexus|skyrim|13486|1000228986" />
+		</Group>
+
+		<Group Name="4.8.5 Recipe and Stat Changers">
+			<File Name="Complete Alchemy and Cooking Overhaul 1.2"
+			      LengthInBytes="190198837"
+			      CanonicalFileName="Complete Alchemy and Cooking Overhaul-69306-1-2.7z"
+			      MD5Checksum="ce9784b9ace019441645cbe5fe910f85"
+			      DownloadTags="nexus|skyrim|69306|1000204987" />
+
+			<File Name="Complete Alchemy and Cooking Overhaul - Script Update 1.2.1"
+			      LengthInBytes="2215"
+			      CanonicalFileName="Script Update-69306-1-2-1.7z"
+			      MD5Checksum="ea19af5fd7757b8a78f471792dcf8ce5"
+			      DownloadTags="nexus|skyrim|69306|1000217066" />
+
+			<File Name="CACO Patches 1.2.1"
+			      LengthInBytes="43712"
+			      CanonicalFileName="CACO Patches-69306-1-2-1.7z"
+			      MD5Checksum="d65121412424345126232e6b62042e63"
+			      DownloadTags="nexus|skyrim|69306|1000205684" />
+
+			<File Name="Complete Crafting Overhaul 1.7"
+			      LengthInBytes="4231638"
+			      CanonicalFileName="Complete Crafting Overhaul Remade-49791-1-7.7z"
+			      MD5Checksum="0fb2cc91d22fcf07fba70c385270793b"
+			      DownloadTags="nexus|skyrim|49791|1000184408" />
+
+			<File Name="Complete Crafting Overhaul - WAF Compatibility Patch 1.6"
+			      LengthInBytes="10616"
+			      CanonicalFileName="CCO - WAF True Weapons Patch-49791-1-6.7z"
+			      MD5Checksum="4fa004d19322ffb7a5f0795e2e5c415d"
+			      DownloadTags="nexus|skyrim|49791|1000151469" />
+
+			<File Name="Complete Crafting Overhaul - SIC Compatibility Patch 1.1"
+			      LengthInBytes="8432"
+			      CanonicalFileName="CCO Compatibility Patch for Skyrim Immersive Creatures-49791-1-1.zip"
+			      MD5Checksum="f4280f29ed01d7109fb889d1e02cfd0d"
+			      DownloadTags="nexus|skyrim|49791|1000093134" />
+
+			<File Name="Clothing and Clutter Fixes 1.7"
+			      LengthInBytes="3309965"
+			      CanonicalFileName="Clothing and Clutter Fixes-43053-1-7.7z"
+			      MD5Checksum="46199313c39ab193ffdadafde03e01d3"
+			      DownloadTags="nexus|skyrim|43053|1000204073" />
+
+			<File Name="Clothing and Clutter Fixes - RS Children Compatibility Patch 1.3"
+			      LengthInBytes="6301"
+			      CanonicalFileName="CCF Compatibilify Patch for RS Children-43053-1-3.zip"
+			      MD5Checksum="9dba45588ebb84c60c3bd7aca05f7780"
+			      DownloadTags="nexus|skyrim|43053|1000127459" />
+
+			<File Name="Weapons and Armor Fixes Remade 5.2"
+			      LengthInBytes="7616103"
+			      CanonicalFileName="Weapons and Armor Fixes-34093-5-2.7z"
+			      MD5Checksum="cb4eb50bc039109c777995356ce7a8ec"
+			      DownloadTags="nexus|skyrim|34093|1000194767" />
+		</Group>
+
 		<!--
 		<Group Name="4.10.1 Basic Needs and Survival">
 			<File Name="Bathing in Skyrim 1.11"
@@ -1872,6 +2270,54 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++Weapons and Armor Fixes Remade 5.2
++Clothing and Clutter Fixes 1.7
++Complete Crafting Overhaul 1.7
++Complete Alchemy and Cooking Overhaul 1.2.1
++Winter is Coming - Cloaks 2.4
++Wearable Lanterns 4.0.2
++JaySuS Swords - Update 13D
++JaySuS Swords 13C
++Immersive Armors 8
++Craftable Horse Barding 3.0
++Cloaks of Skyrim - Dawnguard 1.2
++Cloaks of Skyrim 1.2
++Bandolier - Dawnguard 1.0
++Bandolier - Bags and Pouches 1.2
++Collected Lore Friendly UNPB-BBP 3.4
++TroubleMakers Forsworn Armor UNPB -BBP 1.51
++TroubleMakers Clothing Replacers UNPB - BBP 2.01
++UNP Female Armors - Boot Pack 2.0
++UNP Female Armors 2.1
++UNP Dragonborn Armors - UNPB 1.5
++UNP Dawnguard Armors - UNPB 1.5
++Frankly HD Stormcloak and City Guards - 2K 1b
++RUSTIC FORSWORN - 2K 2.0
++RUSTIC CLOTHING - COMPLETE - 2K 1.0
++Nightingale Weapons Retexture - Carbon Fiber 2
++Nightingale Prime HD Final
++New Jewels for Circlets - Normal and Greyscale X
++Improved Closefaced Helmets - Patches 1.00
++Improved Closefaced Helmets (Legendary Edition) 1.57
++Gemling Queen Jewelry - All In One 4.1c
++EotW Mage Equipment Overhaul - All in one 1.4
++EotW The Dawnguard - Textures Re-mastered 1.0
++Dragonborn Mages Robes Retexture Pack 0.0
++LeanWolf's Better-Shaped Weapons 2.0.09
++Better Circlets HQ - 2K 1.1
++Apophysis Dragon Priest Masks - Main File 5.0a
++aMidianBorn Stormcloak Officer Armour - 2k 1.0
++aMidianBorn Steel Armor RC4
++aMidianBorn Scaled Armor 2
++aMidianBorn Iron and Banded Armor - Cabal's Cut 2K IV
++aMidianBorn Imperial Light and Studded - 2k 1.1
++aMidianBorn Hide and Studded Hide 2
++aMidianBorn - Content Addon 1.9
++aMidianBorn Book of Silence
++aMidianBorn Blade of Woe 1.1
++Aetherial Crown 1.2
++Dual Sheath Redux - JaySuS Swords Pack X
++Dual Sheath Redux 1.7.3
 +Wet and Cold 2.02
 +Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5
 +RDO - Patches Final
@@ -3661,6 +4107,418 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="10 Ashes" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="20 High Res Fur Cloaks" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="22 Modded Children Hat Meshes" To="ModOrganizer/mods/Wet and Cold 2.02" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.8.1 Dynamic Patches">
+			<ExtractArchive ArchiveFile="Dual Sheath Redux 1.7.3">
+				<MapFolder From="Data/000 Base Mod" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/003 aMidianBorn Book of Silence" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/007 Campfire - Complete Camping System" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/021 Immersive Armors" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/028 OBIS - Organized Bandits In Skyrim" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/033 Skyrim Immersive Creatures" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+				<MapFolder From="Data/000 Base Mod - On Back Meshes" To="ModOrganizer/mods/Dual Sheath Redux 1.7.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dual Sheath Redux - JaySuS Swords Pack X" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Dual Sheath Redux - JaySuS Swords Pack X/readme.txt" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.8.2 Vanilla Item Retextures and Tweaks">
+			<ExtractArchive ArchiveFile="Aetherial Crown 1.2" Id="AetherialCrownMain">
+				<MapFolder From="00 - main" To="ModOrganizer/mods/Aetherial Crown 1.2" />
+				<MapFolder From="01b - textures 2k" To="ModOrganizer/mods/Aetherial Crown 1.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Aetherial Crown - CCF Improved Artifacts Patch 1.1" WaitFor="AetherialCrownMain">
+				<MapFolder To="ModOrganizer/mods/Aetherial Crown 1.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Blade of Woe 1.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9">
+				<MapFolder From="04 iron" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="05 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="09 steel plate" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="10 leather" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="02 fur" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="01 elven gold" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="08 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="11 ancient nord" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="07 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="12 wolf grey" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="13 glass" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="14 ebony black" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="15 blades" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="16 falmer armor" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9">
+				<MapFolder From="01 skeleton" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="02 dragonpriest" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="03 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="04 falmer" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="05 chaurus" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="06 spriggan" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9">
+				<MapFolder From="01 nordic carved black" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="02 bonemold" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="03 acolyte masks" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="04 dragon priest acolyte" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="05 hulking draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<!-- "ash" should have been "ashman" -->
+				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="ModOrganizer/mods/aMidianBorn Book of Silence/textures/actors/dlc02/ashman" />
+				<MapFolder From="06 ash spawn" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="07 ash guardian" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9">
+				<MapFolder From="01 iron" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="02 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="04 silver" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="05 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="06 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="09 staves" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="10 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9">
+				<MapFolder From="01 targe of the blooded" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="04 yngols helm" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="05 maceofmolagbal" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="06 mehrunes razor" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="07 volendrung" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="08 tsun" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="09 ebonymail black" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="10 staff of magnus/meshes" To="ModOrganizer/mods/aMidianBorn Book of Silence/meshes/weapons" />
+				<MapFolder From="10 staff of magnus" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+				<MapFolder From="11 dragon priest masks" To="ModOrganizer/mods/aMidianBorn Book of Silence" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9">
+				<!-- effectively "delete this file" because the next line overwrites it. -->
+				<MapFile From="aMidianBorn_ContentAddon.esp" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9/aMidianBorn_ContentAddon.esp" />
+				<MapFolder From="Improved Closefaced Helmets version" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
+				<MapFolder To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
+				<Hide File="ModOrganizer/mods/aMidianBorn - Content Addon 1.9/AMB_ContentAddon_Installation directions.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="aMidianBorn Hide and Studded Hide 2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Imperial Light and Studded - 2k 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Iron and Banded Armor - Cabal's Cut 2K IV" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Scaled Armor 2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Steel Armor RC4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="aMidianBorn Stormcloak Officer Armour - 2k 1.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Apophysis Dragon Priest Masks - Main File 5.0a" SimpleMO="Root" />
+
+			<!-- Better Circlets HQ -->
+			<ExtractArchive ArchiveFile="STEP Compilation - High 2.2.9.2l">
+				<MapFolder From="03 STEP Extended Comp/textures/armor/circlets" To="ModOrganizer/mods/Better Circlets HQ - 2K 1.1/textures/armor/circlets" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09">
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/006 Skyforge" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/018 Dawnbreaker ENB" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/306 Arrow Skyforge" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/101 DSR Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/102 DSR Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/103 DSR Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/104 DSR Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/105 DSR Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/107 DSR Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/108 DSR Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/109 DSR Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/110 DSR Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/111 DSR Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/112 DSR Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/113 DSR Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/114 DSR Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/115 DSR Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/117 DSR Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/118 DSR Dawnbreaker ENB" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/119 DSR Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/120 DSR Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/121 DSR Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/122 DSR Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/123 DSR Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+				<MapFolder From="LeanWolfs Better-Shaped Weapons Installer/124 DSR Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dragonborn Mages Robes Retexture Pack 0.0" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/Dragonborn Mages Robes Retexture Pack 0.0/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Dragonborn Mages Robes Retexture Pack 0.0/Preview.jpg" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="EotW The Dawnguard - Textures Re-mastered 1.0">
+				<MapFolder From="EotW The Dawnguard - Textures Re-mastered/Data" To="ModOrganizer/mods/EotW The Dawnguard - Textures Re-mastered 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="EotW Mage Equipment Overhaul - All in one 1.4">
+				<MapFolder From="EcthelionOtW Mage Equipment Overhaul - All in one 1.4/EcthelionOtW Mage Equipment Overhaul - All in one 1.4/Data" To="ModOrganizer/mods/EotW Mage Equipment Overhaul - All in one 1.4" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c">
+				<MapFolder From="00 - Amulets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="10 - Circlets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="20 - Rings" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="40 - Dawnguard Addon" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="41 - Dawnguard Addon unobtainable items" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="01b- Gamwich Amulet Textures 1k" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+				<MapFolder From="23a- Gamwich Ring Textures combined 1k" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57" SimpleMO="Single" Id="ICHMain" />
+			<Materialize File="Improved Closefaced Helmets - WAF Replacer ESP X" To="ModOrganizer/mods/Improved Closefaced Helmets (Legendary Edition) 1.57/imp_helm_legend.esp" WaitFor="ICHMain" />
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets - Patches 1.00">
+				<MapFolder From="50 Apophysis" To="ModOrganizer/mods/Improved Closefaced Helmets - Patches 1.00" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets - Guard helmets with tight eye holes 1.5" WaitFor="ICHMain">
+				<MapFolder From="Data" To="ModOrganizer/mods/Improved Closefaced Helmets (Legendary Edition) 1.57" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="New Jewels for Circlets - Normal and Greyscale X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Nightingale Prime HD Final" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Nightingale Weapons Retexture - Carbon Fiber 2" SimpleMO="Root" Id="NightWeaponsMain">
+				<Hide File="ModOrganizer/mods/Nightingale Weapons Retexture - Carbon Fiber 2/README.txt" />
+			</ExtractArchive>
+			<ExtractArchive ArchiveFile="Nightingale Weapons Retexture - Arrows, CCOR Compatibility Patch X" WaitFor="NightWeaponsMain">
+				<MapFolder To="ModOrganizer/mods/Nightingale Weapons Retexture - Carbon Fiber 2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC FORSWORN - 2K 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K 1b" SimpleMO="Single" Id="FranklyHDMain" />
+			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K Fix 2" WaitFor="FranklyHDMain">
+				<MapFolder To="ModOrganizer/mods/Frankly HD Stormcloak and City Guards - 2K 1b" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.8.3 UNP Blessed Body Vanilla Armor Conversions">
+			<ExtractArchive ArchiveFile="UNP Dawnguard Armors - UNPB 1.5" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="UNP Dragonborn Armors - UNPB 1.5" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="UNP Female Armors 2.1" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="UNP Female Armors - Boot Pack 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="TroubleMakers Clothing Replacers UNPB - BBP 2.01" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="TroubleMakers Forsworn Armor UNPB -BBP 1.51" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Collected Lore Friendly UNPB-BBP 3.4" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/bandit/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/draugr/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/ebony/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/glass/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/Hide/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/Hide/ReadmeScaled.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/imperial/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/stormcloaks/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/studded/Readme.txt" />
+				<Hide File="ModOrganizer/mods/Collected Lore Friendly UNPB-BBP 3.4/Meshes/Armor/thievesguild/Readme.txt" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.8.4 New Items">
+			<ExtractArchive ArchiveFile="Bandolier - Bags and Pouches 1.2" SimpleMO="Single">
+				<Hide Folder="ModOrganizer/mods/Bandolier - Bags and Pouches 1.2/OPTIONAL FILES" />
+				<Optional File="ModOrganizer/mods/Bandolier - Bags and Pouches 1.2/Dr_Bandolier.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Bandolier - Dawnguard 1.0" SimpleMO="Root">
+				<Optional File="ModOrganizer/mods/Bandolier - Dawnguard 1.0/Dr_BandolierDG.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Cloaks of Skyrim 1.2" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Cloaks of Skyrim 1.2/Cloaks Optional" />
+				<Hide File="ModOrganizer/mods/Cloaks of Skyrim 1.2/Cloaks.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Cloaks of Skyrim - Dawnguard 1.2" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Cloaks of Skyrim - Dawnguard 1.2/Cloaks Optional" />
+				<Hide File="ModOrganizer/mods/Cloaks of Skyrim - Dawnguard 1.2/Cloaks - Dawnguard.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Craftable Horse Barding 3.0">
+				<MapFolder From="install" To="ModOrganizer/mods/Craftable Horse Barding 3.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Armors 8" SimpleMO="Root" Id="IAMain">
+				<MapFolder From="UNP" To="ModOrganizer/mods/Immersive Armors 8" />
+				<Hide File="ModOrganizer/mods/Immersive Armors 8/Hothtrooper44_Armor_Ecksstra.esp" />
+				<Hide Folder="ModOrganizer/mods/Immersive Armors 8/FOMod" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Armors - Mesh Fix X" WaitFor="IAMain">
+				<MapFolder From="IA Mesh Fix" To="ModOrganizer/mods/Immersive Armors 8" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="JaySuS Swords 13C" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/JaySuS Swords 13C/JSwords.esm" />
+				<Hide File="ModOrganizer/mods/JaySuS Swords 13C/Jswords-Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="JaySuS Swords - Update 13D" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/JaySuS Swords - Update 13D/JSwords.esm" />
+				<Hide File="ModOrganizer/mods/JaySuS Swords - Update 13D/JSwordsDistributionBalancePlugin.esp" />
+				<Hide File="ModOrganizer/mods/JaySuS Swords - Update 13D/Jswords-Readme.txt" />
+				<Hide File="ModOrganizer/mods/JaySuS Swords - Update 13D/Jswords-Distribution-Balance-Plugin-Readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Wearable Lanterns 4.0.2" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Wearable Lanterns 4.0.2/readmes" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Winter is Coming - Cloaks 2.4">
+				<MapFolder From="Meshes" To="ModOrganizer/mods/Winter is Coming - Cloaks 2.4/Meshes" />
+				<MapFolder From="Textures" To="ModOrganizer/mods/Winter is Coming - Cloaks 2.4/Textures" />
+				<MapFile From="WIC ESP OPTIONS - PICK ONE/1nivWICCloaks.esp" To="ModOrganizer/mods/Winter is Coming - Cloaks 2.4/1nivWICCloaks.esp" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.8.5 Recipe and Stat Changers">
+			<ExtractArchive ArchiveFile="Complete Alchemy and Cooking Overhaul 1.2" Id="CACOMain">
+				<MapFolder To="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1" />
+				<Hide File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO - CREDITS and PERMISSIONS.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Complete Alchemy and Cooking Overhaul - Script Update 1.2.1" WaitFor="CACOMain">
+				<MapFolder To="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="CACO Patches 1.2.1" WaitFor="CACOMain">
+				<MapFolder To="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1" />
+				<Hide File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/_CACO_Patches_README.txt" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_ETaC_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_GrayCowl_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_InvisibilityEyesFix_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_MightyMagick_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_RND_DestBottles_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_RND_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_SkyrimImmersiveCreatures_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_UniqueBooze_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_USKP_Patch.esp" />
+				<Optional File="ModOrganizer/mods/Complete Alchemy and Cooking Overhaul 1.2.1/CACO_Wyrmstooth_Patch.esp" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Complete Crafting Overhaul 1.7" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingAmethystGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingAmethyst_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingDiamondGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingDiamond_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingEmeraldGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingEmerald_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingGarnetGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingGarnet_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingOnyxGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingOnyx_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingRubyGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingRuby_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingSapphireGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingSapphire_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingTopazGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/EbonyRingTopaz_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringamethystgo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringamethyst_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringgarnetgo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringgarnet_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/GoldRingOnyxGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/GoldRingOnyx_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringrubygo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/goldringruby_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/GoldRingTopazGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/GoldRingTopaz_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingAmethystGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingAmethyst_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingDiamondGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingDiamond_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingEmeraldGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingEmerald_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingOnyxGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingOnyx_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingRubyGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingRuby_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingSapphireGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingSapphire_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingTopazGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/JadeRingTopaz_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringdiamondgo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringdiamond_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringemeraldgo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringemerald_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/SilverRingOnyxGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/SilverRingOnyx_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringsapphirego.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/silverringsapphire_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/SilverRingTopazGo.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Meshes/Armor/AmuletsandRings/SilverRingTopaz_1.nif" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/Textures/Armor/circlets/circletstonesgreyscale.dds" />
+				<Hide File="ModOrganizer/mods/Complete Crafting Overhaul 1.7/PRUFEI license.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Complete Crafting Overhaul - WAF Compatibility Patch 1.6">
+				<MapFolder To="ModOrganizer/mods/Complete Crafting Overhaul 1.7" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Complete Crafting Overhaul - SIC Compatibility Patch 1.1">
+				<MapFolder To="ModOrganizer/mods/Complete Crafting Overhaul 1.7" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" Id="CCFMain">
+				<Hide Folder="ModOrganizer/mods/Clothing and Clutter Fixes 1.7/Readmes" />
+				<Hide Folder="ModOrganizer/mods/Clothing and Clutter Fixes 1.7/textures/clothes" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes - RS Children Compatibility Patch 1.3" WaitFor="CCFMain">
+				<MapFolder From="CCF Patch for RS Children" To="ModOrganizer/mods/Clothing and Clutter Fixes 1.7" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Weapons and Armor Fixes Remade 5.2">
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/00 Readme" To="ModOrganizer/mods/Weapons and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/02 WAF Legendary Plus" To="ModOrganizer/mods/Weapons and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/18 Dark Brotherhood Mask Fix" To="ModOrganizer/mods/Weapons and Armor Fixes Remade 5.2" />
+				<MapFolder From="Weapons and Armor Fixes Remade V5_2 ALL IN ONE/19 Better Fitting Glass Helmet Meshes" To="ModOrganizer/mods/Weapons and Armor Fixes Remade 5.2" />
 			</ExtractArchive>
 		</Group>
 
