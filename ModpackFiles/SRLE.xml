@@ -1335,6 +1335,375 @@
 			      DownloadTags="nexus|skyrim|24913|1000196583" />
 		</Group>
 
+		<Group Name="4.7.1 Dynamic Patches">
+			<File Name="ASIS 1.42.5.H"
+			      LengthInBytes="2743897"
+			      CanonicalFileName="ASIS Patcher 1-42-5 Hacked-18436-1-42-5-H.7z"
+			      MD5Checksum="5fa71789c70086d47f0d91cf3e682b7f"
+			      DownloadTags="nexus|skyrim|18436|1000179567" />
+		</Group>
+
+		<Group Name="4.7.2 Beards, Brows, and Hair">
+			<File Name="Beards - 2K Resolution v4.1"
+			      LengthInBytes="22294018"
+			      CanonicalFileName="Beards - 2K Resolution-28363-v4-1.rar"
+			      MD5Checksum="e70d6e2ec690107462c60d95907cb86b"
+			      DownloadTags="nexus|skyrim|28363|1000229518" />
+
+			<File Name="Brows - High Resolution v3.1"
+			      LengthInBytes="13969437"
+			      CanonicalFileName="High Resolution-30411-v3-1.rar"
+			      MD5Checksum="ef4255658d5d9a9c28d87ebd4729548c"
+			      DownloadTags="nexus|skyrim|30411|1000130122" />
+
+			<File Name="KS Hairdos - Renewal 1.3"
+			      LengthInBytes="599540639"
+			      CanonicalFileName="KS Hairdos Renewal-68311-1-3.7z"
+			      MD5Checksum="18c512f11edbb2b115d8caf333981f59"
+			      DownloadTags="nexus|skyrim|68311|1000205789" />
+
+			<File Name="KS Hairdos - Renewal - Hotfix 1.3"
+			      LengthInBytes="2679252"
+			      CanonicalFileName="v1_3 Hotfix-68311-1-3.7z"
+			      MD5Checksum="5ee5236508ecedffbff9e9a357456bf7"
+			      DownloadTags="nexus|skyrim|68311|1000206362" />
+
+			<File Name="KS Hairdos - Renewal Breast Weight Painted Hair 1.01"
+			      LengthInBytes="202083279"
+			      CanonicalFileName="KShairdos Breast Weight Painted Hair-75915-1-01.7z"
+			      MD5Checksum="751d859b104917dcabaa60b2ef7d5a39"
+			      DownloadTags="nexus|skyrim|75915|1000209511" />
+
+			<File Name="KS Hairdos - Renewal Breast Weight Painted Hair -  Female Kajiit and Argonian HDT Headmesh Enabled 1.0"
+			      LengthInBytes="72172"
+			      CanonicalFileName="Female Kajiit and Argonian HDT Heads Enabled-76059-1-0.7z"
+			      MD5Checksum="65d850c9a7f1f07989a8ed1164d0f571"
+			      DownloadTags="nexus|skyrim|75915|1000208913" />
+
+			<File Name="KS Hairdos - Renewal Breast Weight Painted Hair -  Full Bounce Kit 1.0"
+			      LengthInBytes="36999"
+			      CanonicalFileName="Full Bounce Kit-75915-1-0.rar"
+			      MD5Checksum="660b8e096c5c7d4bf7bcb5ff9080b997"
+			      DownloadTags="nexus|skyrim|75915|1000207875" />
+
+			<File Name="More Realistic Hair 1.0"
+			      LengthInBytes="6246981"
+			      CanonicalFileName="Realistic Hair-3397-1-0.rar"
+			      MD5Checksum="21cae19fa2eda75b32006908b50d8680"
+			      DownloadTags="nexus|skyrim|3397|9475" />
+
+			<File Name="SLF Hair - All-in-one NMM installer 2.03"
+			      LengthInBytes="34149916"
+			      CanonicalFileName="All-in-one NMM installer and BAIN Package - UPDATED v2.03-36510-2-03.7z"
+			      MD5Checksum="e92c7dbc2a7592b9115dcd2f1a92ca28"
+			      DownloadTags="nexus|skyrim|36510|1000173647" />
+		</Group>
+
+		<Group Name="4.7.3 Eyes">
+			<File Name="The Eyes of Beauty - PLAYER 9"
+			      LengthInBytes="12715151"
+			      CanonicalFileName="The Eyes Of Beauty 9-13722-9-0.rar"
+			      MD5Checksum="1d64a69155d5ab5374070e50958a11ed"
+			      DownloadTags="nexus|skyrim|13722|1000073111" />
+
+			<File Name="The Eyes of Beauty - Special Elves Edition 10.0.1"
+			      LengthInBytes="3596093"
+			      CanonicalFileName="TEOB Elven Edition-13722-10-0-1.rar"
+			      MD5Checksum="66b6d026a218755c524060359a7a4519"
+			      DownloadTags="nexus|skyrim|13722|87299" />
+
+			<File Name="The Eyes of Beauty - Dawnguard Update 7.1"
+			      LengthInBytes="8630700"
+			      CanonicalFileName="The Eyes Of Beauty Dawnguard Update-13722-7-1.rar"
+			      MD5Checksum="c6f030225fc8dc7724c9734c53884660"
+			      DownloadTags="nexus|skyrim|13722|87299" />
+		</Group>
+
+		<Group Name="4.7.4 Scars, Tints, and Warpaints">
+			<File Name="High Res Female Face Makeup for SKSE v1.0b"
+			      LengthInBytes="1226303"
+			      CanonicalFileName="High Res Female Face Makeup for SKSE-31665-v1-0.rar"
+			      MD5Checksum="3e181bba89fadb3fe160c2988b7e3b66"
+			      DownloadTags="nexus|skyrim|31665|1000010637" />
+
+			<File Name="High Res Male Face Makeup for SKSE v1.0"
+			      LengthInBytes="3307340"
+			      CanonicalFileName="High Res Male Face Makeup for SKSE-31665-v1-0.rar"
+			      MD5Checksum="4044fdb3aa66d4817df9a915bfb48268"
+			      DownloadTags="nexus|skyrim|31665|1000009857" />
+
+			<File Name="High Res Vanilla Male and Female Blackblood Warpaints for SKSE v1.0"
+			      LengthInBytes="1223125"
+			      CanonicalFileName="High Res Vanilla Male and Female Blackblood Warpaints for SKSE-31665-v1-0.rar"
+			      MD5Checksum="8eb8b6c835879d78b597ef7a1f0c7902"
+			      DownloadTags="nexus|skyrim|31665|1000009859" />
+
+			<File Name="Northborn Scars 1.1"
+			      LengthInBytes="14154657"
+			      CanonicalFileName="NBScars-49279-1-1.rar"
+			      MD5Checksum="c9e1fdbb27191c18731c4c1fea7e48c7"
+			      DownloadTags="nexus|skyrim|49279|1000090071" />
+
+			<File Name="XCEWD 1.0"
+			      LengthInBytes="7790155"
+			      CanonicalFileName="XCEWD-1_00-29977-1-0.7z"
+			      MD5Checksum="64bfbefbc94de25d382250841f056af1"
+			      DownloadTags="nexus|skyrim|29977|1000002545" />
+
+			<File Name="XCEWD - Beast Tints 1.0"
+			      LengthInBytes="1009655"
+			      CanonicalFileName="Beast_Tints-1_00-29977-1-0.7z"
+			      MD5Checksum="59754e1949e977f2196075838429f4ea"
+			      DownloadTags="nexus|skyrim|29977|1000004427" />
+		</Group>
+
+		<Group Name="4.7.5 Skin and Body">
+			<File Name="Better males - Genox Faces 1.2"
+			      LengthInBytes="140452814"
+			      CanonicalFileName="Faces - GeonoxFaces-2488.rar"
+			      MD5Checksum="4a0f1a5d75b7efea1be566a4ee1ced09"
+			      DownloadTags="nexus|skyrim|2488|26461" />
+
+			<!-- TODO: allow choosing between this and the nude one.  1.0-era "Option" won't cut it,
+			     since one says "HAIR BODY TEXTURES" and the other says "BODY HAIR TEXTURES". -->
+			<File Name="Better males - Underwear - Default 2.3.2"
+			      LengthInBytes="98289541"
+			      CanonicalFileName="Underwear - Default-2488-2-3-2.rar"
+			      MD5Checksum="3f46f4261a187e228ab2f5e96a28634e"
+			      DownloadTags="nexus|skyrim|2488|32073" />
+
+			<File Name="Coverkhajits - Female Version 1.0"
+			      LengthInBytes="12839260"
+			      CanonicalFileName="coverkhajiits female version-5941-1-0.rar"
+			      MD5Checksum="e3f4419cf795563928ff2b1f537a5ef7"
+			      DownloadTags="nexus|skyrim|5941|18933" />
+
+			<File Name="Forgotten Argonian Roots - 4k X"
+			      LengthInBytes="225770923"
+			      CanonicalFileName="FAR - Forgotten Argonian Roots - 4k-42043-.zip"
+			      MD5Checksum="3cca97a72deac6bbb40a23a00f7e05b1"
+			      DownloadTags="nexus|skyrim|42043|1000079893" />
+
+			<File Name="Khajit body replacer - darker nipple remove pawprint tattoo 1.4"
+			      LengthInBytes="44157573"
+			      CanonicalFileName="darker nipple remove pawprint tattoo-61434-1-4.rar"
+			      MD5Checksum="0db5ac3ed526d304916eabd43a09bedb"
+			      DownloadTags="nexus|skyrim|61434|1000142466" />
+
+			<File Name="Mature Skin 2.14"
+			      LengthInBytes="536288693"
+			      CanonicalFileName="Mature Skin V2.14-32986-2-14.7z"
+			      MD5Checksum="7c35c44c4738fddf42e086f4fc5a323e"
+			      DownloadTags="nexus|skyrim|32986|1000193599" />
+
+			<File Name="RS Children Overhaul 1.1.0"
+			      LengthInBytes="24751894"
+			      CanonicalFileName="RSChildren - 1.1.0 Installer-55555-1-1-0.7z"
+			      MD5Checksum="8292391bdeb5e7f3fd11fc46227a7855"
+			      DownloadTags="nexus|skyrim|55555|1000116402" />
+
+			<File Name="RS Children Overhaul - Books of Skyrim Patch 1.0.0"
+			      LengthInBytes="299075"
+			      CanonicalFileName="RSChildren - Books of Skyrim Patch-55555-1-0-0.7z"
+			      MD5Checksum="41149188e6798f26ee4bfdb67e372b8f"
+			      DownloadTags="nexus|skyrim|55555|1000118601" />
+
+			<!-- Not sure why Neovalen said to grab this, since it has precisely one file that we
+			     replace with our own cooked-up version immediately after... -->
+			<!--
+			<File Name="RS Children Overhaul - Merged Complete and USKP .esp Latest"
+			      LengthInBytes="18244"
+			      CanonicalFileName="RSChildren - Merged Complete and USKP .esp-55555-Latest.7z"
+			      MD5Checksum="fafb58bd6acb0b3c4d02b312a6577767"
+			      DownloadTags="nexus|skyrim|55555|1000116482" />
+			-->
+
+			<File Name="RS Children Overhaul - Merged Complete and USLEEP .esp Latest"
+			      LengthInBytes="19653"
+			      CanonicalFileName="RSChildren_CompleteUSKP.esp"
+			      MD5Checksum="8824f439e6be3268181cc4ca806e5865"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/RS%20Children%20Overhaul/RSChildren_CompleteUSKP.esp"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#RS_Children_Overhaul" />
+
+			<File Name="RS Children Patches - Falskaar 1.2"
+			      LengthInBytes="340488"
+			      CanonicalFileName="Patch for Falskaar-55668-1-2.rar"
+			      MD5Checksum="5b800b611c289ebec10981c4385a1825"
+			      DownloadTags="nexus|skyrim|55668|1000117150" />
+
+			<File Name="UNPB 2.5.2"
+			      LengthInBytes="19327390"
+			      CanonicalFileName="UNPB Body NMM BAIN Installer v2-5-2 FIX-37900-2-5-2.7z"
+			      MD5Checksum="c37c3c1bc02de2481f5f87f4b1144c93"
+			      DownloadTags="nexus|skyrim|37900|1000038432" />
+		</Group>
+
+		<Group Name="4.7.6 Animation and Skeleton">
+			<File Name="360 Walk and Run Plus 3.1.3"
+			      LengthInBytes="3464460"
+			      CanonicalFileName="360WalkRunPlus_v3_1_3-34508-3-1-3.7z"
+			      MD5Checksum="624372ffe485263dbdee26ac7284bdc1"
+			      DownloadTags="nexus|skyrim|34508|1000123644" />
+
+			<File Name="DSAMG - ALL IN ONE INSTALLER 1.0"
+			      LengthInBytes="51674263"
+			      CanonicalFileName="ALL IN ONE INSTALLER-13850-1-0.7z"
+			      MD5Checksum="f08ed66c68812f347f36072099cabe29"
+			      DownloadTags="nexus|skyrim|13850|1000054045" />
+
+			<File Name="D13 Faster GET UP STAND UP animation 2.0"
+			      LengthInBytes="41599"
+			      CanonicalFileName="D13 Faster Get up Stand up animation-17491-2-0.rar"
+			      MD5Checksum="b95ce874b3586134fdfeabf49d2aad0f"
+			      DownloadTags="nexus|skyrim|17491|1000025119" />
+
+			<File Name="FNIS Behavior V6.3"
+			      LengthInBytes="3496939"
+			      CanonicalFileName="FNIS Behavior V6_3-11811-V6-3.7z"
+			      MD5Checksum="d5ed2f07580de86b880018a24176ab9c"
+			      DownloadTags="nexus|skyrim|11811|1000209375" />
+
+			<File Name="FNIS Creature Pack 6.1"
+			      LengthInBytes="480013"
+			      CanonicalFileName="FNIS Creature Pack 6_1-11811-6-1.7z"
+			      MD5Checksum="5d3c9497d7542133baffc64841cb6fcd"
+			      DownloadTags="nexus|skyrim|11811|1000186525" />
+
+			<File Name="HDT Physics Extensions"
+			      LengthInBytes="1916922"
+			      CanonicalFileName="HDT Physics Extensions-53996-14-28.7z"
+			      MD5Checksum="91fd353f1c515bead083fe07c1fd5be5"
+			      DownloadTags="nexus|skyrim|53996|1000109251" />
+
+			<File Name="Immersive Animations - NMM Installer Complete V2.1"
+			      LengthInBytes="2468693"
+			      CanonicalFileName="Immersive Animations NMM Installer Complete-34950-V2-1.zip"
+			      MD5Checksum="40f13c14f1d8f34aa07df522d4a7a1c7"
+			      DownloadTags="nexus|skyrim|34950|1000139342" />
+
+			<File Name="Blocking Animation Pack 1.5"
+			      LengthInBytes="194295"
+			      CanonicalFileName="Blocking Animation Pack v1.5-64510-1-5.rar"
+			      MD5Checksum="b02082612d028270545d93a0d2ab9b8c"
+			      DownloadTags="nexus|skyrim|64510|1000228221" />
+
+			<File Name="Dual Wield Improved Animation 1.8"
+			      LengthInBytes="333946"
+			      CanonicalFileName="Dual Wield v1.8-62928-1-8.rar"
+			      MD5Checksum="486c821c67732ae67cf5e285e82c8dbf"
+			      DownloadTags="nexus|skyrim|62928|1000225666" />
+
+			<File Name="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1"
+			      LengthInBytes="367561"
+			      CanonicalFileName="Female without BBB and Male Breathing Idles V0_1-7093.rar"
+			      MD5Checksum="93f5798bf831dc1dc4aac3da90dcffe1"
+			      DownloadTags="nexus|skyrim|7093|23802" />
+
+			<File Name="No Spinning Death Animation - MERGED 1.3"
+			      LengthInBytes="1822"
+			      CanonicalFileName="No Spinning Death Animation v1_3 MERGED -17214-1-3.rar"
+			      MD5Checksum="8c2116914ae9fdcde86d99771218830c"
+			      DownloadTags="nexus|skyrim|17214|1000149805" />
+
+			<File Name="Realistic Ragdolls and Force - Realistic Force 1.9"
+			      LengthInBytes="322469"
+			      CanonicalFileName="Realistic Force-601-1-9.rar"
+			      MD5Checksum="ac15e993f29759455e42f67813eed19a"
+			      DownloadTags="nexus|skyrim|601|1000007570" />
+
+			<File Name="WWLMG - Greybeard Meditation - Dynamic 1.2"
+			      LengthInBytes="12575"
+			      CanonicalFileName="WWLMG - Greybeard Meditation - Dynamic-38129-1-2.7z"
+			      MD5Checksum="5069e157f28a4cc4bac9465cb2f8db4a"
+			      DownloadTags="nexus|skyrim|38129|1000096017" />
+
+			<File Name="XPMSE 3.91"
+			      LengthInBytes="9788430"
+			      CanonicalFileName="XP32 Maximum Skeleton Extended-68000-3-91.7z"
+			      MD5Checksum="9f8ea55cc03ff26eb8d454e542a66a21"
+			      DownloadTags="nexus|skyrim|68000|1000226428" />
+		</Group>
+
+		<Group Name="4.7.7 NPCs and Behavior">
+			<File Name="Bring Out Your Dead - Legendary Edition 3.0.0"
+			      LengthInBytes="234119"
+			      CanonicalFileName="Bring Out Your Dead - Legendary Edition-14178-3-0-0.7z"
+			      MD5Checksum="068109f74d7a834c2bcc04be028d6ea9"
+			      DownloadTags="nexus|skyrim|14178|1000184123" />
+
+			<File Name="Guard Dialog Overhaul 1.4"
+			      LengthInBytes="1321538"
+			      CanonicalFileName="Guard Dialogue Overhaul-23390-1-4.7z"
+			      MD5Checksum="54c892bbf0505f095aedd6a73f69280f"
+			      DownloadTags="nexus|skyrim|23390|1000096379" />
+
+			<File Name="HLE - SIC Edition 1.6a"
+			      LengthInBytes="19101936"
+			      CanonicalFileName="High Level Enemies SIC Edition v1.6a.7z"
+			      MD5Checksum="b4be4b6202a34f63be82c64cb66c3897"
+			      DownloadTags="generic|https://sites.google.com/site/immersivecreatures/hle---sic-edition" />
+
+			<File Name="Holidays 2.0"
+			      LengthInBytes="25728793"
+			      CanonicalFileName="Holidays v2_0-64820-2-0.7z"
+			      MD5Checksum="2d596e808165911dab315c8f88e8ccf2"
+			      DownloadTags="nexus|skyrim|64820|1000155895" />
+
+			<File Name="Immersive Citizens - AI Overhaul 0.3.5.1a"
+			      LengthInBytes="2369566"
+			      CanonicalFileName="Immersive Citizens - AI Overhaul-65013-0-3-5-1a.7z"
+			      MD5Checksum="c1b81daca23280d85aed3f5460243cf0"
+			      DownloadTags="nexus|skyrim|65013|1000227129" />
+
+			<File Name="Immersive Patrols - DLC Aggressive IP 2.0.3"
+			      LengthInBytes="6973209"
+			      CanonicalFileName="DLC Aggressive IP 2.0.3-12977-2-0-3.7z"
+			      MD5Checksum="ab58a4dc310ed91db6d420b9c64c9261"
+			      DownloadTags="nexus|skyrim|12977|1000138570" />
+
+			<File Name="OBIS 2.01"
+			      LengthInBytes="575842899"
+			      CanonicalFileName="OBIS 2.01-31264-2-01.zip"
+			      MD5Checksum="acaf43a38f996c6e156f79eeb249b594"
+			      DownloadTags="nexus|skyrim|31264|1000147899" />
+
+			<File Name="OBIS (Update) 2.02"
+			      LengthInBytes="1368754"
+			      CanonicalFileName="OBIS 2.02-31264-2-02.zip"
+			      MD5Checksum="820697ef324f7b7e2abde0d60b276542"
+			      DownloadTags="nexus|skyrim|31264|1000156351" />
+
+			<File Name="Obis - remove message bandits seem more common now V2"
+			      LengthInBytes="1686"
+			      CanonicalFileName="Obis - remove message bandits seem more common now V2-31264-V2.7z"
+			      MD5Checksum="1f65e9d171773afc1f49fcd46cb14b90"
+			      DownloadTags="nexus|skyrim|31264|1000157015" />
+
+			<File Name="RDO FinalA"
+			      LengthInBytes="86865069"
+			      CanonicalFileName="Relationship Dialogue Overhaul - RDO FinalA-74568-FinalA.7z"
+			      MD5Checksum="e4dc0f27cdf64fdda49235d0d3c53735"
+			      DownloadTags="nexus|skyrim|74568|1000225996" />
+
+			<File Name="RDO - Patches Final"
+			      LengthInBytes="2046720"
+			      CanonicalFileName="RDO - Patches v1.3-74568-1-3.7z"
+			      MD5Checksum="c68bea1bcc9cd94e17be2d75d4f20d49"
+			      DownloadTags="nexus|skyrim|74568|1000225123" />
+
+			<File Name="Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5"
+			      LengthInBytes="2714"
+			      CanonicalFileName="Patch for Guard Dialogue Overhaul-52326-1-5.rar"
+			      MD5Checksum="a4e924c30d86c285aff3c1ef1bd7ae92"
+			      DownloadTags="nexus|skyrim|52326|1000102085" />
+
+			<File Name="Wet and Cold 2.02"
+			      LengthInBytes="48943765"
+			      CanonicalFileName="Wet and Cold v2_02-27563-2-02.7z"
+			      MD5Checksum="697ea19b83736886bdc4d91e77f8f0ba"
+			      DownloadTags="nexus|skyrim|27563|1000169473" />
+		</Group>
+
 		<!--
 		<Group Name="4.10.1 Basic Needs and Survival">
 			<File Name="Bathing in Skyrim 1.11"
@@ -1503,6 +1872,53 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++Wet and Cold 2.02
++Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5
++RDO - Patches Final
++RDO FinalA
++OBIS 2.02
++Immersive Patrols - DLC Aggressive IP 2.0.3
++Immersive Citizens - AI Overhaul 0.3.5.1a
++Holidays 2.0
++HLE - SIC Edition 1.6a
++Guard Dialog Overhaul 1.4
++Bring Out Your Dead - Legendary Edition 3.0.0
++XPMSE 3.91
++WWLMG - Greybeard Meditation - Dynamic 1.2
++Realistic Ragdolls and Force - Realistic Force 1.9
++No Spinning Death Animation - MERGED 1.3
++NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1
++Dual Wield Improved Animation 1.8
++Blocking Animation Pack 1.5
++Immersive Animations - NMM Installer Complete V2.1
++HDT Physics Extensions
++FNIS Creature Pack 6.1
++FNIS Behavior V6.3
++D13 Faster GET UP STAND UP animation 2.0
++DSAMG - ALL IN ONE INSTALLER 1.0
++360 Walk and Run Plus 3.1.3
++UNPB 2.5.2
++RS Children Patches - Falskaar 1.2
++RS Children Overhaul - Books of Skyrim Patch 1.0.0
++RS Children Overhaul 1.1.0
++Mature Skin 2.14
++Khajit body replacer - darker nipple remove pawprint tattoo 1.4
++Forgotten Argonian Roots - 4k X
++Coverkhajits - Female Version 1.0
++Better males - Underwear - Default 2.3.2
++Better males - Genox Faces 1.2
++XCEWD - Beast Tints 1.0
++XCEWD 1.0
++Northborn Scars 1.1
++Better Makeup for SKSE 1.0b
++The Eyes of Beauty 10.0.1
++SLF Hair - All-in-one NMM installer 2.03
++More Realistic Hair 1.0
++KS Hairdos - Renewal Breast Weight Painted Hair 1.01
++KS Hairdos - Renewal 1.3
++Brows - High Resolution v3.1
++Beards - 2K Resolution v4.1
++ASIS 1.42.5.H
 +Skyrim Immersive Creatures 6.5.2b
 +Deadly Dragons Script Patch 1.3
 +Deadly Dragons 6.4.1b
@@ -2864,6 +3280,387 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			<ExtractArchive ArchiveFile="Skyrim Immersive Creatures 6.5.2b">
 				<MapFolder From="01 Main" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
 				<MapFolder From="02 DLC2" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.7.1 Dynamic Patches">
+			<ExtractArchive ArchiveFile="ASIS 1.42.5.H" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/ASIS 1.42.5.H/Docs" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.7.2 Beards, Brows, and Hair">
+			<ExtractArchive ArchiveFile="Beards - 2K Resolution v4.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Brows - High Resolution v3.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal 1.3" SimpleMO="Single" Id="KSHairdosMain" />
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal - Hotfix 1.3" WaitFor="KSHairdosMain">
+				<MapFolder From="Data" To="ModOrganizer/mods/KS Hairdos - Renewal 1.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal Breast Weight Painted Hair 1.01" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal Breast Weight Painted Hair -  Female Kajiit and Argonian HDT Headmesh Enabled 1.0">
+				<MapFolder To="ModOrganizer/mods/KS Hairdos - Renewal Breast Weight Painted Hair 1.01" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal Breast Weight Painted Hair -  Full Bounce Kit 1.0">
+				<MapFolder From="Data" To="ModOrganizer/mods/KS Hairdos - Renewal Breast Weight Painted Hair 1.01" />
+				<Hide Folder="ModOrganizer/mods/KS Hairdos - Renewal Breast Weight Painted Hair 1.01/skse" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="More Realistic Hair 1.0" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/More Realistic Hair 1.0/readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SLF Hair - All-in-one NMM installer 2.03">
+				<MapFolder From="00 - Main (2k - Rough)" To="ModOrganizer/mods/SLF Hair - All-in-one NMM installer 2.03" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.7.3 Eyes">
+			<ExtractArchive ArchiveFile="The Eyes of Beauty - PLAYER 9">
+				<MapFolder To="ModOrganizer/mods/The Eyes of Beauty 10.0.1" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianambermale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianambermaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianblindfemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianblindmale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianbluemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianbluemaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianbrownfemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianbrownfemaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianolivefemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianolivefemaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianredfemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianredfemaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargoniansilvermale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargoniansilvermaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianvampirefemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianvampiremale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianyellowfemale.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeargonianyellowfemaler.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyedemon.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiit.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitblue.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitbluenarrow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitice.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiiticenarrow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitnarrow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitorange.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitorangenarrow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiitvampire.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiityellow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyekhajiityellownarrow.dds" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Textures/Actors/Character/eyes/eyeoldbrown.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="The Eyes of Beauty - Special Elves Edition 10.0.1">
+				<MapFolder To="ModOrganizer/mods/The Eyes of Beauty 10.0.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="The Eyes of Beauty - Dawnguard Update 7.1" Id="EyesOfBeautyDawnguard">
+				<MapFolder To="ModOrganizer/mods/The Eyes of Beauty 10.0.1" />
+				<Hide File="ModOrganizer/mods/The Eyes of Beauty 10.0.1/Babette.esp" />
+			</ExtractArchive>
+
+			<!-- TODO: in TheEyesofBeauty.esp, delete all WRLD records. -->
+		</Group>
+
+		<Group Name="4.7.4 Scars, Tints, and Warpaints">
+			<ExtractArchive ArchiveFile="High Res Female Face Makeup for SKSE v1.0b">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better Makeup for SKSE 1.0b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High Res Male Face Makeup for SKSE v1.0">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better Makeup for SKSE 1.0b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="High Res Vanilla Male and Female Blackblood Warpaints for SKSE v1.0">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better Makeup for SKSE 1.0b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Northborn Scars 1.1" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Northborn Scars 1.1/readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="XCEWD 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="XCEWD - Beast Tints 1.0" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.7.5 Skin and Body">
+			<ExtractArchive ArchiveFile="Better males - Genox Faces 1.2" Id="GenoxFacesMain">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better males - Genox Faces 1.2" />
+				<MapFolder From="Documenation and option/[ SMOOTH FACE GEONOX OPTION ]/Data" To="ModOrganizer/mods/Better males - Genox Faces 1.2" />
+			</ExtractArchive>
+
+			<CopyFile From="ModOrganizer/mods/Better males - Genox Faces 1.2/textures/actors/character/male/malehead.dds"
+			          To  ="ModOrganizer/mods/Better males - Genox Faces 1.2/textures/actors/character/male/maleheadvampire.dds"
+			          WaitFor="GenoxFacesMain" />
+
+			<CopyFile From="ModOrganizer/mods/Better males - Genox Faces 1.2/textures/actors/character/male/malehead_msn.dds"
+			          To  ="ModOrganizer/mods/Better males - Genox Faces 1.2/textures/actors/character/male/maleheadvampire_msn.dds"
+			          WaitFor="GenoxFacesMain" />
+
+			<ExtractArchive ArchiveFile="Better males - Underwear - Default 2.3.2">
+				<MapFolder From="Data" To="ModOrganizer/mods/Better males - Underwear - Default 2.3.2" />
+				<MapFolder From="[ OPTIONS ]/[ HAIR BODY TEXTURES ]/Body Hair 3/Data" To="ModOrganizer/mods/Better males - Underwear - Default 2.3.2" />
+				<Hide Folder="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/character assets" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash03.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash03_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash04.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash04_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash05.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash05_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash06.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash06_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash1.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash10.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash10_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash11.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash11_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash12.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash12_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash13.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash1_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash2.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/faceleftsidegash2_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash04.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash04_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash06.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash06_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash07.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash07_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash08.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash08_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash09.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash09_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash10.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash10_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash11.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash11_n.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash12.dds" />
+				<Hide File="ModOrganizer/mods/Better males - Underwear - Default 2.3.2/textures/actors/character/male/facedetails/facerightsidegash12_n.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Coverkhajits - Female Version 1.0">
+				<MapFolder From="khajiitfemale/Data" To="ModOrganizer/mods/Coverkhajits - Female Version 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Forgotten Argonian Roots - 4k X">
+				<MapFolder From="FAR-Forgotten Argonian Roots/Females/UNP/MAIN" To="ModOrganizer/mods/Forgotten Argonian Roots - 4k X" />
+				<MapFolder From="FAR-Forgotten Argonian Roots/Males/Better Males body" To="ModOrganizer/mods/Forgotten Argonian Roots - 4k X" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianfemale/argonianfemalebody_s.dds" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianfemale/argonianfemalehands_s.dds" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianfemale/argonianfemalehead_s.dds" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianmale/argonianmalebody_s.dds" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianmale/argonianmalehands_s.dds" />
+				<Hide File="ModOrganizer/mods/Forgotten Argonian Roots - 4k X/textures/actors/character/argonianmale/argonianmalehead_s.dds" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Khajit body replacer - darker nipple remove pawprint tattoo 1.4">
+				<MapFolder From="KhajiitBodyReplacer_darkernipple/Data" To="ModOrganizer/mods/Khajit body replacer - darker nipple remove pawprint tattoo 1.4" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Mature Skin 2.14">
+				<!-- this took a while and there were a lot of flags.  saving my notes:
+					quality               = HD
+					bodyType              = UNP
+					bodyNormalMapType     = UNPB
+					faceAge               = medium
+					faceAgeSubType        = medium
+					tintLips              = true
+					complexions           = true
+					complexions.mod       = true
+					bodyAge               = young
+					bodyPubicHair         = natural
+					bodyNormalMaps        = true
+					faceNormalMaps        = true
+					faceNormalMapsVersion = 2
+				-->
+				<MapFolder From="HD/Face/Common" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/Face/Specular" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/Face/Lips" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/Face/Complexion" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFile From="Mod/MatureSkinComplexions.esp" To="ModOrganizer/mods/Mature Skin 2.14/MatureSkinComplexions.esp"/>
+				<MapFile From="HD/Face/Diffuse2/young/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Young_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Young_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/medium/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Medium_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Medium_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/mature/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Mature_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Mature_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/old/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Old_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Old_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old_blemish_moles_scars.dds"/>
+				<MapFolder From="HD/Face/Normal Maps/Medium" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/Face/Diffuse/medium/no_moles_no_scars" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/UNP/Body Specular Maps" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/UNP/Body Common" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/UNP/Young/Body Normal Maps/UNPB" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/UNP/Young/Body Common" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/UNP/Young/Body Natural No Moles No Scars" To="ModOrganizer/mods/Mature Skin 2.14" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RS Children Overhaul 1.1.0" Id="RSChildrenMain">
+				<MapFolder From="RS Children_11_Installer/00 - Core" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />
+				<MapFolder From="RS Children_11_Installer/01 - Non-Playable" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />
+				<MapFolder From="RS Children_11_Installer/02 - DLC/DLC Files" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />
+				<!--<MapFolder From="RS Children_11_Installer/02 - DLC/DLC - Complete" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />-->
+				<!--<MapFolder From="RS Children_11_Installer/03 - Patches/USKP" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />-->
+				<MapFolder From="RS Children_11_Installer/04 - Options/2K Outfit" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />
+				<MapFolder From="RS Children_11_Installer/04 - Options/Facial Animations" To="ModOrganizer/mods/RS Children Overhaul 1.1.0" />
+			</ExtractArchive>
+
+			<Materialize File="RS Children Overhaul - Merged Complete and USLEEP .esp Latest" To="ModOrganizer/mods/RS Children Overhaul 1.1.0/RSChildren_CompleteUSKP.esp" />
+			<CopyFile From="ModOrganizer/mods/The Eyes of Beauty 10.0.1/textures/actors/character/eyes/eyevampire_02.dds"
+			          To ="ModOrganizer/mods/RS Children Overhaul 1.1.0/textures/actors/character/ranaline/eyes/eyevampire_02.dds"
+			          WaitFor="EyesOfBeautyDawnguard" />
+
+			<ExtractArchive ArchiveFile="RS Children Overhaul - Books of Skyrim Patch 1.0.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="RS Children Patches - Falskaar 1.2" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="UNPB 2.5.2">
+				<MapFolder From="30 TBreastButtPhysics - 2-5g Nude" To="ModOrganizer/mods/UNPB 2.5.2" />
+				<MapFolder From="70 animations idle" To="ModOrganizer/mods/UNPB 2.5.2" />
+				<MapFolder From="00 Core - Required" To="ModOrganizer/mods/UNPB 2.5.2" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.7.6 Animation and Skeleton">
+			<ExtractArchive ArchiveFile="360 Walk and Run Plus 3.1.3">
+				<!-- well, this ModuleConfig.xml could have been a LOT shorter and simpler... -->
+				<MapFolder From="360WalkandRunPlus/03b Male_backsteps_cloak" To="ModOrganizer/mods/360 Walk and Run Plus 3.1.3" />
+				<MapFolder From="360WalkandRunPlus/07b Female_backsteps_cloak" To="ModOrganizer/mods/360 Walk and Run Plus 3.1.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="DSAMG - ALL IN ONE INSTALLER 1.0">
+				<MapFolder From="00 Dragonborn" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+
+				<!-- Neovalen says pick either of these; difference is the file under "sound". -->
+				<MapFolder From="10 - MUSIC - E3 Demo Version" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+				<!--
+				<MapFolder From="10 - MUSIC - E3 Demo Version Female Victory Cry - With Words" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+				-->
+				<MapFolder From="20 - MUSIC DB - Better Evil Miraak Music" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+				<MapFolder From="40 - ANIMATION DB - Ritual Spell" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+				<MapFolder From="50 - PATCHES - Greybeards Way of the Voice" To="ModOrganizer/mods/DSAMG - ALL IN ONE INSTALLER 1.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="D13 Faster GET UP STAND UP animation 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="FNIS Behavior V6.3">
+				<MapFolder From="FNIS Behavior 6.3/Data" To="ModOrganizer/mods/FNIS Behavior V6.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="FNIS Creature Pack 6.1">
+				<MapFolder From="FNIS Creature Pack 6.1/Data" To="ModOrganizer/mods/FNIS Creature Pack 6.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HDT Physics Extensions" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Immersive Animations - NMM Installer Complete V2.1">
+				<MapFolder From="01 onehanded" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="02 sneak" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="03 strafe" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="05 2hsprint" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="07 dualswordback" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="09 dualaxe" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="10 dualdagger" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="11 dualmace" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+				<MapFolder From="14 roguestab" To="ModOrganizer/mods/Immersive Animations - NMM Installer Complete V2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Blocking Animation Pack 1.5">
+				<MapFolder From="Blocking Pack v1.5/Data" To="ModOrganizer/mods/Blocking Animation Pack 1.5" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Dual Wield Improved Animation 1.8">
+				<MapFolder From="Dual Wield v18/Data" To="ModOrganizer/mods/Dual Wield Improved Animation 1.8" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1">
+				<MapFolder From="NoMaaM Breathing Idles BBB V0.1 - Female non-BBB plus Male" To="ModOrganizer/mods/NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" />
+				<Hide Folder="ModOrganizer/mods/NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1/meshes/actors/character/animations/female" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="No Spinning Death Animation - MERGED 1.3" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/No Spinning Death Animation - MERGED 1.3/spinmewrong.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Ragdolls and Force - Realistic Force 1.9">
+				<MapFolder To="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9" />
+				<Hide Folder="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9/fomod" />
+				<Hide File="ModOrganizer/mods/Realistic Ragdolls and Force - Realistic Force 1.9/readme.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="WWLMG - Greybeard Meditation - Dynamic 1.2" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/WWLMG - Greybeard Meditation - Dynamic 1.2/fomod" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="XPMSE 3.91">
+				<MapFolder From="07 XPMSE3 (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="00 Skeleton Rig XPMSE3 HDT (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="10 XPMSE3 Plugin for RaceMenu and Enhanced Character Edit (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="12 XPMSE Style Randomizer for RaceMenu - Sync (STEP)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="21 XPMSE Alternate Animations (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="20 XPMSE Default Animation Reset (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Vampire Lord (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Werewolf (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Horse (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Giant (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Draugr (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Atronachs (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Spriggan (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+				<MapFolder From="09 Creature - Wisp Mother (Recommended)" To="ModOrganizer/mods/XPMSE 3.91" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.7.7 NPCs and Behavior">
+			<ExtractArchive ArchiveFile="Bring Out Your Dead - Legendary Edition 3.0.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMO="Root" />
+			<!-- TODO: delete things from Guard Dialogue Overhaul.esp, even though Eckss thinks it
+			     shouldn't be done.  We're not banging rocks together over here. -->
+
+			<ExtractArchive ArchiveFile="HLE - SIC Edition 1.6a">
+				<MapFolder From="00 Main" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
+				<MapFolder From="10 Falskaar" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Holidays 2.0">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Holidays 2.0" />
+				<MapFolder From="10 Modded Children Hat Meshes" To="ModOrganizer/mods/Holidays 2.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a">
+				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
+				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/70_Realistic_Room_Rental" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Immersive Patrols - DLC Aggressive IP 2.0.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="OBIS 2.01" Id="OBISMain">
+				<MapFolder From="Data" To="ModOrganizer/mods/OBIS 2.02" />
+				<Hide Folder="ModOrganizer/mods/OBIS 2.02/Docs" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="OBIS (Update) 2.02" WaitFor="OBISMain">
+				<MapFolder From="OBIS" To="ModOrganizer/mods/OBIS 2.02" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Obis - remove message bandits seem more common now V2" WaitFor="OBISMain">
+				<MapFolder From="Data" To="ModOrganizer/mods/OBIS 2.02" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RDO FinalA" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="RDO - Patches Final">
+				<MapFolder From="Relationship Dialogue Overhaul - Patches/CompleteAlchemyandCookingOverhaul" To="ModOrganizer/mods/RDO - Patches Final" />
+				<MapFolder From="Relationship Dialogue Overhaul - Patches/ExtensibleFollowerFrameworkv4-0-2" To="ModOrganizer/mods/RDO - Patches Final" />
+				<MapFolder From="Relationship Dialogue Overhaul - Patches/ImmersiveHorses" To="ModOrganizer/mods/RDO - Patches Final" />
+				<MapFolder From="Relationship Dialogue Overhaul - Patches/USLEEP-CuttingRoomFloor" To="ModOrganizer/mods/RDO - Patches Final" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Wet and Cold 2.02">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/Wet and Cold 2.02" />
+				<MapFolder From="10 Ashes" To="ModOrganizer/mods/Wet and Cold 2.02" />
+				<MapFolder From="20 High Res Fur Cloaks" To="ModOrganizer/mods/Wet and Cold 2.02" />
+				<MapFolder From="22 Modded Children Hat Meshes" To="ModOrganizer/mods/Wet and Cold 2.02" />
 			</ExtractArchive>
 		</Group>
 
