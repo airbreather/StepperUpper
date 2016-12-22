@@ -2102,7 +2102,28 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      DownloadTags="nexus|skyrim|34093|1000194767" />
 		</Group>
 
-		<!--
+		<Group Name="4.9.1 Vanilla Sound Improvement">
+			<File Name="Lucidity Sound FX v1w"
+			      LengthInBytes="435766563"
+			      CanonicalFileName="Lucidity Sound FX v1w-73838-v1w.rar"
+			      MD5Checksum="ef4f876c06ee196f6d5eaf6a5ba240e7"
+			      DownloadTags="nexus|skyrim|73838|1000231247" />
+		</Group>
+
+		<Group Name="4.9.2 New Sounds">
+			<File Name="AOS All-In-One 2.5.1"
+			      LengthInBytes="235829257"
+			      CanonicalFileName="AOS 2.5.1 Full Install-43773-2-5-1.rar"
+			      MD5Checksum="9347a10a698689a28c8700ede15a3430"
+			      DownloadTags="nexus|skyrim|43773|1000171565" />
+
+			<File Name="Heart of the Beast - VERY VICIOUS AND AGGRESSIVE 1.7"
+			      LengthInBytes="14166625"
+			      CanonicalFileName="Alpha Werewolf sounds-13779-1-5.rar"
+			      MD5Checksum="073a800b790f3d0cd76a29726ca9624b"
+			      DownloadTags="nexus|skyrim|13779|103673" />
+		</Group>
+
 		<Group Name="4.10.1 Basic Needs and Survival">
 			<File Name="Bathing in Skyrim 1.11"
 			      LengthInBytes="21429473"
@@ -2116,8 +2137,145 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="a33e5cfd964fb77473bc1c0e8ceac076"
 			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Bathing%20in%20Skyrim/Bathing%20In%20Skyrim%20-%20Followers%20Only.7z"
 			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Bathing_in_Skyrim" />
+
+			<File Name="Campfire 1.11"
+			      LengthInBytes="26001077"
+			      CanonicalFileName="Campfire 1.11-64798-1-11.zip"
+			      MD5Checksum="c383875198ef73200b55800d65d15f83"
+			      DownloadTags="nexus|skyrim|64798|1000231580" />
+
+			<File Name="Frostfall 3.4.1"
+			      LengthInBytes="10960967"
+			      CanonicalFileName="Frostfall 3.4.1 Release-11163-3-4-1.zip"
+			      MD5Checksum="ce479f8476d06d121ad96499d8378599"
+			      DownloadTags="nexus|skyrim|11163|1000231590" />
+
+			<File Name="iNeed 1.602"
+			      LengthInBytes="3108174"
+			      CanonicalFileName="iNeed v1_602-51473-1-602.7z"
+			      MD5Checksum="2ac9f101c83e5cc091a7fbeff168ef25"
+			      DownloadTags="nexus|skyrim|51473|1000162106" />
 		</Group>
-		-->
+
+		<Group Name="4.10.2 Combat and Traps">
+			<File Name="Dual Wield Parrying 3.1b"
+			      LengthInBytes="8249"
+			      CanonicalFileName="00 Dual Wield Parrying SKSE 3_1 beta-9247-3-1b.zip"
+			      MD5Checksum="ffc4e51f1b36818d6de56823e1294ace"
+			      DownloadTags="nexus|skyrim|9247|1000085984" />
+
+			<File Name="NPC Knockout Overhaul 3.4"
+			      LengthInBytes="1348146"
+			      CanonicalFileName="NPC Knockout Overhaul-52681-3-4.7z"
+			      MD5Checksum="e9629ae9bced14ca7514c1d17e3f187d"
+			      DownloadTags="nexus|skyrim|52681|1000152927" />
+
+			<File Name="Traps Make Noise and Are Dangerous 2.1"
+			      LengthInBytes="83493"
+			      CanonicalFileName="Traps Make Noise and are Dangerous-31799-2-1.zip"
+			      MD5Checksum="2d914a6dbcbc5077d7a88faf0b7e6a68"
+			      DownloadTags="nexus|skyrim|31799|1000114333" />
+
+			<File Name="Traps Make Noise - Follower Safety Patch 2.1"
+			      LengthInBytes="1765"
+			      CanonicalFileName="Traps Make Noise - Follower Safety Patch-31799-2-1.zip"
+			      MD5Checksum="8d1367928616375f32f2a88e885f0ff2"
+			      DownloadTags="nexus|skyrim|31799|1000114334" />
+
+			<File Name="Traps Make Noise - Mining Makes Noise - CCO Version 2.1"
+			      LengthInBytes="6735"
+			      CanonicalFileName="Mining Makes Noise_CCO Version-31799-2-1.zip"
+			      MD5Checksum="503a356ee758ecfa09301c5f062436b4"
+			      DownloadTags="nexus|skyrim|31799|1000114336" />
+
+			<File Name="VioLens - A Killmove Mod 2.11"
+			      LengthInBytes="4753527"
+			      CanonicalFileName="VioLens - A Killmove Mod 2.11a-56980-2-11.7z"
+			      MD5Checksum="1b78147290118c939dbcc7f86b2957c7"
+			      DownloadTags="nexus|skyrim|56980|1000196631" />
+
+			<File Name="Wiseman303's Trap Fixes 2.0b"
+			      LengthInBytes="294143"
+			      CanonicalFileName="WM Trap Fixes-55100-2-0b.7z"
+			      MD5Checksum="53c1df7af8a2e210b2b950d4e02a2336"
+			      DownloadTags="nexus|skyrim|55100|1000186411" />
+
+			<File Name="WM Trap Fixes + Vivid Landscapes Merged Mesh X"
+			      LengthInBytes="46425"
+			      CanonicalFileName="VL-WM303 Patch.7z"
+			      MD5Checksum="3c716410137bf54d9902d5a9d70bc9fc"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/VL-WM303%20Patch/VL-WM303%20Patch.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Wiseman303s_Trap_Fixes" />
+		</Group>
+
+		<Group Name="4.10.3 Economy">
+			<File Name="Realistic Room Rental - Enhanced 1.8.3"
+			      LengthInBytes="5260438"
+			      CanonicalFileName="RealisticRoomRental-Enhanced-25029-1-8-3.7z"
+			      MD5Checksum="77f4fa9607f2bd8b001dc0ebbebd8959"
+			      DownloadTags="nexus|skyrim|25029|1000094963" />
+
+			<File Name="Realistic Room Rental - ELFX Replacement .esp X"
+			      LengthInBytes="14491"
+			      CanonicalFileName="RRR_ELFX-Patch.7z"
+			      MD5Checksum="8a9c5448f9554a52a182c67d22f72566"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/RRR-ELFX%20Patch/RRR_ELFX-Patch.7z"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition#Realistic_Room_Rental_Enhanced" />
+
+			<File Name="Skyrim Coin Replacer Redux - Legendary Edition 1.2.2"
+			      LengthInBytes="4432320"
+			      CanonicalFileName="SCRR - Legendary Edition-48195-1-2-2.7z"
+			      MD5Checksum="157afe17a66023e52a0c5a5d6de5d4a5"
+			      DownloadTags="nexus|skyrim|48195|1000161645" />
+
+			<File Name="Skyrim Coin Replacer Redux - Septim HD Coinpiles X"
+			      LengthInBytes="335093"
+			      CanonicalFileName="Septim HD Coinpiles-48195-.7z"
+			      MD5Checksum="3cc826f633e32efc9a30e43a48c4634f"
+			      DownloadTags="nexus|skyrim|48195|1000124477" />
+
+			<File Name="Trade And Barter - Hearthfire 1.2"
+			      LengthInBytes="64605"
+			      CanonicalFileName="Trade And Barter - Hearthfire-34612-1-2.zip"
+			      MD5Checksum="4c02925b47b86661cbe6b6e83cc18a7c"
+			      DownloadTags="nexus|skyrim|34612|1000025324" />
+		</Group>
+
+		<Group Name="4.10.4 Perks and Leveling">
+			<File Name="Skyrim Community Uncapper 1.15.2.0"
+			      LengthInBytes="190135"
+			      CanonicalFileName="Skyrim -Community- Uncapper v1_15_2_0-1175-1-15-2-0.rar"
+			      MD5Checksum="eb251604dac01878781b54ead7e558e0"
+			      DownloadTags="nexus|skyrim|1175|1000087126" />
+		</Group>
+
+		<Group Name="4.10.5 Travel">
+			<File Name="Better Fast Travel - Loose - Hearthfires 3.76"
+			      LengthInBytes="8235072"
+			      CanonicalFileName="Better Fast Travel v3.76 - Loose - Hearthfires-15508-3-76.zip"
+			      MD5Checksum="cfc7d20f85b1d4d10d535df32dacdf64"
+			      DownloadTags="nexus|skyrim|15508|1000111713" />
+
+			<File Name="Simply Knock 1.0.8"
+			      LengthInBytes="777662"
+			      CanonicalFileName="Simply Knock 1.0.8 Release-73236-1-0-8.zip"
+			      MD5Checksum="45a1d3105a31417393052895a85a893c"
+			      DownloadTags="nexus|skyrim|73236|1000196362" />
+		</Group>
+
+		<Group Name="4.10.6 Vampires, Werewolves, and Bears, Oh My">
+			<File Name="Better Vampires 7.8"
+			      LengthInBytes="12097039"
+			      CanonicalFileName="Better Vampires 7.8-9717-7-8.zip"
+			      MD5Checksum="e39e73797b35e533048a8cc783c0ffbd"
+			      DownloadTags="nexus|skyrim|9717|1000229703" />
+
+			<File Name="Moonlight Tales - Essentials 2.51"
+			      LengthInBytes="248853851"
+			      CanonicalFileName="Moonlight Tales - Essentials - Version 2_51-59463-2-51.7z"
+			      MD5Checksum="b8ee99594ec625606875f711436bbd98"
+			      DownloadTags="nexus|skyrim|59463|1000194492" />
+		</Group>
 	</Files>
 
 	<Tasks>
@@ -2173,14 +2331,17 @@ START /B "" cmd /c DEL "%~f0" & EXIT /B]]></Line>
 
 			<RunProcess ExecutablePath="BSAopt/KeepOnlyAppropriateAndRename.bat" WaitFor="ExtractBSAopt|CreateBSAoptBatchFile" Id="CleanBSAoptFolder" />
 
-			<Embedded File="BSAopt/BSAopt.bat" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder">
+			<Embedded File="BSAopt/BSAopt.bat" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder" Id="BSAoptBatch">
 				<Line><![CDATA[@ECHO OFF
 START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</Embedded>
 
-			<Embedded File="BSAopt/blankline.txt" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder">
+			<Embedded File="BSAopt/blankline.txt" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder" Id="BSAoptBlankLine">
 				<Line />
 			</Embedded>
+
+			<!-- Just a dummy task that will be complete when BSAopt is fully set up. -->
+			<Dummy Id="BSAoptFull" WaitFor="BSAoptBlankLine|BSAoptBatch" />
 		</Group>
 
 		<Group Name="3.3 Configure Mod Organizer">
@@ -2270,6 +2431,27 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++Moonlight Tales - Essentials 2.51
++Better Vampires 7.8
++Simply Knock 1.0.8
++Better Fast Travel - Loose - Hearthfires 3.76
++Skyrim Community Uncapper 1.15.2.0
++Trade And Barter - Hearthfire 1.2
++Skyrim Coin Replacer Redux - Septim HD Coinpiles X
++Skyrim Coin Replacer Redux - Legendary Edition 1.2.2
++Realistic Room Rental - Enhanced 1.8.3
++Wiseman303's Trap Fixes 2.0b
++VioLens - A Killmove Mod 2.11
++Traps Make Noise and Are Dangerous 2.1
++NPC Knockout Overhaul 3.4
++Dual Wield Parrying 3.1b
++iNeed 1.602
++Frostfall 3.4.1
++Campfire 1.11
++Bathing in Skyrim 1.11
++Heart of the Beast - VERY VICIOUS AND AGGRESSIVE 1.7
++AOS All-In-One 2.5.1
++Lucidity Sound FX v1w
 +Weapons and Armor Fixes Remade 5.2
 +Clothing and Clutter Fixes 1.7
 +Complete Crafting Overhaul 1.7
@@ -4522,7 +4704,25 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</ExtractArchive>
 		</Group>
 
-		<!--
+		<Group Name="4.9.1 Vanilla Sound Improvement">
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v1w">
+				<MapFolder From="Lucidity Sound FX v1w/Data" To="ModOrganizer/mods/Lucidity Sound FX v1w" />
+				<Hide Folder="ModOrganizer/mods/Lucidity Sound FX v1w/Docs and Screenshots" />
+				<Hide File="ModOrganizer/mods/Lucidity Sound FX v1w/sound/fx/npc/dragon/deathsequence/npc_dragon_deathsequence_explosion.wav" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.9.2 New Sounds">
+			<ExtractArchive ArchiveFile="AOS All-In-One 2.5.1">
+				<MapFolder From="AOS_2_5_1_Full-Improved_Installer/004 AOS Plugin Skyrim and DG and DB" To="ModOrganizer/mods/AOS All-In-One 2.5.1" />
+				<MapFolder From="AOS_2_5_1_Full-Improved_Installer/010 Sounds Loose" To="ModOrganizer/mods/AOS All-In-One 2.5.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Heart of the Beast - VERY VICIOUS AND AGGRESSIVE 1.7">
+				<MapFolder From="Heart of the Beast - Alpha Werewolf/Data" To="ModOrganizer/mods/Heart of the Beast - VERY VICIOUS AND AGGRESSIVE 1.7" />
+			</ExtractArchive>
+		</Group>
+
 		<Group Name="4.10.1 Basic Needs and Survival">
 			<ExtractArchive ArchiveFile="Bathing in Skyrim 1.11">
 				<MapFolder From="Data" To="ModOrganizer/mods/Bathing in Skyrim 1.11" />
@@ -4533,8 +4733,92 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			<ExtractArchive ArchiveFile="Bathing in Skyrim - Followers Only Patch X">
 				<MapFolder To="ModOrganizer/mods/Bathing in Skyrim 1.11" />
 			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Campfire 1.11" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Campfire 1.11/readmes" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Frostfall 3.4.1">
+				<MapFolder From="Frostfall" To="ModOrganizer/mods/Frostfall 3.4.1" />
+				<MapFolder From="SkyUI51AddOn" To="ModOrganizer/mods/Frostfall 3.4.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="iNeed 1.602">
+				<MapFolder From="00 Core" To="ModOrganizer/mods/iNeed 1.602" />
+			</ExtractArchive>
 		</Group>
-		-->
+
+		<Group Name="4.10.2 Combat and Traps">
+			<ExtractArchive ArchiveFile="Dual Wield Parrying 3.1b" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="NPC Knockout Overhaul 3.4">
+				<MapFolder From="install" To="ModOrganizer/mods/NPC Knockout Overhaul 3.4" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Traps Make Noise and Are Dangerous 2.1" SimpleMO="Root" Id="TMNMain" />
+			<ExtractArchive ArchiveFile="Traps Make Noise - Follower Safety Patch 2.1" WaitFor="TMNMain">
+				<MapFolder To="ModOrganizer/mods/Traps Make Noise and Are Dangerous 2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Traps Make Noise - Mining Makes Noise - CCO Version 2.1">
+				<MapFolder To="ModOrganizer/mods/Traps Make Noise and Are Dangerous 2.1" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="VioLens - A Killmove Mod 2.11">
+				<MapFolder From="00 Core Loose" To="ModOrganizer/mods/VioLens - A Killmove Mod 2.11" />
+				<MapFolder From="05 Legendary" To="ModOrganizer/mods/VioLens - A Killmove Mod 2.11" />
+				<MapFolder From="15 JContainers" To="ModOrganizer/mods/VioLens - A Killmove Mod 2.11" />
+				<MapFolder From="20 Profiles" To="ModOrganizer/mods/VioLens - A Killmove Mod 2.11" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Wiseman303's Trap Fixes 2.0b" Id="WMTrapFixesMain">
+				<MapFolder From="00 core" To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
+				<MapFolder From="10 traps make noise compatibility" To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
+				<MapFolder From="20 higher-level traps" To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="WM Trap Fixes + Vivid Landscapes Merged Mesh X" WaitFor="WMTrapFixesMain">
+				<MapFolder To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.10.3 Economy">
+			<ExtractArchive ArchiveFile="Realistic Room Rental - Enhanced 1.8.3" Id="RRRMain">
+				<MapFolder From="00 Core - Main Files" To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
+				<MapFolder From="01 RRR_ELFX-Patch" To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Realistic Room Rental - ELFX Replacement .esp X" WaitFor="RRRMain">
+				<MapFolder To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Legendary Edition 1.2.2" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Skyrim Coin Replacer Redux - Septim HD Coinpiles X" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
+		</Group>
+
+		<Group Name="4.10.4 Perks and Leveling">
+			<ExtractArchive ArchiveFile="Skyrim Community Uncapper 1.15.2.0" SimpleMO="Single" />
+		</Group>
+
+		<Group Name="4.10.5 Travel">
+			<ExtractArchive ArchiveFile="Better Fast Travel - Loose - Hearthfires 3.76" SimpleMO="Root">
+				<Hide File="ModOrganizer/mods/Better Fast Travel - Loose - Hearthfires 3.76/BFT Ships and Carriages - ReadMe.txt" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Simply Knock 1.0.8" SimpleMO="Root">
+				<Hide Folder="ModOrganizer/mods/Simply Knock 1.0.8/readmes" />
+			</ExtractArchive>
+		</Group>
+
+		<Group Name="4.10.6 Vampires, Werewolves, and Bears, Oh My">
+			<ExtractArchive ArchiveFile="Better Vampires 7.8">
+				<MapFolder From="00 Required (loose files)" To="ModOrganizer/mods/Better Vampires 7.8" />
+				<MapFolder From="01 Dawnguard (.esp file)" To="ModOrganizer/mods/Better Vampires 7.8" />
+				<Hide Folder="ModOrganizer/mods/Better Vampires 7.8/Meshes/Actors/vampirelord" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Moonlight Tales - Essentials 2.51" SimpleMO="Root" />
+		</Group>
 
 		<Group Name="InFinalize">
 			<!-- Do this in the Finalize step, since it depends on everything with a BSA,

@@ -65,6 +65,9 @@ namespace StepperUpper
 
                 case "ExtractBSAContent":
                     return ExtractBSAContentAsync(taskElement, dumpDirectory);
+
+                case "Dummy":
+                    return Task.CompletedTask;
             }
 
             throw new NotSupportedException("Task type " + taskElement.Name.LocalName + " is not supported.");
