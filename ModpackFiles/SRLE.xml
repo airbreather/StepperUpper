@@ -53,6 +53,18 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      CanonicalFileName="BSAopt - beta 2 - risky-247-2-0-0b2.zip"
 			      MD5Checksum="907785af7ddde656fd61e338866874d2"
 			      DownloadTags="nexus|skyrim|247|1000002246" />
+
+			<File Name="Merge Plugins Standalone 2.2.3"
+			      LengthInBytes="4669144"
+			      CanonicalFileName="Merge Plugins-69905-2-2-3.zip"
+			      MD5Checksum="1c61335ce0058f60c6d11898dfaf62d0"
+			      DownloadTags="nexus|skyrim|69905|1000222279" />
+
+			<File Name="DDSopt 0.8.0.upd4"
+			      LengthInBytes="2346404"
+			      CanonicalFileName="DDSopt - pre-release - update 4-5755-0-8-0-upd4.zip"
+			      MD5Checksum="97eb32921e70c289e7b24544e725811e"
+			      DownloadTags="nexus|skyrim|5755|1000006026" />
 		</Group>
 
 		<Group Name="3.3 Configure Mod Organizer">
@@ -99,6 +111,38 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      CanonicalFileName="HighResTexturePack01.esp"
 			      MD5Checksum="7a5aaaa2a3266b7530a49253bae3d553"
 			      DownloadTags="steam|202485" />
+		</Group>
+
+		<!-- TODO: use DDSopt instead of downloading almost 5 GB we don't otherwise need. -->
+		<Group Name="3.6 Optimizing The Bethesda Textures">
+			<File Name="High Definition Base Game Textures for Everyone (Part 1 of 2)"
+			      LengthInBytes="3738404584"
+			      CanonicalFileName="High Definition Base Game Textures for Everyone (Part 1_2)-57353.7z"
+			      MD5Checksum="e96eb391492c4ab4cb55e37e5e805927"
+			      DownloadTags="nexus|skyrim|57353|1000194206" />
+
+			<File Name="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)"
+			      LengthInBytes="1312941684"
+			      CanonicalFileName="High Definition DLC for ModOrganizer Users (Part 2_2 - Extract Me)-57353.7z"
+			      MD5Checksum="47695b754868bfb821a00117bd35021e"
+			      DownloadTags="nexus|skyrim|57353|1000194208" />
+		</Group>
+
+		<Group Name="3.7 ENB Series Graphics Modification">
+			<File Name="ENBSeries v0308"
+			      LengthInBytes="3023865"
+			      CanonicalFileName="enbseries_skyrim_v0308.zip"
+			      MD5Checksum="6bc7093f4079605e5f13f57df784bd74"
+			      SHA512Checksum="2823ba3b09fbcba43d5c6a77e2d96c62da735ff3b45150ed0a6028ce772d4ffa65b6b50a6223ad8a3de68fef45c00c3289d60a233871ea07a95f4d9da786a3ea"
+			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
+
+			<File Name="ENB Organizer 2.1.1"
+			      LengthInBytes="2745841"
+			      CanonicalFileName="ENB Organizer-67077-v2-1-1.zip"
+			      MD5Checksum="70bf3cad05e00f0b8825b86fe276b26a"
+			      SHA512Checksum="843f3ce08aea5d533c410392ef3a9b33e77ac3bca64ba886e1648125ad6079d0ac0c2f3ab0f6022a7f7ba46fc2b2c7f9ebbc66518bcef72f8c942f3ad23058f3"
+			      DownloadUrl="https://github.com/SeeSharpCode/ENBOrganizer/releases/download/v2.1.1/ENBOrganizer.zip"
+			      DownloadTags="nexus|skyrim|67077|1000214338" />
 		</Group>
 
 		<!-- TODO: vet everything earlier than 4.1 -->
@@ -2340,7 +2384,6 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 	</Files>
 
-
 	<Tasks>
 		<Group Name="2.2 Script Extenders">
 			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3">
@@ -2348,6 +2391,10 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 				<MapFile From="skse_1_07_03/skse_1_9_32.dll" To="{SkyrimInstallFolder}/skse_1_9_32.dll" />
 				<MapFile From="skse_1_07_03/skse_loader.exe" To="{SkyrimInstallFolder}/skse_loader.exe" />
 				<MapFile From="skse_1_07_03/skse_steam_loader.dll" To="{SkyrimInstallFolder}/skse_steam_loader.dll" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="SKSE Plugin Preloader - d3dx9_42 - Wrapper 3">
+				<MapFolder To="{SkyrimInstallFolder}" />
 			</ExtractArchive>
 		</Group>
 
@@ -2394,17 +2441,310 @@ START /B "" cmd /c DEL "%~f0" & EXIT /B]]></Line>
 
 			<RunProcess ExecutablePath="BSAopt/KeepOnlyAppropriateAndRename.bat" WaitFor="ExtractBSAopt|CreateBSAoptBatchFile" Id="CleanBSAoptFolder" />
 
-			<Embedded File="BSAopt/BSAopt.bat" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder" Id="BSAoptBatch">
-				<Line><![CDATA[@ECHO OFF
-START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
-			</Embedded>
-
-			<Embedded File="BSAopt/blankline.txt" Encoding="UTF8NoBOM" WaitFor="CleanBSAoptFolder" Id="BSAoptBlankLine">
-				<Line />
-			</Embedded>
-
 			<!-- Just a dummy task that will be complete when BSAopt is fully set up. -->
-			<Dummy Id="BSAoptFull" WaitFor="BSAoptBlankLine|BSAoptBatch" />
+			<Dummy Id="BSAoptFull" WaitFor="CleanBSAoptFolder" />
+
+			<ExtractArchive ArchiveFile="DDSopt 0.8.0.upd4" Id="ExtractDDSopt">
+				<MapFolder To="DDSopt" />
+			</ExtractArchive>
+
+			<Embedded File="DDSopt/KeepOnlyAppropriateAndRename.bat" Encoding="UTF8NoBOM" Id="CreateDDSoptBatchFile">
+				<Line><![CDATA[@ECHO OFF
+REM Move to the current batch file's location.
+CD %~dp0
+
+REM Detect 32-bit / 64-bit, http://stackoverflow.com/a/24590583/1083771
+reg Query "HKLM\Hardware\Description\System\CentralProcessor\0" | find /I "x86" > NUL && SET KEEP="DDSopt x32.exe" || SET KEEP="DDSopt x64.exe"
+
+REM Rename the appropriate DDSopt executable file to just plain DDSopt.exe
+MOVE %KEEP% DDSopt.exe
+
+REM Delete all the files in the folder except DDSopt.exe and the current batch file.
+FOR %%A IN (*) DO IF /I "%%A" NEQ "DDSopt.exe" IF /I "%%A" NEQ "DDSopt.ini" IF /I "%%A" NEQ "%~f0" DEL "%%A"
+
+REM Delete this batch file, http://stackoverflow.com/a/20333152/1083771
+START /B "" cmd /c DEL "%~f0" & EXIT /B]]></Line>
+			</Embedded>
+
+			<RunProcess ExecutablePath="DDSopt/KeepOnlyAppropriateAndRename.bat" WaitFor="ExtractDDSopt|CreateDDSoptBatchFile" Id="CleanDDSoptFolder" />
+
+			<Embedded File="DDSopt/DDSopt.ini" Encoding="UTF8NoBOM" WaitFor="CleanDDSoptFolder" Id="DDSoptINI">
+				<Line><![CDATA[; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; syntax and compression-formats are:
+;
+;  subdirectoryoftextures/texturename.png=DXT
+;  subdirectoryoftextures/texturename.bmp=BIT
+;  subdirectoryoftextures/texturename.dds=RAW
+;  subdirectoryoftextures/texturename.png=SKP
+;
+; =DXT	-> compress to a suitable DXT-format (DXT1, DXT3, etc.)
+; =BIT	-> compress to a suitable bitfield-format (565, 4444, etc.)
+; =RAW	-> don't compress if uncompressed, otherwise continue as usual
+; =SKP	-> don't do anything at all with the texture
+;
+; - you don't write the "texture/"-path it will be stripped anyway
+; - you can omit the compression-type, then it'll only make DDSopt understand
+;   that it's a specific file-type which it otherwise couldn't recognize
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to be tangent-space normal-maps, enables specific compression
+;   taking unit-halfsphere property into account
+; - compression-format is supported here
+[NormalsTangentSpace]
+textures\landscape\coastbeach01_n.dds=SKP
+textures\landscape\coastbeach02_n.dds=SKP
+textures\landscape\dirt01_n.dds=SKP
+textures\landscape\dirt02_n.dds=SKP
+textures\landscape\dirtpath01_n.dds=SKP
+textures\landscape\dirtsnowpath01_n.dds=SKP
+textures\landscape\snow01_n.dds=SKP
+textures\landscape\snow02_n.dds=SKP
+
+; Realistic Water Textures / W.A.T.E.R.
+effects\fxwatertile01_n.dds=BIT
+effects\fxwatertile02_n.dds=BIT
+effects\fxwatertileflat_n.dds=RAW
+water\creek.dds=BIT
+water\defaultwater.dds=BIT
+water\lake.dds=BIT
+water\ocean.dds=BIT
+water\river.dds=BIT
+
+; Pure Waters
+purewaters\purewatercalm.dds=BIT
+purewaters\purewaterdefault.dds=BIT
+purewaters\purewaterstorm.dds=BIT
+
+; Vanilla Skyrim
+default_n.dds=SKP
+defaultwithspec_n.dds=SKP
+terrain\tamriel\objects\tamriel.objects.dds=BIT
+
+; Race Menu
+actors\character\overlays\default.dds=SKP
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to be model-space normal-maps, enables specific compression
+;   taking unit-sphere property into account
+; - compression-format is supported here
+[NormalsModelSpace]
+
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to be color converted
+; - compression-format is supported here
+[DiffuseColor]
+
+; Vanilla Skyrim
+defaultdiffuse.dds=SKP
+
+black.dds=SKP
+brightyellow.dds=SKP
+gray.dds=SKP
+green.dds=SKP
+lightblue.dds=SKP
+white.dds=SKP
+
+white_em.dds=SKP
+
+; Vanilla Skyrim/Enhanced Blood/Crimson Tide
+blood/screenbloodcolor01opt.dds=SKP
+blood/fxbloodflare.dds=SKP
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to be greyscale converted
+; - compression-format is supported here
+[DiffuseGrey]
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to have an alpha-channel with opacity, enables specific
+;   compression taking this into account
+; - compression-format isn't supported here
+[AlphaOpacity]
+
+; Vanilla Skyrim (presumely opacity)
+effects\fireballquad01.dds
+effects\fxaspenleafanim.dds
+effects\fxanimparticletestexample.dds
+effects\fxdirtrockanim.dds
+effects\fxelderscrollletters.dds
+effects\fxfireanim04loop.dds
+effects\fxfireatlas04.dds
+effects\fxfirecolumnanimloop.dds
+effects\fxsmokesoftsub01.dds
+effects\fxsteamthickanim.dds
+effects\fxsteamthinanim.dds
+effects\magicwisps01.dds
+effects\smallglowswirls.dds
+effects\smokeinky01.dds
+effects\fxfluidsub01.dds
+effects\fxfluidtile_sub.dds
+effects\whitecircle.dds
+effects\highfrequencynormals.dds
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to have an alpha-channel with foilage, enables specific
+;   compression taking this into account
+; - compression-format isn't supported here
+[AlphaFoilage]
+
+; Vanilla Skyrim (foilage-type opacity)
+landscape\trees\reachtreebranch01.dds
+landscape\trees\treeaspenbranchcomp.dds
+landscape\trees\treepineforestbranchcomp.dds
+landscape\trees\treepineforestbranchcompsnow.dds
+landscape\trees\treepineforestbranchcompsnowl.dds
+landscape\trees\tundradriftwoodbranches01.dds
+landscape\trees\vurt_pine01.dds
+landscape\trees\vurt_pine02.dds
+landscape\trees\vurt_orange_aspen.dds
+landscape\trees\vurt_red_aspen.dds
+plants\floranirnroot01.dds
+plants\floranirnroot01red.dds
+terrain\tamriel\trees\tamrieltreelod.dds
+terrain\deepwoodredoubtworld\trees\deepwoodredoubtworldtreelod.dds
+terrain\skuldafnworld\trees\skuldafnworldtreelod.dds
+terrain\sovngarde\trees\sovngardetreelod.dds
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; - mark textures to have an alpha-channel with something custom, disables
+;   specific compression only working for opacity
+; - compression-format isn't supported here
+[AlphaCustom]
+
+; Vanilla Skyrim (Dragons have dissipation-maps ...
+actors\alduin\alduin.dds
+actors\dragon\dragon.dds
+actors\dragon\dragon_boss.dds
+actors\dragon\dragon_earth.dds
+actors\dragon\dragon_snow.dds
+actors\dragon\dragon_swamp.dds
+actors\parthurnax\parthurnax.dds
+;                                               ... mixed with this)
+effects\fxskinparticledissolveanim01.dds
+
+; Morrowind Armor which uses subsurface-maps
+weapons\stalhrim\icedagger.dds
+
+; Vanilla Skyrim (glow maps, not opacity)
+clutter\scrollworktrim02.dds
+dungeons\scrollworktrim01.dds
+clutter\candles\horncandles01.dds
+
+; Vanilla Skyrim (this is a shared map, preferrably the solid area has a white alpha)
+clutter\signage\riverwood\riverwoodsleepinggiantinn01.dds
+clutter\signage\riverwood\riverwoodriverwoodtrader01.dds
+dungeons\caves\cavebaseplants01.dds
+landscape\trees\treeaspenaddon01.dds
+landscape\trees\treepineforestaddon01.dds
+landscape\trees\treereachaddon01.dds
+
+; Vanilla Skyrim (unknown, not opacity)
+water\waterrainlut.dds
+water\waterrainripples.dds
+sky\skystars.dds
+sky\skyrimconstellations01.dds
+sky\skyrimconstellations02.dds
+
+; Vanilla Skyrim (sky-effects, not opacity)
+sky\skyrimauroralut.dds
+sky\skyrimaurorastreak01.dds
+sky\skyrimaurorastreak02.dds
+sky\skyrimauroraswirl01.dds
+sky\skyrimcloudlut.dds
+sky\sovngardeswirl01.dds
+
+; Not sure what is happening here
+sky\alpha.dds=SKP
+sky\masser_new.dds=SKP
+sky\secunda_new.dds=SKP
+sky\skyrimcloudsfill.dds=SKP
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; end z929669 sky\ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Serious HD - Some spaces between rocks & particles are black
+landscape\rocks01.dds
+landscape\rocksedgetrim01.dds
+landscape\tundrarocks01.dds
+landscape\fieldgrass01.dds
+landscape\fieldgrass02.dds
+landscape\icefloes.dds
+landscape\tundra01.dds
+landscape\volcanictundragravel01.dds
+landscape\dirt02.dds
+
+; Skyrim HD - Some spaces between rocks & particles are black
+landscape\riverbededge.dds
+landscape\riverbededge1.dds
+
+; Skyrim Sewers -  DDSopt collapses a mono-color grate texture but it is displayed as purple; Kelmych March 16, 2014
+architecture\ssewersinvisbletex01.dds
+
+;;;; Start of interface textures added July 20, 2013 by Kelmych
+;;;;; these textures appear only in the "mini-game" interfaces, where mip-mapping isn't necessary (no angular/scalar changes)
+;;;;; and the loaded texture resources are very limited.
+interface\constalations.dds
+interface\intconstellationimages.dds
+interface\inteyeconst.dds
+interface\intfullnebulapanarama.dds
+interface\intfullnebulapanarama01.dds
+interface\intfullnebulapanarama02.dds
+interface\intglowlines.dds
+interface\intnebula01.dds
+interface\intperkstars01.dds
+interface\intstarstile01.dds
+interface\intstarstile02.dds
+interface\intstarstile03.dds
+interface\objects\logo01_d.dds
+interface\objects\logo01_n.dds
+interface\objects\logo02_d.dds
+interface\objects\logo02_n.dds
+interface\objects\lockpicking\lock01.dds
+interface\objects\lockpicking\lock01_em.dds
+interface\objects\lockpicking\lock01_n.dds
+interface\objects\lockpicking\lockpick01.dds
+interface\objects\lockpicking\lockpick01_em.dds
+interface\objects\lockpicking\lockpick01_n.dds
+interface\objects\lockpicking\locksmallpiece.dds
+interface\objects\lockpicking\locksmallpiece_em.dds
+interface\objects\lockpicking\locksmallpiece_n.dds
+interface\objects\lockpicking\skeletonkeylockpicking.dds
+interface\objects\lockpicking\skeletonkeylockpicking_n.dds
+;;;;; From Update.bsa added 7/27/2013
+interface\exported\hudmenu_i2ba.dds
+interface\exported\hudmenu_i2bd.dds
+interface\exported\hudmenu_i2c3.dds
+interface\exported\hudmenu_i2c6.dds
+interface\exported\hudmenu_i2d7.dds
+interface\exported\hudmenu_i2dd.dds
+interface\exported\hudmenu_i2e3.dds
+interface\exported\hudmenu_i2e9.dds
+
+;;;;End of interface textures
+
+; fix problem with purple ice flow in north; skip texture until better solution determined. kelmych 9/4/2013
+; ini change was reverted because it is only needed for vanilla textures - kelmych 9/12/2013
+; changes for this and other tiled, smooth ground textures is now handled in the vanilla optimization batch files
+;landscape\snow01_n.dds
+
+
+;;;;;; Start of Fallout New Vegas textures
+; added by Kelmych 6/4/2014 for EssArrBee's Fear and Loathing in Las Vegas 
+; textures from vanilla Fallout New Vegas texture BSAs
+architecture\barracks\blackdoor.dds
+architecture\barracks\blackdoor_n.dds
+architecture\barracks\white.dds
+pipboy3000\screen.dds
+pipboy3000\screen_n.dds
+
+;;;; end of Fallout New Vegas textures
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; you don't know or don't care to specifically define the contents of a file
+[Automatic]
+]]></Line>
+			</Embedded>
+
+			<!-- Just a dummy task that will be complete when DDSopt is fully set up. -->
+			<Dummy Id="DDSoptFull" WaitFor="DDSoptINI" />
 		</Group>
 
 		<Group Name="3.3 Configure Mod Organizer">
@@ -2811,13 +3151,17 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 *Unmanaged: HighResTexturePack01
 +USLEEP 3.0.7
 +Cleaned Dragonborn ESM
++Optimized Dragonborn Textures
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
++Optimized HearthFires Textures
 *Unmanaged: HearthFires
 +Cleaned Dawnguard ESM
++Optimized Dawnguard Textures
 *Unmanaged: Dawnguard
 +Cleaned Update ESM
-+SKSE Support]]></Line>
++SKSE Support
++Optimized Vanilla Textures]]></Line>
 			</Embedded>
 		</Group>
 
@@ -2866,21 +3210,99 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</Clean>
 		</Group>
 
+		<!-- TODO: use DDSopt instead of downloading almost 5 GB we don't otherwise need. -->
+		<Group Name="3.6 Optimizing The Bethesda Textures">
+			<!-- Vanilla textures are simple. -->
+			<ExtractArchive ArchiveFile="High Definition Base Game Textures for Everyone (Part 1 of 2)" Id="VanillaTexturesMain">
+				<MapBSAFile From="00 Textures/Skyrim - HD01.bsa" To="ModOrganizer/mods/Optimized Vanilla Textures" />
+				<MapBSAFile From="00 Textures/Skyrim - HD02.bsa" To="ModOrganizer/mods/Optimized Vanilla Textures" />
+			</ExtractArchive>
+
+			<!-- DLC textures are yo-dawg'd. -->
+			<ExtractArchive ArchiveFile="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)" Id="DLCTexturesMain">
+				<MapFile From="Dawnguard - HD (Install Me via MO).7z" To="OPT_TEX/DawnguardOptimized.7z" />
+				<MapFile From="Dragonborn - HD (Install Me via MO).7z" To="OPT_TEX/DragonbornOptimized.7z" />
+				<MapFile From="HearthFires - HD (Install Me via MO).7z" To="OPT_TEX/HearthFiresOptimized.7z" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchivePath="OPT_TEX/DawnguardOptimized.7z" WaitFor="DLCTexturesMain" Id="DawnguardTextures">
+				<MapBSAFile From="00 Textures/Dawnguard - HD.bsa" To="ModOrganizer/mods/Optimized Dawnguard Textures" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchivePath="OPT_TEX/DragonbornOptimized.7z" WaitFor="DLCTexturesMain" Id="DragonbornTextures">
+				<MapBSAFile From="00 Textures/Dragonborn - HD.bsa" To="ModOrganizer/mods/Optimized Dragonborn Textures" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchivePath="OPT_TEX/HearthFiresOptimized.7z" WaitFor="DLCTexturesMain" Id="HearthFiresTextures">
+				<MapBSAFile From="00 Textures/HearthFires - HD.bsa" To="ModOrganizer/mods/Optimized HearthFires Textures" />
+			</ExtractArchive>
+
+			<!-- Delete these files a bit earlier than we would have otherwise, to reclaim a bit of
+			     space just that little bit earlier. -->
+			<DeleteFile Path="OPT_TEX/DawnguardOptimized.7z" WaitFor="DawnguardTextures" Id="DeleteDawnguardYoDawg" />
+			<DeleteFile Path="OPT_TEX/DragonbornOptimized.7z" WaitFor="DragonbornTextures" Id="DeleteDragonbornYoDawg" />
+			<DeleteFile Path="OPT_TEX/HearthFiresOptimized.7z" WaitFor="HearthFiresTextures" Id="DeleteHearthFiresYoDawg" />
+
+			<!-- This is sufficient if we're OK with keeping each yo-dawg archive around until all 3
+			     yo-dawg archives are done being processed. -->
+			<DeleteFolder Path="OPT_TEX" WaitFor="DeleteDawnguardYoDawg|DeleteDragonbornYoDawg|DeleteHearthFiresYoDawg" />
+		</Group>
+
+		<Group Name="3.7 ENB Series Graphics Modification">
+			<!-- ENBoost, just Wrapper for now. -->
+			<ExtractArchive Id="ExtractENB" ArchiveFile="ENBSeries v0308">
+				<MapFile From="WrapperVersion/d3d9.dll" To="{SkyrimInstallFolder}/d3d9.dll" />
+				<MapFile From="WrapperVersion/enbhost.exe" To="{SkyrimInstallFolder}/enbhost.exe" />
+				<MapFile From="WrapperVersion/enblocal.ini" To="{SkyrimInstallFolder}/enblocal.ini" />
+			</ExtractArchive>
+
+			<TweakINI File="{SkyrimInstallFolder}/enblocal.ini" WaitFor="ExtractENB">
+				<Set Section="GLOBAL" Property="UsePatchSpeedhackWithoutGraphics" Value="true" />
+				<Set Section="GLOBAL" Property="UseDefferedRendering" Value="false" />
+
+				<Set Section="MEMORY" Property="ExpandSystemMemoryX64" Value="false" />
+				<Set Section="MEMORY" Property="AutodetectVideoMemorySize" Value="false" />
+
+				<!-- Modify these numbers as appropriate for your system!
+				     http://wiki.step-project.com/ENBoost#Recommendations -->
+				<Set Section="MEMORY" Property="ReservedMemorySizeMb" Value="128" />
+				<Set Section="MEMORY" Property="VideoMemorySizeMb" Value="1878" />
+
+				<Set Section="WINDOW" Property="ForceBorderless" Value="{IsBorderlessTrueFalse}" />
+				<Set Section="WINDOW" Property="ForceBorderlessFullscreen" Value="{IsBorderlessFullScreenTrueFalse}" />
+
+				<Set Section="ENGINE" Property="EnableVSync" Value="true" />
+				<Set Section="ENGINE" Property="VSyncSkipNumFrames" Value="0" />
+
+				<!-- Skyrim physics assumes no higher than 60 fps. -->
+				<Set Section="LIMITER" Property="EnableFPSLimit" Value="true" />
+				<Set Section="LIMITER" Property="FPSLimit" Value="60.0" />
+			</TweakINI>
+		</Group>
+
 		<!-- TODO: vet everything earlier than 4.1 -->
 		<Group Name="4.1 Unofficial Patches">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.7" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="USLEEP 3.0.7">
+				<MapBSAFile From="Unofficial Skyrim Legendary Edition Patch.bsa" To="ModOrganizer/mods/USLEEP 3.0.7" />
+				<MapFolder To="ModOrganizer/mods/USLEEP 3.0.7" />
 				<Hide Folder="ModOrganizer/mods/USLEEP 3.0.7/Docs" />
 				<Hide File="ModOrganizer/mods/USLEEP 3.0.7/Unofficial Skyrim Legendary Edition Patch.bsl" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0">
+				<MapBSAFile From="Unofficial High Resolution Patch.bsa" To="ModOrganizer/mods/Unofficial High Resolution Patch 1.2.0" />
+				<MapFolder To="ModOrganizer/mods/Unofficial High Resolution Patch 1.2.0" />
 				<Hide File="ModOrganizer/mods/Unofficial High Resolution Patch 1.2.0/Unofficial High Resolution Patch.esp" />
 				<Hide File="ModOrganizer/mods/Unofficial High Resolution Patch 1.2.0/Unofficial High Resolution Patch.bsl" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="4.2 Other Fixes">
-			<ExtractArchive ArchiveFile="Auto Unequip Ammo 5.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Auto Unequip Ammo 5.0">
+				<MapBSAFile From="Auto Unequip Ammo.bsa" To="ModOrganizer/mods/Auto Unequip Ammo 5.0" />
+				<MapFolder To="ModOrganizer/mods/Auto Unequip Ammo 5.0" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Better Jumping 1.3" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Better Stealing 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Bug Fixes 1" SimpleMO="Root" />
@@ -2896,11 +3318,15 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Follower Trap Safety 1.3" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Horns Are Forever 1.0" SimpleMO="Single">
+			<ExtractArchive ArchiveFile="Horns Are Forever 1.0">
+				<MapBSAFile From="Data/hornsareforever.bsa" To="ModOrganizer/mods/Horns Are Forever 1.0" />
+				<MapFolder From="Data" To="ModOrganizer/mods/Horns Are Forever 1.0" />
 				<Hide File="ModOrganizer/mods/Horns Are Forever 1.0/hornsareforever.esp" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Point The Way 1.0.8">
+				<MapBSAFile From="Point The Way.bsa" To="ModOrganizer/mods/Point The Way 1.0.8" />
+				<MapFolder To="ModOrganizer/mods/Point The Way 1.0.8" />
 				<Hide File="ModOrganizer/mods/Point The Way 1.0.8/Point The Way.bsl" />
 				<Hide File="ModOrganizer/mods/Point The Way 1.0.8/Point The Way.txt" />
 			</ExtractArchive>
@@ -2940,8 +3366,16 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFile From="PreventsAccidentPickUp.basket" To="ModOrganizer/mods/Blocksteal Redux 1.5/SKSE/Plugins/PreventsAccidentPickUp.basket" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Easy Wheelmenu 4.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Extended UI 1.2.0d" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Easy Wheelmenu 4.2">
+				<!-- note: the version number in this BSA file is for Oblivion, not Skyrim.  seems
+				     to work anyway, so *shrugs*. -->
+				<MapBSAFile From="EasyWheel.bsa" To="ModOrganizer/mods/Easy Wheelmenu 4.2" />
+				<MapFolder To="ModOrganizer/mods/Easy Wheelmenu 4.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Extended UI 1.2.0d">
+				<MapBSAFile From="Extended UI.bsa" To="ModOrganizer/mods/Extended UI 1.2.0d" />
+				<MapFolder To="ModOrganizer/mods/Extended UI 1.2.0d" />
 				<Hide File="ModOrganizer/mods/Extended UI 1.2.0d/Readme - Extended UI.txt" />
 			</ExtractArchive>
 
@@ -2962,40 +3396,67 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="630 DG BACKGROUND/HDR Vampire" To="ModOrganizer/mods/SSIRT 3.0" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SkyUI 5.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="SkyUI 5.1">
+				<MapBSAFile From="SkyUI.bsa" To="ModOrganizer/mods/SkyUI 5.1" />
+				<MapFolder To="ModOrganizer/mods/SkyUI 5.1" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="4.4.2 Heads Up Display">
-			<ExtractArchive ArchiveFile="A Matter of Time 2.0.7" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="A Matter of Time 2.0.7">
+				<MapBSAFile From="AMatterOfTime.bsa" To="ModOrganizer/mods/A Matter of Time 2.0.7" />
+				<MapFolder To="ModOrganizer/mods/A Matter of Time 2.0.7" />
 				<Hide Folder="ModOrganizer/mods/A Matter of Time 2.0.7/fomod" />
 				<Hide File="ModOrganizer/mods/A Matter of Time 2.0.7/AMatterOfTime_Readme.txt" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Better MessageBox Controls 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03">
+				<MapBSAFile From="iHUD.bsa" To="ModOrganizer/mods/Immersive HUD 3.0.03" />
+				<MapFolder To="ModOrganizer/mods/Immersive HUD 3.0.03" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="iWASM 1.0">
 				<MapFolder From="iWASM V1.0/Data" To="ModOrganizer/mods/iWASM 1.0" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Main Font Replacement - Centaur 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="moreHUD 2.1.3" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="moreHUD 2.1.3">
+				<MapBSAFile From="Data/AHZmoreHUD.bsa" To="ModOrganizer/mods/moreHUD 2.1.3" />
+				<MapFolder From="Data" To="ModOrganizer/mods/moreHUD 2.1.3" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="No Poison Dialogues 1.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Smaller Cursor X" SimpleMO="Single" />
 		</Group>
 
 		<Group Name="4.4.3 Character Creation">
-			<ExtractArchive ArchiveFile="RaceMenu 3.4.5" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="RaceMenu - Overlays Plugin 2.5.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RaceMenu 3.4.5">
+				<MapBSAFile From="RaceMenu.bsa" To="ModOrganizer/mods/RaceMenu 3.4.5" />
+				<MapFolder To="ModOrganizer/mods/RaceMenu 3.4.5" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="RaceMenu - Overlays Plugin 2.5.0">
+				<MapBSAFile From="Data/RaceMenuOverlays.bsa" To="ModOrganizer/mods/RaceMenu - Overlays Plugin 2.5.0" />
+				<MapFolder From="Data" To="ModOrganizer/mods/RaceMenu - Overlays Plugin 2.5.0" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="4.4.4 Dialogue and Follower Control">
 			<ExtractArchive ArchiveFile="Better Dialogue Controls 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Extensible Follower Framework 4.0.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Extensible Follower Framework - Disable Autosort X">
+			<ExtractArchive ArchiveFile="Extensible Follower Framework 4.0.2" Id="EFFMain">
+				<MapBSAFile From="EFFCore.bsa" To="ModOrganizer/mods/Extensible Follower Framework 4.0.2" />
+				<MapBSAFile From="UIExtensions.bsa" To="ModOrganizer/mods/Extensible Follower Framework 4.0.2" />
+				<MapFolder To="ModOrganizer/mods/Extensible Follower Framework 4.0.2" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Extensible Follower Framework - Disable Autosort X" WaitFor="EFFMain">
 				<MapFolder From="Scripts" To="ModOrganizer/mods/Extensible Follower Framework 4.0.2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Face to face conversation 3.2" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Face to face conversation 3.2">
+				<MapBSAFile From="towConversation.bsa" To="ModOrganizer/mods/Face to face conversation 3.2" />
+				<MapFolder To="ModOrganizer/mods/Face to face conversation 3.2" />
 				<Hide File="ModOrganizer/mods/Face to face conversation 3.2/towConversation.bsl" />
 			</ExtractArchive>
 		</Group>
@@ -3032,20 +3493,28 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 		<Group Name="4.5.2 World Expansions">
 			<!-- TODO: DDSOpt processing -->
-			<ExtractArchive ArchiveFile="Falskaar 1.2.1final" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Falskaar 1.2.1final">
+				<MapBSAFile From="Falskaar.bsa" To="ModOrganizer/mods/Falskaar 1.2.1final" />
+				<MapFolder To="ModOrganizer/mods/Falskaar 1.2.1final" />
 				<Hide File="ModOrganizer/mods/Falskaar 1.2.1final/Falskaar1.2.1ReadMe.txt" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="4.5.3 Modified and Expanded Quests">
-			<ExtractArchive ArchiveFile="Alternate Start - Live Another Life 3.1.5a" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Alternate Start - Live Another Life 3.1.5a">
+				<MapBSAFile From="Alternate Start - Live Another Life.bsa" To="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a" />
+				<MapFolder To="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a" />
 				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life Dungeon Compatibility.txt" />
 				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life Extension Documentation.txt" />
 				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life.bsl" />
 				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.3">
+				<MapBSAFile From="Cutting Room Floor.bsa" To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.3" />
+				<MapFolder To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.3" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Cutting Room Floor - RSC - CRF Patch 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Even Better Quest Objectives 1.5.8a">
 				<MapFolder From="00 Main File" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
@@ -3056,23 +3525,33 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="61 The Paarthurnax Dilemma" To="ModOrganizer/mods/Even Better Quest Objectives 1.5.8a" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Gildergreen Regrown 1.2.6" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Gildergreen Regrown 1.2.6">
+				<MapBSAFile From="Gildergreen Regrown.bsa" To="ModOrganizer/mods/Gildergreen Regrown 1.2.6" />
+				<MapFolder To="ModOrganizer/mods/Gildergreen Regrown 1.2.6" />
 				<Hide File="ModOrganizer/mods/Gildergreen Regrown 1.2.6/Gildergreen Regrown.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Provincial Courier Service 2.0.0" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Provincial Courier Service 2.0.0">
+				<MapBSAFile From="Provincial Courier Service.bsa" To="ModOrganizer/mods/Provincial Courier Service 2.0.0" />
+				<MapFolder To="ModOrganizer/mods/Provincial Courier Service 2.0.0" />
 				<Hide File="ModOrganizer/mods/Provincial Courier Service 2.0.0/Provincial Courier Service.bsl" />
 				<Hide File="ModOrganizer/mods/Provincial Courier Service 2.0.0/Provincial Courier Service.txt" />
 			</ExtractArchive>
 
 			<!-- SR:LE guide says to hide "Readmes", but that folder was removed in 2.0. -->
 			<ExtractArchive ArchiveFile="The Choice is Yours - Legendary 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="The Notice Board 2.2" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="The Notice Board 2.2">
+				<MapBSAFile From="notice board.bsa" To="ModOrganizer/mods/The Notice Board 2.2" />
+				<MapFolder To="ModOrganizer/mods/The Notice Board 2.2" />
 				<Hide File="ModOrganizer/mods/The Notice Board 2.2/notice board - readme.txt" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="The Notice Board - Falskaar 2.5a" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9">
+				<MapBSAFile From="The Paarthurnax Dilemma.bsa" To="ModOrganizer/mods/The Paarthurnax Dilemma 1.2.9" />
+				<MapFolder To="ModOrganizer/mods/The Paarthurnax Dilemma 1.2.9" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Thieves Guild Requirements 3.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Timing is Everything 2.02" SimpleMO="Root">
 				<Hide Folder="ModOrganizer/mods/Timing is Everything 2.02/Readmes" />
@@ -3177,7 +3656,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="03 Dragonborn QWM" To="ModOrganizer/mods/Enhanced Distant Terrain 1.1.1" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="No stretching - USKP compatible 2.2" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="No stretching - USKP compatible 2.2">
+				<MapBSAFile From="No_stretching.bsa" To="ModOrganizer/mods/No stretching - USKP compatible 2.2" />
+				<MapFolder To="ModOrganizer/mods/No stretching - USKP compatible 2.2" />
 				<Hide File="ModOrganizer/mods/No stretching - USKP compatible 2.2/No_stretching.esp" />
 			</ExtractArchive>
 
@@ -3372,8 +3853,16 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<ExtractArchive ArchiveFile="BLOODSTONE CHALICE REBORN 2K 1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Bloody Dragon Bones - 2k 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Book Covers Skyrim LEGENDARY - Desaturated 3.6" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Book Covers Skyrim - Lost Library - DESATUATED 1.7" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Book Covers Skyrim LEGENDARY - Desaturated 3.6">
+				<MapBSAFile From="Book Covers Skyrim.bsa" To="ModOrganizer/mods/Book Covers Skyrim LEGENDARY - Desaturated 3.6" />
+				<MapFolder To="ModOrganizer/mods/Book Covers Skyrim LEGENDARY - Desaturated 3.6" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Book Covers Skyrim - Lost Library - DESATUATED 1.7">
+				<MapBSAFile From="Book Covers Skyrim - Lost Library.bsa" To="ModOrganizer/mods/Book Covers Skyrim - Lost Library - DESATUATED 1.7" />
+				<MapFolder To="ModOrganizer/mods/Book Covers Skyrim - Lost Library - DESATUATED 1.7" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Dressed Hearthfire Doll 3.0">
 				<MapFolder From="LoadScreen" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
 				<MapFolder From="FaceDefault/defaultcol" To="ModOrganizer/mods/Dressed Hearthfire Doll 3.0" />
@@ -3661,19 +4150,17 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<Hide Folder="ModOrganizer/mods/Minty's Lightning during Thunder Storms - Loose Files 23.0/readmes" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Moon Glow 1.01" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Moon Glow 1.01">
+				<MapBSAFile From="MoonGlow.bsa" To="ModOrganizer/mods/Moon Glow 1.01" />
+				<MapFolder To="ModOrganizer/mods/Moon Glow 1.01" />
 				<Hide File="ModOrganizer/mods/Moon Glow 1.01/MoonGlow.txt" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="No Snow Under the Roof and 3D snow 2.3">
-				<MapFolder From="01 BSA - Static Mesh Improvement Mod" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
+				<MapBSAFile From="01 BSA - Static Mesh Improvement Mod/Prometheus_No_snow_Under_the_roof.bsa" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
 				<MapFolder From="12 Vanilla + Dawnguard + Dragonborn" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
 				<MapFolder From="20 Compatibility Patches" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3" />
-
-				<!-- Only possible once we start extracting BSAs. -->
-				<!--
 				<Hide Folder="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3/meshes/prometheus/architecture/statuessnow" />
-				-->
 			</ExtractArchive>
 
 			<Materialize File="NSutR RRRE Patch X" To="ModOrganizer/mods/No Snow Under the Roof and 3D snow 2.3/NSutR RRRE Patch.esp" />
@@ -3823,6 +4310,7 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Wonders of Weather 1.01">
+				<MapBSAFile From="00 Core/WondersofWeather.bsa" To="ModOrganizer/mods/Wonders of Weather 1.01" />
 				<MapFolder From="00 Core" To="ModOrganizer/mods/Wonders of Weather 1.01" />
 			</ExtractArchive>
 		</Group>
@@ -3839,6 +4327,7 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Enhanced Blood Textures NMM 3.6c">
+				<MapBSAFile From="1 core files/dD - Enhanced Blood Main.bsa" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c"/>
 				<MapFolder From="1 core files" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c"/>
 				<MapFolder From="2 patches/IC DG DB" To="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c" />
 
@@ -3846,7 +4335,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<Hide File="ModOrganizer/mods/Enhanced Blood Textures NMM 3.6c/Enhanced Blood Textures.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Footprints Legendary 1.00" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Footprints Legendary 1.00">
+				<MapBSAFile From="Footprints.bsa" To="ModOrganizer/mods/Footprints Legendary 1.00" />
+				<MapFolder To="ModOrganizer/mods/Footprints Legendary 1.00" />
 				<Hide File="ModOrganizer/mods/Footprints Legendary 1.00/Footprints.bsl" />
 				<Hide File="ModOrganizer/mods/Footprints Legendary 1.00/Footprints.txt" />
 			</ExtractArchive>
@@ -3855,7 +4346,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 		</Group>
 
 		<Group Name="4.5.10 Expanded Cities, Towns, and Villages">
-			<ExtractArchive ArchiveFile="Books of Skyrim 1.1" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Books of Skyrim 1.1">
+				<MapBSAFile From="BooksOfSkyrim.bsa" To="ModOrganizer/mods/Books of Skyrim 1.1" />
+				<MapFolder To="ModOrganizer/mods/Books of Skyrim 1.1" />
 				<Hide File="ModOrganizer/mods/Books of Skyrim 1.1/Books of Skyrim - Readme.txt" />
 			</ExtractArchive>
 
@@ -3969,7 +4462,7 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 		<Group Name="4.6.3 New Creatures and Encounters">
 			<ExtractArchive ArchiveFile="Deadly Dragons 6.4.1b">
-				<MapFolder From="Deadly_Dragons/bsa" To="ModOrganizer/mods/Deadly Dragons 6.4.1b" />
+				<MapBSAFile From="Deadly_Dragons/bsa/DeadlyDragons.bsa" To="ModOrganizer/mods/Deadly Dragons 6.4.1b" />
 				<MapFolder From="Deadly_Dragons/normal" To="ModOrganizer/mods/Deadly Dragons 6.4.1b" />
 			</ExtractArchive>
 
@@ -3978,7 +4471,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim Immersive Creatures 6.5.2b">
+				<MapBSAFile From="01 Main/Skyrim Immersive Creatures.bsa" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
 				<MapFolder From="01 Main" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
+				<MapBSAFile From="02 DLC2/Skyrim Immersive Creatures - DLC2.bsa" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
 				<MapFolder From="02 DLC2" To="ModOrganizer/mods/Skyrim Immersive Creatures 6.5.2b" />
 			</ExtractArchive>
 		</Group>
@@ -4313,28 +4808,40 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 		</Group>
 
 		<Group Name="4.7.7 NPCs and Behavior">
-			<ExtractArchive ArchiveFile="Bring Out Your Dead - Legendary Edition 3.0.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Bring Out Your Dead - Legendary Edition 3.0.0">
+				<MapBSAFile From="Bring Out Your Dead - Legendary Edition.bsa" To="ModOrganizer/mods/Bring Out Your Dead - Legendary Edition 3.0.0" />
+				<MapFolder To="ModOrganizer/mods/Bring Out Your Dead - Legendary Edition 3.0.0" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4">
+				<MapBSAFile From="Guard Dialogue Overhaul.bsa" To="ModOrganizer/mods/Guard Dialog Overhaul 1.4" />
+				<MapFolder To="ModOrganizer/mods/Guard Dialog Overhaul 1.4" />
+			</ExtractArchive>
 			<!-- TODO: delete things from Guard Dialogue Overhaul.esp, even though Eckss thinks it
 			     shouldn't be done.  We're not banging rocks together over here. -->
 
 			<ExtractArchive ArchiveFile="HLE - SIC Edition 1.6a">
+				<MapBSAFile From="00 Main/High Level Enemies - SIC.bsa" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
 				<MapFolder From="00 Main" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
+				<MapBSAFile From="10 Falskaar/High Level Enemies - SIC Falskaar.bsa" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
 				<MapFolder From="10 Falskaar" To="ModOrganizer/mods/HLE - SIC Edition 1.6a" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Holidays 2.0">
+				<MapBSAFile From="00 Core/Holidays.bsa" To="ModOrganizer/mods/Holidays 2.0" />
 				<MapFolder From="00 Core" To="ModOrganizer/mods/Holidays 2.0" />
 				<MapFolder From="10 Modded Children Hat Meshes" To="ModOrganizer/mods/Holidays 2.0" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a">
+				<MapBSAFile From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version/Immersive Citizens - AI Overhaul.bsa" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
 				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
 				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/70_Realistic_Room_Rental" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Immersive Patrols - DLC Aggressive IP 2.0.3" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="OBIS 2.01" Id="OBISMain">
+				<MapBSAFile From="Data/OBIS.bsa" To="ModOrganizer/mods/OBIS 2.02" />
 				<MapFolder From="Data" To="ModOrganizer/mods/OBIS 2.02" />
 				<Hide Folder="ModOrganizer/mods/OBIS 2.02/Docs" />
 			</ExtractArchive>
@@ -4347,7 +4854,11 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="Data" To="ModOrganizer/mods/OBIS 2.02" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RDO FinalA" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="RDO FinalA">
+				<MapBSAFile From="Relationship Dialogue Overhaul.bsa" To="ModOrganizer/mods/RDO FinalA" />
+				<MapFolder To="ModOrganizer/mods/RDO FinalA" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="RDO - Patches Final">
 				<MapFolder From="Relationship Dialogue Overhaul - Patches/CompleteAlchemyandCookingOverhaul" To="ModOrganizer/mods/RDO - Patches Final" />
 				<MapFolder From="Relationship Dialogue Overhaul - Patches/ExtensibleFollowerFrameworkv4-0-2" To="ModOrganizer/mods/RDO - Patches Final" />
@@ -4357,7 +4868,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 			<ExtractArchive ArchiveFile="Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Wet and Cold 2.02">
+				<MapBSAFile From="00 Core/WetandCold.bsa" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="00 Core" To="ModOrganizer/mods/Wet and Cold 2.02" />
+				<MapBSAFile From="10 Ashes/WetandCold - Ashes.bsa" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="10 Ashes" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="20 High Res Fur Cloaks" To="ModOrganizer/mods/Wet and Cold 2.02" />
 				<MapFolder From="22 Modded Children Hat Meshes" To="ModOrganizer/mods/Wet and Cold 2.02" />
@@ -4638,7 +5151,10 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="install" To="ModOrganizer/mods/Craftable Horse Barding 3.0" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Immersive Armors 8" SimpleMO="Root" Id="IAMain">
+			<ExtractArchive ArchiveFile="Immersive Armors 8" Id="IAMain">
+				<MapBSAFile From="Hothtrooper44_ArmorCompilation.bsa" To="ModOrganizer/mods/Immersive Armors 8" />
+				<MapBSAFile From="Hothtrooper44_Armor_Ecksstra.bsa" To="ModOrganizer/mods/Immersive Armors 8" />
+				<MapFolder To="ModOrganizer/mods/Immersive Armors 8" />
 				<MapFolder From="UNP" To="ModOrganizer/mods/Immersive Armors 8" />
 				<Hide File="ModOrganizer/mods/Immersive Armors 8/Hothtrooper44_Armor_Ecksstra.esp" />
 				<Hide Folder="ModOrganizer/mods/Immersive Armors 8/FOMod" />
@@ -4648,7 +5164,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder From="IA Mesh Fix" To="ModOrganizer/mods/Immersive Armors 8" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="JaySuS Swords 13C" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="JaySuS Swords 13C">
+				<MapBSAFile From="JSwords.bsa" To="ModOrganizer/mods/JaySuS Swords 13C" />
+				<MapFolder To="ModOrganizer/mods/JaySuS Swords 13C" />
 				<Hide File="ModOrganizer/mods/JaySuS Swords 13C/JSwords.esm" />
 				<Hide File="ModOrganizer/mods/JaySuS Swords 13C/Jswords-Readme.txt" />
 			</ExtractArchive>
@@ -4660,7 +5178,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<Hide File="ModOrganizer/mods/JaySuS Swords - Update 13D/Jswords-Distribution-Balance-Plugin-Readme.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Wearable Lanterns 4.0.2" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Wearable Lanterns 4.0.2">
+				<MapBSAFile From="Chesko_WearableLantern.bsa" To="ModOrganizer/mods/Wearable Lanterns 4.0.2" />
+				<MapFolder To="ModOrganizer/mods/Wearable Lanterns 4.0.2" />
 				<Hide Folder="ModOrganizer/mods/Wearable Lanterns 4.0.2/readmes" />
 			</ExtractArchive>
 
@@ -4806,16 +5326,20 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<MapFolder To="ModOrganizer/mods/Bathing in Skyrim 1.11" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Campfire 1.11" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Campfire 1.11">
+				<MapBSAFile From="Campfire.bsa" To="ModOrganizer/mods/Campfire 1.11" />
+				<MapFolder To="ModOrganizer/mods/Campfire 1.11" />
 				<Hide Folder="ModOrganizer/mods/Campfire 1.11/readmes" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Frostfall 3.4.1">
+				<MapBSAFile From="Frostfall/Frostfall.bsa" To="ModOrganizer/mods/Frostfall 3.4.1" />
 				<MapFolder From="Frostfall" To="ModOrganizer/mods/Frostfall 3.4.1" />
 				<MapFolder From="SkyUI51AddOn" To="ModOrganizer/mods/Frostfall 3.4.1" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="iNeed 1.602">
+				<MapBSAFile From="00 Core/iNeed.bsa" To="ModOrganizer/mods/iNeed 1.602" />
 				<MapFolder From="00 Core" To="ModOrganizer/mods/iNeed 1.602" />
 			</ExtractArchive>
 		</Group>
@@ -4855,6 +5379,7 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 
 		<Group Name="4.10.3 Economy">
 			<ExtractArchive ArchiveFile="Realistic Room Rental - Enhanced 1.8.3" Id="RRRMain">
+				<MapBSAFile From="00 Core - Main Files/RealisticRoomRental.bsa" To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
 				<MapFolder From="00 Core - Main Files" To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
 				<MapFolder From="01 RRR_ELFX-Patch" To="ModOrganizer/mods/Realistic Room Rental - Enhanced 1.8.3" />
 			</ExtractArchive>
@@ -4877,7 +5402,9 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 				<Hide File="ModOrganizer/mods/Better Fast Travel - Loose - Hearthfires 3.76/BFT Ships and Carriages - ReadMe.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Simply Knock 1.0.8" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="Simply Knock 1.0.8">
+				<MapBSAFile From="SimplyKnock.bsa" To="ModOrganizer/mods/Simply Knock 1.0.8" />
+				<MapFolder To="ModOrganizer/mods/Simply Knock 1.0.8" />
 				<Hide Folder="ModOrganizer/mods/Simply Knock 1.0.8/readmes" />
 			</ExtractArchive>
 		</Group>
@@ -4905,20 +5432,15 @@ START /wait %~dp0BSAopt.exe %* < %~dp0blankline.txt >NUL 2>NUL]]></Line>
 		</Group>
 
 		<Group Name="4.12.1 Bug Fixes">
-			<ExtractArchive ArchiveFile="Modern Brawl Bug Fix 1.04" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Modern Brawl Bug Fix 1.04">
+				<MapBSAFile From="Modern Brawl Bug Fix.bsa" To="ModOrganizer/mods/Modern Brawl Bug Fix 1.04" />
+				<MapFolder To="ModOrganizer/mods/Modern Brawl Bug Fix 1.04" />
+			</ExtractArchive>
 		</Group>
 
 		<Group Name="4.12.2 Utilities">
 			<ExtractArchive ArchiveFile="FISS 1.21" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="PapyrusUtil 3.3" SimpleMO="Root" />
-		</Group>
-
-		<Group Name="InFinalize">
-			<!-- Do this in the Finalize step, since it depends on everything with a BSA,
-			     and I don't want to have to write them all out. -->
-			<!--
-			<ExtractBSAContent BSAoptPath="BSAopt/BSAopt.bat" RootDirectoryPath="ModOrganizer/mods" />
-			-->
 		</Group>
 	</Tasks>
 </Modpack>

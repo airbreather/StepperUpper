@@ -11,18 +11,22 @@ namespace BethFile
     {
         internal static byte[] Uncompress(UArraySegment<byte> data)
         {
-            byte[] payloadArray = new byte[UBitConverter.ToUInt32(data, 0)];
+            uint dataLength = UBitConverter.ToUInt32(data, 0);
+            uint remaining = dataLength;
+
+            // TODO: System.Buffers
+            byte[] payloadArray = new byte[dataLength];
             using (var ms = new MemoryStream(data.Array, checked((int)(data.Offset + 4)), checked((int)(data.Count - 4)), false))
             using (var def = new ZlibStream(ms, CompressionMode.Decompress, leaveOpen: true))
             {
                 byte[] buf2 = new byte[AsyncFile.FullCopyBufferSize];
-                uint soFar = 0;
 
                 int cnt;
-                while ((cnt = def.Read(buf2, 0, buf2.Length)) != 0)
+                while (remaining != 0 &&
+                       (cnt = def.Read(buf2, 0, unchecked((int)Math.Min(remaining, buf2.Length)))) != 0)
                 {
-                    UBuffer.BlockCopy(buf2, 0, payloadArray, soFar, unchecked((uint)cnt));
-                    soFar += unchecked((uint)cnt);
+                    UBuffer.BlockCopy(buf2, 0, payloadArray, dataLength - remaining, unchecked((uint)cnt));
+                    remaining -= unchecked((uint)cnt);
                 }
             }
 
@@ -33,6 +37,7 @@ namespace BethFile
         {
             using (var ms = new MemoryStream())
             {
+                // TODO: System.Buffers
                 byte[] buf = new byte[AsyncFile.FullCopyBufferSize];
                 uint cnt = data.Count;
                 UBitConverter.SetUInt32(buf, 0, cnt);

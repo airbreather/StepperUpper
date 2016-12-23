@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Threading.Tasks;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -13,6 +16,7 @@ using AirBreather.IO;
 using AirBreather.Text;
 
 using BethFile;
+using BethFile.Archive;
 
 using static StepperUpper.Cleaner;
 
@@ -65,9 +69,6 @@ namespace StepperUpper
 
                 case "Materialize":
                     return MaterializeFileAsync(taskElement, knownFiles, dumpDirectory);
-
-                case "ExtractBSAContent":
-                    return ExtractBSAContentAsync(taskElement, dumpDirectory);
 
                 case "Dummy":
                     return Task.CompletedTask;
@@ -138,13 +139,14 @@ namespace StepperUpper
                         DirectoryInfo toDirectory = new DirectoryInfo(toPath);
                         toDirectory.Parent.Create();
 
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                        DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
+
                         if (givenFromPath.Length == 0)
                         {
                             explicitDelete = false;
+                            tempDirectory = toDirectory;
                         }
-
-                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
-                        DirectoryInfo fromDirectory = new DirectoryInfo(fromPath);
 
                         await Program.MoveDirectoryAsync(fromDirectory, toDirectory).ConfigureAwait(false);
                         break;
@@ -190,6 +192,23 @@ namespace StepperUpper
                     {
                         FileInfo file = new FileInfo(Path.Combine(dumpDirectory.FullName, element.Attribute("File").Value));
                         file.MoveTo(Path.Combine(file.Directory.CreateSubdirectory("optional").FullName, file.Name));
+                        break;
+                    }
+
+                    // Note: it's tempting to extract BSA files in parallel if there are multiple in
+                    // a single archive here.  resist that temptation; a later one might want to
+                    // overwrite files from an earlier one.
+                    case "MapBSAFile":
+                    {
+                        string givenFromPath = element.Attribute("From").Value;
+                        string givenToPath = element.Attribute("To").Value;
+
+                        string fromPath = Path.Combine(tempDirectory.FullName, givenFromPath);
+                        string toPath = Path.Combine(dumpDirectory.FullName, givenToPath);
+
+                        FileInfo bsaFile = new FileInfo(fromPath);
+                        await ExtractBSAFileAsync(bsaFile, new DirectoryInfo(toPath)).ConfigureAwait(false);
+                        bsaFile.Delete();
                         break;
                     }
 
@@ -390,24 +409,21 @@ namespace StepperUpper
             return AsyncFile.CopyAsync(fromFile.FullName, toFile.FullName);
         }
 
-        private static Task ExtractBSAContentAsync(XElement taskElement, DirectoryInfo dumpDirectory)
+        private static async Task ExtractBSAFileAsync(FileInfo bsaFile, DirectoryInfo outputDirectory = null)
         {
-            List<Task> extractionTasks = new List<Task>();
-
-            string bsaOptPath = Path.Combine(dumpDirectory.FullName, taskElement.Attribute("BSAoptPath").Value);
-            DirectoryInfo rootDirectory = new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("RootDirectoryPath").Value));
-            foreach (var bsaFile in rootDirectory.GetFiles("*.bsa", SearchOption.AllDirectories))
+            outputDirectory = outputDirectory ?? bsaFile.Directory;
+            using (var fl = AsyncFile.OpenRead(bsaFile.FullName))
             {
-                extractionTasks.Add(ExtractAndDeleteBSAFileAsync(bsaOptPath, bsaFile));
+                // ASSUMPTION: no BSA file will contain two copies of a file with the same path; if
+                // they do, then behavior is undefined (likely ambiguous, possibly can crash).
+                await SkyrimArchive.ExtractAll(fl).Select(async extracted =>
+                {
+                    var outputFile = new FileInfo(Path.Combine(outputDirectory.FullName, extracted.Path));
+                    outputFile.Directory.Create();
+                    await AsyncFile.WriteAllBytesAsync(outputFile.FullName, await extracted.FileData.ConfigureAwait(false)).ConfigureAwait(false);
+                    return Unit.Default;
+                }).Merge().ToTask().ConfigureAwait(false);
             }
-
-            return Task.WhenAll(extractionTasks);
-        }
-
-        private static async Task ExtractAndDeleteBSAFileAsync(string bsaOptPath, FileInfo bsaFile)
-        {
-            await ProcessRunner.RunProcessAsync(bsaOptPath, ProcessPriorityClass.BelowNormal, "-criticals", "-skiphashcheck", "-processhidden", "-copy", "-game", "sk", bsaFile.FullName, bsaFile.Directory.FullName).ConfigureAwait(false);
-            await Program.DeleteFileAsync(bsaFile).ConfigureAwait(false);
         }
     }
 }
