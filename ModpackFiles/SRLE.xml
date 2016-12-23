@@ -2417,6 +2417,10 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 				<MapFolder From="Mopy" To="Wrye Bash 306" />
 			</ExtractArchive>
 
+			<ExtractArchive ArchiveFile="Merge Plugins Standalone 2.2.3">
+				<MapFolder To="Merge Plugins Standalone 2.2.3" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="BSAopt - beta 2 - risky 2.0.0b2" Id="ExtractBSAopt">
 				<MapFolder To="BSAopt" />
 			</ExtractArchive>
@@ -4374,7 +4378,7 @@ pipboy3000\screen_n.dds
 		<Group Name="4.5.11 Late Loaders">
 			<ExtractArchive ArchiveFile="aMidianBorn Imperial Forts - 2k 2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="amb forts exterior wall vanilla style - 2k 1">
-				<MapFolder To="ModOrganizer/mods/amb forts exterior wall vanilla style - 2k 1/textures/SpiceOfLife/Forts/AmbFortsVanillaStyle/Imperial" />
+				<MapFolder From="textures/dungeons/imperial" To="ModOrganizer/mods/amb forts exterior wall vanilla style - 2k 1/textures/SpiceOfLife/Forts/AmbFortsVanillaStyle/Imperial" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Blowing in the Wind 2.03.0">
