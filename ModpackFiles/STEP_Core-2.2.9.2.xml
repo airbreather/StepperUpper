@@ -1694,6 +1694,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="05 hulking draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
 				<!-- "ash" should have been "ashman" -->
 				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9/textures/actors/dlc02/ashman" />
+				<MapFolder From="06 ash spawn" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
 				<MapFolder From="07 ash guardian" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
 			</ExtractArchive>
 
