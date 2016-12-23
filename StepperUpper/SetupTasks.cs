@@ -53,6 +53,9 @@ namespace StepperUpper
                 case "DeleteFolder":
                     return Program.DeleteDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value)));
 
+                case "DeleteFile":
+                    return Program.DeleteFileAsync(new FileInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("Path").Value)));
+
                 case "MoveFolder":
                     return Program.MoveDirectoryAsync(new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("From").Value)),
                                                       new DirectoryInfo(Path.Combine(dumpDirectory.FullName, taskElement.Attribute("To").Value)));
@@ -78,7 +81,11 @@ namespace StepperUpper
             string randomFileName = Path.GetRandomFileName();
             IEnumerable<XElement> elements = taskElement.Elements();
 
-            string givenFile = taskElement.Attribute("ArchiveFile").Value;
+            string givenFile = taskElement.Attribute("ArchiveFile")?.Value;
+            string archivePath = givenFile == null
+                ? Path.Combine(dumpDirectory.FullName, taskElement.Attribute("ArchivePath").Value)
+                : knownFiles[givenFile].FullName;
+
             bool explicitDelete = true;
 
             DirectoryInfo tempDirectory;
@@ -98,7 +105,7 @@ namespace StepperUpper
             }
 
             tempDirectory.Create();
-            await SevenZipExtractor.ExtractArchiveAsync(knownFiles[givenFile].FullName, tempDirectory, ProcessPriorityClass.BelowNormal).ConfigureAwait(false);
+            await SevenZipExtractor.ExtractArchiveAsync(archivePath, tempDirectory, ProcessPriorityClass.BelowNormal).ConfigureAwait(false);
 
             switch (simpleMO?.Value)
             {
