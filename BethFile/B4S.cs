@@ -54,6 +54,9 @@ namespace BethFile
         public const uint _LLCT = 1413696588;
         public const uint _LVLO = 1330402892;
         public const uint _XEZN = 1314538840;
+        public const uint _CNAM = 1296125507;
+        public const uint _MAST = 1414742349;
+        public const uint _SNAM = 1296125523;
 
         public static readonly B4S TES4 = _TES4;
         public static readonly B4S GRUP = _GRUP;
@@ -102,6 +105,9 @@ namespace BethFile
         public static readonly B4S LLCT = _LLCT;
         public static readonly B4S LVLO = _LVLO;
         public static readonly B4S XEZN = _XEZN;
+        public static readonly B4S CNAM = _CNAM;
+        public static readonly B4S MAST = _MAST;
+        public static readonly B4S SNAM = _SNAM;
 
         private uint val;
 

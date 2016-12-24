@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
+
+using AirBreather;
 
 using static BethFile.B4S;
 
@@ -9,6 +12,8 @@ namespace BethFile.Editor
 {
     public static class Doer
     {
+        public static readonly Encoding StandardEncoding = Encoding.GetEncoding(1252);
+
         public static HashSet<uint> GetOnams(Record root)
         {
             HashSet<uint> onams = new HashSet<uint>();
@@ -196,6 +201,24 @@ namespace BethFile.Editor
             return root;
         }
 
+        public static Record CreateEmptyRoot() => new Record
+        {
+            RecordType = TES4,
+            Id = 0,
+            Version = 43,
+            Revision = 0,
+            Fields =
+            {
+                new Field { FieldType = HEDR, Payload = "9a99d93f0000000000080000".HexStringToByteArrayUnchecked() },
+                new Field { FieldType = CNAM, Payload = new byte[] { 0x00 } }
+            }
+        };
+
+        public static IEnumerable<string> GetMasters(Record root) =>
+            from field in root.Fields
+            where field.FieldType == MAST
+            select StandardEncoding.GetString(field.Payload, 0, field.Payload.Length - 1);
+
         private static void SortCore(Record rec)
         {
             foreach (var subgroup in rec.Subgroups)
@@ -322,6 +345,100 @@ namespace BethFile.Editor
             CountItems(rec, ref itemCount);
             return itemCount;
         }
+
+        public static void MergeIntoConflictResolutionPatch(Record orig, Record conflictResolutionPatchRoot, string container)
+        {
+            Record origRoot = orig.Parent.Parent;
+            while (origRoot.Parent != null)
+            {
+                origRoot = origRoot.Parent.Parent;
+            }
+
+            orig = new Record(orig)
+            {
+                Id = TranslateFormId(orig.Id, origRoot, conflictResolutionPatchRoot),
+                Parent = orig.Parent
+            };
+
+            // TODO: process formids in fields.
+            MergeInto(orig, conflictResolutionPatchRoot);
+        }
+
+        public static string GetMaster(byte index, Record root)
+        {
+            byte currMasterIndex = 0;
+            foreach (var field in root.Fields)
+            {
+                if (field.FieldType != MAST)
+                {
+                    continue;
+                }
+
+                if (index == currMasterIndex)
+                {
+                    return StandardEncoding.GetString(field.Payload, 0, field.Payload.Length - 1);
+                }
+
+                ++currMasterIndex;
+            }
+
+            return null;
+        }
+
+        public static byte GetIndexOfMaster(Record root, string master, bool addIfMissing)
+        {
+            byte? finalMasterIndex = null;
+            int currFieldIndex = -1;
+            int nextMasterFieldIndex = 0;
+            int currMasterIndex = 0;
+            foreach (var field in root.Fields)
+            {
+                ++currFieldIndex;
+                switch (field.FieldType)
+                {
+                    case _MAST:
+                        break;
+
+                    case _HEDR:
+                    case _CNAM:
+                    case _SNAM:
+                        ++nextMasterFieldIndex;
+                        goto default;
+
+                    default:
+                        continue;
+                }
+
+                string currMaster = StandardEncoding.GetString(field.Payload, 0, field.Payload.Length - 1);
+                if (currMaster == master)
+                {
+                    finalMasterIndex = checked((byte)currMasterIndex);
+                    break;
+                }
+
+                ++currMasterIndex;
+                nextMasterFieldIndex = currFieldIndex + 2;
+            }
+
+            if (!finalMasterIndex.HasValue && addIfMissing)
+            {
+                byte[] encodedMaster = new byte[master.Length + 1];
+                StandardEncoding.GetBytes(master, 0, master.Length, encodedMaster, 0);
+
+                root.Fields.Insert(nextMasterFieldIndex, new Field { FieldType = DATA, Payload = new byte[1] });
+                root.Fields.Insert(nextMasterFieldIndex, new Field { FieldType = MAST, Payload = encodedMaster });
+
+                finalMasterIndex = checked((byte)currMasterIndex);
+            }
+
+            return finalMasterIndex ?? Byte.MaxValue;
+        }
+
+        public static byte GetMasterIndexForFormId(uint formId) => unchecked((byte)(formId >> 24));
+
+        private static uint TranslateFormId(uint formId, Record fromRoot, Record toRoot) => TranslateFormId(formId, GetIndexOfMaster(toRoot, GetMaster(GetMasterIndexForFormId(formId), fromRoot), false));
+
+        private static uint TranslateFormId(uint formId, byte newMasterIndex) => (formId & 0x00FFFFFF) | (unchecked((uint)newMasterIndex) << 24);
 
         private static void CountItems(Group grp, ref uint i)
         {
