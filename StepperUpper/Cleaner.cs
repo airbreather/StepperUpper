@@ -93,7 +93,7 @@ namespace StepperUpper
             // probably overkill, but it's enough to get me out of here.
             return Task.WhenAll(cleans.Values).Finally(new Thread(() =>
             {
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 GCUtility.RequestLargeObjectHeapCompaction();
