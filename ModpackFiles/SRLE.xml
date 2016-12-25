@@ -1271,11 +1271,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="65e3d3fce3a0f1201f708369b09f887e"
 			      DownloadTags="nexus|skyrim|49710|1000134092" />
 
-			<File Name="Blowing in the Wind 2.03.0"
-			      LengthInBytes="76452307"
-			      CanonicalFileName="Blowing in the Wind-73916-2-03-0.rar"
-			      MD5Checksum="1804355f333cefa06d2e855b5c1ee8cb"
-			      DownloadTags="nexus|skyrim|73916|1000230466" />
+			<File Name="Blowing in the Wind 2.04.0"
+			      LengthInBytes="67681767"
+			      CanonicalFileName="Blowing in the Wind-73916-2-04-0.rar"
+			      MD5Checksum="cc0719d5f1a0716c745cbfc545a33a7e"
+			      DownloadTags="nexus|skyrim|73916|1000231778" />
 		</Group>
 
 		<Group Name="4.6.1 Vanilla Creature Retextures and Tweaks">
@@ -3525,7 +3525,7 @@ ELE_Fs_Lite.esp]]></Line>
 +Bellyache HD Dragon Replacer Final 1.3
 +Ancient Dwemer Metal - Ancient Automatons - 2K 1.06
 +Ancient Dwemer Metal - Ancient Dwemer Metal - 2K 1.06
-+Blowing in the Wind 2.03.0
++Blowing in the Wind 2.04.0
 +amb forts exterior wall vanilla style - 2k 1
 +aMidianBorn Imperial Forts - 2k 2
 +Spice of Life - Forts 1.0.5
@@ -5176,18 +5176,20 @@ ELE_Fs_Lite.esp]]></Line>
 				<MapFolder From="textures/dungeons/imperial" To="ModOrganizer/mods/amb forts exterior wall vanilla style - 2k 1/textures/SpiceOfLife/Forts/AmbFortsVanillaStyle/Imperial" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Blowing in the Wind 2.03.0">
-				<MapFolder From="001 - Core ESP with Dawnguard support" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="002 - SMIM - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="003 - Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="004 - SMIM Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="107 - Provincial Courier Service - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="111 - No Snow Under the Roof - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFile From="005 - ESPs/Blowing in the Wind - Falskaar Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - Falskaar Patch.esp" />
-				<MapFolder From="112 - Falskaar - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFolder From="113 - Books of Skyrim - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.03.0" />
-				<MapFile From="005 - ESPs/Blowing in the Wind - SMIM Merged All Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - SMIM Merged All Patch.esp" />
-				<MapFile From="005 - ESPs/Blowing in the Wind - ELFX Exteriors Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.03.0/Blowing in the Wind - ELFX Exteriors Patch.esp" />
+			<ExtractArchive ArchiveFile="Blowing in the Wind 2.04.0">
+				<MapFolder From="001 - Core ESP with Dawnguard support" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="002 - SMIM - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="003 - Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="004 - SMIM Lanterns - Light" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="107 - Provincial Courier Service - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="111 - No Snow Under the Roof - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - Falskaar Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.04.0/Blowing in the Wind - Falskaar Patch.esp" />
+				<MapFolder From="112 - Falskaar - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="113 - Books of Skyrim - Medium" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - SMIM Merged All Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.04.0/Blowing in the Wind - SMIM Merged All Patch.esp" />
+				<MapFile From="005 - ESPs/Blowing in the Wind - ELFX Exteriors Patch.esp" To="ModOrganizer/mods/Blowing in the Wind 2.04.0/Blowing in the Wind - ELFX Exteriors Patch.esp" />
+				<MapFolder From="006 - Textures" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
+				<MapFolder From="007 - Meshes" To="ModOrganizer/mods/Blowing in the Wind 2.04.0" />
 			</ExtractArchive>
 		</Group>
 
