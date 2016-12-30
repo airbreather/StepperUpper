@@ -36,11 +36,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.2/loot_0.10.2-0-g9eb7d26_dev.7z"
 			      DownloadTags="generic|https://loot.github.io/" />
 
-			<File Name="xEdit 3.1.3 - 1dabbcd"
-			      LengthInBytes="3072144"
-			      CanonicalFileName="FO4Edit 3.1.3 - 1dabbcd-2737-3-1-3.7z"
-			      MD5Checksum="b2cd387640863b9c822ac05a1e6a19a5"
-			      DownloadTags="nexus|fallout4|2737|81663" />
+			<File Name="xEdit 3.2"
+			      LengthInBytes="3118561"
+			      CanonicalFileName="TES5Edit 3.2-25859-3-2.7z"
+			      MD5Checksum="0c7a1120ece914d91b316941d62c8f43"
+			      DownloadTags="nexus|skyrim|25859|1000232000" />
 
 			<File Name="Wrye Bash 306 - Standalone Executable"
 			      LengthInBytes="17250882"
@@ -1419,17 +1419,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="ef4255658d5d9a9c28d87ebd4729548c"
 			      DownloadTags="nexus|skyrim|30411|1000130122" />
 
-			<File Name="KS Hairdos - Renewal 1.3"
-			      LengthInBytes="599540639"
-			      CanonicalFileName="KS Hairdos Renewal-68311-1-3.7z"
-			      MD5Checksum="18c512f11edbb2b115d8caf333981f59"
-			      DownloadTags="nexus|skyrim|68311|1000205789" />
-
-			<File Name="KS Hairdos - Renewal - Hotfix 1.3"
-			      LengthInBytes="2679252"
-			      CanonicalFileName="v1_3 Hotfix-68311-1-3.7z"
-			      MD5Checksum="5ee5236508ecedffbff9e9a357456bf7"
-			      DownloadTags="nexus|skyrim|68311|1000206362" />
+			<File Name="KS Hairdos - Renewal 1.4"
+			      LengthInBytes="617357556"
+			      CanonicalFileName="KS Hairdos Renewal-68311-1-4.7z"
+			      MD5Checksum="bc3b5b18bb184860b31eb4e65f459e46"
+			      DownloadTags="nexus|skyrim|68311|1000232212" />
 
 			<File Name="KS Hairdos - Renewal Breast Weight Painted Hair 1.01"
 			      LengthInBytes="202083279"
@@ -2477,10 +2471,8 @@ globals:
   []]]></Line>
 			</Embedded>
 
-			<ExtractArchive ArchiveFile="xEdit 3.1.3 - 1dabbcd">
-				<!-- For a while there, they had it named this instead. -->
-				<!--<MapFile From="FO4Edit.exe" To="FO4Edit 3.1.3/TES5Edit.exe" />-->
-				<MapFolder To="FO4Edit 3.1.3" />
+			<ExtractArchive ArchiveFile="xEdit 3.2">
+				<MapFolder To="TES5Edit 3.2" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Wrye Bash 306 - Standalone Executable">
@@ -2886,9 +2878,9 @@ pipboy3000\screen_n.dds
 				<Set Section="customExecutables" Property="5\custom" Value="true" />
 				<Set Section="customExecutables" Property="5\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="5\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="5\binary" Value="{DumpFolderForwardSlashes}/FO4Edit 3.1.3/TES5Edit.exe" />
+				<Set Section="customExecutables" Property="5\binary" Value="{DumpFolderForwardSlashes}/TES5Edit 3.2/TES5Edit.exe" />
 				<Set Section="customExecutables" Property="5\arguments" Value="" />
-				<Set Section="customExecutables" Property="5\workingDirectory" Value="{DumpFolderForwardSlashes}/FO4Edit 3.1.3/" />
+				<Set Section="customExecutables" Property="5\workingDirectory" Value="{DumpFolderForwardSlashes}/TES5Edit 3.2/" />
 				<Set Section="customExecutables" Property="5\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="5\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="6\title" Value="Wrye Bash" />
@@ -3503,7 +3495,7 @@ ELE_Fs_Lite.esp]]></Line>
 +SLF Hair - All-in-one NMM installer 2.03
 +More Realistic Hair 1.0
 +KS Hairdos - Renewal Breast Weight Painted Hair 1.01
-+KS Hairdos - Renewal 1.3
++KS Hairdos - Renewal 1.4
 +Brows - High Resolution v3.1
 +Beards - 2K Resolution v4.1
 +ASIS 1.42.5.H
@@ -5296,10 +5288,7 @@ NPCPOTIONS_ON: 0]]></Line>
 		<Group Name="4.7.2 Beards, Brows, and Hair">
 			<ExtractArchive ArchiveFile="Beards - 2K Resolution v4.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Brows - High Resolution v3.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="KS Hairdos - Renewal 1.3" SimpleMO="Single" Id="KSHairdosMain" />
-			<ExtractArchive ArchiveFile="KS Hairdos - Renewal - Hotfix 1.3" WaitFor="KSHairdosMain">
-				<MapFolder From="Data" To="ModOrganizer/mods/KS Hairdos - Renewal 1.3" />
-			</ExtractArchive>
+			<ExtractArchive ArchiveFile="KS Hairdos - Renewal 1.4" SimpleMO="Single" />
 
 			<ExtractArchive ArchiveFile="KS Hairdos - Renewal Breast Weight Painted Hair 1.01" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="KS Hairdos - Renewal Breast Weight Painted Hair -  Female Kajiit and Argonian HDT Headmesh Enabled 1.0">
