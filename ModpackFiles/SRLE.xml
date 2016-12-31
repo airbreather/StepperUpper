@@ -3652,6 +3652,7 @@ ELE_Fs_Lite.esp]]></Line>
 +Cutting Room Floor - RSC - CRF Patch 1.0
 +Cutting Room Floor - Legendary Edition 2.0.3
 +Alternate Start - Live Another Life 3.1.5a
++Falskaar Optimized Textures
 +Falskaar 1.2.1final
 +Vanilla Skyrim LOD Billboards 1.0
 +----- DynDOLOD Merged
@@ -4197,6 +4198,96 @@ ELE_Fs_Lite.esp]]></Line>
 				<Hide File="ModOrganizer/mods/A Matter of Time 2.0.7/AMatterOfTime_Readme.txt" />
 			</ExtractArchive>
 
+			<Embedded File="ModOrganizer/mods/A Matter of Time 2.0.7/SKSE/Plugins/FISS/AMOTUserSettings.xml" Encoding="UTF8NoBOM">
+				<Line><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<fiss>
+	<Header>
+		<Version>1.2</Version>
+		<ModName> A Matter of Time</ModName>
+	</Header>
+	<Data>
+		<Symbol1ThemeIndex>1</Symbol1ThemeIndex>
+		<Symbol2ThemeIndex>0</Symbol2ThemeIndex>
+		<IGClockTypeIndex>0</IGClockTypeIndex>
+		<IGDateFormatIndex>0</IGDateFormatIndex>
+		<RLClockTypeIndex>0</RLClockTypeIndex>
+		<RLDateFormatIndex>3</RLDateFormatIndex>
+		<Symbol1Shown>1</Symbol1Shown>
+		<Symbol1ShowMoonPhases>1</Symbol1ShowMoonPhases>
+		<Symbol1ShowSeasons>1</Symbol1ShowSeasons>
+		<Symbol2Shown>0</Symbol2Shown>
+		<Symbol2ShowMoonPhases>0</Symbol2ShowMoonPhases>
+		<Symbol2ShowSeasons>0</Symbol2ShowSeasons>
+		<IGClockShown>1</IGClockShown>
+		<IGClockShowSeconds>0</IGClockShowSeconds>
+		<IGDateShown>1</IGDateShown>
+		<RLClockShown>0</RLClockShown>
+		<RLClockShowSeconds>0</RLClockShowSeconds>
+		<RLDateShown>0</RLDateShown>
+		<Symbol1AlignmentIndex>1</Symbol1AlignmentIndex>
+		<Symbol1VertAlignmentIndex>0</Symbol1VertAlignmentIndex>
+		<Symbol2AlignmentIndex>2</Symbol2AlignmentIndex>
+		<Symbol2VertAlignmentIndex>2</Symbol2VertAlignmentIndex>
+		<IGClockAlignmentIndex>1</IGClockAlignmentIndex>
+		<IGClockVertAlignmentIndex>0</IGClockVertAlignmentIndex>
+		<IGDateAlignmentIndex>1</IGDateAlignmentIndex>
+		<IGDateVertAlignmentIndex>0</IGDateVertAlignmentIndex>
+		<RLClockAlignmentIndex>0</RLClockAlignmentIndex>
+		<RLClockVertAlignmentIndex>0</RLClockVertAlignmentIndex>
+		<RLDateAlignmentIndex>0</RLDateAlignmentIndex>
+		<RLDateVertAlignmentIndex>0</RLDateVertAlignmentIndex>
+		<Symbol1XOffset>-50.000000</Symbol1XOffset>
+		<Symbol1YOffset>0.000000</Symbol1YOffset>
+		<Symbol2XOffset>0.000000</Symbol2XOffset>
+		<Symbol2YOffset>0.000000</Symbol2YOffset>
+		<IGClockXOffset>-45.000000</IGClockXOffset>
+		<IGClockYOffset>38.000000</IGClockYOffset>
+		<IGDateXOffset>-45.000000</IGDateXOffset>
+		<IGDateYOffset>47.000000</IGDateYOffset>
+		<RLClockXOffset>10.000000</RLClockXOffset>
+		<RLClockYOffset>120.000000</RLClockYOffset>
+		<RLDateXOffset>150.000000</RLDateXOffset>
+		<RLDateYOffset>120.000000</RLDateYOffset>
+		<Symbol1Scale>60</Symbol1Scale>
+		<Symbol1WidgetAlpha>100</Symbol1WidgetAlpha>
+		<IGClockScale>70</IGClockScale>
+		<IGClockWidgetAlpha>100</IGClockWidgetAlpha>
+		<IGDateScale>70</IGDateScale>
+		<IGDateWidgetAlpha>100</IGDateWidgetAlpha>
+		<Symbol2Scale>100</Symbol2Scale>
+		<Symbol2WidgetAlpha>100</Symbol2WidgetAlpha>
+		<RLClockScale>100</RLClockScale>
+		<RLClockWidgetAlpha>100</RLClockWidgetAlpha>
+		<RLDateScale>100</RLDateScale>
+		<RLDateWidgetAlpha>100</RLDateWidgetAlpha>
+		<Symbol1ControlModeIndex>0</Symbol1ControlModeIndex>
+		<Symbol2ControlModeIndex>0</Symbol2ControlModeIndex>
+		<IGClockControlModeIndex>0</IGClockControlModeIndex>
+		<IGDateControlModeIndex>0</IGDateControlModeIndex>
+		<RLClockControlModeIndex>0</RLClockControlModeIndex>
+		<RLDateControlModeIndex>0</RLDateControlModeIndex>
+		<Symbol1PeriodIndex>2</Symbol1PeriodIndex>
+		<Symbol2PeriodIndex>2</Symbol2PeriodIndex>
+		<IGClockPeriodIndex>2</IGClockPeriodIndex>
+		<IGDatePeriodIndex>2</IGDatePeriodIndex>
+		<RLClockPeriodIndex>2</RLClockPeriodIndex>
+		<RLDatePeriodIndex>2</RLDatePeriodIndex>
+		<Symbol1Hotkey>87</Symbol1Hotkey>
+		<Symbol1DisplayTime>1.000000</Symbol1DisplayTime>
+		<IGClockHotkey>87</IGClockHotkey>
+		<IGClockDisplayTime>1.000000</IGClockDisplayTime>
+		<IGDateHotkey>87</IGDateHotkey>
+		<IGDateDisplayTime>1.000000</IGDateDisplayTime>
+		<Symbol2Hotkey>87</Symbol2Hotkey>
+		<Symbol2DisplayTime>1.000000</Symbol2DisplayTime>
+		<RLClockHotkey>87</RLClockHotkey>
+		<RLClockDisplayTime>1.000000</RLClockDisplayTime>
+		<RLDateHotkey>87</RLDateHotkey>
+		<RLDateDisplayTime>1.000000</RLDateDisplayTime>
+	</Data>
+</fiss>]]></Line>
+			</Embedded>
+
 			<ExtractArchive ArchiveFile="Better MessageBox Controls 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Immersive HUD 3.0.03">
 				<MapBSAFile From="iHUD.bsa" To="ModOrganizer/mods/Immersive HUD 3.0.03" />
@@ -4285,6 +4376,8 @@ ELE_Fs_Lite.esp]]></Line>
 				<MapFolder To="ModOrganizer/mods/Falskaar 1.2.1final" />
 				<Hide File="ModOrganizer/mods/Falskaar 1.2.1final/Falskaar1.2.1ReadMe.txt" />
 			</ExtractArchive>
+
+			<CreateEmptyFolder Path="ModOrganizer/mods/Falskaar Optimized Textures/textures" />
 		</Group>
 
 		<Group Name="4.5.3 Modified and Expanded Quests">
