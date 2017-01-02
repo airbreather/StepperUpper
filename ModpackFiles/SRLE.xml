@@ -2336,7 +2336,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="11f32c66409949ede4948c0cbb6da24b"
 			      DownloadTags="nexus|skyrim|70802|1000182090" />
 
-			<File Name="Cutting Room Cloor - No Snow Under the Roof 1.5"
+			<File Name="Cutting Room Floor - No Snow Under the Roof 1.5"
 			      LengthInBytes="25977"
 			      CanonicalFileName="Cutting Room Floor - No Snow Under the Roof Patch-62120-1-5.rar"
 			      MD5Checksum="5c118171b4d47fc805e0c6d0772ebfa9"
@@ -3377,7 +3377,7 @@ ELE_Fs_Lite.esp]]></Line>
 +Skyrim Immersive Creatures - Weapons and Armor Fixes Patch 1
 +Auto Unequip Ammo Patch for EFF 1
 +ELFX - Parallax Patch X
-+Cutting Room Cloor - No Snow Under the Roof 1.5
++Cutting Room Floor - No Snow Under the Roof 1.5
 +CACO Soaps for Bathing in Skyrim 1.1
 +Moonlight Tales - Essentials 2.51
 +Better Vampires 7.8
@@ -6321,7 +6321,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 
 		<Group Name="4.11 Compatibility Patches">
 			<ExtractArchive ArchiveFile="CACO Soaps for Bathing in Skyrim 1.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Cutting Room Cloor - No Snow Under the Roof 1.5" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - No Snow Under the Roof 1.5" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="ELFX - Parallax Patch X" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Auto Unequip Ammo Patch for EFF 1" SimpleMO="Root">
 				<Hide Folder="ModOrganizer/mods/Auto Unequip Ammo Patch for EFF 1/Docs" />
