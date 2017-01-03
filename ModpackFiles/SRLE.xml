@@ -981,12 +981,6 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="6c3db5387c2eeb380118eddf7315c24a"
 			      DownloadTags="nexus|skyrim|10940|70697" />
 
-			<File Name="Real Ice ALL-IN-ONE Installer V3"
-			      LengthInBytes="23958109"
-			      CanonicalFileName="Real Ice ALL-IN-ONE Installer by morpheas768-5388-V3.7z"
-			      MD5Checksum="ea3ca3a7d91517a3ad82b03d2fb59b56"
-			      DownloadTags="nexus|skyrim|5388|22993" />
-
 			<File Name="Real Roads for Skyrim - Loose files 1.01"
 			      LengthInBytes="57424284"
 			      CanonicalFileName="Rea-55518-1-01.zip"
@@ -3561,7 +3555,6 @@ ELE_Fs_Lite.esp]]></Line>
 +Realistic Smoke and Embers - Medium 1.4
 +Realistic Aspen Trees 3.5
 +Real Roads for Skyrim - Loose files 1.01
-+Real Ice ALL-IN-ONE Installer V3
 +Pilgrims Delight - Zul Do Dov 1.1
 +Northfire's Dragons Footprint - 2K X
 +Northfire's Skidmarks 1.0
@@ -4531,6 +4524,7 @@ ELE_Fs_Lite.esp]]></Line>
 			<ExtractArchive ArchiveFile="The Ruffled Feather 4.4">
 				<MapFolder From="000 Core Files" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
 				<MapFolder From="010 Better Dynamic Snow - SMIM" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
+				<MapFolder From="040 Just-Ice" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
 				<MapFolder From="050 Moss Rocks" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
 				<MapFolder From="080 Suped-Up Stalhrim" To="ModOrganizer/mods/The Ruffled Feather 4.4" />
 			</ExtractArchive>
@@ -5052,10 +5046,6 @@ ELE_Fs_Lite.esp]]></Line>
 			<ExtractArchive ArchiveFile="Northfire's Dragons Footprint - 2K X" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Pilgrims Delight - Zul Do Dov 1.1" SimpleMO="Root">
 				<Hide File="ModOrganizer/mods/Pilgrims Delight - Zul Do Dov 1.1/Readme.txt" />
-			</ExtractArchive>
-
-			<ExtractArchive ArchiveFile="Real Ice ALL-IN-ONE Installer V3">
-				<MapFolder From="Real Ice ALL-IN-ONE Installer/Real Ice/Real Ice_Half Icecube - Half Dull" To="ModOrganizer/mods/Real Ice ALL-IN-ONE Installer V3" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Real Roads for Skyrim - Loose files 1.01" SimpleMO="Root" Id="ReaMain" />
