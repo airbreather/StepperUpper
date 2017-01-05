@@ -261,17 +261,17 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 
 		<Group Name="4.3 Resources">
-			<File Name="EatingSleepingDrinking 3.1.46"
-			      LengthInBytes="9839502"
-			      CanonicalFileName="EatingSleepingDrinking - KuNeruNomu --52269-3-1-46.7z"
-			      MD5Checksum="ff8b38b2de9057226ad12e159b2e03dd"
-			      DownloadTags="nexus|skyrim|52269|1000226874" />
+			<File Name="EatingSleepingDrinking 3.1.48"
+			      LengthInBytes="9873844"
+			      CanonicalFileName="EatingSleepingDrinking - KuNeruNomu --52269-3-1-48.7z"
+			      MD5Checksum="1c9f8a94b513cc34edfb1862206fe1e8"
+			      DownloadTags="nexus|skyrim|52269|1000232474" />
 
-			<File Name="EatingSleepingDrinking 3.1.47 Update"
-			      LengthInBytes="184864"
-			      CanonicalFileName="Update-52269-3-1-47.7z"
-			      MD5Checksum="fbb3402c802370a19b7d0f23ca97866c"
-			      DownloadTags="nexus|skyrim|52269|1000229168" />
+			<File Name="EatingSleepingDrinking 3.1.49 Update"
+			      LengthInBytes="31263"
+			      CanonicalFileName="Update-52269-3-1-49.7z"
+			      MD5Checksum="4bce134313d0dbb3804016c5bf010f27"
+			      DownloadTags="nexus|skyrim|52269|1000232693" />
 		</Group>
 
 		<Group Name="4.4.1 General User Interface Improvement">
@@ -3671,7 +3671,7 @@ ELE_Fs_Lite.esp]]></Line>
 +Extended UI 1.2.0d
 +Easy Wheelmenu 4.2
 +Blocksteal Redux 1.5
-+EatingSleepingDrinking 3.1.47
++EatingSleepingDrinking 3.1.49
 +Wiseman303's Critter Fixes 1.06
 +Smart Souls 9.0
 +Skyrim Project Optimization - Full Version 1.6
@@ -4132,12 +4132,12 @@ ELE_Fs_Lite.esp]]></Line>
 		</Group>
 
 		<Group Name="4.3 Resources">
-			<ExtractArchive ArchiveFile="EatingSleepingDrinking 3.1.46" Id="ESDMain">
-				<MapFolder To="ModOrganizer/mods/EatingSleepingDrinking 3.1.47" />
+			<ExtractArchive ArchiveFile="EatingSleepingDrinking 3.1.48" Id="ESDMain">
+				<MapFolder To="ModOrganizer/mods/EatingSleepingDrinking 3.1.49" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="EatingSleepingDrinking 3.1.47 Update" WaitFor="ESDMain">
-				<MapFolder To="ModOrganizer/mods/EatingSleepingDrinking 3.1.47" />
+			<ExtractArchive ArchiveFile="EatingSleepingDrinking 3.1.49 Update" WaitFor="ESDMain">
+				<MapFolder To="ModOrganizer/mods/EatingSleepingDrinking 3.1.49" />
 			</ExtractArchive>
 		</Group>
 
