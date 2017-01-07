@@ -2960,7 +2960,10 @@ Skyrim - VoicesExtra.bsa
 Update.bsa
 Dawnguard.bsa
 HearthFires.bsa
-Dragonborn.bsa]]></Line>
+Dragonborn.bsa
+HighResTexturePack01.bsa
+HighResTexturePack02.bsa
+HighResTexturePack03.bsa]]></Line>
 			</Embedded>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/plugins.txt" Encoding="UTF8NoBOM">
