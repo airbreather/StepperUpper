@@ -2304,11 +2304,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 
 		<Group Name="4.10.6 Vampires, Werewolves, and Bears, Oh My">
-			<File Name="Better Vampires 7.8"
-			      LengthInBytes="12097039"
-			      CanonicalFileName="Better Vampires 7.8-9717-7-8.zip"
-			      MD5Checksum="e39e73797b35e533048a8cc783c0ffbd"
-			      DownloadTags="nexus|skyrim|9717|1000229703" />
+			<File Name="Better Vampires 7.9"
+			      LengthInBytes="13012299"
+			      CanonicalFileName="Better Vampires 7.9 e-9717-7-9.zip"
+			      MD5Checksum="40caeceaf69ba35dd0eb335351b765d5"
+			      DownloadTags="nexus|skyrim|9717|1000232847" />
 
 			<File Name="Moonlight Tales - Essentials 2.51"
 			      LengthInBytes="248853851"
@@ -3366,7 +3366,7 @@ ELE_Fs_Lite.esp]]></Line>
 +Cutting Room Floor - No Snow Under the Roof 1.5
 +CACO Soaps for Bathing in Skyrim 1.1
 +Moonlight Tales - Essentials 2.51
-+Better Vampires 7.8
++Better Vampires 7.9
 +Simply Knock 1.0.8
 +Better Fast Travel - Loose - Hearthfires 3.76
 +Skyrim Community Uncapper 1.15.2.0
@@ -6286,10 +6286,10 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 		</Group>
 
 		<Group Name="4.10.6 Vampires, Werewolves, and Bears, Oh My">
-			<ExtractArchive ArchiveFile="Better Vampires 7.8">
-				<MapFolder From="00 Required (loose files)" To="ModOrganizer/mods/Better Vampires 7.8" />
-				<MapFolder From="01 Dawnguard (.esp file)" To="ModOrganizer/mods/Better Vampires 7.8" />
-				<Hide Folder="ModOrganizer/mods/Better Vampires 7.8/Meshes/Actors/vampirelord" />
+			<ExtractArchive ArchiveFile="Better Vampires 7.9">
+				<MapFolder From="00 Required (loose files)" To="ModOrganizer/mods/Better Vampires 7.9" />
+				<MapFolder From="01 Dawnguard (.esp file)" To="ModOrganizer/mods/Better Vampires 7.9" />
+				<Hide Folder="ModOrganizer/mods/Better Vampires 7.9/Meshes/Actors/vampirelord" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Moonlight Tales - Essentials 2.51" SimpleMO="Root" />
