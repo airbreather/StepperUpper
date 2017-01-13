@@ -44,11 +44,11 @@ namespace BethFile.Editor
 
                     f1 = new Field(f1);
                     f2 = new Field(f2);
-                    UBitConverter.SetUInt32(f1.Payload, 0, f1.Payload[0]);
-                    UBitConverter.SetUInt32(f2.Payload, 0, f2.Payload[0]);
+                    MBitConverter.Set(f1.Payload, 0, (uint)f1.Payload[0]);
+                    MBitConverter.Set(f2.Payload, 0, (uint)f2.Payload[0]);
 
-                    UBitConverter.SetUInt16(f1.Payload, 10, 0);
-                    UBitConverter.SetUInt16(f2.Payload, 10, 0);
+                    MBitConverter.Set(f1.Payload, 10, (ushort)0);
+                    MBitConverter.Set(f2.Payload, 10, (ushort)0);
 
                     // TODO: ugh, [IDLE:00013344]'s field is apparently allowed
                     // to differ non-trivially.

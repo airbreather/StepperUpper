@@ -58,7 +58,7 @@ namespace BethFile
                     throw new EndOfStreamException();
                 }
 
-                UBuffer.BlockCopy(sub, 0, rawData, pos, cnt);
+                MBuffer.BlockCopy(sub, 0, rawData, pos, cnt);
                 pos += cnt;
                 remaining -= cnt;
             }

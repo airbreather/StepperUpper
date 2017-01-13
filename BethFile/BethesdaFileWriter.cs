@@ -19,7 +19,7 @@ namespace BethFile
             }
         }
 
-        private async Task WriteBytesAsync(UArraySegment<byte> bytes)
+        private async Task WriteBytesAsync(MArraySegment<byte> bytes)
         {
             if (bytes.Offset + bytes.Count < Int32.MaxValue)
             {
@@ -34,7 +34,7 @@ namespace BethFile
                 while (remaining != 0)
                 {
                     uint cnt = Math.Min(remaining, unchecked((uint)sub.Length));
-                    UBuffer.BlockCopy(bytes.Array, pos, sub, 0, cnt);
+                    MBuffer.BlockCopy(bytes.Array, pos, sub, 0, cnt);
                     pos += cnt;
                     remaining -= cnt;
 

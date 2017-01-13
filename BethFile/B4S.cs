@@ -150,14 +150,6 @@ namespace BethFile
         public bool Equals(B4S other) => this.val == other.val;
         public override int GetHashCode() => unchecked((int)this.val);
 
-        public unsafe void CopyTo(UArraySegment<byte> seg)
-        {
-            fixed (byte* pbyte = &seg.Array[seg.Offset])
-            {
-                *((uint*)pbyte) = this.val;
-            }
-        }
-
         public override unsafe string ToString()
         {
             fixed (B4S* pval = &this)

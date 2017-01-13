@@ -12,7 +12,7 @@ namespace BethFile.Editor
         {
             FinalizeHeader(root);
             byte[] rec = new byte[CalculateSize(root, true)];
-            UArrayPosition<byte> pos = new UArrayPosition<byte>(rec);
+            MArrayPosition<byte> pos = new MArrayPosition<byte>(rec);
             var (record, subgroups) = Write(root, ref pos);
             return new BethesdaFile(record, subgroups);
         }
@@ -40,20 +40,20 @@ namespace BethFile.Editor
 
             onamField.Payload = new byte[unchecked((uint)(onamsArray.Length) * 4u)];
 
-            UArrayPosition<byte> pos = new UArrayPosition<byte>(onamField.Payload);
+            MArrayPosition<byte> pos = new MArrayPosition<byte>(onamField.Payload);
             foreach (uint onam in onamsArray)
             {
-                UBitConverter.SetUInt32(pos, onam);
+                MBitConverter.Set(pos, onam);
                 pos += 4;
             }
 
             root.CompressedFieldData = null;
 
             afterOnam:
-            UBitConverter.SetUInt32(new UArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
+            MBitConverter.Set(new MArrayPosition<byte>(root.Fields.Single(f => f.FieldType == HEDR).Payload, 4), Doer.CountItems(root) - 1);
         }
 
-        private static (BethesdaRecord record, BethesdaGroup[] subgroups) Write(Record record, ref UArrayPosition<byte> pos)
+        private static (BethesdaRecord record, BethesdaGroup[] subgroups) Write(Record record, ref MArrayPosition<byte> pos)
         {
             var result = default((BethesdaRecord record, BethesdaGroup[] subgroups));
 
@@ -78,7 +78,7 @@ namespace BethFile.Editor
                 ? GetCompressedPayload(record)
                 : GetUncompressedPayload(record);
             uint payloadLength = unchecked((uint)payload.LongLength);
-            UBuffer.BlockCopy(payload, 0, pos, 0, payloadLength);
+            MBuffer.BlockCopy(payload, 0, pos, 0, payloadLength);
 
             pos += payloadLength;
 
@@ -92,9 +92,9 @@ namespace BethFile.Editor
             return result;
         }
 
-        private static BethesdaGroup Write(Group group, ref UArrayPosition<byte> pos)
+        private static BethesdaGroup Write(Group group, ref MArrayPosition<byte> pos)
         {
-            UBitConverter.SetUInt32(pos, GRUP);
+            MBitConverter.Set(pos, GRUP);
 
             BethesdaGroup grp = new BethesdaGroup(pos)
             {
@@ -153,31 +153,31 @@ namespace BethFile.Editor
         private static byte[] GetUncompressedPayload(Record record)
         {
             byte[] result = new byte[GetUncompressedPayloadSize(record)];
-            UArrayPosition<byte> pos = new UArrayPosition<byte>(result);
+            MArrayPosition<byte> pos = new MArrayPosition<byte>(result);
             foreach (var field in record.Fields)
             {
                 uint fieldLength = unchecked((uint)(field.Payload.LongLength));
                 ushort storedFieldLength = unchecked((ushort)fieldLength);
                 if (fieldLength > ushort.MaxValue)
                 {
-                    UBitConverter.SetUInt32(pos, XXXX);
+                    MBitConverter.Set(pos, XXXX);
                     pos += 4;
 
-                    UBitConverter.SetUInt16(pos, 4);
+                    MBitConverter.Set(pos, (ushort)4);
                     pos += 2;
 
-                    UBitConverter.SetUInt32(pos, fieldLength);
+                    MBitConverter.Set(pos, fieldLength);
                     pos += 4;
                     storedFieldLength = 0;
                 }
 
-                UBitConverter.SetUInt32(pos, field.FieldType);
+                MBitConverter.Set(pos, field.FieldType);
                 pos += 4;
 
-                UBitConverter.SetUInt16(pos, storedFieldLength);
+                MBitConverter.Set(pos, storedFieldLength);
                 pos += 2;
 
-                UBuffer.BlockCopy(field.Payload, 0, pos, 0, fieldLength);
+                MBuffer.BlockCopy(field.Payload, 0, pos, 0, fieldLength);
                 pos += fieldLength;
             }
 

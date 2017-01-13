@@ -9,9 +9,9 @@ namespace BethFile
 {
     internal static class Zlib
     {
-        internal static byte[] Uncompress(UArraySegment<byte> data)
+        internal static byte[] Uncompress(MArraySegment<byte> data)
         {
-            uint dataLength = UBitConverter.ToUInt32(data, 0);
+            uint dataLength = MBitConverter.To<uint>(data, 0);
             uint remaining = dataLength;
 
             // TODO: System.Buffers
@@ -25,7 +25,7 @@ namespace BethFile
                 while (remaining != 0 &&
                        (cnt = def.Read(buf2, 0, unchecked((int)Math.Min(remaining, buf2.Length)))) != 0)
                 {
-                    UBuffer.BlockCopy(buf2, 0, payloadArray, dataLength - remaining, unchecked((uint)cnt));
+                    MBuffer.BlockCopy(buf2, 0, payloadArray, dataLength - remaining, unchecked((uint)cnt));
                     remaining -= unchecked((uint)cnt);
                 }
             }
@@ -33,14 +33,14 @@ namespace BethFile
             return payloadArray;
         }
 
-        internal static byte[] Compress(UArraySegment<byte> data)
+        internal static byte[] Compress(MArraySegment<byte> data)
         {
             using (var ms = new MemoryStream())
             {
                 // TODO: System.Buffers
                 byte[] buf = new byte[AsyncFile.FullCopyBufferSize];
                 uint cnt = data.Count;
-                UBitConverter.SetUInt32(buf, 0, cnt);
+                MBitConverter.Set(buf, 0, cnt);
                 ms.Write(buf, 0, 4);
 
                 // xEdit uses the default level (6) when it does the same.
@@ -50,7 +50,7 @@ namespace BethFile
                     while (pos < cnt)
                     {
                         uint sz = Math.Min(cnt - pos, AsyncFile.FullCopyBufferSize);
-                        UBuffer.BlockCopy(data, pos, buf, 0, sz);
+                        MBuffer.BlockCopy(data, pos, buf, 0, sz);
                         cmp.Write(buf, 0, unchecked((int)sz));
                         pos += sz;
                     }

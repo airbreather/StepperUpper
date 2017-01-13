@@ -4,64 +4,64 @@ namespace BethFile
 {
     public struct BethesdaGroup
     {
-        public BethesdaGroup(byte[] rawData) => this.Start = new UArrayPosition<byte>(rawData);
+        public BethesdaGroup(byte[] rawData) => this.Start = new MArrayPosition<byte>(rawData);
 
-        public BethesdaGroup(UArrayPosition<byte> start) => this.Start = start;
+        public BethesdaGroup(MArrayPosition<byte> start) => this.Start = start;
 
-        public UArrayPosition<byte> Start { get; }
+        public MArrayPosition<byte> Start { get; }
 
-        public UArraySegment<byte> RawData => new UArraySegment<byte>(this.Start, this.DataSize + 24);
+        public MArraySegment<byte> RawData => new MArraySegment<byte>(this.Start, this.DataSize + 24);
 
-        public UArraySegment<byte> PayloadData => new UArraySegment<byte>(this.PayloadStart, this.DataSize);
+        public MArraySegment<byte> PayloadData => new MArraySegment<byte>(this.PayloadStart, this.DataSize);
 
-        public UArrayPosition<byte> PayloadStart => this.Start + 24;
+        public MArrayPosition<byte> PayloadStart => this.Start + 24;
 
         public B4S RecordType
         {
-            get => UBitConverter.ToUInt32(this.PayloadStart);
-            set => UBitConverter.SetUInt32(this.PayloadStart, value);
+            get => MBitConverter.To<B4S>(this.PayloadStart);
+            set => MBitConverter.Set(this.PayloadStart, value);
         }
 
         public uint DataSize
         {
-            get => UBitConverter.ToUInt32(this.Start + 4) - 24;
-            set => UBitConverter.SetUInt32(this.Start + 4, value + 24);
+            get => MBitConverter.To<uint>(this.Start + 4) - 24;
+            set => MBitConverter.Set(this.Start + 4, value + 24);
         }
 
         public uint Label
         {
-            get => UBitConverter.ToUInt32(this.Start + 8);
-            set => UBitConverter.SetUInt32(this.Start + 8, value);
+            get => MBitConverter.To<uint>(this.Start + 8);
+            set => MBitConverter.Set(this.Start + 8, value);
         }
 
         public BethesdaGroupType GroupType
         {
-            get => (BethesdaGroupType)UBitConverter.ToInt32(this.Start + 12);
-            set => UBitConverter.SetUInt32(this.Start + 12, (uint)value);
+            get => MBitConverter.To<BethesdaGroupType>(this.Start + 12);
+            set => MBitConverter.Set(this.Start + 12, value);
         }
 
         public ushort Stamp
         {
-            get => UBitConverter.ToUInt16(this.Start + 16);
-            set => UBitConverter.SetUInt16(this.Start + 16, value);
+            get => MBitConverter.To<ushort>(this.Start + 16);
+            set => MBitConverter.Set(this.Start + 16, value);
         }
 
         public ushort UNKNOWN_18
         {
-            get => UBitConverter.ToUInt16(this.Start + 18);
-            set => UBitConverter.SetUInt16(this.Start + 18, value);
+            get => MBitConverter.To<ushort>(this.Start + 18);
+            set => MBitConverter.Set(this.Start + 18, value);
         }
 
         public ushort Version
         {
-            get => UBitConverter.ToUInt16(this.Start + 20);
-            set => UBitConverter.SetUInt16(this.Start + 20, value);
+            get => MBitConverter.To<ushort>(this.Start + 20);
+            set => MBitConverter.Set(this.Start + 20, value);
         }
 
         public ushort UNKNOWN_22
         {
-            get => UBitConverter.ToUInt16(this.Start + 22);
-            set => UBitConverter.SetUInt16(this.Start + 22, value);
+            get => MBitConverter.To<ushort>(this.Start + 22);
+            set => MBitConverter.Set(this.Start + 22, value);
         }
 
         public override string ToString()
@@ -81,10 +81,10 @@ namespace BethFile
                     return Invariant($"Int sub-block #{this.Label}");
 
                 case BethesdaGroupType.ExteriorCellBlock:
-                    return Invariant($"Ext block Y={UBitConverter.ToInt16(this.Start + 8)}, X={UBitConverter.ToInt16(this.Start + 10)}");
+                    return Invariant($"Ext block Y={MBitConverter.To<ushort>(this.Start + 8)}, X={MBitConverter.To<ushort>(this.Start + 10)}");
 
                 case BethesdaGroupType.ExteriorCellSubBlock:
-                    return Invariant($"Ext sub-block Y={UBitConverter.ToInt16(this.Start + 8)}, X={UBitConverter.ToInt16(this.Start + 10)}");
+                    return Invariant($"Ext sub-block Y={MBitConverter.To<ushort>(this.Start + 8)}, X={MBitConverter.To<ushort>(this.Start + 10)}");
 
                 case BethesdaGroupType.CellChildren:
                     return Invariant($"Children of [CELL:{this.Label:X8}]");

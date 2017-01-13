@@ -7,15 +7,15 @@ using System.Runtime.InteropServices;
 namespace BethFile
 {
     [StructLayout(LayoutKind.Auto)]
-    public struct UArraySegment<T> : IReadOnlyList<T>
+    public struct MArraySegment<T> : IReadOnlyList<T>
     {
-        public UArraySegment(T[] array) => this = new UArraySegment<T>(array, 0, checked((uint)array.LongLength));
+        public MArraySegment(T[] array) => this = new MArraySegment<T>(array, 0, checked((uint)array.LongLength));
 
-        public UArraySegment(UArrayPosition<T> pos, uint count) => this = new UArraySegment<T>(pos.Array, pos.Offset, count);
+        public MArraySegment(MArrayPosition<T> pos, uint count) => this = new MArraySegment<T>(pos.Array, pos.Offset, count);
         
-        public UArraySegment(UArraySegment<T> seg, uint offset, uint count) => this = new UArraySegment<T>(seg.Array, seg.Offset + offset, count);
+        public MArraySegment(MArraySegment<T> seg, uint offset, uint count) => this = new MArraySegment<T>(seg.Array, seg.Offset + offset, count);
 
-        public UArraySegment(T[] array, uint offset, uint count)
+        public MArraySegment(T[] array, uint offset, uint count)
         {
             this.Array = array;
             this.Offset = offset;
@@ -34,13 +34,13 @@ namespace BethFile
 
         public uint Count { get; }
 
-        public UArrayPosition<T> Pos => new UArrayPosition<T>(this.Array, this.Offset);
+        public MArrayPosition<T> Pos => new MArrayPosition<T>(this.Array, this.Offset);
 
         int IReadOnlyCollection<T>.Count => checked((int)this.Count);
 
         T IReadOnlyList<T>.this[int index] => this[checked((uint)index)];
 
-        public static implicit operator UArraySegment<T>(T[] array) => new UArraySegment<T>(array);
+        public static implicit operator MArraySegment<T>(T[] array) => new MArraySegment<T>(array);
 
         public T[] ToArray()
         {
@@ -50,8 +50,8 @@ namespace BethFile
             }
 
             T[] result = new T[this.Count];
-            UArraySegment<byte> bthis = (UArraySegment<byte>)(object)this;
-            UBuffer.BlockCopy(bthis, 0, (byte[])(object)result, 0, this.Count);
+            MArraySegment<byte> bthis = (MArraySegment<byte>)(object)this;
+            MBuffer.BlockCopy(bthis, 0, (byte[])(object)result, 0, this.Count);
             return result;
         }
 
@@ -61,11 +61,11 @@ namespace BethFile
 
         private sealed class Enumerator : IEnumerator<T>
         {
-            private UArraySegment<T> seg;
+            private MArraySegment<T> seg;
 
             private uint curr;
 
-            internal Enumerator(UArraySegment<T> seg) => this.seg = seg;
+            internal Enumerator(MArraySegment<T> seg) => this.seg = seg;
 
             public T Current => this.seg[this.curr - 1];
 
