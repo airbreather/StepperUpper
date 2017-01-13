@@ -15,7 +15,7 @@ namespace BethFile
 
         private readonly byte[] header = new byte[24];
 
-        public BethesdaFileReader(Stream stream) { this.stream = stream; }
+        public BethesdaFileReader(Stream stream) => this.stream = stream;
 
         public async Task<BethesdaFile> ReadFileAsync()
         {
@@ -39,30 +39,15 @@ namespace BethFile
 
         private async Task<byte[]> ReadDataAsync()
         {
-            uint dataLength = BitConverter.ToUInt32(this.header, 4);
-            if (BitConverter.ToUInt32(this.header, 0) == GRUP)
+            int dataLength = checked((int)BitConverter.ToUInt32(this.header, 4));
+            if (MBitConverter.To<uint>(this.header, 0) == GRUP)
             {
                 dataLength -= 24;
             }
 
             byte[] rawData = new byte[dataLength + 24];
-            Buffer.BlockCopy(this.header, 0, rawData, 0, 24);
-            uint pos = 24;
-            uint remaining = dataLength;
-            byte[] sub = new byte[81920];
-            while (remaining != 0)
-            {
-                uint cnt = unchecked((uint)(await this.stream.ReadAsync(sub, 0, (int)Math.Min(remaining, sub.Length)).ConfigureAwait(false)));
-                if (cnt == 0)
-                {
-                    throw new EndOfStreamException();
-                }
-
-                MBuffer.BlockCopy(sub, 0, rawData, pos, cnt);
-                pos += cnt;
-                remaining -= cnt;
-            }
-
+            MBuffer.BlockCopy(this.header, 0, rawData, 0, 24);
+            await this.stream.LoopedReadAsync(rawData, 24, dataLength).ConfigureAwait(false);
             return rawData;
         }
 

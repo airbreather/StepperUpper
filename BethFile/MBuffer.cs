@@ -1,19 +1,21 @@
-﻿namespace BethFile
+﻿using System;
+
+namespace BethFile
 {
     public static class MBuffer
     {
-        public static unsafe void BlockCopy(MArraySegment<byte> src, uint srcOffset, MArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        public static unsafe void BlockCopy(byte[] src, uint srcOffset, MArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        public static unsafe void BlockCopy(MArraySegment<byte> src, uint srcOffset, byte[] dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
+        public static unsafe void BlockCopy(ArraySegment<byte> src, int srcOffset, ArraySegment<byte> dst, int dstOffset, int count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(byte[] src, int srcOffset, ArraySegment<byte> dst, int dstOffset, int count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(ArraySegment<byte> src, int srcOffset, byte[] dst, int dstOffset, int count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
 
-        public static unsafe void BlockCopy(MArrayPosition<byte> src, uint srcOffset, MArrayPosition<byte> dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        public static unsafe void BlockCopy(byte[] src, uint srcOffset, MArrayPosition<byte> dst, uint dstOffset, uint count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        public static unsafe void BlockCopy(MArrayPosition<byte> src, uint srcOffset, byte[] dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
+        public static unsafe void BlockCopy(MArrayPosition<byte> src, int srcOffset, MArrayPosition<byte> dst, int dstOffset, int count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(byte[] src, int srcOffset, MArrayPosition<byte> dst, int dstOffset, int count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(MArrayPosition<byte> src, int srcOffset, byte[] dst, int dstOffset, int count) => BlockCopy(src.Array, src.Offset + srcOffset, dst, dstOffset, count);
 
-        public static unsafe void BlockCopy(MArrayPosition<byte> src, uint srcOffset, MArraySegment<byte> dst, uint dstOffset, uint count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
-        public static unsafe void BlockCopy(MArraySegment<byte> src, uint srcOffset, MArrayPosition<byte> dst, uint dstOffset, uint count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(MArrayPosition<byte> src, int srcOffset, ArraySegment<byte> dst, int dstOffset, int count) => BlockCopy(src.Array, src.Offset + srcOffset, dst.Array, dst.Offset + dstOffset, count);
+        public static unsafe void BlockCopy(ArraySegment<byte> src, int srcOffset, MArrayPosition<byte> dst, int dstOffset, int count) => BlockCopy(src, srcOffset, dst.Array, dst.Offset + dstOffset, count);
 
-        public static unsafe void BlockCopy(byte[] src, uint srcOffset, byte[] dst, uint dstOffset, uint count)
+        public static unsafe void BlockCopy(byte[] src, int srcOffset, byte[] dst, int dstOffset, int count)
         {
             if (count == 0)
             {

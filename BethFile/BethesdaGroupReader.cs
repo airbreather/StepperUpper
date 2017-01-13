@@ -8,7 +8,7 @@ namespace BethFile
     {
         private BethesdaGroupReaderState state;
 
-        private uint pos;
+        private int pos;
 
         public BethesdaGroupReader(BethesdaGroup group) => this.Group = group;
 
@@ -23,11 +23,11 @@ namespace BethFile
             switch (this.state)
             {
                 case BethesdaGroupReaderState.Subgroup:
-                    this.pos += MBitConverter.To<uint>(this.Group.PayloadStart + this.pos + 4);
+                    this.pos = checked((int)(this.pos + MBitConverter.To<uint>(this.Group.PayloadStart + this.pos + 4)));
                     break;
 
                 case BethesdaGroupReaderState.Record:
-                    this.pos += MBitConverter.To<uint>(this.Group.PayloadStart + this.pos + 4) + 24;
+                    this.pos = checked((int)(this.pos + MBitConverter.To<uint>(this.Group.PayloadStart + this.pos + 4) + 24));
                     break;
 
                 case BethesdaGroupReaderState.EndOfContent:

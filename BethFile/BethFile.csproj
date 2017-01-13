@@ -96,7 +96,6 @@
     <Compile Include="Editor\Saver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MArrayPosition.cs" />
-    <Compile Include="MArraySegment.cs" />
     <Compile Include="MBitConverter.cs" />
     <Compile Include="MBuffer.cs" />
     <Compile Include="Zlib.cs" />

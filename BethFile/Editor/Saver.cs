@@ -65,7 +65,7 @@ namespace BethFile.Editor
             result.record = new BethesdaRecord(pos)
             {
                 RecordType = record.RecordType,
-                DataSize = CalculateSize(record, false) - 24,
+                DataSize = unchecked((uint)(CalculateSize(record, false) - 24)),
                 Flags = record.Flags,
                 Id = record.Id,
                 Revision = record.Revision,
@@ -77,7 +77,7 @@ namespace BethFile.Editor
             byte[] payload = record.Flags.HasFlag(BethesdaRecordFlags.Compressed)
                 ? GetCompressedPayload(record)
                 : GetUncompressedPayload(record);
-            uint payloadLength = unchecked((uint)payload.LongLength);
+            int payloadLength = payload.Length;
             MBuffer.BlockCopy(payload, 0, pos, 0, payloadLength);
 
             pos += payloadLength;
@@ -98,7 +98,7 @@ namespace BethFile.Editor
 
             BethesdaGroup grp = new BethesdaGroup(pos)
             {
-                DataSize = CalculateSize(group) - 24,
+                DataSize = unchecked((uint)(CalculateSize(group) - 24)),
                 Label = group.Label,
                 GroupType = group.GroupType,
                 Stamp = group.Stamp,
@@ -116,31 +116,31 @@ namespace BethFile.Editor
             return grp;
         }
 
-        private static uint CalculateSize(Record record, bool includeGroups)
+        private static int CalculateSize(Record record, bool includeGroups)
         {
-            uint val = record.IsDummy
+            int val = record.IsDummy
                 ? 0
-                : checked(24 + (record.Flags.HasFlag(BethesdaRecordFlags.Compressed)
-                    ? unchecked((uint)GetCompressedPayload(record).LongLength)
-                    : GetUncompressedPayloadSize(record)));
+                : 24 + (record.Flags.HasFlag(BethesdaRecordFlags.Compressed)
+                    ? GetCompressedPayload(record).Length
+                    : GetUncompressedPayloadSize(record));
 
             if (includeGroups)
             {
                 foreach (var grp in record.Subgroups)
                 {
-                    val = checked(val + CalculateSize(grp));
+                    val += CalculateSize(grp);
                 }
             }
 
             return val;
         }
 
-        private static uint CalculateSize(Group group)
+        private static int CalculateSize(Group group)
         {
-            uint val = 24;
+            int val = 24;
             foreach (var rec in group.Records)
             {
-                val = checked(val + CalculateSize(rec, true));
+                val += CalculateSize(rec, true);
             }
 
             return val;
@@ -148,7 +148,7 @@ namespace BethFile.Editor
 
         private static byte[] GetCompressedPayload(Record record) =>
             record.CompressedFieldData ??
-                (record.CompressedFieldData = Zlib.Compress(GetUncompressedPayload(record)));
+                (record.CompressedFieldData = Zlib.Compress(new ArraySegment<byte>(GetUncompressedPayload(record))).ToArray());
 
         private static byte[] GetUncompressedPayload(Record record)
         {
@@ -156,7 +156,7 @@ namespace BethFile.Editor
             MArrayPosition<byte> pos = new MArrayPosition<byte>(result);
             foreach (var field in record.Fields)
             {
-                uint fieldLength = unchecked((uint)(field.Payload.LongLength));
+                int fieldLength = field.Payload.Length;
                 ushort storedFieldLength = unchecked((ushort)fieldLength);
                 if (fieldLength > ushort.MaxValue)
                 {
@@ -184,18 +184,18 @@ namespace BethFile.Editor
             return result;
         }
 
-        private static uint GetUncompressedPayloadSize(Record record)
+        private static int GetUncompressedPayloadSize(Record record)
         {
-            uint payloadSize = 0;
+            int payloadSize = 0;
             foreach (var field in record.Fields)
             {
-                uint fieldLength = checked((uint)(field.Payload.LongLength));
+                int fieldLength = field.Payload.Length;
                 if (fieldLength > ushort.MaxValue)
                 {
-                    payloadSize = checked(payloadSize + 10);
+                    payloadSize = payloadSize + 10;
                 }
 
-                payloadSize = checked(payloadSize + 6 + fieldLength);
+                payloadSize = payloadSize + 6 + fieldLength;
             }
 
             return payloadSize;

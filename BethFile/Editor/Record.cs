@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using static System.FormattableString;
 
 namespace BethFile.Editor
@@ -58,7 +58,7 @@ namespace BethFile.Editor
             if (copyFrom.Flags.HasFlag(BethesdaRecordFlags.Compressed))
             {
                 this.CompressedFieldData = copyFrom.Payload.ToArray();
-                this.fields = new Lazy<List<Field>>(() => CopyFieldsFrom(BethesdaRecord.GetFields(Zlib.Uncompress(this.CompressedFieldData))));
+                this.fields = new Lazy<List<Field>>(() => CopyFieldsFrom(BethesdaRecord.GetFields(new ArraySegment<byte>(Zlib.Uncompress(this.CompressedFieldData)))));
             }
             else
             {

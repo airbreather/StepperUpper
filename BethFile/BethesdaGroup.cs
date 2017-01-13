@@ -1,4 +1,6 @@
-﻿using static System.FormattableString;
+﻿using System;
+
+using static System.FormattableString;
 
 namespace BethFile
 {
@@ -10,9 +12,9 @@ namespace BethFile
 
         public MArrayPosition<byte> Start { get; }
 
-        public MArraySegment<byte> RawData => new MArraySegment<byte>(this.Start, this.DataSize + 24);
+        public ArraySegment<byte> RawData => new ArraySegment<byte>(this.Start.Array, this.Start.Offset, checked((int)this.DataSize + 24));
 
-        public MArraySegment<byte> PayloadData => new MArraySegment<byte>(this.PayloadStart, this.DataSize);
+        public ArraySegment<byte> PayloadData => new ArraySegment<byte>(this.Start.Array, this.Start.Offset + 24, checked((int)this.DataSize));
 
         public MArrayPosition<byte> PayloadStart => this.Start + 24;
 

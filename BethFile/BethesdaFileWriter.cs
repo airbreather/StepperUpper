@@ -19,28 +19,6 @@ namespace BethFile
             }
         }
 
-        private async Task WriteBytesAsync(MArraySegment<byte> bytes)
-        {
-            if (bytes.Offset + bytes.Count < Int32.MaxValue)
-            {
-                await this.stream.WriteAsync(bytes.Array, unchecked((int)bytes.Offset), unchecked((int)bytes.Count)).ConfigureAwait(false);
-            }
-            else
-            {
-                // in for a penny, in for a pound... I guess...
-                uint pos = 0;
-                uint remaining = bytes.Count;
-                byte[] sub = new byte[81920];
-                while (remaining != 0)
-                {
-                    uint cnt = Math.Min(remaining, unchecked((uint)sub.Length));
-                    MBuffer.BlockCopy(bytes.Array, pos, sub, 0, cnt);
-                    pos += cnt;
-                    remaining -= cnt;
-
-                    await this.stream.WriteAsync(sub, 0, unchecked((int)cnt)).ConfigureAwait(false);
-                }
-            }
-        }
+        private Task WriteBytesAsync(ArraySegment<byte> bytes) => this.stream.WriteAsync(bytes.Array, bytes.Offset, bytes.Count);
     }
 }

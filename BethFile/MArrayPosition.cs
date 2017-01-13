@@ -7,9 +7,9 @@ namespace BethFile
     {
         public MArrayPosition(T[] array) => this = new MArrayPosition<T>(array, 0);
 
-        public MArrayPosition(MArrayPosition<T> pos, uint offset) => this = new MArrayPosition<T>(pos.Array, pos.Offset + offset);
+        public MArrayPosition(MArrayPosition<T> pos, int offset) => this = new MArrayPosition<T>(pos.Array, pos.Offset + offset);
 
-        public MArrayPosition(T[] array, uint offset)
+        public MArrayPosition(T[] array, int offset)
         {
             this.Array = array;
             this.Offset = offset;
@@ -23,10 +23,10 @@ namespace BethFile
 
         public T[] Array { get; }
 
-        public uint Offset { get; }
+        public int Offset { get; }
 
-        public static MArrayPosition<T> operator +(MArrayPosition<T> start, uint offset) => new MArrayPosition<T>(start.Array, start.Offset + offset);
-        public static MArrayPosition<T> operator -(MArrayPosition<T> start, uint offset) => new MArrayPosition<T>(start.Array, start.Offset - offset);
+        public static MArrayPosition<T> operator +(MArrayPosition<T> start, int offset) => new MArrayPosition<T>(start.Array, start.Offset + offset);
+        public static MArrayPosition<T> operator -(MArrayPosition<T> start, int offset) => new MArrayPosition<T>(start.Array, start.Offset - offset);
 
         public static MArrayPosition<T> operator +(MArrayPosition<T> start, MArrayPosition<T> offset) => new MArrayPosition<T>(start.Array, start.Offset + offset.Offset);
         public static MArrayPosition<T> operator -(MArrayPosition<T> start, MArrayPosition<T> offset) => new MArrayPosition<T>(start.Array, start.Offset - offset.Offset);

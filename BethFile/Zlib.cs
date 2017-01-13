@@ -1,62 +1,47 @@
 ﻿using System;
 using System.IO;
 
-using AirBreather.IO;
-
 using Ionic.Zlib;
 
 namespace BethFile
 {
     internal static class Zlib
     {
-        internal static byte[] Uncompress(MArraySegment<byte> data)
+        internal static byte[] Uncompress(byte[] data) => Uncompress(new ArraySegment<byte>(data));
+        internal static byte[] Uncompress(ArraySegment<byte> data)
         {
-            uint dataLength = MBitConverter.To<uint>(data, 0);
-            uint remaining = dataLength;
-
-            // TODO: System.Buffers
-            byte[] payloadArray = new byte[dataLength];
-            using (var ms = new MemoryStream(data.Array, checked((int)(data.Offset + 4)), checked((int)(data.Count - 4)), false))
+            int dataLength = checked((int)MBitConverter.To<uint>(data, 0));
+            using (var ms = new MemoryStream(data.Array, data.Offset + 4, data.Count - 4))
             using (var def = new ZlibStream(ms, CompressionMode.Decompress, leaveOpen: true))
+            using (var res = new MemoryStream(dataLength))
             {
-                byte[] buf2 = new byte[AsyncFile.FullCopyBufferSize];
-
-                int cnt;
-                while (remaining != 0 &&
-                       (cnt = def.Read(buf2, 0, unchecked((int)Math.Min(remaining, buf2.Length)))) != 0)
-                {
-                    MBuffer.BlockCopy(buf2, 0, payloadArray, dataLength - remaining, unchecked((uint)cnt));
-                    remaining -= unchecked((uint)cnt);
-                }
+                def.CopyTo(res);
+                return res.GetBuffer();
             }
-
-            return payloadArray;
         }
 
-        internal static byte[] Compress(MArraySegment<byte> data)
+        internal static ArraySegment<byte> Compress(ArraySegment<byte> data)
         {
-            using (var ms = new MemoryStream())
+            // xEdit uses the default level (6) when it does the same.
+            using (var res = new MemoryStream())
             {
-                // TODO: System.Buffers
-                byte[] buf = new byte[AsyncFile.FullCopyBufferSize];
-                uint cnt = data.Count;
-                MBitConverter.Set(buf, 0, cnt);
-                ms.Write(buf, 0, 4);
-
-                // xEdit uses the default level (6) when it does the same.
-                using (var cmp = new ZlibStream(ms, CompressionMode.Compress, leaveOpen: true))
+                using (var def = new ZlibStream(res, CompressionMode.Compress, leaveOpen: true))
                 {
-                    uint pos = 0;
-                    while (pos < cnt)
+                    int cnt = data.Count;
+
+                    // why do I have to do something like this to avoid allocating? ...
+                    unchecked
                     {
-                        uint sz = Math.Min(cnt - pos, AsyncFile.FullCopyBufferSize);
-                        MBuffer.BlockCopy(data, pos, buf, 0, sz);
-                        cmp.Write(buf, 0, unchecked((int)sz));
-                        pos += sz;
+                        res.WriteByte((byte)(cnt >> 00));
+                        res.WriteByte((byte)(cnt >> 08));
+                        res.WriteByte((byte)(cnt >> 16));
+                        res.WriteByte((byte)(cnt >> 24));
                     }
+
+                    def.Write(data.Array, data.Offset, data.Count);
                 }
 
-                return ms.ToArray();
+                return res.TryGetBuffer(out var buffer) ? buffer : new ArraySegment<byte>(res.ToArray());
             }
         }
     }

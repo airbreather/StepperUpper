@@ -11,7 +11,7 @@ namespace BethFile
 {
     public static class BethesdaFileComparer
     {
-        private static readonly CallbackComparer<MArraySegment<byte>> PayloadComparer = new CallbackComparer<MArraySegment<byte>>(Compare);
+        private static readonly CallbackComparer<ArraySegment<byte>> PayloadComparer = new CallbackComparer<ArraySegment<byte>>(Compare);
 
         private static readonly List<string> Indents = new List<string>();
 
@@ -59,7 +59,7 @@ namespace BethFile
             string indent = Indent(indentLevel++);
             sb.Append(indent).AppendLine(first.ToString());
 
-            CompareHeaders(new MArraySegment<byte>(first.Start, 24), new MArraySegment<byte>(second.Start, 24), sb, indentLevel);
+            CompareHeaders(new ArraySegment<byte>(first.Start.Array, first.Start.Offset, 24), new ArraySegment<byte>(second.Start.Array, second.Start.Offset, 24), sb, indentLevel);
 
             List<BethesdaRecord> firstRecords = new List<BethesdaRecord>();
             List<BethesdaGroup> firstGroups = new List<BethesdaGroup>();
@@ -151,7 +151,7 @@ namespace BethFile
 
             string indent = Indent(indentLevel);
 
-            CompareHeaders(new MArraySegment<byte>(first.Start, 24), new MArraySegment<byte>(second.Start, 24), sb, indentLevel);
+            CompareHeaders(new ArraySegment<byte>(first.Start.Array, first.Start.Offset, 24), new ArraySegment<byte>(second.Start.Array, second.Start.Offset, 24), sb, indentLevel);
 
             // stable sort is probably important enough to be worth a speed cost.
             List<BethesdaField> firstFields = first.Fields.OrderBy(f => f.FieldType).ThenBy(f => f.Payload, PayloadComparer).ToList();
@@ -188,7 +188,7 @@ namespace BethFile
               .Append(indent).AppendLine(second.ToString());
         }
 
-        private static void CompareHeaders(MArraySegment<byte> firstHeader, MArraySegment<byte> secondHeader, StringBuilder sb, int indentLevel)
+        private static void CompareHeaders(ArraySegment<byte> firstHeader, ArraySegment<byte> secondHeader, StringBuilder sb, int indentLevel)
         {
             if (Compare(firstHeader, secondHeader) == 0)
             {
@@ -202,10 +202,10 @@ namespace BethFile
               .Append(indent).AppendLine(secondHeader.ToArray().ByteArrayToHexString());
         }
 
-        private static unsafe int Compare(MArraySegment<byte> first, MArraySegment<byte> second)
+        private static unsafe int Compare(ArraySegment<byte> first, ArraySegment<byte> second)
         {
             int defaulter = 0;
-            uint minCnt = first.Count;
+            int minCnt = first.Count;
             if (first.Count < second.Count)
             {
                 defaulter = -1;
@@ -220,7 +220,7 @@ namespace BethFile
             fixed (void* ptr1 = &first.Array[first.Offset])
             fixed (void* ptr2 = &second.Array[second.Offset])
             {
-                cmp = memcmp(ptr1, ptr2, new UIntPtr(minCnt));
+                cmp = memcmp(ptr1, ptr2, new IntPtr(minCnt));
             }
 
             return cmp == 0
@@ -255,6 +255,6 @@ namespace BethFile
         }
 
         [DllImport("msvcrt.dll")]
-        private static extern unsafe int memcmp(void* ptr1, void* ptr2, UIntPtr count);
+        private static extern unsafe int memcmp(void* ptr1, void* ptr2, IntPtr count);
     }
 }

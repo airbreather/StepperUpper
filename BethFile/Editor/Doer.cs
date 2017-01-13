@@ -137,7 +137,7 @@ namespace BethFile.Editor
                         });
                     }
 
-                    MBitConverter.Set(dataField.Payload, 8, (uint)3337248768);
+                    MBitConverter.Set(dataField.Payload, 8, 3337248768);
                 }
 
                 Field xespField = orig.Fields.Find(f => f.FieldType == XESP);
@@ -323,7 +323,7 @@ namespace BethFile.Editor
         private static byte[] CompressDNAM(byte[] dnamPayload)
         {
             MArrayPosition<byte> pos = new MArrayPosition<byte>(dnamPayload);
-            for (uint i = 0; i < dnamPayload.Length; i += 8)
+            for (int i = 0; i < dnamPayload.Length; i += 8)
             {
                 ulong val = MBitConverter.To<ulong>(dnamPayload, i);
                 if (val == 0)
@@ -335,7 +335,7 @@ namespace BethFile.Editor
                 pos += 8;
             }
 
-            Array.Resize(ref dnamPayload, checked((int)pos.Offset));
+            Array.Resize(ref dnamPayload, pos.Offset);
             return dnamPayload;
         }
 

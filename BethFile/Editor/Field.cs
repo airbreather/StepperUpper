@@ -1,4 +1,6 @@
-﻿using AirBreather;
+﻿using System.Linq;
+
+using AirBreather;
 
 using static System.FormattableString;
 
@@ -24,6 +26,6 @@ namespace BethFile.Editor
 
         public byte[] Payload { get; set; }
 
-        public override string ToString() => Invariant($"{this.FieldType} ({unchecked((uint)this.Payload.LongLength)} bytes) >> ({this.Payload.ByteArrayToHexString()})");
+        public override string ToString() => Invariant($"{this.FieldType} ({this.Payload.Length} bytes) >> ({this.Payload.ByteArrayToHexString()})");
     }
 }

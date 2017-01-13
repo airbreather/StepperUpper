@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 using static System.FormattableString;
@@ -14,11 +15,11 @@ namespace BethFile
 
         public MArrayPosition<byte> Start { get; }
 
-        public MArraySegment<byte> RawData => new MArraySegment<byte>(this.Start, this.DataSize + 24);
+        public ArraySegment<byte> RawData => new ArraySegment<byte>(this.Start.Array, this.Start.Offset, checked((int)(this.DataSize + 24)));
 
         public MArrayPosition<byte> PayloadStart => this.Start + 24;
 
-        public MArraySegment<byte> Payload => new MArraySegment<byte>(this.PayloadStart, this.DataSize);
+        public ArraySegment<byte> Payload => new ArraySegment<byte>(this.Start.Array, this.Start.Offset + 24, checked((int)this.DataSize));
 
         public B4S RecordType
         {
@@ -66,36 +67,36 @@ namespace BethFile
         {
             get
             {
-                MArraySegment<byte> payload = this.Payload;
+                ArraySegment<byte> payload = this.Payload;
                 if (this.Flags.HasFlag(BethesdaRecordFlags.Compressed))
                 {
-                    payload = Zlib.Uncompress(payload);
+                    payload = new ArraySegment<byte>(Zlib.Uncompress(payload));
                 }
 
                 return GetFields(payload);
             }
         }
 
-        public static IEnumerable<BethesdaField> GetFields(MArraySegment<byte> payload)
+        public static IEnumerable<BethesdaField> GetFields(ArraySegment<byte> payload)
         {
-            uint pos = 0;
-            uint? offsides = null;
+            int pos = 0;
+            int? offsides = null;
             while (pos != payload.Count)
             {
                 B4S typ = MBitConverter.To<B4S>(payload, pos);
                 if (typ == XXXX)
                 {
                     Debug.Assert(MBitConverter.To<ushort>(payload, pos + 4) == 4, "XXXX has a special meaning for parsing.");
-                    offsides = MBitConverter.To<uint>(payload, pos + 6);
-                    pos += 10u;
+                    offsides = checked((int)MBitConverter.To<uint>(payload.Array, payload.Offset + pos + 6));
+                    pos += 10;
                     continue;
                 }
 
-                uint sz = offsides ?? MBitConverter.To<ushort>(payload, pos + 4);
-                yield return new BethesdaField(typ, new MArraySegment<byte>(payload, pos + 6, sz));
+                int sz = offsides ?? MBitConverter.To<ushort>(payload, pos + 4);
+                yield return new BethesdaField(typ, new ArraySegment<byte>(payload.Array, payload.Offset + pos + 6, sz));
 
                 offsides = null;
-                pos += sz + 6u;
+                pos += sz + 6;
             }
         }
 
