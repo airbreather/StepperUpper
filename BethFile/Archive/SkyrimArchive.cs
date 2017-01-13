@@ -26,18 +26,18 @@ namespace BethFile.Archive
 
             // "BSA\0", ASCII-encoded
             const uint Magic = 4281154;
-            if (BitConverter.ToUInt32(metaBuf, 0) != Magic)
+            if (MBitConverter.To<uint>(metaBuf, 0) != Magic)
             {
                 throw new NotSupportedException("I don't know how to read this stream as a BSA file.");
             }
 
-            var version = BitConverter.ToUInt32(metaBuf, 4);
+            var version = MBitConverter.To<uint>(metaBuf, 4);
             if (version != 104 && version != 103)
             {
                 throw new NotSupportedException("I don't know how to read BSA files for games other than Skyrim / Oblivion.");
             }
 
-            var flags = (ArchiveFlags)BitConverter.ToInt32(metaBuf, 12);
+            var flags = MBitConverter.To<ArchiveFlags>(metaBuf, 12);
 
             if (flags.HasFlag(ArchiveFlags.IsXbox360))
             {
@@ -52,14 +52,14 @@ namespace BethFile.Archive
 
             var embeddedFileNames = flags.HasFlag(ArchiveFlags.EmbedFileNames);
 
-            var numberOfFolders = checked((int)BitConverter.ToUInt32(metaBuf, 16));
-            var numberOfFiles = checked((int)BitConverter.ToUInt32(metaBuf, 20));
+            var numberOfFolders = checked((int)MBitConverter.To<uint>(metaBuf, 16));
+            var numberOfFiles = checked((int)MBitConverter.To<uint>(metaBuf, 20));
 
             var folders = new(int fileCount, string folder)[numberOfFolders];
             for (int i = 0; i < folders.Length; i++)
             {
                 await archiveStream.LoopedReadAsync(metaBuf, 0, 16, cancellationToken).ConfigureAwait(false);
-                folders[i].fileCount = checked((int)BitConverter.ToUInt32(metaBuf, 8));
+                folders[i].fileCount = checked((int)MBitConverter.To<uint>(metaBuf, 8));
             }
 
             var compressedOnes = new BitArray(numberOfFiles, flags.HasFlag(ArchiveFlags.CompressedByDefault));
@@ -75,8 +75,8 @@ namespace BethFile.Archive
                 for (int j = 0; j < fileCount; j++)
                 {
                     await archiveStream.LoopedReadAsync(metaBuf, 0, 16, cancellationToken).ConfigureAwait(false);
-                    files[currFileIndex].size = checked((int)BitConverter.ToUInt32(metaBuf, 8));
-                    files[currFileIndex].dataOffset = checked((int)BitConverter.ToUInt32(metaBuf, 12));
+                    files[currFileIndex].size = checked((int)MBitConverter.To<uint>(metaBuf, 8));
+                    files[currFileIndex].dataOffset = checked((int)MBitConverter.To<uint>(metaBuf, 12));
 
                     if ((files[currFileIndex].size & (1 << 30)) != 0)
                     {
