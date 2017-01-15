@@ -1535,11 +1535,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="0db5ac3ed526d304916eabd43a09bedb"
 			      DownloadTags="nexus|skyrim|61434|1000142466" />
 
-			<File Name="Mature Skin 2.14"
-			      LengthInBytes="536288693"
-			      CanonicalFileName="Mature Skin V2.14-32986-2-14.7z"
-			      MD5Checksum="7c35c44c4738fddf42e086f4fc5a323e"
-			      DownloadTags="nexus|skyrim|32986|1000193599" />
+			<File Name="Mature Skin UNP(B) 2.15"
+			      LengthInBytes="323805032"
+			      CanonicalFileName="Mature skin UNP(B)-32986-2-15.7z"
+			      MD5Checksum="8a90f826b651a879fb4ee277908f6432"
+			      DownloadTags="nexus|skyrim|32986|1000233650" />
 
 			<File Name="RS Children Overhaul 1.1.0"
 			      LengthInBytes="24751894"
@@ -3470,7 +3470,7 @@ ELE_Fs_Lite.esp]]></Line>
 +RS Children Patches - Falskaar 1.2
 +RS Children Overhaul - Books of Skyrim Patch 1.0.0
 +RS Children Overhaul 1.1.0
-+Mature Skin 2.14
++Mature Skin UNP(B) 2.15
 +Khajit body replacer - darker nipple remove pawprint tattoo 1.4
 +Forgotten Argonian Roots - 4k X
 +Coverkhajits - Female Version 1.0
@@ -5524,7 +5524,7 @@ NPCPOTIONS_ON: 0]]></Line>
 				<MapFolder From="KhajiitBodyReplacer_darkernipple/Data" To="ModOrganizer/mods/Khajit body replacer - darker nipple remove pawprint tattoo 1.4" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Mature Skin 2.14">
+			<ExtractArchive ArchiveFile="Mature Skin UNP(B) 2.15">
 				<!-- this took a while and there were a lot of flags.  saving my notes:
 					quality               = HD
 					bodyType              = UNP
@@ -5540,30 +5540,30 @@ NPCPOTIONS_ON: 0]]></Line>
 					faceNormalMaps        = true
 					faceNormalMapsVersion = 2
 				-->
-				<MapFolder From="HD/Face/Common" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/Face/Specular" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/Face/Lips" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/Face/Complexion" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFile From="Mod/MatureSkinComplexions.esp" To="ModOrganizer/mods/Mature Skin 2.14/MatureSkinComplexions.esp"/>
-				<MapFile From="HD/Face/Diffuse2/young/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Young_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young_blemish.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Young_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_young_blemish_moles_scars.dds"/>
-				<MapFile From="HD/Face/Diffuse2/medium/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Medium_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium_blemish.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Medium_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_medium_blemish_moles_scars.dds"/>
-				<MapFile From="HD/Face/Diffuse2/mature/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Mature_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature_blemish.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Mature_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_mature_blemish_moles_scars.dds"/>
-				<MapFile From="HD/Face/Diffuse2/old/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Old_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old_blemish.dds"/>
-				<MapFile From="HD/Face/Diffuse2/Old_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin 2.14/Textures/actors/character/female/matureskin/femalehead_old_blemish_moles_scars.dds"/>
-				<MapFolder From="HD/Face/Normal Maps/Medium" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/Face/Diffuse/medium/no_moles_no_scars" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/UNP/Body Specular Maps" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/UNP/Body Common" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/UNP/Young/Body Normal Maps/UNPB" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/UNP/Young/Body Common" To="ModOrganizer/mods/Mature Skin 2.14" />
-				<MapFolder From="HD/UNP/Young/Body Natural No Moles No Scars" To="ModOrganizer/mods/Mature Skin 2.14" />
+				<MapFolder From="HD/Face/Common" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/Face/Specular" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/Face/Lips" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/Face/Complexion" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFile From="Mod/MatureSkinComplexions.esp" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/MatureSkinComplexions.esp"/>
+				<MapFile From="HD/Face/Diffuse2/young/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_young.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Young_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_young_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Young_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_young_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/medium/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_medium.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Medium_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_medium_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Medium_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_medium_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/mature/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_mature.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Mature_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_mature_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Mature_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_mature_blemish_moles_scars.dds"/>
+				<MapFile From="HD/Face/Diffuse2/old/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_old.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Old_blemish/no_moles_no_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_old_blemish.dds"/>
+				<MapFile From="HD/Face/Diffuse2/Old_blemish/moles_scars/Textures/actors/character/female/femalehead.dds" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15/Textures/actors/character/female/matureskin/femalehead_old_blemish_moles_scars.dds"/>
+				<MapFolder From="HD/Face/Normal Maps/Medium" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/Face/Diffuse/medium/no_moles_no_scars" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/UNP/Body Specular Maps" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/UNP/Body Common" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/UNP/Young/Body Normal Maps/UNPB" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/UNP/Young/Body Common" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
+				<MapFolder From="HD/UNP/Young/Body Natural No Moles No Scars" To="ModOrganizer/mods/Mature Skin UNP(B) 2.15" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="RS Children Overhaul 1.1.0" Id="RSChildrenMain">
