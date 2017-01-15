@@ -28,12 +28,12 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 
 		<Group Name="2.3 Tools">
-			<File Name="LOOT 0.10.2 - Dev Archive"
-			      LengthInBytes="32801561"
-			      CanonicalFileName="loot_0.10.2-0-g9eb7d26_dev.7z"
-			      MD5Checksum="5701558726a6c31ecf6b176bb32d9a49"
-			      SHA512Checksum="f57c27d6673463fc748d44703c194a407a65a242db48549d7bac9d5212c05f926fa920aff1670041e9530d6b0ab80c70dc77a8c957d94e17046e61d2a234b25b"
-			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.2/loot_0.10.2-0-g9eb7d26_dev.7z"
+			<File Name="LOOT 0.10.3 - Dev Archive"
+			      LengthInBytes="32825670"
+			      CanonicalFileName="loot_0.10.3-0-g0fcf788_dev_Win32.7z"
+			      MD5Checksum="d1f6d979259b78f27ac086d9b9f3986e"
+			      SHA512Checksum="823d4b5ff5eb6e0361d1b14eea7e005e29d6f1459763762985ab58da5077cbe8cb36583abbdfca9880fe68e4ad406a4c804bee813f5b8af2fa619139f6654f47"
+			      DownloadUrl="https://github.com/loot/loot/releases/download/0.10.3/loot_0.10.3-0-g0fcf788_dev_Win32.7z"
 			      DownloadTags="generic|https://loot.github.io/" />
 
 			<File Name="xEdit 3.2"
@@ -61,11 +61,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      SHA512Checksum="3def364bfd940d22b42dca858cff481dba3885113abeca2a659533fa60261f7736c27fdeb76382a2ede13389060d4c2d5fd55b047f6ae6376b8a2b3df0f80ae9"
 			      DownloadTags="nexus|skyrim|35307|1000027040" />
 
-			<File Name="Merge Plugins Standalone 2.2.3"
-			      LengthInBytes="4669144"
-			      CanonicalFileName="Merge Plugins-69905-2-2-3.zip"
-			      MD5Checksum="1c61335ce0058f60c6d11898dfaf62d0"
-			      DownloadTags="nexus|skyrim|69905|1000222279" />
+			<File Name="Merge Plugins Standalone 2.3.1"
+			      LengthInBytes="4689407"
+			      CanonicalFileName="Merge Plugins-69905-2-3-1.zip"
+			      MD5Checksum="2401c00d4ce52bbe58c4568c009c4963"
+			      DownloadTags="nexus|skyrim|69905|1000232188" />
 
 			<File Name="ENB Organizer 2.1.1"
 			      LengthInBytes="2745841"
@@ -135,11 +135,14 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="e96eb391492c4ab4cb55e37e5e805927"
 			      DownloadTags="nexus|skyrim|57353|1000194206" />
 
+			<!-- Apparently these are fully redundant with HRDLC and UHRP. -->
+			<!--
 			<File Name="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)"
 			      LengthInBytes="1312941684"
 			      CanonicalFileName="High Definition DLC for ModOrganizer Users (Part 2_2 - Extract Me)-57353.7z"
 			      MD5Checksum="47695b754868bfb821a00117bd35021e"
 			      DownloadTags="nexus|skyrim|57353|1000194208" />
+			-->
 		</Group>
 
 		<Group Name="3.7 ENB Series Graphics Modification">
@@ -159,7 +162,6 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      DownloadTags="nexus|skyrim|67077|1000214338" />
 		</Group>
 
-		<!-- TODO: vet everything earlier than 4.1 -->
 		<Group Name="4.1 Unofficial Patches">
 			<File Name="USLEEP 3.0.7"
 			      LengthInBytes="175559704"
@@ -2379,6 +2381,15 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      DownloadTags="nexus|skyrim|58705|1000220820" />
 		</Group>
 
+		<Group Name="5.2 Conflict Resolution">
+			<File Name="SR Conflict Resolution Patch - Neovalen's"
+			      LengthInBytes="441346"
+			      CanonicalFileName="SR Conflict Resolution.esp"
+			      MD5Checksum="802152a9bf0f108544c6f07cceb27c79"
+			      DownloadUrl="https://dl.dropboxusercontent.com/u/98286095/Skyrim%20Revisited%20Legendary%20Edition/Patches/Conflict%20Resolution/SR%20Conflict%20Resolution.esp"
+			      DownloadTags="generic|http://wiki.step-project.com/User:Neovalen/Skyrim_Revisited_-_Legendary_Edition/Conflict_Resolution" />
+		</Group>
+
 		<Group Name="5.7.1 Skyproc Unified Manager (SUM)">
 			<File Name="SUM 1.3.2"
 			      LengthInBytes="3050854"
@@ -2417,11 +2428,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 				<MapFolder From="ModOrganizer" To="ModOrganizer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LOOT 0.10.2 - Dev Archive">
-				<MapFolder From="loot_0.10.2-0-g9eb7d26_dev" To="LOOT 0.10.2" />
+			<ExtractArchive ArchiveFile="LOOT 0.10.3 - Dev Archive">
+				<MapFolder From="loot_0.10.3-0-g0fcf788_dev_Win32" To="LOOT 0.10.3" />
 			</ExtractArchive>
 
-			<Embedded File="LOOT 0.10.2/Data/Skyrim/userlist.yaml" Encoding="UTF8NoBOM">
+			<Embedded File="LOOT 0.10.3/Data/Skyrim/userlist.yaml" Encoding="UTF8NoBOM">
 				<Line><![CDATA[bash_tags:
   []
 plugins:
@@ -2490,8 +2501,8 @@ START "" "{DumpFolderForwardSlashes}/Wrye Bash 306/Wrye Bash.exe"]]></Line>
 				<MapFolder From="Champollion-V1.0.1-x86" To="Champollion - 32-bit 1.0.1" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Merge Plugins Standalone 2.2.3">
-				<MapFolder To="Merge Plugins Standalone 2.2.3" />
+			<ExtractArchive ArchiveFile="Merge Plugins Standalone 2.3.1">
+				<MapFolder To="Merge Plugins Standalone 2.3.1" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="ENB Organizer 2.1.1">
@@ -2857,9 +2868,9 @@ pipboy3000\screen_n.dds
 				<Set Section="customExecutables" Property="4\custom" Value="true" />
 				<Set Section="customExecutables" Property="4\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="4\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/LOOT.exe" />
+				<Set Section="customExecutables" Property="4\binary" Value="{DumpFolderForwardSlashes}/LOOT 0.10.3/LOOT.exe" />
 				<Set Section="customExecutables" Property="4\arguments" Value="--loot-data-path=Data" />
-				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.2/" />
+				<Set Section="customExecutables" Property="4\workingDirectory" Value="{DumpFolderForwardSlashes}/LOOT 0.10.3/" />
 				<Set Section="customExecutables" Property="4\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="4\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="5\title" Value="TES5Edit" />
@@ -2920,9 +2931,9 @@ pipboy3000\screen_n.dds
 				<Set Section="customExecutables" Property="11\custom" Value="true" />
 				<Set Section="customExecutables" Property="11\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="11\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="11\binary" Value="{DumpFolderForwardSlashes}/Merge Plugins Standalone 2.2.3/MergePlugins.exe" />
+				<Set Section="customExecutables" Property="11\binary" Value="{DumpFolderForwardSlashes}/Merge Plugins Standalone 2.3.1/MergePlugins.exe" />
 				<Set Section="customExecutables" Property="11\arguments" Value="" />
-				<Set Section="customExecutables" Property="11\workingDirectory" Value="{DumpFolderForwardSlashes}/Merge Plugins Standalone 2.2.3" />
+				<Set Section="customExecutables" Property="11\workingDirectory" Value="{DumpFolderForwardSlashes}/Merge Plugins Standalone 2.3.1" />
 				<Set Section="customExecutables" Property="11\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="11\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="12\title" Value="Dual Sheath Redux Patch" />
@@ -2961,6 +2972,8 @@ Update.bsa
 Dawnguard.bsa
 HearthFires.bsa
 Dragonborn.bsa
+Skyrim - HD01.bsa
+Skyrim - HD02.bsa
 HighResTexturePack01.bsa
 HighResTexturePack02.bsa
 HighResTexturePack03.bsa]]></Line>
@@ -3354,10 +3367,12 @@ Vividian - Torches Preset.esp
 Vividian - Wearable Lanterns Preset.esp
 Skyrim Particle Patch for ENB - Flame Atronach Fix.esp
 ELE_Legendary_Lite.esp
-ELE_Fs_Lite.esp]]></Line>
+ELE_Fs_Lite.esp
+SR Conflict Resolution.esp]]></Line>
 			</Embedded>
 			<Embedded File="ModOrganizer/profiles/SRLE/modlist.txt" Encoding="UTF8NoBOM">
 				<Line><![CDATA[# This file was automatically generated by Mod Organizer.
++SR Conflict Resolution Patch
 +SUM 1.3.2
 +PapyrusUtil 3.3
 +FISS 1.21
@@ -3687,13 +3702,10 @@ ELE_Fs_Lite.esp]]></Line>
 *Unmanaged: HighResTexturePack01
 +USLEEP 3.0.7
 +Cleaned Dragonborn ESM
-+Optimized Dragonborn Textures
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
-+Optimized HearthFires Textures
 *Unmanaged: HearthFires
 +Cleaned Dawnguard ESM
-+Optimized Dawnguard Textures
 *Unmanaged: Dawnguard
 +Cleaned Update ESM
 +Optimized Vanilla Textures
@@ -3793,11 +3805,12 @@ ELE_Fs_Lite.esp]]></Line>
 		<Group Name="3.6 Optimizing The Bethesda Textures">
 			<!-- Vanilla textures are simple. -->
 			<ExtractArchive ArchiveFile="High Definition Base Game Textures for Everyone (Part 1 of 2)" Id="VanillaTexturesMain">
-				<MapBSAFile From="00 Textures/Skyrim - HD01.bsa" To="ModOrganizer/mods/Optimized Vanilla Textures" />
-				<MapBSAFile From="00 Textures/Skyrim - HD02.bsa" To="ModOrganizer/mods/Optimized Vanilla Textures" />
+				<MapFolder From="00 Textures" To="ModOrganizer/mods/Optimized Vanilla Textures" />
 			</ExtractArchive>
 
+			<!-- Hmm, somehow all of this stuff gets fully overridden. -->
 			<!-- DLC textures are yo-dawg'd. -->
+			<!--
 			<ExtractArchive ArchiveFile="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)" Id="DLCTexturesMain">
 				<MapFile From="Dawnguard - HD (Install Me via MO).7z" To="OPT_TEX/DawnguardOptimized.7z" />
 				<MapFile From="Dragonborn - HD (Install Me via MO).7z" To="OPT_TEX/DragonbornOptimized.7z" />
@@ -3815,16 +3828,21 @@ ELE_Fs_Lite.esp]]></Line>
 			<ExtractArchive ArchivePath="OPT_TEX/HearthFiresOptimized.7z" WaitFor="DLCTexturesMain" Id="HearthFiresTextures">
 				<MapBSAFile From="00 Textures/HearthFires - HD.bsa" To="ModOrganizer/mods/Optimized HearthFires Textures" />
 			</ExtractArchive>
+			-->
 
 			<!-- Delete these files a bit earlier than we would have otherwise, to reclaim a bit of
 			     space just that little bit earlier. -->
+			<!--
 			<DeleteFile Path="OPT_TEX/DawnguardOptimized.7z" WaitFor="DawnguardTextures" Id="DeleteDawnguardYoDawg" />
 			<DeleteFile Path="OPT_TEX/DragonbornOptimized.7z" WaitFor="DragonbornTextures" Id="DeleteDragonbornYoDawg" />
 			<DeleteFile Path="OPT_TEX/HearthFiresOptimized.7z" WaitFor="HearthFiresTextures" Id="DeleteHearthFiresYoDawg" />
+			-->
 
 			<!-- This is sufficient if we're OK with keeping each yo-dawg archive around until all 3
 			     yo-dawg archives are done being processed. -->
+			<!--
 			<DeleteFolder Path="OPT_TEX" WaitFor="DeleteDawnguardYoDawg|DeleteDragonbornYoDawg|DeleteHearthFiresYoDawg" />
+			-->
 		</Group>
 
 		<Group Name="3.7 ENB Series Graphics Modification">
@@ -6336,7 +6354,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 			<CreateEmptyFolder Path="ModOrganizer/mods/----- RS Children Merged/merge" />
 			<CreateEmptyFolder Path="ModOrganizer/mods/----- Vivid Weathers Merge/merge" />
 
-			<Embedded File="Merge Plugins Standalone 2.2.3/profiles/SkyrimProfile/Merges.json" Encoding="UTF8NoBOM">
+			<Embedded File="Merge Plugins Standalone 2.3.1/profiles/SkyrimProfile/Merges.json" Encoding="UTF8NoBOM">
 				<Line><![CDATA[{
 	"merges": [{
 			"ignoredDependencies": [],
@@ -6486,7 +6504,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 }]]></Line>
 			</Embedded>
 
-			<Embedded File="Merge Plugins Standalone 2.2.3/profiles/SkyrimProfile/settings.ini" Encoding="UTF8NoBOM">
+			<Embedded File="Merge Plugins Standalone 2.3.1/profiles/SkyrimProfile/settings.ini" Encoding="UTF8NoBOM">
 				<Line><![CDATA[[General]
 profile=SkyrimProfile
 gameMode=1
@@ -6549,7 +6567,7 @@ flagsPath={SkyrimInstallFolderForwardSlashes}/Data/Scripts/Source/TESV_Papyrus_F
 bsaOptPath=
 bsaOptOptions=]]></Line>
 			</Embedded>
-			<Embedded File="Merge Plugins Standalone 2.2.3/profiles/SkyrimProfile/PluginInfo.json" Encoding="UTF8NoBOM">
+			<Embedded File="Merge Plugins Standalone 2.3.1/profiles/SkyrimProfile/PluginInfo.json" Encoding="UTF8NoBOM">
 				<Line><![CDATA[{
 	"plugins": [{
 			"filename": "ELE_Legendary_Lite.esp",
@@ -6837,6 +6855,11 @@ bsaOptOptions=]]></Line>
 	]
 }]]></Line>
 			</Embedded>
+		</Group>
+
+		<Group Name="5.2 Conflict Resolution">
+			<!-- TODO: this may be incomplete due to version updates. -->
+			<Materialize File="SR Conflict Resolution Patch - Neovalen's" To="ModOrganizer/mods/SR Conflict Resolution Patch/SR Conflict Resolution.esp" />
 		</Group>
 
 		<Group Name="5.7.1 Skyproc Unified Manager (SUM)">
