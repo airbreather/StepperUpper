@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -95,17 +96,19 @@ namespace StepperUpper
             bool isBorderless = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless);
             bool isBorderlessFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless | FullScreenMode.IsFullScreen);
 
-            var modpackElements = new List<XElement>();
+            var modpacks = new List<Modpack>();
 
             // lots of strings show up multiple times each.
             StringPool pool = new StringPool();
+
+            string gameInstallPath = null;
+            string gameDataPath = null;
 
             HashSet<string> seenSoFar = new HashSet<string>();
             int longestOutputPathLength = 0;
             foreach (string packDefinitionFilePath in options.PackDefinitionFilePaths)
             {
                 bool requiresJava, requiresSteam, requiresSkyrim;
-                string skyrimPath = null;
                 string steamPath = null;
 
                 XDocument doc;
@@ -167,22 +170,22 @@ namespace StepperUpper
 
                         // pack files targeting versions earlier than 0.9.3.0 would need this; other
                         // pack files won't use this anyway, so it's just a small waste of time.
-                        skyrimPath = Path.Combine(steamPath, "steamapps", "common", "Skyrim");
+                        gameInstallPath = Path.Combine(steamPath, "steamapps", "common", "Skyrim");
                     }
 
                     if (requiresSkyrim)
                     {
-                        skyrimPath = GetSkyrimDirectoryPath(options);
-                        if (String.IsNullOrEmpty(skyrimPath))
+                        gameInstallPath = GetSkyrimDirectoryPath(options);
+                        if (String.IsNullOrEmpty(gameInstallPath))
                         {
                             Console.Error.WriteLine("-s / --steamFolder, or a valid Skyrim registry key, is required for {0}.", XDocument.Parse(docTextBuilder.ToString()).Element("Modpack").Attribute("Name").Value);
                             return 12;
                         }
 
-                        skyrimPath = new DirectoryInfo(skyrimPath).FullName;
-                        docTextBuilder = docTextBuilder.Replace("{SkyrimInstallFolder}", skyrimPath)
-                                                       .Replace("{SkyrimInstallFolderForwardSlashes}", skyrimPath.Replace(Path.DirectorySeparatorChar, '/'))
-                                                       .Replace("{SkyrimInstallFolderEscapeBackslashes}", skyrimPath.Replace("\\", "\\\\"));
+                        gameInstallPath = new DirectoryInfo(gameInstallPath).FullName;
+                        docTextBuilder = docTextBuilder.Replace("{SkyrimInstallFolder}", gameInstallPath)
+                                                       .Replace("{SkyrimInstallFolderForwardSlashes}", gameInstallPath.Replace(Path.DirectorySeparatorChar, '/'))
+                                                       .Replace("{SkyrimInstallFolderEscapeBackslashes}", gameInstallPath.Replace("\\", "\\\\"));
                     }
 
                     doc = XDocument.Parse(docTextBuilder.ToString());
@@ -192,76 +195,69 @@ namespace StepperUpper
 
                 foreach (var modpackElement in doc.Descendants("Modpack"))
                 {
-                    modpackElements.Add(modpackElement);
+                    var modpack = new Modpack(modpackElement);
+                    modpacks.Add(modpack);
 
-                    var minimumToolVersion = Version.Parse(modpackElement.Attribute("MinimumToolVersion").Value);
                     var currentToolVersion = Assembly.GetExecutingAssembly().GetName().Version;
-                    if (currentToolVersion < minimumToolVersion)
+                    if (currentToolVersion < modpack.MinimumToolVersion)
                     {
-                        Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, minimumToolVersion);
+                        Console.Error.WriteLine("Current tool version ({0}) is lower than the minimum tool version ({1}) required for this pack.", currentToolVersion, modpack.MinimumToolVersion);
                         return 3;
                     }
 
-                    string modpackName = modpackElement.Attribute("Name").Value;
-                    string packVersion = modpackElement.Attribute("PackVersion").Value;
-                    string fileVersion = modpackElement.Attribute("FileVersion").Value;
-
-                    var requirements = Tokenize(modpackElement.Attribute("Requires")?.Value).ToArray();
-                    if (!seenSoFar.IsSupersetOf(requirements))
+                    if (!seenSoFar.IsSupersetOf(modpack.Requirements))
                     {
-                        Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpackName, String.Join(", ", requirements));
+                        Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpack.Name, String.Join(", ", modpack.Requirements));
                         return 4;
                     }
 
-                    if (seenSoFar.Contains(modpackName))
+                    if (seenSoFar.Contains(modpack.Name))
                     {
-                        Console.Error.WriteLine("Trying to set up {0} twice in the same run", modpackName);
+                        Console.Error.WriteLine("Trying to set up {0} twice in the same run", modpack.Name);
                         return 5;
                     }
 
-                    seenSoFar.Add(modpackName);
-                    seenSoFar.Add(modpackName + ", " + packVersion);
-                    seenSoFar.Add(modpackName + ", " + packVersion + ", " + fileVersion);
+                    seenSoFar.Add(modpack.Name);
+                    seenSoFar.Add(modpack.Name + ", " + modpack.PackVersion);
+                    seenSoFar.Add(modpack.Name + ", " + modpack.PackVersion + ", " + modpack.FileVersion);
 
-                    if (Int32.TryParse(modpackElement.Attribute("LongestOutputPathLength")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out var currMaxOutputPathLength) &&
-                        longestOutputPathLength < currMaxOutputPathLength)
+                    if (longestOutputPathLength < modpack.LongestOutputPathLength)
                     {
-                        longestOutputPathLength = currMaxOutputPathLength;
+                        longestOutputPathLength = modpack.LongestOutputPathLength.Value;
                     }
 
-                    string game;
-                    switch (game = modpackElement.Attribute("Game")?.Value)
+                    switch (modpack.Game)
                     {
-                        case null:
+                        case Game.Unknown:
                             break;
 
-                        case "Skyrim2011":
+                        case Game.Skyrim2011:
                             if (requiresSkyrim)
                             {
                                 break;
                             }
 
-                            skyrimPath = GetSkyrimDirectoryPath(options);
-                            if (String.IsNullOrEmpty(skyrimPath))
+                            gameInstallPath = GetSkyrimDirectoryPath(options);
+                            if (String.IsNullOrEmpty(gameInstallPath))
                             {
-                                Console.Error.WriteLine("-s / --steamFolder, or a valid Skyrim registry key, is required for {0}.", modpackName);
+                                Console.Error.WriteLine("-s / --steamFolder, or a valid Skyrim registry key, is required for {0}.", modpack.Name);
                                 return 12;
                             }
 
-                            skyrimPath = new DirectoryInfo(skyrimPath).FullName;
+                            gameInstallPath = new DirectoryInfo(gameInstallPath).FullName;
                             requiresSkyrim = true;
                             break;
 
                         default:
-                            Console.Error.WriteLine("Unrecognized game: {0}", game);
+                            Console.Error.WriteLine("Unrecognized game: {0}", modpack.Game);
                             return 13;
                     }
 
                     if (requiresSkyrim)
                     {
-                        sourceDirectories.Add(Path.Combine(skyrimPath, "Data"));
+                        sourceDirectories.Add(gameDataPath = Path.Combine(gameInstallPath, "Data"));
                     }
-                    else if (minimumToolVersion < new Version(0, 9, 3, 0))
+                    else if (modpack.MinimumToolVersion < new Version(0, 9, 3, 0))
                     {
                         // pack files for versions earlier than 0.9.3.0 always used Skyrim's Data
                         // directory, relative to the Steam directory, as an additional source for
@@ -269,7 +265,7 @@ namespace StepperUpper
                         // as well continue to support those old pack files.
                         if (options.SteamDirectoryPath == null)
                         {
-                            Console.Error.WriteLine("-s / --steamFolder is required for {0}.", modpackName);
+                            Console.Error.WriteLine("-s / --steamFolder is required for {0}.", modpack.Name);
                             return 11;
                         }
 
@@ -290,13 +286,11 @@ namespace StepperUpper
 
             Console.WriteLine("Checking existing files...");
 
-            var groups = modpackElements.SelectMany(
-                modpackElement =>
-                    modpackElement
-                        .Element("Files")
-                        .Elements("Group")
-                        .SelectMany(grp => grp.Elements("File"))
-                        .GroupBy(fl => modpackElement.Attribute("Name").Value + "|" + (fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)))
+            var groups = modpacks.SelectMany(
+                modpack => modpack
+                    .CheckedFiles
+                    .SelectMany(grp => grp.CheckedFiles)
+                    .GroupBy(fl => modpack.Name + "|" + (fl.Option ?? fl.Name)))
                 .ToArray();
 
             // we hit all the files in the Skyrim directory, which has lots of gigabytes of BSAs we
@@ -304,20 +298,19 @@ namespace StepperUpper
             // care about either.  quick and easy fix is to just look at files whose lengths match.
             // not absolutely 100% perfect, but good enough.
             var sizes = new Dictionary<long, Hashes>();
-            foreach (var el in groups.SelectMany(grp => grp))
+            foreach (var fl in groups.SelectMany(grp => grp))
             {
-                var size = Int64.Parse(el.Attribute("LengthInBytes").Value, NumberStyles.None, CultureInfo.InvariantCulture);
-                if (!sizes.TryGetValue(size, out var hashesToCheck))
+                if (!sizes.TryGetValue(fl.LengthInBytes, out var hashesToCheck))
                 {
                     hashesToCheck = Hashes.Md5;
                 }
 
-                if (el.Attribute("SHA512Checksum") != null)
+                if (fl.Sha512Checksum != default(Sha512Checksum))
                 {
                     hashesToCheck |= Hashes.Sha512;
                 }
 
-                sizes[size] = hashesToCheck;
+                sizes[fl.LengthInBytes] = hashesToCheck;
             }
 
             var sourceFiles = sourceDirectories.Distinct(StringComparer.OrdinalIgnoreCase)
@@ -350,8 +343,8 @@ namespace StepperUpper
             Console.Write(Invariant($"\r{new string(' ', 32)}"));
             Console.Write('\r');
 
-            var missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.TryGetValue(new Md5Checksum(fl.Attribute("MD5Checksum").Value), out var val) &&
-                                                                   new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value) == val.sha512Checksum))
+            var missingGroups = groups.Where(grp => !grp.Any(fl => checkedFiles.TryGetValue(fl.Md5Checksum, out var val) &&
+                                                                   fl.Sha512Checksum == val.sha512Checksum))
                                       .ToArray();
 
             Console.WriteLine("Finished checking existing files.");
@@ -370,14 +363,7 @@ namespace StepperUpper
                 for (int i = 0; i < missingGroups.Length; i++)
                 {
                     var grp = missingGroups[i];
-                    var downloadables = grp.Select(fl => new
-                    {
-                        Name = fl.Attribute("Name").Value,
-                        Md5Checksum = new Md5Checksum(fl.Attribute("MD5Checksum").Value),
-                        Sha512Checksum = new Sha512Checksum(fl.Attribute("SHA512Checksum")?.Value),
-                        DownloadUrl = fl.Attribute("DownloadUrl")?.Value,
-                        CanonicalFileName = fl.Attribute("CanonicalFileName").Value
-                    }).Where(x => x.DownloadUrl != null).ToArray();
+                    var downloadables = grp.Where(x => x.DownloadUrl != null).ToArray();
 
                     if (downloadables.Length == 0)
                     {
@@ -449,15 +435,15 @@ namespace StepperUpper
 
                         string urlIfSingle = null;
                         int optionCount = 0;
-                        foreach (var el in grp)
+                        foreach (var fl in grp)
                         {
-                            if (!checksums.Add(new Md5Checksum(el.Attribute("MD5Checksum").Value)))
+                            if (!checksums.Add(fl.Md5Checksum))
                             {
                                 continue;
                             }
 
-                            urlIfSingle = GetUrl(el);
-                            sb.Append(Invariant($"<tr><td>{el.Attribute("Name").Value}</td><td><a href=\"{urlIfSingle}\">{urlIfSingle}</a></td></tr>"));
+                            urlIfSingle = fl.DownloadTags.ToString();
+                            sb.Append(Invariant($"<tr><td>{fl.Name}</td><td><a href=\"{urlIfSingle}\">{urlIfSingle}</a></td></tr>"));
                             optionCount++;
                         }
 
@@ -500,67 +486,37 @@ namespace StepperUpper
             }
 
             ManualResetEventSlim evt = new ManualResetEventSlim();
-            foreach (var modpackElement in modpackElements)
+            foreach (var modpack in modpacks)
             {
-                string modpackName = modpackElement.Attribute("Name").Value;
-
                 TaskCompletionSource<string> longestPathBox = new TaskCompletionSource<string>();
                 Thread th = options.DetectMaxPath ? new Thread(() => DetectLongestPathLength(dumpDirectory.FullName, evt, longestPathBox)){ IsBackground = true } : null;
                 th?.Start();
-                Console.WriteLine("Starting tasks for {0}", modpackName);
+                Console.WriteLine("Starting tasks for {0}", modpack.Name);
 
-                var dct = modpackElement
-                    .Element("Files")
-                    .Elements("Group")
-                    .SelectMany(grp => grp.Elements("File"))
-                    .GroupBy(fl => fl.Attribute("Option")?.Value ?? fl.Attribute("Name").Value)
-                    .ToDictionary(grp => grp.Key, grp => new FileInfo(checkedFiles[grp.Select(el => new Md5Checksum(el.Attribute("MD5Checksum").Value)).First(checkedFiles.ContainsKey)].file.FullName));
+                // TODO: the Task.FromResult is there with #8 in mind.
+                var dct = modpack
+                    .CheckedFiles
+                    .SelectMany(grp => grp.CheckedFiles)
+                    .GroupBy(fl => fl.Option ?? fl.Name)
+                    .ToDictionary(grp => grp.Key, grp => Task.FromResult(new FileInfo(checkedFiles[grp.Select(fl => fl.Md5Checksum).First(checkedFiles.ContainsKey)].file.FullName)));
+
+                var ctx = new SetupContext(
+                    downloadDirectory: new DirectoryInfo(sourceDirectories[0]),
+                    outputDirectory: dumpDirectory,
+                    gameInstallDirectory: new DirectoryInfo(gameInstallPath),
+                    gameDataDirectory: new DirectoryInfo(gameDataPath),
+                    knownFiles: dct.AsReadOnly(),
+                    taskRoot: modpack.SetupTasksRoot);
 
                 Console.WriteLine("Starting the actual tasks (extracting archives, etc.)...");
-                var dict = modpackElement.Element("Tasks").Elements("Group").SelectMany(grp => grp.Elements()).ToDictionary(t => t.Attribute("Id")?.Value ?? Guid.NewGuid().ToString());
-                var dict2 = dict.ToDictionary(kvp => kvp.Key, _ => new TaskCompletionSource<object>());
 
-                cnt = dict.Count;
-                Console.Write(Invariant($"\r{cnt.ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
-                using (SemaphoreSlim consoleLock = new SemaphoreSlim(1, 1))
-                {
-                    await Task.WhenAll(dict.Select(kvp => Task.Run(async () =>
-                    {
-                        string id = kvp.Key;
-                        XElement taskElement = kvp.Value;
-
-                        try
-                        {
-                            await Task.WhenAll(Tokenize(taskElement.Attribute("WaitFor")?.Value).Select(x => dict2[x].Task)).ConfigureAwait(false);
-
-                            await SetupTasks.DispatchAsync(taskElement, dct, dumpDirectory, dict2).ConfigureAwait(false);
-
-                            dict2[id].TrySetResult(null);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.Error.WriteLine("{1}Error when trying to do this task:{1}{0}{1}{1}{2}{1}", taskElement, Environment.NewLine, ex);
-                            dict2[id].TrySetException(ex);
-                            throw;
-                        }
-                        finally
-                        {
-                            await consoleLock.WaitAsync().ConfigureAwait(false);
-                            try
-                            {
-                                Console.Write(Invariant($"\r{(--cnt).ToString(CultureInfo.InvariantCulture).PadLeft(10)} task(s) remaining..."));
-                            }
-                            finally
-                            {
-                                consoleLock.Release();
-                            }
-                        }
-                    }))).ConfigureAwait(false);
-                }
+                ctx.NotifyRemainingTasks();
+                await modpack.SetupTasksRoot.DispatchAsync(ctx).ConfigureAwait(false);
+                ctx.NotifyFinished();
 
                 Console.Write(Invariant($"\r{new string(' ', 32)}"));
                 Console.Write('\r');
-                Console.WriteLine("All tasks completed for {0}!", modpackName);
+                Console.WriteLine("All tasks completed for {0}!", modpack.Name);
 
                 evt.Set();
                 if (th != null)
@@ -655,39 +611,6 @@ namespace StepperUpper
                 catch
                 {
                     await default(NonCapturingYield);
-                }
-            }
-        }
-
-        private static string GetUrl(XElement missing)
-        {
-            using (IEnumerator<string> tokens = Tokenize(missing.Attribute("DownloadTags").Value).GetEnumerator())
-            {
-                tokens.MoveNext();
-                string handler = tokens.Current;
-                tokens.MoveNext();
-                switch (handler)
-                {
-                    case "steam":
-                        string appId = tokens.Current;
-                        return Invariant($"steam://store/{appId}");
-
-                    case "nexus":
-                        string game = tokens.Current;
-                        tokens.MoveNext();
-                        string modId = tokens.Current;
-                        tokens.MoveNext();
-                        string fileId = tokens.Current;
-
-                        // don't tell Mom
-                        ////return Invariant($"nxm://{game}/mods/{modId}/files/{fileId}");
-                        return Invariant($"http://www.nexusmods.com/{game}/mods/{modId}");
-
-                    case "generic":
-                        return tokens.Current;
-
-                    default:
-                        throw new NotSupportedException("Unrecognized handler: " + handler);
                 }
             }
         }

@@ -81,10 +81,6 @@
       <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net46\System.Reactive.PlatformServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
@@ -100,9 +96,25 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\CheckedFile.cs" />
+    <Compile Include="DataModel\CheckedFileGroup.cs" />
     <Compile Include="ConcurrentMd5.cs" />
     <Compile Include="Cleaner.cs" />
+    <Compile Include="DataModel\DownloadTags.cs" />
+    <Compile Include="DataModel\DeferredAbsolutePath.cs" />
+    <Compile Include="DataModel\KnownFolder.cs" />
+    <Compile Include="DataModel\SetupTask.CopyFile.cs" />
+    <Compile Include="DataModel\SetupContext.cs" />
+    <Compile Include="DataModel\SetupTask.Composite.cs" />
+    <Compile Include="DataModel\SetupTask.CreateEmptyFolder.cs" />
+    <Compile Include="DataModel\SetupTask.DeleteFile.cs" />
+    <Compile Include="DataModel\SetupTask.EditFile.cs" />
+    <Compile Include="DataModel\SetupTask.TweakINI.cs" />
+    <Compile Include="DataModel\SetupTask.DeleteFolder.cs" />
+    <Compile Include="DataModel\SetupTask.MoveFolder.cs" />
     <Compile Include="FullScreenMode.cs" />
+    <Compile Include="DataModel\Game.cs" />
+    <Compile Include="DataModel\Modpack.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="NonCapturingYield.cs" />
     <Compile Include="Options.cs" />
@@ -110,8 +122,8 @@
     <Compile Include="ProcessRunner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModel\SetupTask.Base.cs" />
     <Compile Include="SevenZipExtractor.cs" />
-    <Compile Include="SetupTasks.cs" />
     <Compile Include="UI\Dialogs.cs" />
     <Compile Include="UI\FilePathViewModel.cs" />
     <Compile Include="UI\InputViewModel.cs" />
@@ -124,6 +136,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="DataModel\SetupTask.ExtractArchive.cs" />
+    <Compile Include="DataModel\SetupTask.Embedded.cs" />
+    <Compile Include="DataModel\SetupTask.Clean.cs" />
+    <Compile Include="DataModel\SetupTask.RunProcess.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -170,8 +186,7 @@
       <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System" />
       <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.IO" />
       <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.Xml.Linq" />
-      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs">
-<![CDATA[
+      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs"><![CDATA[
 var config = XElement.Load(Config.ItemSpec).Elements("Costura").FirstOrDefault();
 
 if (config == null) return true;
@@ -190,8 +205,8 @@ var filesToCleanup = Files.Select(f => f.ItemSpec).Where(f => !excludedAssemblie
 
 foreach (var item in filesToCleanup)
   File.Delete(item);
-]]>
-      </Code></Task>
+]]></Code>
+    </Task>
   </UsingTask>
   <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
     <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
