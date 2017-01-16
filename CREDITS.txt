@@ -334,7 +334,11 @@ Many thanks to Julian Seward for the original C implementation of BZip2 ( http:/
 
 --
 
+Various out-of-band corefx components, including:
+System.Buffers
 System.Collections.Immutable
+System.Runtime.CompilerServices.Unsafe
+System.ValueTuple
 from https://github.com/dotnet/corefx/blob/master/LICENSE
 
 The MIT License (MIT)
