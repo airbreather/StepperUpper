@@ -18,11 +18,7 @@ namespace BethFile
 
         public MArrayPosition<byte> PayloadStart => this.Start + 24;
 
-        public B4S RecordType
-        {
-            get => MBitConverter.To<B4S>(this.PayloadStart);
-            set => MBitConverter.Set(this.PayloadStart, value);
-        }
+        public B4S RecordType => this.Label;
 
         public uint DataSize
         {
