@@ -25,19 +25,19 @@ namespace BethFile
             // xEdit uses the default level (6) when it does the same.
             using (var res = new MemoryStream())
             {
+                int cnt = data.Count;
+
+                // why do I have to do something like this to avoid allocating? ...
+                unchecked
+                {
+                    res.WriteByte((byte)(cnt >> 00));
+                    res.WriteByte((byte)(cnt >> 08));
+                    res.WriteByte((byte)(cnt >> 16));
+                    res.WriteByte((byte)(cnt >> 24));
+                }
+
                 using (var def = new ZlibStream(res, CompressionMode.Compress, leaveOpen: true))
                 {
-                    int cnt = data.Count;
-
-                    // why do I have to do something like this to avoid allocating? ...
-                    unchecked
-                    {
-                        res.WriteByte((byte)(cnt >> 00));
-                        res.WriteByte((byte)(cnt >> 08));
-                        res.WriteByte((byte)(cnt >> 16));
-                        res.WriteByte((byte)(cnt >> 24));
-                    }
-
                     def.Write(data.Array, data.Offset, data.Count);
                 }
 
