@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.1"
+         FileVersion="1.2.1.2"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -1733,10 +1733,10 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      DownloadTags="nexus|skyrim|74568|1000225996" />
 
 			<File Name="RDO - Patches Final"
-			      LengthInBytes="2046720"
-			      CanonicalFileName="RDO - Patches v1.3-74568-1-3.7z"
-			      MD5Checksum="c68bea1bcc9cd94e17be2d75d4f20d49"
-			      DownloadTags="nexus|skyrim|74568|1000225123" />
+			      LengthInBytes="2048435"
+			      CanonicalFileName="RDO - Patches Final New-74568-Final.7z"
+			      MD5Checksum="c7789817015dd00b397b1fc1d2ddc952"
+			      DownloadTags="nexus|skyrim|74568|1000234789" />
 
 			<File Name="Respectful Guard Animations Patch for Guard Dialogue Overhaul 1.5"
 			      LengthInBytes="2714"
