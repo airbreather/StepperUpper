@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.2"
+         FileVersion="1.2.1.3"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -4101,7 +4101,7 @@ SR Conflict Resolution.esp]]></Line>
 			<ExtractArchive ArchiveFile="Better Stealing 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Bug Fixes 1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Crash Fixes 12" SimpleMO="Root" Id="CrashFixesMain" />
-			<TweakINI WaitFor="CrashFixesMain" File="ModOrganizer/mods/Crash Fixes 12/CrashFixPlugin.ini">
+			<TweakINI WaitFor="CrashFixesMain" File="ModOrganizer/mods/Crash Fixes 12/SKSE/Plugins/CrashFixPlugin.ini">
 				<Set Section="Patch" Property="UseOSAllocators" Value="1" />
 				<Set Section="Patch" Property="AlignHeapAllocate" Value="1" />
 			</TweakINI>
