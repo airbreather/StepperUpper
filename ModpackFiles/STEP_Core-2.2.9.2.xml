@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.3"
+         FileVersion="1.2.1.4"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -108,11 +108,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="7a5aaaa2a3266b7530a49253bae3d553"
 			      DownloadTags="steam|202485" />
 
-			<File Name="Unofficial High Resolution Patch 1.2.0"
-			      LengthInBytes="74632688"
-			      CanonicalFileName="Unofficial High Resolution Patch-31255-1-2-0.7z"
-			      MD5Checksum="21a3dc0041833905120c20852fb4b2ff"
-			      DownloadTags="nexus|skyrim|31255|1000195461" />
+			<File Name="Unofficial High Resolution Patch 1.2.1"
+			      LengthInBytes="75925485"
+			      CanonicalFileName="Unofficial High Resolution Patch-31255-1-2-1.7z"
+			      MD5Checksum="55ab67f89f6fd4ee6296fd577241113b"
+			      DownloadTags="nexus|skyrim|31255|1000235509" />
 
 			<File Name="STEP Vanilla Optimized Textures - Standard Version 1.2"
 			      LengthInBytes="2917803607"
@@ -1254,7 +1254,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 		<Group Name="2.D. Fixes">
 			<ExtractArchive ArchiveFile="USLEEP 3.0.7" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.0" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
@@ -2423,7 +2423,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +Brawl Bugs - Compatibility Edition 1.0
 +Appropriately Attired Jarls 1.1.1
 +STEP Vanilla Optimized Textures - Standard Version 1.2
-+Unofficial High Resolution Patch 1.2.0
++Unofficial High Resolution Patch 1.2.1
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
