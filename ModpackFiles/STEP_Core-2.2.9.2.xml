@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.4"
+         FileVersion="1.2.1.5"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -55,10 +55,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 		<Group Name="2.C. Extenders">
 			<File Name="ENBSeries v0308"
-			      LengthInBytes="3023865"
+			      LengthInBytes="3025022"
 			      CanonicalFileName="enbseries_skyrim_v0308.zip"
-			      MD5Checksum="a670012e31e4e4cfcf772e2c9f874d8b"
-			      SHA512Checksum="59d581f99ff3b31c2876008411388c7179c5f3886209bf38ede4e06a77aee6ea4978af712b0969ec42a0f67910d8ff0c3e195b05876ba92d0e02f472951f11e5"
+			      MD5Checksum="d12baa2297e1b78b9b71f78c1bdf2fd6"
+			      SHA512Checksum="29d31127b88b44e62db12f3b4a6ed370af61157d96a7e190678ca119a475e59817225e85c3ab69e6820f3e9b3cc9ca18275504c45190b2ead4463f3ca9167ebd"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
 
 			<File Name="SKSE 1.7.3"

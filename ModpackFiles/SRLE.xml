@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.4"
+         FileVersion="1.2.1.5"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -147,10 +147,10 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 
 		<Group Name="3.7 ENB Series Graphics Modification">
 			<File Name="ENBSeries v0308"
-			      LengthInBytes="3023865"
+			      LengthInBytes="3025022"
 			      CanonicalFileName="enbseries_skyrim_v0308.zip"
-			      MD5Checksum="6bc7093f4079605e5f13f57df784bd74"
-			      SHA512Checksum="2823ba3b09fbcba43d5c6a77e2d96c62da735ff3b45150ed0a6028ce772d4ffa65b6b50a6223ad8a3de68fef45c00c3289d60a233871ea07a95f4d9da786a3ea"
+			      MD5Checksum="d12baa2297e1b78b9b71f78c1bdf2fd6"
+			      SHA512Checksum="29d31127b88b44e62db12f3b4a6ed370af61157d96a7e190678ca119a475e59817225e85c3ab69e6820f3e9b3cc9ca18275504c45190b2ead4463f3ca9167ebd"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0308.htm" />
 
 			<File Name="ENB Organizer 2.1.1"
