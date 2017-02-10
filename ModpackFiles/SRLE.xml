@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.5"
+         FileVersion="1.2.1.6"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -1950,11 +1950,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="87068f5fe7e1c7a5f78501e7c5288bc0"
 			      DownloadTags="nexus|skyrim|3087|1000093603" />
 
-			<File Name="RUSTIC CLOTHING - COMPLETE - 2K 1.0"
-			      LengthInBytes="596864405"
-			      CanonicalFileName="RUSTIC CLOTHING - COMPLETE - 2K-69784-1-0.7z"
-			      MD5Checksum="bacb8e81c979deb067cda4259567d2d4"
-			      DownloadTags="nexus|skyrim|69784|1000228578" />
+			<File Name="RUSTIC CLOTHING - COMPLETE - 2K 2.0"
+			      LengthInBytes="619959282"
+			      CanonicalFileName="RUSTIC CLOTHING - COMPLETE - 2K-69784-2-0.7z"
+			      MD5Checksum="1765804f293c13d355301afbf0df7876"
+			      DownloadTags="nexus|skyrim|69784|1000235867" />
 
 			<File Name="RUSTIC FORSWORN - 2K 2.0"
 			      LengthInBytes="19781570"
@@ -3429,7 +3429,7 @@ SR Conflict Resolution.esp]]></Line>
 +UNP Dawnguard Armors - UNPB 1.5
 +Frankly HD Stormcloak and City Guards - 2K 1b
 +RUSTIC FORSWORN - 2K 2.0
-+RUSTIC CLOTHING - COMPLETE - 2K 1.0
++RUSTIC CLOTHING - COMPLETE - 2K 2.0
 +Nightingale Weapons Retexture - Carbon Fiber 2
 +Nightingale Prime HD Final
 +New Jewels for Circlets - Normal and Greyscale X
@@ -5993,7 +5993,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 				<MapFolder To="ModOrganizer/mods/Nightingale Weapons Retexture - Carbon Fiber 2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2K 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2K 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="RUSTIC FORSWORN - 2K 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K 1b" SimpleMO="Single" Id="FranklyHDMain" />
 			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K Fix 2" WaitFor="FranklyHDMain">
