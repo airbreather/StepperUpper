@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.6"
+         FileVersion="1.2.1.7"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -135,14 +135,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="e96eb391492c4ab4cb55e37e5e805927"
 			      DownloadTags="nexus|skyrim|57353|1000194206" />
 
-			<!-- Apparently these are fully redundant with HRDLC and UHRP. -->
-			<!--
 			<File Name="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)"
 			      LengthInBytes="1312941684"
 			      CanonicalFileName="High Definition DLC for ModOrganizer Users (Part 2_2 - Extract Me)-57353.7z"
 			      MD5Checksum="47695b754868bfb821a00117bd35021e"
 			      DownloadTags="nexus|skyrim|57353|1000194208" />
-			-->
 		</Group>
 
 		<Group Name="3.7 ENB Series Graphics Modification">
@@ -1950,11 +1947,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="87068f5fe7e1c7a5f78501e7c5288bc0"
 			      DownloadTags="nexus|skyrim|3087|1000093603" />
 
-			<File Name="RUSTIC CLOTHING - COMPLETE - 2K 2.0"
-			      LengthInBytes="619959282"
-			      CanonicalFileName="RUSTIC CLOTHING - COMPLETE - 2K-69784-2-0.7z"
-			      MD5Checksum="1765804f293c13d355301afbf0df7876"
-			      DownloadTags="nexus|skyrim|69784|1000235867" />
+			<File Name="RUSTIC CLOTHING - COMPLETE - 2K 3.0"
+			      LengthInBytes="623436276"
+			      CanonicalFileName="RUSTIC CLOTHING - COMPLETE - 2K-69784-3-0.7z"
+			      MD5Checksum="eb5a5233409235ce180668f6759b4f63"
+			      DownloadTags="nexus|skyrim|69784|1000236036" />
 
 			<File Name="RUSTIC FORSWORN - 2K 2.0"
 			      LengthInBytes="19781570"
@@ -2969,14 +2966,14 @@ Skyrim - Sounds.bsa
 Skyrim - Voices.bsa
 Skyrim - VoicesExtra.bsa
 Update.bsa
-Dawnguard.bsa
-HearthFires.bsa
-Dragonborn.bsa
 Skyrim - HD01.bsa
 Skyrim - HD02.bsa
-HighResTexturePack01.bsa
-HighResTexturePack02.bsa
-HighResTexturePack03.bsa]]></Line>
+Dawnguard.bsa
+Dawnguard - HD.bsa
+HearthFires.bsa
+HearthFires - HD.bsa
+Dragonborn.bsa
+Dragonborn - HD.bsa]]></Line>
 			</Embedded>
 
 			<Embedded File="ModOrganizer/profiles/SRLE/plugins.txt" Encoding="UTF8NoBOM">
@@ -3429,7 +3426,7 @@ SR Conflict Resolution.esp]]></Line>
 +UNP Dawnguard Armors - UNPB 1.5
 +Frankly HD Stormcloak and City Guards - 2K 1b
 +RUSTIC FORSWORN - 2K 2.0
-+RUSTIC CLOTHING - COMPLETE - 2K 2.0
++RUSTIC CLOTHING - COMPLETE - 2K 3.0
 +Nightingale Weapons Retexture - Carbon Fiber 2
 +Nightingale Prime HD Final
 +New Jewels for Circlets - Normal and Greyscale X
@@ -3702,10 +3699,13 @@ SR Conflict Resolution.esp]]></Line>
 *Unmanaged: HighResTexturePack01
 +USLEEP 3.0.7
 +Cleaned Dragonborn ESM
++Optimized Dragonborn Textures
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
++Optimized HearthFires Textures
 *Unmanaged: HearthFires
 +Cleaned Dawnguard ESM
++Optimized Dawnguard Textures
 *Unmanaged: Dawnguard
 +Cleaned Update ESM
 +Optimized Vanilla Textures
@@ -3808,41 +3808,34 @@ SR Conflict Resolution.esp]]></Line>
 				<MapFolder From="00 Textures" To="ModOrganizer/mods/Optimized Vanilla Textures" />
 			</ExtractArchive>
 
-			<!-- Hmm, somehow all of this stuff gets fully overridden. -->
 			<!-- DLC textures are yo-dawg'd. -->
-			<!--
 			<ExtractArchive ArchiveFile="High Definition DLC for ModOrganizer Users (Part 2 of 2 - Extract Me)" Id="DLCTexturesMain">
 				<MapFile From="Dawnguard - HD (Install Me via MO).7z" To="OPT_TEX/DawnguardOptimized.7z" />
 				<MapFile From="Dragonborn - HD (Install Me via MO).7z" To="OPT_TEX/DragonbornOptimized.7z" />
 				<MapFile From="HearthFires - HD (Install Me via MO).7z" To="OPT_TEX/HearthFiresOptimized.7z" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchivePath="OPT_TEX/DawnguardOptimized.7z" WaitFor="DLCTexturesMain" Id="DawnguardTextures">
-				<MapBSAFile From="00 Textures/Dawnguard - HD.bsa" To="ModOrganizer/mods/Optimized Dawnguard Textures" />
+			<ExtractArchive ArchiveFile="OPT_TEX/DawnguardOptimized.7z" ArchiveFileParent="OutputFolder" WaitFor="DLCTexturesMain" Id="DawnguardTextures">
+				<MapFolder From="00 Textures" To="ModOrganizer/mods/Optimized Dawnguard Textures" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchivePath="OPT_TEX/DragonbornOptimized.7z" WaitFor="DLCTexturesMain" Id="DragonbornTextures">
-				<MapBSAFile From="00 Textures/Dragonborn - HD.bsa" To="ModOrganizer/mods/Optimized Dragonborn Textures" />
+			<ExtractArchive ArchiveFile="OPT_TEX/DragonbornOptimized.7z" ArchiveFileParent="OutputFolder" WaitFor="DLCTexturesMain" Id="DragonbornTextures">
+				<MapFolder From="00 Textures" To="ModOrganizer/mods/Optimized Dragonborn Textures" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchivePath="OPT_TEX/HearthFiresOptimized.7z" WaitFor="DLCTexturesMain" Id="HearthFiresTextures">
-				<MapBSAFile From="00 Textures/HearthFires - HD.bsa" To="ModOrganizer/mods/Optimized HearthFires Textures" />
+			<ExtractArchive ArchiveFile="OPT_TEX/HearthFiresOptimized.7z" ArchiveFileParent="OutputFolder" WaitFor="DLCTexturesMain" Id="HearthFiresTextures">
+				<MapFolder From="00 Textures" To="ModOrganizer/mods/Optimized HearthFires Textures" />
 			</ExtractArchive>
-			-->
 
 			<!-- Delete these files a bit earlier than we would have otherwise, to reclaim a bit of
 			     space just that little bit earlier. -->
-			<!--
 			<DeleteFile Path="OPT_TEX/DawnguardOptimized.7z" WaitFor="DawnguardTextures" Id="DeleteDawnguardYoDawg" />
 			<DeleteFile Path="OPT_TEX/DragonbornOptimized.7z" WaitFor="DragonbornTextures" Id="DeleteDragonbornYoDawg" />
 			<DeleteFile Path="OPT_TEX/HearthFiresOptimized.7z" WaitFor="HearthFiresTextures" Id="DeleteHearthFiresYoDawg" />
-			-->
 
 			<!-- This is sufficient if we're OK with keeping each yo-dawg archive around until all 3
 			     yo-dawg archives are done being processed. -->
-			<!--
 			<DeleteFolder Path="OPT_TEX" WaitFor="DeleteDawnguardYoDawg|DeleteDragonbornYoDawg|DeleteHearthFiresYoDawg" />
-			-->
 		</Group>
 
 		<Group Name="3.7 ENB Series Graphics Modification">
@@ -5993,7 +5986,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 				<MapFolder To="ModOrganizer/mods/Nightingale Weapons Retexture - Carbon Fiber 2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2K 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2K 3.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="RUSTIC FORSWORN - 2K 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K 1b" SimpleMO="Single" Id="FranklyHDMain" />
 			<ExtractArchive ArchiveFile="Frankly HD Stormcloak and City Guards - 2K Fix 2" WaitFor="FranklyHDMain">
