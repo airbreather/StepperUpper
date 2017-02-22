@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.7"
+         FileVersion="1.2.1.8"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -95,11 +95,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="37d8cbffcb460011ce2bf3aabd007a2d"
 			      DownloadTags="steam|226880" />
 
-			<File Name="USLEEP 3.0.7"
-			      LengthInBytes="175559704"
-			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-7.7z"
-			      MD5Checksum="e1f32d03931429846b9439c25023696d"
-			      DownloadTags="nexus|skyrim|71214|1000226281" />
+			<File Name="USLEEP 3.0.8"
+			      LengthInBytes="179208331"
+			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-8.7z"
+			      MD5Checksum="ba77a8fc1c4e863774ba837827664053"
+			      DownloadTags="nexus|skyrim|71214|1000236632" />
 
 			<!-- All 3 dummy ESPs are identical. -->
 			<File Name="High Resolution Texture Pack Dummy ESPs"
@@ -144,11 +144,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="1f31f718b070fab23aff8f684542c5b0"
 			      DownloadTags="nexus|skyrim|19730|1000231118" />
 
-			<File Name="Cutting Room Floor - Legendary Edition 2.0.3"
-			      LengthInBytes="6007711"
-			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-3.7z"
-			      MD5Checksum="e3778a2b026ddbf435c588a4dc4b4064"
-			      DownloadTags="nexus|skyrim|47327|1000221306" />
+			<File Name="Cutting Room Floor - Legendary Edition 2.0.4"
+			      LengthInBytes="6024030"
+			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-4.7z"
+			      MD5Checksum="28e1522f21ab33b584f905d373f0ca7c"
+			      DownloadTags="nexus|skyrim|47327|1000236777" />
 
 			<File Name="Dead Body Collision Fix - With Improved Fireball Spell 2.4"
 			      LengthInBytes="2613"
@@ -210,11 +210,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="4ccda4df01e6ed0e3705273aff4986b3"
 			      DownloadTags="nexus|skyrim|34108|1000021116" />
 
-			<File Name="Relighting Skyrim - No JIT 4.0.1"
-			      LengthInBytes="6647840"
-			      CanonicalFileName="Relighting Skyrim - No JIT-17609-4-0-1.7z"
-			      MD5Checksum="c79331c4767c1519f2d7f53121355af0"
-			      DownloadTags="nexus|skyrim|17609|1000163022" />
+			<File Name="Relighting Skyrim - No JIT (Only Legendary) 4.1"
+			      LengthInBytes="677013"
+			      CanonicalFileName="Relighting Skyrim - No JIT (Only Legendary)-17609-v4-1.7z"
+			      MD5Checksum="e8a1f9258538fa3071e7000413c513b1"
+			      DownloadTags="nexus|skyrim|17609|1000235787" />
 
 			<File Name="Skyrim Project Optimization - Full Version 1.6"
 			      LengthInBytes="76826"
@@ -1253,14 +1253,14 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.7" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="USLEEP 3.0.8" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Consistent Older People 31b All NPCs USLEEP 3.1b" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.4" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMO="Root" />
@@ -1270,10 +1270,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<ExtractArchive ArchiveFile="Invisibility Eyes Fix 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="NARC Core 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Ragdoll Paralysis - Paralyze 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT 4.0.1">
-				<MapFolder From="11_ExtInt_Legendary" To="ModOrganizer/mods/Relighting Skyrim - No JIT 4.0.1" />
-			</ExtractArchive>
-
+			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT (Only Legendary) 4.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
 			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" Id="SmartSoulsMain" />
 			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
@@ -2407,7 +2404,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +Trade And Barter - Hearthfire 1.2
 +Smart Souls 9.0
 +Skyrim Project Optimization - Full Version 1.6
-+Relighting Skyrim - No JIT 4.0.1
++Relighting Skyrim - No JIT (Only Legendary) 4.1
 +Ragdoll Paralysis - Paralyze 1.0
 +NARC Core 1.2
 +Invisibility Eyes Fix 2.0
@@ -2417,7 +2414,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
-+Cutting Room Floor - Legendary Edition 2.0.3
++Cutting Room Floor - Legendary Edition 2.0.4
 +Consistent Older People 31b All NPCs USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
@@ -2427,7 +2424,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.7
++USLEEP 3.0.8
 +Cleaned Dragonborn ESM
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM

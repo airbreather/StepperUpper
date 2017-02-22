@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.7"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.8"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.7"
+         FileVersion="1.2.1.8"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -871,7 +871,7 @@ WetandCold.bsa]]></Line>
 +Trade And Barter - Hearthfire 1.2
 +Smart Souls 9.0
 +Skyrim Project Optimization - Full Version 1.6
-+Relighting Skyrim - No JIT 4.0.1
++Relighting Skyrim - No JIT (Only Legendary) 4.1
 +Ragdoll Paralysis - Paralyze 1.0
 +NARC Core 1.2
 +Invisibility Eyes Fix 2.0
@@ -881,7 +881,7 @@ WetandCold.bsa]]></Line>
 +Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
-+Cutting Room Floor - Legendary Edition 2.0.3
++Cutting Room Floor - Legendary Edition 2.0.4
 +Consistent Older People 31b All NPCs USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
@@ -891,7 +891,7 @@ WetandCold.bsa]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.7
++USLEEP 3.0.8
 +Cleaned Dragonborn ESM
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
