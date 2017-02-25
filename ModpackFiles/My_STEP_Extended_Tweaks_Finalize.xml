@@ -3,7 +3,7 @@
          Game="Skyrim2011"
          Requires="My STEP Extended Tweaks"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.8"
+         FileVersion="1.2.1.9"
          MinimumToolVersion="0.9.4.0">
 
 	<Files>

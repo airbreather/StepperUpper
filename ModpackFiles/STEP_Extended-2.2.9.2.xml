@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.8"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.9"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.8"
+         FileVersion="1.2.1.9"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -891,7 +891,7 @@ WetandCold.bsa]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.8
++USLEEP 3.0.8a
 +Cleaned Dragonborn ESM
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
