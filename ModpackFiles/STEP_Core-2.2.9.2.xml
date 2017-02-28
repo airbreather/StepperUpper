@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.9"
+         FileVersion="1.2.1.10"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -1079,19 +1079,19 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.N. Patches">
-			<File Name="STEP Compilation - High 2.2.9.2l"
-			      LengthInBytes="905471272"
-			      CanonicalFileName="STEP Compilation Installer - High Res - 2292l-11-2-2-9-2l.7z"
-			      Option="STEP Compilation 2.2.9.2l"
-			      MD5Checksum="5b3eb1c2bf754c25b5278d4ab2d21aa6"
-			      DownloadTags="nexus|skyrim|11|1000219783" />
+			<File Name="STEP Compilation - High 2.2.9.2m"
+			      LengthInBytes="934019918"
+			      CanonicalFileName="STEP Compilation Installer - High Res - 2292m-11-2-2-9-2m.7z"
+			      Option="STEP Compilation 2.2.9.2m"
+			      MD5Checksum="de7b9e0897c608b6365935bbaa8dc309"
+			      DownloadTags="nexus|skyrim|11|1000237408" />
 
-			<File Name="STEP Compilation - Normal 2.2.9.2l"
-			      LengthInBytes="582007771"
-			      CanonicalFileName="STEP Compilation Installer - Normal Res - 2292l-11-2-2-9-2l.7z"
-			      Option="STEP Compilation 2.2.9.2l"
-			      MD5Checksum="97d603bb582ad88623dd4ad1010724cb"
-			      DownloadTags="nexus|skyrim|11|1000219776" />
+			<File Name="STEP Compilation - Normal 2.2.9.2m"
+			      LengthInBytes="568266244"
+			      CanonicalFileName="STEP Compilation Installer - Normal Res - 2292m-11-2-2-9-2m.7z"
+			      Option="STEP Compilation 2.2.9.2m"
+			      MD5Checksum="cee6dcf72feff9d0531ae58e20a28e68"
+			      DownloadTags="nexus|skyrim|11|1000237404" />
 
 			<File Name="LeanWolf's Better-Shaped Weapons 2.0.09"
 			      LengthInBytes="20721263"
@@ -1990,16 +1990,16 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.N. Patches">
-			<ExtractArchive ArchiveFile="STEP Compilation 2.2.9.2l">
-				<MapFolder From="00 Core Files" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Common)" />
-				<MapFolder From="01 STEP Core Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Common)" />
+			<ExtractArchive ArchiveFile="STEP Compilation 2.2.9.2m">
+				<MapFolder From="00 Core Files" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Common)" />
+				<MapFolder From="01 STEP Core Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Common)" />
 
-				<MapFolder From="02 STEP Core Comp (skip if 03 is installed)" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Core)" />
-				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Core)" />
+				<MapFolder From="02 STEP Core Comp (skip if 03 is installed)" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Core)" />
+				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Core)" />
 
 				<!-- While we're in here... -->
-				<MapFolder From="03 STEP Extended Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Extended)" />
-				<MapFolder From="04 STEP Extended Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2l (Extended)" />
+				<MapFolder From="03 STEP Extended Comp" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Extended)" />
+				<MapFolder From="04 STEP Extended Patch" To="ModOrganizer/mods/STEP Compilation 2.2.9.2m (Extended)" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09">
@@ -2263,9 +2263,9 @@ The Paarthurnax Dilemma.bsa]]></Line>
 -LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)
 +LeanWolf's Better-Shaped Weapons 2.0.09
 +Bashed Patch (Core)
--STEP Compilation 2.2.9.2l (Extended)
-+STEP Compilation 2.2.9.2l (Core)
-+STEP Compilation 2.2.9.2l (Common)
+-STEP Compilation 2.2.9.2m (Extended)
++STEP Compilation 2.2.9.2m (Core)
++STEP Compilation 2.2.9.2m (Common)
 +Wiseman303's Trap Fixes 2.0b
 +Traps Make Noise 2.1
 +The Paarthurnax Dilemma 1.2.9

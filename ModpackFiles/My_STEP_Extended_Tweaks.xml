@@ -5,9 +5,9 @@ abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH 
 -->
 <Modpack Name="My STEP Extended Tweaks"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.2.1.9"
+         Requires="STEP Extended, 2.2.9.2, 1.2.1.10"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.9"
+         FileVersion="1.2.1.10"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="133">
 
@@ -192,9 +192,9 @@ WetandCold.bsa]]></Line>
 +FISS 1.21
 +Atlas Map Markers - Updated with MCM - Legendary Update 2.0
 +Atlas Map Markers 1.7
-+STEP Compilation 2.2.9.2l (Extended)
--STEP Compilation 2.2.9.2l (Core)
-+STEP Compilation 2.2.9.2l (Common)
++STEP Compilation 2.2.9.2m (Extended)
+-STEP Compilation 2.2.9.2m (Core)
++STEP Compilation 2.2.9.2m (Common)
 +Even Better Quest Objectives 1.5.8a (My Tweaks)
 +Even Better Quest Objectives 1.5.8a
 +Wiseman303's Trap Fixes 2.0b

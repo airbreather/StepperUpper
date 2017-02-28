@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.9"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.10"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.9"
+         FileVersion="1.2.1.10"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -679,9 +679,9 @@ WetandCold.bsa]]></Line>
 +Dual Sheath Redux 1.7.3
 +Bashed Patch (Extended)
 -Bashed Patch (Core)
-+STEP Compilation 2.2.9.2l (Extended)
--STEP Compilation 2.2.9.2l (Core)
-+STEP Compilation 2.2.9.2l (Common)
++STEP Compilation 2.2.9.2m (Extended)
+-STEP Compilation 2.2.9.2m (Core)
++STEP Compilation 2.2.9.2m (Common)
 +Even Better Quest Objectives 1.5.8a
 +Wiseman303's Trap Fixes 2.0b
 +Wet and Cold 2.02

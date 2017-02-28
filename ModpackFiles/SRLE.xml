@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.9"
+         FileVersion="1.2.1.10"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -1862,11 +1862,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 
 			<!-- sorry, Better Circlets HQ disappeared from the Nexus, but not before allowing the
 			     STEP folks to embed it into their compilation.  -->
-			<File Name="STEP Compilation - High 2.2.9.2l"
-			      LengthInBytes="905471272"
-			      CanonicalFileName="STEP Compilation Installer - High Res - 2292l-11-2-2-9-2l.7z"
-			      MD5Checksum="5b3eb1c2bf754c25b5278d4ab2d21aa6"
-			      DownloadTags="nexus|skyrim|11|1000219783" />
+			<File Name="STEP Compilation - High 2.2.9.2m"
+			      LengthInBytes="934019918"
+			      CanonicalFileName="STEP Compilation Installer - High Res - 2292m-11-2-2-9-2m.7z"
+			      MD5Checksum="de7b9e0897c608b6365935bbaa8dc309"
+			      DownloadTags="nexus|skyrim|11|1000237408" />
 
 			<File Name="LeanWolf's Better-Shaped Weapons 2.0.09"
 			      LengthInBytes="20721263"
@@ -5872,7 +5872,7 @@ RIGHT_BIPED_SLOT: 1]]></Line>
 			<ExtractArchive ArchiveFile="Apophysis Dragon Priest Masks - Main File 5.0a" SimpleMO="Root" />
 
 			<!-- Better Circlets HQ -->
-			<ExtractArchive ArchiveFile="STEP Compilation - High 2.2.9.2l">
+			<ExtractArchive ArchiveFile="STEP Compilation - High 2.2.9.2m">
 				<MapFolder From="03 STEP Extended Comp/textures/armor/circlets" To="ModOrganizer/mods/Better Circlets HQ - 2K 1.1/textures/armor/circlets" />
 			</ExtractArchive>
 
