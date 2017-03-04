@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.10"
+         FileVersion="1.2.1.11"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -725,11 +725,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="0d95c5b6c24217f78da09daa0df16007"
 			      DownloadTags="nexus|skyrim|75380|1000205331" />
 
-			<File Name="RUGNAROK - 2K 1.5"
-			      LengthInBytes="113893542"
-			      CanonicalFileName="RUGNAROK - 2K-64830-1-5.7z"
-			      MD5Checksum="81f3e6892f7de065767242505127d02d"
-			      DownloadTags="nexus|skyrim|64830|1000194673" />
+			<File Name="RUGNAROK - 2K 1.6"
+			      LengthInBytes="113819601"
+			      CanonicalFileName="RUGNAROK - 2K-64830-1-6.7z"
+			      MD5Checksum="049df6f6ef13be544b11a6e38ae2f1fc"
+			      DownloadTags="nexus|skyrim|64830|1000237838" />
 
 			<File Name="RUSTIC ALCHEMY and ENCHANTING TABLES - 2K 1.0"
 			      LengthInBytes="21166984"
@@ -3602,7 +3602,7 @@ SR Conflict Resolution.esp]]></Line>
 +RUSTIC COOKING STATION - 2K 1.1
 +RUSTIC CLUTTER COLLECTION - 2K 2.3.1
 +RUSTIC ALCHEMY and ENCHANTING TABLES - 2K 1.0
-+RUGNAROK - 2K 1.5
++RUGNAROK - 2K 1.6
 +Revamped Assets Skyrim - High 0.31
 +Retexture for Soup - For SMIM Mesh - Poor Version 1.3
 +Rens HD Shrines - Ultimate 2.0
@@ -4835,10 +4835,10 @@ SR Conflict Resolution.esp]]></Line>
 				<Hide File="ModOrganizer/mods/Revamped Assets Skyrim - High 0.31/meshes/loadscreenart/loadscreenenchantingworkbench.nif" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUGNAROK - 2K 1.5" SimpleMO="Single">
-				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/architecture/whiterun/Thumbs.db" />
-				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/architecture/windhelm/Thumbs.db" />
-				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.5/textures/clutter/common/Thumbs.db" />
+			<ExtractArchive ArchiveFile="RUGNAROK - 2K 1.6" SimpleMO="Single">
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.6/textures/architecture/whiterun/Thumbs.db" />
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.6/textures/architecture/windhelm/Thumbs.db" />
+				<Hide File="ModOrganizer/mods/RUGNAROK - 2K 1.6/textures/clutter/common/Thumbs.db" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="RUSTIC ALCHEMY and ENCHANTING TABLES - 2K 1.0" SimpleMO="Single" />

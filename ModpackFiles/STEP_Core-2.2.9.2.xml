@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.10"
+         FileVersion="1.2.1.11"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -138,11 +138,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="46199313c39ab193ffdadafde03e01d3"
 			      DownloadTags="nexus|skyrim|43053|1000204073" />
 
-			<File Name="Consistent Older People 31b All NPCs USLEEP 3.1b"
-			      LengthInBytes="3655121"
-			      CanonicalFileName="Consistent Older People 31b All NPCs USLEEP-19730-3-1b.7z"
-			      MD5Checksum="1f31f718b070fab23aff8f684542c5b0"
-			      DownloadTags="nexus|skyrim|19730|1000231118" />
+			<File Name="Consistent Older People 31b All USLEEP 3.1b"
+			      LengthInBytes="3655122"
+			      CanonicalFileName="Consistent Older People 31b All USLEEP-19730-3-1b.7z"
+			      MD5Checksum="4c8ac74a16df570e20cc8f75618894a4"
+			      DownloadTags="nexus|skyrim|19730|1000237771" />
 
 			<File Name="Cutting Room Floor - Legendary Edition 2.0.4"
 			      LengthInBytes="6024030"
@@ -1259,7 +1259,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Consistent Older People 31b All NPCs USLEEP 3.1b" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Consistent Older People 31b All USLEEP 3.1b" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.4" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
@@ -2415,7 +2415,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
 +Cutting Room Floor - Legendary Edition 2.0.4
-+Consistent Older People 31b All NPCs USLEEP 3.1b
++Consistent Older People 31b All USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
 +Appropriately Attired Jarls 1.1.1

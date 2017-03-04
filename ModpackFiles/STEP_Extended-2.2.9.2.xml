@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.10"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.11"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.10"
+         FileVersion="1.2.1.11"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -882,7 +882,7 @@ WetandCold.bsa]]></Line>
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
 +Cutting Room Floor - Legendary Edition 2.0.4
-+Consistent Older People 31b All NPCs USLEEP 3.1b
++Consistent Older People 31b All USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
 +Appropriately Attired Jarls 1.1.1
