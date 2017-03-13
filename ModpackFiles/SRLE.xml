@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.11"
+         FileVersion="1.2.1.12"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -412,17 +412,17 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 
 		<Group Name="4.5.1 Dynamic LOD">
-			<File Name="DynDOLOD 2.21"
-			      LengthInBytes="17184945"
-			      CanonicalFileName="DynDOLOD-59721-2-21.7z"
-			      MD5Checksum="807bc1a29c1080d4b445c53e71784cc9"
-			      DownloadTags="nexus|skyrim|59721|1000226108" />
+			<File Name="DynDOLOD Standalone 2.23"
+			      LengthInBytes="20734904"
+			      CanonicalFileName="DynDOLOD Standalone-59721-2-23.7z"
+			      MD5Checksum="55e02f125dadc6abd60a6d77211b84a3"
+			      DownloadTags="nexus|skyrim|59721|1000238877" />
 
-			<File Name="DynDOLOD Resources 2.20"
-			      LengthInBytes="35280546"
-			      CanonicalFileName="DynDOLOD Resources-59721-2-20.7z"
-			      MD5Checksum="cf9566db5dd08657dca52e281c10a871"
-			      DownloadTags="nexus|skyrim|59721|1000225965" />
+			<File Name="DynDOLOD Resources 2.22"
+			      LengthInBytes="44246932"
+			      CanonicalFileName="DynDOLOD Resources-59721-2-22.7z"
+			      MD5Checksum="1c7c4eb16163946c3ac081af1b5dee77"
+			      DownloadTags="nexus|skyrim|59721|1000238709" />
 
 			<File Name="Vanilla Skyrim LOD Billboards 1.0"
 			      LengthInBytes="718281"
@@ -2892,18 +2892,18 @@ pipboy3000\screen_n.dds
 				<Set Section="customExecutables" Property="7\custom" Value="true" />
 				<Set Section="customExecutables" Property="7\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="7\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/DynDOLOD.exe" />
+				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.23/DynDOLOD.exe" />
 				<Set Section="customExecutables" Property="7\arguments" Value="" />
-				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
+				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.23/" />
 				<Set Section="customExecutables" Property="7\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="7\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="8\title" Value="DynDOLOD TexGen" />
 				<Set Section="customExecutables" Property="8\custom" Value="true" />
 				<Set Section="customExecutables" Property="8\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="8\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/TexGen.exe" />
+				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.23/TexGen.exe" />
 				<Set Section="customExecutables" Property="8\arguments" Value="" />
-				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD 2.21/" />
+				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.23/" />
 				<Set Section="customExecutables" Property="8\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="8\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="9\title" Value="GenerateFNISforUsers" />
@@ -3656,7 +3656,7 @@ SR Conflict Resolution.esp]]></Line>
 +Falskaar 1.2.1final
 +Vanilla Skyrim LOD Billboards 1.0
 +----- DynDOLOD Merged
-+DynDOLOD Resources 2.20
++DynDOLOD Resources 2.22
 +Atlas Map Markers - Updated with MCM - Legendary Update 2.0
 +Atlas Map Markers 1.7 (Extras)
 +Atlas Map Markers 1.7
@@ -4346,17 +4346,17 @@ SR Conflict Resolution.esp]]></Line>
 		</Group>
 
 		<Group Name="4.5.1 Dynamic LOD">
-			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.20">
-				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
-				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
-				<MapFolder From="03 High Hrothgar Window Glow" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
-				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
-				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
-				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.20" />
+			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.22">
+				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
+				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
+				<MapFolder From="03 High Hrothgar Window Glow" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
+				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
+				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
+				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.22" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD 2.21">
-				<MapFolder From="DynDOLOD" To="DynDOLOD 2.21" />
+			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.23">
+				<MapFolder From="DynDOLOD" To="DynDOLOD Standalone 2.23" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Vanilla Skyrim LOD Billboards 1.0" SimpleMO="Root" />
