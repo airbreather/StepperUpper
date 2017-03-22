@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Extended (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.2.1.12"
+         Requires="STEP Extended, 2.2.9.2, 1.2.1.13"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.12"
+         FileVersion="1.2.1.13"
          MinimumToolVersion="0.9.4.0">
 
 	<Files>
@@ -178,7 +178,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 				</AddLineBefore>
 			</EditFile>
 
-			<MoveFolder Id="TexGen_MoveFromOutput" WaitFor="TexGen_Gen" From="DynDOLOD Standalone 2.23/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Extended)" />
+			<MoveFolder Id="TexGen_MoveFromOutput" WaitFor="TexGen_Gen" From="DynDOLOD Standalone 2.24/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Extended)" />
 
 			<DeleteFolder Id="TexGen_DeleteOverwrite" WaitFor="TexGen_Gen" Path="ModOrganizer/overwrite" />
 
@@ -233,7 +233,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 
 			<CreateEmptyFolder Id="DynDOLOD_CreateEmptyOverwrite" WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 
-			<MoveFolder Id="DynDOLOD_MoveFromOutput" WaitFor="DynDOLOD_Gen" From="DynDOLOD Standalone 2.23/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Extended)" />
+			<MoveFolder Id="DynDOLOD_MoveFromOutput" WaitFor="DynDOLOD_Gen" From="DynDOLOD Standalone 2.24/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Extended)" />
 
 			<EditFile Id="DynDOLOD_MO_File1" WaitFor="DynDOLOD_Gen" File="ModOrganizer/profiles/STEP Extended 2.2.9.2/plugins.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
