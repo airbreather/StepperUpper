@@ -6,9 +6,9 @@ we could reduce that further here, but STEP Core has a stricter requirement than
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.13"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.14"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.13"
+         FileVersion="1.2.1.14"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="157">
 
@@ -881,7 +881,7 @@ WetandCold.bsa]]></Line>
 +Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
-+Cutting Room Floor - Legendary Edition 2.0.4
++Cutting Room Floor - Legendary Edition 2.0.5
 +Consistent Older People 31b All USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0

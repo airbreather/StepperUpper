@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.13"
+         FileVersion="1.2.1.14"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -144,10 +144,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="4c8ac74a16df570e20cc8f75618894a4"
 			      DownloadTags="nexus|skyrim|19730|1000237771" />
 
-			<File Name="Cutting Room Floor - Legendary Edition 2.0.4"
-			      LengthInBytes="6024030"
-			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-4.7z"
-			      MD5Checksum="28e1522f21ab33b584f905d373f0ca7c"
+			<File Name="Cutting Room Floor - Legendary Edition 2.0.5"
+			      LengthInBytes="6275596"
+			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-5.7z"
+			      MD5Checksum="de4322b1cdb4c6042e2fe3ff6fe5ba23"
 			      DownloadTags="nexus|skyrim|47327|1000236777" />
 
 			<File Name="Dead Body Collision Fix - With Improved Fireball Spell 2.4"
@@ -1260,7 +1260,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<ExtractArchive ArchiveFile="Brawl Bugs - Compatibility Edition 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Consistent Older People 31b All USLEEP 3.1b" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.4" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.5" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMO="Root" />
@@ -2414,7 +2414,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 +Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c
 +Enchantment Reload Fix 1.2
 +Dead Body Collision Fix - With Improved Fireball Spell 2.4
-+Cutting Room Floor - Legendary Edition 2.0.4
++Cutting Room Floor - Legendary Edition 2.0.5
 +Consistent Older People 31b All USLEEP 3.1b
 +Clothing and Clutter Fixes 1.7
 +Brawl Bugs - Compatibility Edition 1.0
