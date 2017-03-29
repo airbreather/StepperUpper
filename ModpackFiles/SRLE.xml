@@ -446,11 +446,11 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 			      MD5Checksum="e14e479ddef6c8f4bb43ffd15912ea70"
 			      DownloadTags="nexus|skyrim|9557|1000219880" />
 
-			<File Name="Cutting Room Floor - Legendary Edition 2.0.4"
-			      LengthInBytes="6007711"
-			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-3.7z"
-			      MD5Checksum="e3778a2b026ddbf435c588a4dc4b4064"
-			      DownloadTags="nexus|skyrim|47327|1000221306" />
+			<File Name="Cutting Room Floor - Legendary Edition 2.0.5"
+			      LengthInBytes="6275596"
+			      CanonicalFileName="Cutting Room Floor - Legendary Edition-47327-2-0-5.7z"
+			      MD5Checksum="de4322b1cdb4c6042e2fe3ff6fe5ba23"
+			      DownloadTags="nexus|skyrim|47327|1000240086" />
 
 			<File Name="Cutting Room Floor - RSC - CRF Patch 1.0"
 			      LengthInBytes="98629"
@@ -3650,7 +3650,7 @@ SR Conflict Resolution.esp]]></Line>
 +----- Even Better Quest Objectives Merged
 +Even Better Quest Objectives 1.5.8a
 +Cutting Room Floor - RSC - CRF Patch 1.0
-+Cutting Room Floor - Legendary Edition 2.0.4
++Cutting Room Floor - Legendary Edition 2.0.5
 +Alternate Start - Live Another Life 3.1.5a
 +Falskaar Optimized Textures
 +Falskaar 1.2.1final
@@ -4383,9 +4383,9 @@ SR Conflict Resolution.esp]]></Line>
 				<Hide File="ModOrganizer/mods/Alternate Start - Live Another Life 3.1.5a/Alternate Start - Live Another Life.txt" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.4">
-				<MapBSAFile From="Cutting Room Floor.bsa" To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.4" />
-				<MapFolder To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.4" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.5">
+				<MapBSAFile From="Cutting Room Floor.bsa" To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.5" />
+				<MapFolder To="ModOrganizer/mods/Cutting Room Floor - Legendary Edition 2.0.5" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Cutting Room Floor - RSC - CRF Patch 1.0" SimpleMO="Root" />
