@@ -6,7 +6,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 <Modpack Name="SRLE"
          Game="Skyrim2011"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.14"
+         FileVersion="1.2.1.15"
          MinimumToolVersion="1.1.0.0"
          LongestOutputPathLength="188">
 
@@ -160,7 +160,7 @@ abcdefgh.xyz\Relationship Dialogue Overhaul - Patches\FollowerLivePackage\Sound\
 		</Group>
 
 		<Group Name="4.1 Unofficial Patches">
-			<File Name="USLEEP 3.0.8a"
+			<File Name="USLEEP 3.0.9"
 			      LengthInBytes="179213228"
 			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-8a.7z"
 			      MD5Checksum="24f6d7de9d3b48ee4439e20e450a14ee"
@@ -3697,7 +3697,7 @@ SR Conflict Resolution.esp]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.8a
++USLEEP 3.0.9
 +Cleaned Dragonborn ESM
 +Optimized Dragonborn Textures
 *Unmanaged: Dragonborn
@@ -4069,11 +4069,11 @@ SR Conflict Resolution.esp]]></Line>
 
 		<!-- TODO: vet everything earlier than 4.1 -->
 		<Group Name="4.1 Unofficial Patches">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.8a">
-				<MapBSAFile From="Unofficial Skyrim Legendary Edition Patch.bsa" To="ModOrganizer/mods/USLEEP 3.0.8a" />
-				<MapFolder To="ModOrganizer/mods/USLEEP 3.0.8a" />
-				<Hide Folder="ModOrganizer/mods/USLEEP 3.0.8a/Docs" />
-				<Hide File="ModOrganizer/mods/USLEEP 3.0.8a/Unofficial Skyrim Legendary Edition Patch.bsl" />
+			<ExtractArchive ArchiveFile="USLEEP 3.0.9">
+				<MapBSAFile From="Unofficial Skyrim Legendary Edition Patch.bsa" To="ModOrganizer/mods/USLEEP 3.0.9" />
+				<MapFolder To="ModOrganizer/mods/USLEEP 3.0.9" />
+				<Hide Folder="ModOrganizer/mods/USLEEP 3.0.9/Docs" />
+				<Hide File="ModOrganizer/mods/USLEEP 3.0.9/Unofficial Skyrim Legendary Edition Patch.bsl" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1">

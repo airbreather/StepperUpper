@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.14"
+         FileVersion="1.2.1.15"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="169">
 
@@ -95,11 +95,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="37d8cbffcb460011ce2bf3aabd007a2d"
 			      DownloadTags="steam|226880" />
 
-			<File Name="USLEEP 3.0.8a"
-			      LengthInBytes="179213228"
-			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-8a.7z"
-			      MD5Checksum="24f6d7de9d3b48ee4439e20e450a14ee"
-			      DownloadTags="nexus|skyrim|71214|1000237224" />
+			<File Name="USLEEP 3.0.9"
+			      LengthInBytes="179308261"
+			      CanonicalFileName="Unofficial Skyrim Legendary Edition Patch-71214-3-0-9.7z"
+			      MD5Checksum="e82547f8658e529592036068b5aaf3b8"
+			      DownloadTags="nexus|skyrim|71214|1000243142" />
 
 			<!-- All 3 dummy ESPs are identical. -->
 			<File Name="High Resolution Texture Pack Dummy ESPs"
@@ -1253,7 +1253,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.8a" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="USLEEP 3.0.9" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
@@ -2424,7 +2424,7 @@ The Paarthurnax Dilemma.bsa]]></Line>
 *Unmanaged: HighResTexturePack03
 *Unmanaged: HighResTexturePack02
 *Unmanaged: HighResTexturePack01
-+USLEEP 3.0.8a
++USLEEP 3.0.9
 +Cleaned Dragonborn ESM
 *Unmanaged: Dragonborn
 +Cleaned Hearthfire ESM
