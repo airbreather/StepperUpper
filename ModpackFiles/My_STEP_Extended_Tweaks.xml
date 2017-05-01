@@ -5,9 +5,9 @@ abcdefgh.xyz\57 Killable Children (kryptopyr and Team Mystery - DO NOT USE WITH 
 -->
 <Modpack Name="My STEP Extended Tweaks"
          Game="Skyrim2011"
-         Requires="STEP Extended, 2.2.9.2, 1.2.1.15"
+         Requires="STEP Extended, 2.2.9.2, 1.2.1.16"
          PackVersion="1.0.0.0"
-         FileVersion="1.2.1.15"
+         FileVersion="1.2.1.16"
          MinimumToolVersion="0.9.4.0"
          LongestOutputPathLength="133">
 

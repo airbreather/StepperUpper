@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Core (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.2.9.2, 1.2.1.15"
+         Requires="STEP Core, 2.2.9.2, 1.2.1.16"
          PackVersion="2.2.9.2"
-         FileVersion="1.2.1.15"
+         FileVersion="1.2.1.16"
          MinimumToolVersion="0.9.4.0">
 
 	<Files>
@@ -74,10 +74,10 @@
 			<!-- Write out a .ahk file that runs the DynDOLOD TexGen process, and run it. -->
 			<Embedded Id="BuildTexGenScript" File="AHKScripts/TexGen.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Core 2.2.9.2" "DynDOLOD TexGen", {DumpFolderForwardSlashes}/ModOrganizer
-WinWait, DynDOLOD TexGen 2.23 (1) by Sheson
-WinGet, DYNPID, PID, DynDOLOD TexGen 2.23 (1) by Sheson
-WinActivate, DynDOLOD TexGen 2.23 (1) by Sheson
-WinWaitActive, DynDOLOD TexGen 2.23 (1) by Sheson
+WinWait, DynDOLOD TexGen 2.26 (1) by Sheson
+WinGet, DYNPID, PID, DynDOLOD TexGen 2.26 (1) by Sheson
+WinActivate, DynDOLOD TexGen 2.26 (1) by Sheson
+WinWaitActive, DynDOLOD TexGen 2.26 (1) by Sheson
 Send, {Tab 8}{Space}
 WinWait, ahk_class TMessageForm
 WinActivate, ahk_class TMessageForm
@@ -97,7 +97,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 				</AddLineBefore>
 			</EditFile>
 
-			<MoveFolder Id="TexGen_MoveFromOutput" WaitFor="TexGen_Gen" From="DynDOLOD Standalone 2.24/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Core)" />
+			<MoveFolder Id="TexGen_MoveFromOutput" WaitFor="TexGen_Gen" From="DynDOLOD Standalone 2.26/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Core)" />
 
 			<DeleteFolder Id="TexGen_DeleteOverwrite" WaitFor="TexGen_Gen" Path="ModOrganizer/overwrite" />
 
@@ -146,7 +146,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 
 			<CreateEmptyFolder Id="DynDOLOD_CreateEmptyOverwrite" WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 
-			<MoveFolder Id="DynDOLOD_MoveFromOutput" WaitFor="DynDOLOD_Gen" From="DynDOLOD Standalone 2.24/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Core)" />
+			<MoveFolder Id="DynDOLOD_MoveFromOutput" WaitFor="DynDOLOD_Gen" From="DynDOLOD Standalone 2.26/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Core)" />
 
 			<EditFile Id="DynDOLOD_MO_File1" WaitFor="DynDOLOD_Gen" File="ModOrganizer/profiles/STEP Core 2.2.9.2/plugins.txt" Encoding="UTF8NoBOM">
 				<AddLineAfter>
