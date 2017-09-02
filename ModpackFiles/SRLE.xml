@@ -3847,8 +3847,8 @@ SR Conflict Resolution.esp]]></Line>
 				<MapFile From="WrapperVersion/enblocal.ini" To="{SkyrimInstallFolder}/enblocal.ini" />
 			</ExtractArchive>
 
-			<CopyFile From="{SkyrimInstallFolder}/d3d9.dll" To="ENB Organizer 2.1.1/Games/Skyrim/Binaries/Skyrim 308/d3d9.dll" />
-			<CopyFile From="{SkyrimInstallFolder}/enbhost.exe" To="ENB Organizer 2.1.1/Games/Skyrim/Binaries/Skyrim 308/enbhost.exe" />
+			<CopyFile From="{SkyrimInstallFolder}/d3d9.dll" To="ENB Organizer 2.1.1/Games/Skyrim/Binaries/Skyrim 308/d3d9.dll" WaitFor="ExtractENB" />
+			<CopyFile From="{SkyrimInstallFolder}/enbhost.exe" To="ENB Organizer 2.1.1/Games/Skyrim/Binaries/Skyrim 308/enbhost.exe" WaitFor="ExtractENB" />
 
 			<TweakINI File="{SkyrimInstallFolder}/enblocal.ini" WaitFor="ExtractENB" Id="TweakENBLocal">
 				<Set Section="MEMORY" Property="AutodetectVideoMemorySize" Value="true" />
