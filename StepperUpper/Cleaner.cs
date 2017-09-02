@@ -63,7 +63,7 @@ namespace StepperUpper
                     var parentTask = parentTasks[pluginName];
                     if (!parents.ContainsKey(pluginName))
                     {
-                        parentTask.TrySetResult(default(Merged));
+                        parentTask.TrySetResult(default);
                     }
 
                     var root = await CleanPluginAsync(plugin, parentTask.Task).ConfigureAwait(false);

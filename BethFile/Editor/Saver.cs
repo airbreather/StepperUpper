@@ -158,7 +158,7 @@ namespace BethFile.Editor
             {
                 int fieldLength = field.Payload.Length;
                 ushort storedFieldLength = unchecked((ushort)fieldLength);
-                if (fieldLength > ushort.MaxValue)
+                if (fieldLength > UInt16.MaxValue)
                 {
                     MBitConverter.Set(pos, XXXX);
                     pos += 4;
@@ -190,7 +190,7 @@ namespace BethFile.Editor
             foreach (var field in record.Fields)
             {
                 int fieldLength = field.Payload.Length;
-                if (fieldLength > ushort.MaxValue)
+                if (fieldLength > UInt16.MaxValue)
                 {
                     payloadSize = payloadSize + 10;
                 }

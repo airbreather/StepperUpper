@@ -26,6 +26,6 @@ namespace BethFile.Editor
 
         public byte[] Payload { get; set; }
 
-        public override string ToString() => Invariant($"{this.FieldType} ({this.Payload.Length} bytes) >> ({this.Payload.ByteArrayToHexString()})");
+        public override string ToString() => Invariant($"{this.FieldType} ({this.Payload.Length} bytes) >> ({this.Payload.AsReadOnlySpan().ToHexString()})");
     }
 }

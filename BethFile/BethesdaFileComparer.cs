@@ -177,7 +177,7 @@ namespace BethFile
 
         private static void Compare(BethesdaField first, BethesdaField second, StringBuilder sb, int indentLevel)
         {
-            if (Compare(first.Payload, second.Payload) == 0)
+            if (SpanExtensions.SequenceEqual(first.Payload, second.Payload))
             {
                 return;
             }
@@ -188,37 +188,40 @@ namespace BethFile
               .Append(indent).AppendLine(second.ToString());
         }
 
-        private static void CompareHeaders(ArraySegment<byte> firstHeader, ArraySegment<byte> secondHeader, StringBuilder sb, int indentLevel)
+        private static void CompareHeaders(ReadOnlySpan<byte> firstHeader, ReadOnlySpan<byte> secondHeader, StringBuilder sb, int indentLevel)
         {
-            if (Compare(firstHeader, secondHeader) == 0)
+            if (firstHeader.SequenceEqual(secondHeader))
             {
                 return;
             }
 
             string indent = Indent(indentLevel++);
             sb.Append(indent).AppendLine("Headers Differ!")
-              .Append(indent).AppendLine(firstHeader.ToArray().ByteArrayToHexString())
+              .Append(indent).AppendLine(firstHeader.ToHexString())
               .Append(indent).AppendLine("vs.")
-              .Append(indent).AppendLine(secondHeader.ToArray().ByteArrayToHexString());
+              .Append(indent).AppendLine(secondHeader.ToHexString());
         }
 
-        private static unsafe int Compare(ArraySegment<byte> first, ArraySegment<byte> second)
+        private static unsafe int Compare(ArraySegment<byte> firstSeg, ArraySegment<byte> secondSeg)
         {
+            var first = firstSeg.AsReadOnlySpan();
+            var second = secondSeg.AsReadOnlySpan();
+
             int defaulter = 0;
-            int minCnt = first.Count;
-            if (first.Count < second.Count)
+            int minCnt = first.Length;
+            if (first.Length < second.Length)
             {
                 defaulter = -1;
             }
-            else if (second.Count < minCnt)
+            else if (second.Length < minCnt)
             {
                 defaulter = 1;
-                minCnt = second.Count;
+                minCnt = second.Length;
             }
 
             int cmp;
-            fixed (void* ptr1 = &first.Array[first.Offset])
-            fixed (void* ptr2 = &second.Array[second.Offset])
+            fixed (void* ptr1 = &first.DangerousGetPinnableReference())
+            fixed (void* ptr2 = &second.DangerousGetPinnableReference())
             {
                 cmp = memcmp(ptr1, ptr2, new IntPtr(minCnt));
             }

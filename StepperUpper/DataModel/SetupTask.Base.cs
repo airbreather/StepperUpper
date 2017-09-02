@@ -98,9 +98,7 @@ namespace StepperUpper
             return result;
         }
 
-        public Task DispatchAsync(SetupContext context) => this.DispatchAsync(context, CancellationToken.None);
-
-        public async Task DispatchAsync(SetupContext context, CancellationToken cancellationToken)
+        public async Task DispatchAsync(SetupContext context, CancellationToken cancellationToken = default)
         {
             var tcs = context.GetNamedTask(this.Id);
             await Task.WhenAll(this.WaitFor.Select(n => (Task)context.GetNamedTask(n).Task).ToArray()).ConfigureAwait(false);

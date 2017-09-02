@@ -19,6 +19,6 @@ namespace BethFile
 
         public ArraySegment<byte> Payload { get; }
 
-        public override string ToString() => $"{this.FieldType}: ({this.Payload.ToArray().ByteArrayToHexString()})";
+        public override string ToString() => $"{this.FieldType}: ({this.Payload.AsReadOnlySpan().ToHexString()})";
     }
 }

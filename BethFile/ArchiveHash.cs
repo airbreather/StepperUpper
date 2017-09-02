@@ -2,7 +2,7 @@
 {
     internal static class ArchiveHash
     {
-        internal static unsafe ulong GenHash(UArraySegment<byte> str, bool isFolder)
+        internal static unsafe ulong GenHash(MArrayPosition<byte> str, bool isFolder)
         {
             fixed (byte* ptr = &str.Array[str.Offset])
             {

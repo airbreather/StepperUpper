@@ -10,15 +10,12 @@ namespace StepperUpper.UI
         {
         }
 
-        public FilePathViewModel(string value)
-        {
-            this.value = value;
-        }
+        public FilePathViewModel(string value) => this.value = value;
 
         public string Value
         {
-            get { return this.value; }
-            set { this.Set(() => this.Value, ref this.value, value); }
+            get => this.value;
+            set => this.Set(() => this.Value, ref this.value, value);
         }
     }
 }

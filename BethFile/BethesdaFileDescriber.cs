@@ -32,8 +32,7 @@ namespace BethFile
 
         protected override void OnRecord(BethesdaRecord record)
         {
-            byte[] rawData = record.RawData.ToArray();
-            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => "In group " + grp)) + Invariant($": [{record.RecordType}:{record.Id:X8}] (RawData: {rawData.ByteArrayToHexString()})"));
+            this.writer.WriteLine(String.Join(": ", this.activeGroups.Reverse().Select(grp => "In group " + grp)) + Invariant($": [{record.RecordType}:{record.Id:X8}] (RawData: {record.RawData.AsReadOnlySpan().ToHexString()})"));
             base.OnRecord(record);
         }
     }

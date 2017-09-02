@@ -53,7 +53,7 @@ namespace BethFile
 
         private async Task<bool> ReadHeaderAsync()
         {
-            switch (await this.stream.LoopedReadAsync(header, 0, 24).ConfigureAwait(false))
+            switch (await this.stream.LoopedReadAsync(this.header, 0, 24).ConfigureAwait(false))
             {
                 case 0:
                     return false;

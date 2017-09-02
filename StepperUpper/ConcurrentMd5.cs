@@ -24,7 +24,7 @@ namespace StepperUpper
         {
             if (buf == null)
             {
-                this = default(Md5Checksum);
+                this = default;
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace StepperUpper
             // Technically, this SHOULD also be more efficient, but that's not relevant.
             fixed (Md5Checksum* ptr = &this)
             {
-                return StringUtility.BytesToHexStringUnsafe((byte*)ptr, 16);
+                return new ReadOnlySpan<Md5Checksum>(ptr, 1).AsBytes().ToHexString();
             }
         }
     }
@@ -77,7 +77,7 @@ namespace StepperUpper
         {
             if (buf == null)
             {
-                this = default(Sha512Checksum);
+                this = default;
                 return;
             }
 
@@ -120,7 +120,7 @@ namespace StepperUpper
             // Technically, this SHOULD also be more efficient, but that's not relevant.
             fixed (Sha512Checksum* ptr = &this)
             {
-                return StringUtility.BytesToHexStringUnsafe((byte*)ptr, 64);
+                return new ReadOnlySpan<Sha512Checksum>(ptr, 1).AsBytes().ToHexString();
             }
         }
     }

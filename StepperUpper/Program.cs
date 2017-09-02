@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -28,7 +27,7 @@ namespace StepperUpper
 {
     internal static class Program
     {
-        private static int Main(string[] args)
+        private static async Task<int> Main(string[] args)
         {
             Options options = new Options();
             try
@@ -39,14 +38,14 @@ namespace StepperUpper
                     return 8;
                 }
 
-                if (!options.MightBeValid && !UI.Dialogs.FillOptionsAsync(options).ConfigureAwait(false).GetAwaiter().GetResult())
+                if (!options.MightBeValid && !await UI.Dialogs.FillOptionsAsync(options).ConfigureAwait(false))
                 {
                     Console.Error.WriteLine("Options are invalid.  Exiting with code 9.");
                     return 9;
                 }
 
                 Stopwatch sw = Stopwatch.StartNew();
-                int result = MainAsync(options).GetAwaiter().GetResult();
+                int result = await RunAsync(options).ConfigureAwait(false);
                 sw.Stop();
                 Console.WriteLine(Invariant($"Ran for {sw.ElapsedTicks / (double)Stopwatch.Frequency:N3} seconds.  Exiting with code {result}."));
                 return result;
@@ -68,7 +67,7 @@ namespace StepperUpper
             }
         }
 
-        private static async Task<int> MainAsync(Options options)
+        private static async Task<int> RunAsync(Options options)
         {
             var sourceDirectories = new List<string>
             {
@@ -95,6 +94,14 @@ namespace StepperUpper
             bool isFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsFullScreen);
             bool isBorderless = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless);
             bool isBorderlessFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless | FullScreenMode.IsFullScreen);
+
+            // MAGIC1: TAN(65 * PI / 360) / (16 / 10)
+            // MAGIC2: 360 / PI;
+            // Magic numbers in MAGIC1's definition come from the claim that the ideal Skyrim FOV is
+            // 65 degrees, based on a 16x10 resolution.
+            const double MAGIC1 = 0.3981689130046832;
+            const double MAGIC2 = 114.591559026164642;
+            double optimalSkyrimFOVDegrees = Math.Atan(screenWidth / (double)screenHeight * MAGIC1) * MAGIC2;
 
             var modpacks = new List<Modpack>();
 
@@ -134,7 +141,8 @@ namespace StepperUpper
                                                    .Replace("{IsBorderlessTrueFalse}", isBorderless ? "true" : "false")
                                                    .Replace("{IsBorderlessNumeric}", isBorderless ? "1" : "0")
                                                    .Replace("{IsBorderlessFullScreenTrueFalse}", isBorderlessFullScreen ? "true" : "false")
-                                                   .Replace("{IsBorderlessFullScreenNumeric}", isBorderlessFullScreen ? "1" : "0");
+                                                   .Replace("{IsBorderlessFullScreenNumeric}", isBorderlessFullScreen ? "1" : "0")
+                                                   .Replace("{OptimalSkyrimFOVDegrees}", optimalSkyrimFOVDegrees.ToString("F2", CultureInfo.InvariantCulture));
 
                     if (requiresJava)
                     {
@@ -305,7 +313,7 @@ namespace StepperUpper
                     hashesToCheck = Hashes.Md5;
                 }
 
-                if (fl.Sha512Checksum != default(Sha512Checksum))
+                if (fl.Sha512Checksum != default)
                 {
                     hashesToCheck |= Hashes.Sha512;
                 }
@@ -393,7 +401,7 @@ namespace StepperUpper
 
                     var fileWithChecksum = await ConcurrentHashCheck.Calculate(Observable.Return((targetFile, Hashes.Md5 | Hashes.Sha512))).ToTask().ConfigureAwait(false);
                     if (fileWithChecksum.md5Checksum == downloadable.Md5Checksum && 
-                        (downloadable.Sha512Checksum == default(Sha512Checksum) || fileWithChecksum.sha512Checksum == downloadable.Sha512Checksum))
+                        (downloadable.Sha512Checksum == default || fileWithChecksum.sha512Checksum == downloadable.Sha512Checksum))
                     {
                         Console.WriteLine("{0} downloaded successfully, and the checksum matched.", downloadable.Name);
                         missingGroups[i] = null;

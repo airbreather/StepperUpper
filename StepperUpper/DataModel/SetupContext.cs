@@ -52,7 +52,7 @@ namespace StepperUpper
 
                 return (setupTask, tcs);
             }));
-            this.remainingTaskCount = tasks.Values.Count(v => !(v.setupTask is SetupTask.Composite));
+            this.remainingTaskCount = this.tasks.Values.Count(v => !(v.setupTask is SetupTask.Composite));
         }
 
         public DirectoryInfo Resolve(KnownFolder folder)
@@ -129,9 +129,7 @@ namespace StepperUpper
             }
         }
 
-        public Task WaitForCheckedFileAsync(string name) => this.WaitForCheckedFileAsync(name, CancellationToken.None);
-
-        public async Task WaitForCheckedFileAsync(string name, CancellationToken cancellationToken)
+        public async Task WaitForCheckedFileAsync(string name, CancellationToken cancellationToken = default)
         {
             TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
             using (var ctr = cancellationToken.Register(() => tcs.TrySetCanceled(cancellationToken), false))
@@ -142,9 +140,7 @@ namespace StepperUpper
             }
         }
 
-        public Task WaitForAntedecentTasksAsync(ImmutableArray<string> names) => this.WaitForAntedecentTasksAsync(names, CancellationToken.None);
-
-        public async Task WaitForAntedecentTasksAsync(ImmutableArray<string> names, CancellationToken cancellationToken)
+        public async Task WaitForAntedecentTasksAsync(ImmutableArray<string> names, CancellationToken cancellationToken = default)
         {
             TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
             using (var ctr = cancellationToken.Register(() => tcs.TrySetCanceled(cancellationToken), false))
