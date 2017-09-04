@@ -32,7 +32,7 @@
             byte iLen = 255;
             for (byte i = 0; i < 255; i++)
             {
-                byte b = *(sPath + i);
+                byte b = sPath[i];
                 if (b < UpperA)
                 {
                     switch (b)
