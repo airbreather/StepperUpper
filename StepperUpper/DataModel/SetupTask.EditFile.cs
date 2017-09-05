@@ -44,52 +44,49 @@ namespace StepperUpper
                     switch (el.Name.LocalName)
                     {
                         case "AddLineBefore":
-                            linesToPrepend.Add((before: el.Attribute("Before").Value, line: el.Attribute("Line").Value));
+                            linesToPrepend.Add((before: el.Element("Before").Value, line: el.Element("Line").Value));
                             break;
 
                         case "AddLineAfter":
-                            linesToAppend.Add((after: el.Attribute("After").Value, line: el.Attribute("Line").Value));
+                            linesToAppend.Add((after: el.Element("After").Value, line: el.Element("Line").Value));
                             break;
 
                         case "ModifyLine":
-                            linesToModify.Add((oldLine: el.Attribute("Old").Value, newLine: el.Attribute("New").Value));
+                            linesToModify.Add((oldLine: el.Element("Old").Value, newLine: el.Element("New").Value));
                             break;
 
                         case "DeleteLine":
-                            linesToDelete.Add(el.Attribute("Line").Value);
+                            linesToDelete.Add(el.Element("Line").Value);
                             break;
                     }
-
-                    this.LinesToPrepend = linesToPrepend.MoveToImmutableSafe();
-                    this.LinesToAppend = linesToAppend.MoveToImmutableSafe();
-                    this.LinesToModify = linesToModify.MoveToImmutableSafe();
-                    this.LinesToDelete = linesToDelete.MoveToImmutableSafe();
                 }
+
+                this.LinesToPrepend = linesToPrepend.MoveToImmutableSafe();
+                this.LinesToAppend = linesToAppend.MoveToImmutableSafe();
+                this.LinesToModify = linesToModify.MoveToImmutableSafe();
+                this.LinesToDelete = linesToDelete.MoveToImmutableSafe();
             }
 
             protected override async Task DispatchAsyncCore(SetupContext context, CancellationToken cancellationToken)
             {
-                var preAdds = this.LinesToPrepend.ToDictionary(ln => ln.before, ln => ln.line);
-                var postAdds = this.LinesToAppend.ToDictionary(ln => ln.after, ln => ln.line);
+                var preAdds = this.LinesToPrepend.ToLookup(ln => ln.before, ln => ln.line);
+                var postAdds = this.LinesToAppend.ToLookup(ln => ln.after, ln => ln.line);
                 var edits = this.LinesToModify.ToDictionary(ln => ln.oldLine, ln => ln.newLine);
                 var deletes = this.LinesToDelete.ToHashSet();
 
                 FileInfo fileToEdit = context.ResolveFile(this.File);
                 FileInfo tempFile = context.ResolveFile(new DeferredAbsolutePath(KnownFolder.Output, Path.GetRandomFileName()));
                 using (var fl1 = AsyncFile.OpenReadSequential(fileToEdit.FullName))
-                using (var rd = new StreamReader(fl1, this.Encoding, detectEncodingFromByteOrderMarks: false, bufferSize: 4096, leaveOpen: true))
+                using (var rd = new StreamReader(fl1, this.Encoding, detectEncodingFromByteOrderMarks: false, bufferSize: 1024, leaveOpen: true))
                 using (var fl2 = AsyncFile.CreateSequential(tempFile.FullName))
-                using (var wr = new StreamWriter(fl2, this.Encoding, 4096, leaveOpen: true))
+                using (var wr = new StreamWriter(fl2, this.Encoding, 1024, leaveOpen: true))
                 {
                     string line;
                     while ((line = await rd.ReadLineAsync().ConfigureAwait(false)) != null)
                     {
-                        if (preAdds.TryGetValue(line, out var adds))
+                        foreach (var ln in preAdds[line])
                         {
-                            foreach (var ln in adds)
-                            {
-                                await wr.WriteLineAsync(ln).ConfigureAwait(false);
-                            }
+                            await wr.WriteLineAsync(ln).ConfigureAwait(false);
                         }
 
                         if (!deletes.Contains(line))
@@ -97,12 +94,9 @@ namespace StepperUpper
                             await wr.WriteLineAsync(edits.TryGetValue(line, out var ed) ? ed : line).ConfigureAwait(false);
                         }
 
-                        if (postAdds.TryGetValue(line, out adds))
+                        foreach (var ln in postAdds[line])
                         {
-                            foreach (var ln in adds)
-                            {
-                                await wr.WriteLineAsync(ln).ConfigureAwait(false);
-                            }
+                            await wr.WriteLineAsync(ln).ConfigureAwait(false);
                         }
                     }
                 }

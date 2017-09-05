@@ -5,7 +5,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 -->
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
-         PackVersion="2.10.0.0"
+         PackVersion="2.10.0"
          FileVersion="1.0.0.0"
          MinimumToolVersion="1.2.0.0"
          LongestOutputPathLength="169">
