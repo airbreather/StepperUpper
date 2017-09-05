@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Modpack Name="My STEP Core Tweaks"
+         Game="Skyrim2011"
+         Requires="STEP Core, 2.10.0"
+         PackVersion="1.0.0.0"
+         FileVersion="1.0.0.0"
+         MinimumToolVersion="1.2.0.0">
+
+	<Files />
+
+	<Tasks>
+		<Group Name="Default">
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.10.0/skyrimprefs.ini">
+				<Set Section="MAIN" Property="bGamepadEnable" Value="1" />
+
+				<Set Section="Interface" Property="bGeneralSubtitles" Value="1" />
+				<Set Section="Interface" Property="bDialogueSubtitles" Value="1" />
+			</TweakINI>
+
+			<TweakINI FileParent="GameInstallFolder" File="enblocal.ini">
+				<!-- https://redd.it/5aa7w5 -->
+				<Set Section="LIMITER" Property="EnableFPSLimit" Value="false" />
+			</TweakINI>
+
+			<TweakINI File="ModOrganizer/profiles/STEP Core 2.10.0/skyrim.ini">
+				<Set Section="HAVOK" Property="fMaxTime" Value="0.0069" />
+			</TweakINI>
+		</Group>
+	</Tasks>
+</Modpack>
