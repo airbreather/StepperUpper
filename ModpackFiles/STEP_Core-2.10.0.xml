@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-longest path I can detect looks like:
-abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwarvencenturion\attack\forwardpowerrush\npc_dwarvencenturion_attack_forwardpowerrush_01.wav
+TODO: detect max path now.
 -->
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
@@ -66,6 +65,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="d0ec5d59a70bbb106dd3ebc5fdae6f5d"
 			      SHA512Checksum="a1763b34e2e40d4d2901fdda1bf45f0c60a8e47ecda3caafa655002a69cabc08e0d034d83889000942697a7d48ea41b56d1a85c899eb0899b2dadd16c4b1b8d6"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />
+
+			<!-- TODO: FISS.  DO FISS.  IT GOES HERE. -->
 
 			<File Name="SKSE 1.7.3"
 			      LengthInBytes="624845"
