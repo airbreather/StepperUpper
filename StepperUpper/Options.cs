@@ -22,6 +22,9 @@ namespace StepperUpper
         [Option('x', "scorch", HelpText = "Delete contents of output directory if non-empty (otherwise, fail).")]
         public bool Scorch { get; set; }
 
+        [Option('g', "graphicsPreset", HelpText = "The BethINI graphics preset to use (options: poor, low, medium, high, ultra) (default: ultra)")]
+        public GraphicsPreset GraphicsPreset { get; set; } = GraphicsPreset.Ultra;
+
         [Option("javaBinFolder", HelpText = "Folder containing javaw.exe, if needed.")]
         public string JavaBinDirectoryPath { get; set; }
 

@@ -33,46 +33,36 @@ namespace StepperUpper
                 this.ArchiveFile.BaseFolder = ParseKnownFolder(taskElement.Attribute("ArchiveFileParent")?.Value, defaultIfNotSpecified: KnownFolder.AllCheckedFiles);
                 this.ArchiveFile.RelativePath = taskElement.Attribute("ArchiveFile").Value;
 
-                Int32.TryParse(taskElement.Attribute("NestedDepth")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out this.NestedDepth);
-
                 var fileMappings = ImmutableArray.CreateBuilder<FileMapping>();
 
                 // handle "special" cases, where I caved and added C# to shrink the XML size.
-                switch (taskElement.Attribute("SimpleMO")?.Value)
+                string simpleMO = taskElement.Attribute("SimpleMO")?.Value;
+                switch (simpleMO)
                 {
                     case null:
                         break;
 
-                    // this one's actually not so special after all.
                     case "Root":
-                        fileMappings.Add(new FileMapping
-                        {
-                            Kind = FileMappingKind.MapFolder,
-                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + this.ArchiveFile.RelativePath)
-                        });
-                        break;
-
-                    // neither is this one.
+                    case "Single":
                     case "SingleData":
                         fileMappings.Add(new FileMapping
                         {
                             Kind = FileMappingKind.MapFolder,
-                            From = "Data",
-                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + this.ArchiveFile.RelativePath)
-                        });
-                        break;
-
-                    // OK this one is special, but only in the sense that it's a precursor to a much
-                    // less special thing.
-                    case "Single":
-                        fileMappings.Add(new FileMapping
-                        {
-                            Kind = FileMappingKind.MapFolder,
+                            From = simpleMO == "SingleData" ? "Data" : null,
                             To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + this.ArchiveFile.RelativePath)
                         });
 
-                        this.NestedDepth = 1;
+                        this.NestedDepth = simpleMO == "Single" ? 1 : 0;
                         break;
+
+                    default:
+                        throw new NotSupportedException("Unrecognized SimpleMO value: " + simpleMO);
+                }
+
+                int nestedDepth;
+                if (Int32.TryParse(taskElement.Attribute("NestedDepth")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out nestedDepth))
+                {
+                    this.NestedDepth = nestedDepth;
                 }
 
                 foreach (var el in taskElement.Elements())

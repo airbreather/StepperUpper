@@ -55,6 +55,7 @@ namespace StepperUpper.UI
                     options.ScreenHeight = viewModel.ScreenHeight;
                     options.ScreenWidth = viewModel.ScreenWidth;
                     options.FullScreenMode = viewModel.SelectedFullScreenMode;
+                    options.GraphicsPreset = viewModel.SelectedGraphicsPreset;
                     return options.MightBeValid;
                 }).Task.ConfigureAwait(false);
             }

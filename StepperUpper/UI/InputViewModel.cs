@@ -33,6 +33,7 @@ namespace StepperUpper.UI
             this.SelectedFullScreenMode = options.FullScreenMode;
             this.ScreenWidth = options.ScreenWidth;
             this.ScreenHeight = options.ScreenHeight;
+            this.SelectedGraphicsPreset = options.GraphicsPreset;
             foreach (var packFile in options.PackDefinitionFilePaths ?? Enumerable.Empty<string>())
             {
                 this.packFiles.Add(new FilePathViewModel(packFile));
@@ -43,6 +44,7 @@ namespace StepperUpper.UI
         public ReadOnlyObservableCollection<FilePathViewModel> PackFiles { get; }
 
         public ImmutableArray<FullScreenModeContainer> AvailableFullScreenModes { get; } = ImmutableArray.Create<FullScreenModeContainer>(FullScreenMode.Windowed, FullScreenMode.FullScreen, FullScreenMode.WindowedNoBorders, FullScreenMode.FullScreenNoBorders);
+        public ImmutableArray<GraphicsPreset> AvailableGraphicsPresets { get; } = ImmutableArray.Create(GraphicsPreset.Poor, GraphicsPreset.Low, GraphicsPreset.Medium, GraphicsPreset.High, GraphicsPreset.Ultra);
 
         private string downloadFolder;
         public string DownloadFolder
@@ -91,6 +93,13 @@ namespace StepperUpper.UI
         {
             get => this.selectedFullScreenMode;
             set => this.Set(() => this.SelectedFullScreenMode, ref this.selectedFullScreenMode, value);
+        }
+
+        private GraphicsPreset selectedGraphicsPreset;
+        public GraphicsPreset SelectedGraphicsPreset
+        {
+            get => this.selectedGraphicsPreset;
+            set => this.Set(() => this.SelectedGraphicsPreset, ref this.selectedGraphicsPreset, value);
         }
 
         public RelayCommand AddPackFileCommand { get; }

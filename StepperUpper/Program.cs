@@ -96,7 +96,7 @@ namespace StepperUpper
             bool isBorderlessFullScreen = options.FullScreenMode.HasFlag(FullScreenMode.IsBorderless | FullScreenMode.IsFullScreen);
 
             // MAGIC1: TAN(65 * PI / 360) / (16 / 10)
-            // MAGIC2: 360 / PI;
+            // MAGIC2: 360 / PI
             // Magic numbers in MAGIC1's definition come from the claim that the ideal Skyrim FOV is
             // 65 degrees, based on a 16x10 resolution.
             const double MAGIC1 = 0.3981689130046832;
@@ -142,7 +142,8 @@ namespace StepperUpper
                                                    .Replace("{IsBorderlessNumeric}", isBorderless ? "1" : "0")
                                                    .Replace("{IsBorderlessFullScreenTrueFalse}", isBorderlessFullScreen ? "true" : "false")
                                                    .Replace("{IsBorderlessFullScreenNumeric}", isBorderlessFullScreen ? "1" : "0")
-                                                   .Replace("{OptimalSkyrimFOVDegrees}", optimalSkyrimFOVDegrees.ToString("F2", CultureInfo.InvariantCulture));
+                                                   .Replace("{OptimalSkyrimFOVDegrees}", optimalSkyrimFOVDegrees.ToString("F2", CultureInfo.InvariantCulture))
+                                                   .Replace("{GraphicsPreset}", options.GraphicsPreset.ToString().ToLowerInvariant());
 
                     if (requiresJava)
                     {
