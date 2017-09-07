@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-TODO: detect max path now.
+longest path I can detect looks like:
+abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwarvencenturion\attack\forwardpowerrush\npc_dwarvencenturion_attack_forwardpowerrush_01.wav
 -->
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
@@ -66,7 +67,11 @@ TODO: detect max path now.
 			      SHA512Checksum="a1763b34e2e40d4d2901fdda1bf45f0c60a8e47ecda3caafa655002a69cabc08e0d034d83889000942697a7d48ea41b56d1a85c899eb0899b2dadd16c4b1b8d6"
 			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />
 
-			<!-- TODO: FISS.  DO FISS.  IT GOES HERE. -->
+			<File Name="FISS 1.21"
+			      LengthInBytes="222457"
+			      CanonicalFileName="FileAccess Interface for Skyrim Scripts - FISS-48265-1-21.7z"
+			      MD5Checksum="c83d5b2dafbd1feaa5c0cfee3e897f60"
+			      DownloadTags="nexus|skyrim|48265|1000096729" />
 
 			<File Name="SKSE 1.7.3"
 			      LengthInBytes="624845"
@@ -1435,14 +1440,6 @@ TODO: detect max path now.
 
 				<Set Section="Water" Property="iWaterReflectHeight" Value="1024" />
 				<Set Section="Water" Property="iWaterReflectWidth" Value="1024" />
-
-				<!-- coming next are changes from what you'd get if you set up a new STEP install
-				     today.  STEP has a whole page for INI settings for trees that newer versions
-				     completely ignore when they say to use the defaults. -->
-				<Set Section="Display" Property="fMeshLODLevel1FadeTreeDistance" Value="6144" />
-				<Set Section="Display" Property="fMeshLODLevel2FadeTreeDistance" Value="4096" />
-				<Set Section="Display" Property="fTreesMidLODSwitchDist" Value="8192" />
-				<Set Section="Trees" Property="uiMaxSkinnedTreesToRender" Value="200" />
 			</TweakINI>
 		</Group>
 
@@ -1481,12 +1478,14 @@ TODO: detect max path now.
 			</TweakINI>
 
 			<!-- SKSE -->
-			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3">
-				<MapFolder From="skse_1_07_03/Data" To="ModOrganizer/mods/SKSE Support" />
-				<MapFile From="skse_1_07_03/skse_1_9_32.dll" ToParent="GameInstallFolder" To="skse_1_9_32.dll" />
-				<MapFile From="skse_1_07_03/skse_loader.exe" ToParent="GameInstallFolder" To="skse_loader.exe" />
-				<MapFile From="skse_1_07_03/skse_steam_loader.dll" ToParent="GameInstallFolder" To="skse_steam_loader.dll" />
+			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3" NestedDepth="1">
+				<MapFolder From="Data" ModOrganizerMod="SKSE Support" />
+				<MapFile From="skse_1_9_32.dll" ToParent="GameInstallFolder" To="." />
+				<MapFile From="skse_loader.exe" ToParent="GameInstallFolder" To="." />
+				<MapFile From="skse_steam_loader.dll" ToParent="GameInstallFolder" To="." />
 			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="FISS 1.21" SimpleMO="Root" />
 
 			<TweakINI File="ModOrganizer/mods/SKSE Support/SKSE/SKSE.ini" WaitFor="ExtractSKSE">
 				<Set Section="General" Property="ClearInvalidRegistrations" Value="1" />
@@ -1516,6 +1515,7 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Fuz Ro D'oh 6.0" SimpleMO="Root" Id="FuzMain" />
 			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57" SimpleMO="Single" Id="ICHMain" />
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57a Update" SimpleMO="Root" ModOrganizerMod="Improved Closefaced Helmets (Legendary Edition) 1.57" WaitFor="ICHMain" />
 			<ExtractArchive ArchiveFile="Invisibility Eyes Fix 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="NARC Core 1.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Ragdoll Paralysis - Paralyze 1.0" SimpleMO="Root" />
@@ -1523,19 +1523,15 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
 			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" Id="SmartSoulsMain" />
 			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Weapon and Armor Fixes Remade 5.2" NestedDepth="1">
-				<MapFolder From="00 Readme" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
-				<MapFolder From="01 WAF Legendary" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
-				<MapFolder From="08 True Orcish Daedric/Req DG and DB" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
-				<MapFolder From="17 Patch ICH/ICH Legendary" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
-				<MapFolder From="18 Dark Brotherhood Mask Fix" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
-				<MapFolder From="19 Better Fitting Glass Helmet Meshes" To="ModOrganizer/mods/Weapon and Armor Fixes Remade 5.2" />
+			<ExtractArchive ArchiveFile="Weapon and Armor Fixes Remade 5.2" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="00 Readme" />
+				<MapFolder From="01 WAF Legendary" />
+				<MapFolder From="08 True Orcish Daedric/Req DG and DB" />
+				<MapFolder From="17 Patch ICH/ICH Legendary" />
+				<MapFolder From="18 Dark Brotherhood Mask Fix" />
+				<MapFolder From="19 Better Fitting Glass Helmet Meshes" />
 			</ExtractArchive>
 			<ExtractArchive ArchiveFile="WM Flora Fixes SMIM Patch 2.0" SimpleMO="Single" />
-
-			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57a Update" WaitFor="ICHMain">
-				<MapFolder To="ModOrganizer/mods/Improved Closefaced Helmets (Legendary Edition) 1.57" />
-			</ExtractArchive>
 
 			<TweakINI File="ModOrganizer/mods/Fuz Ro D'oh 6.0/SKSE/Plugins/Fuz Ro D'oh.ini" WaitFor="FuzMain">
 				<Set Section="General" Property="WordsPerSecondSilence" Value="2" />
@@ -1549,9 +1545,9 @@ TODO: detect max path now.
 				<Set Section="Notifications" Property="ShowEscapedSoulQuality" Value="1" />
 			</TweakINI>
 
-			<ExtractArchive ArchiveFile="WM Flora Fixes 2.01">
-				<MapFolder From="00 Core" To="ModOrganizer/mods/WM Flora Fixes 2.01" />
-				<MapFile From="WM Flora Fixes Readme.txt" To="ModOrganizer/mods/WM Flora Fixes 2.01/WM Flora Fixes Readme.txt" />
+			<ExtractArchive ArchiveFile="WM Flora Fixes 2.01" SimpleMO="Base">
+				<MapFolder From="00 Core" />
+				<MapFile From="WM Flora Fixes Readme.txt" To="." />
 			</ExtractArchive>
 		</Group>
 
@@ -1564,116 +1560,103 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="RaceMenu 3.4.5" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="SkyUI 5.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8" SimpleMO="Root" />
-
-			<ExtractArchive ArchiveFile="High Quality 3D Map - Normals Original 2.0">
-				<MapFolder From="03 - High 1024x1024" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0" />
-				<MapFolder From="Docs" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/Docs" />
-				<MapFile From="HQ3DMap.txt" To="ModOrganizer/mods/High Quality 3D Map - Normals Original 2.0/HQ3DMap.txt" />
+			<ExtractArchive ArchiveFile="High Quality 3D Map - Normals Original 2.0" SimpleMO="Base">
+				<MapFolder From="03 - High 1024x1024" />
+				<MapFolder From="Docs" To="." />
+				<MapFile From="HQ3DMap.txt" To="." />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SSIRT 3.0">
-				<MapFolder From="docs" To="ModOrganizer/mods/SSIRT 3.0/docs" />
-				<MapFolder From="100 BACKGROUND/HDR Nebula Default Stars" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="110 MESH FIXES" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="400 CONSTELLATIONS/HD Default" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="500 PERK STARS/HD Default" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="600 Dawnguard Constellations/HD Default" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="610 DG MOONS/HD Moon" To="ModOrganizer/mods/SSIRT 3.0" />
-				<MapFolder From="630 DG BACKGROUND/HDR Vampire" To="ModOrganizer/mods/SSIRT 3.0" />
+			<ExtractArchive ArchiveFile="SSIRT 3.0" SimpleMO="Base">
+				<MapFolder From="docs" To="." />
+				<MapFolder From="100 BACKGROUND/HDR Nebula Default Stars" />
+				<MapFolder From="110 MESH FIXES" />
+				<MapFolder From="400 CONSTELLATIONS/HD Default" />
+				<MapFolder From="500 PERK STARS/HD Default" />
+				<MapFolder From="600 Dawnguard Constellations/HD Default" />
+				<MapFolder From="610 DG MOONS/HD Moon" />
+				<MapFolder From="630 DG BACKGROUND/HDR Vampire" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.F. Conflicting Graphics">
-			<ExtractArchive ArchiveFile="SkyFalls and SkyMills All-in-One 3.3.1">
-				<MapFolder From="03 Basic Core files DB + DG Only" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
-				<MapFolder From="01 SkyFalls + SkyMills + DG + DB" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
-				<MapFolder From="11 LOD Skyrim LOD" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
-				<MapFolder From="21 Windmill 1.5x" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
-				<MapFolder From="22 Waterfalls Realistic water 2" To="ModOrganizer/mods/SkyFalls and SkyMills All-in-One 3.3.1" />
+			<ExtractArchive ArchiveFile="SkyFalls and SkyMills All-in-One 3.3.1" SimpleMO="Base">
+				<MapFolder From="03 Basic Core files DB + DG Only" />
+				<MapFolder From="01 SkyFalls + SkyMills + DG + DB" />
+				<MapFolder From="11 LOD Skyrim LOD" />
+				<MapFolder From="21 Windmill 1.5x" />
+				<MapFolder From="22 Waterfalls Realistic water 2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SMIM 2.07">
-				<!-- 00 has plugins, so get everything else except those. -->
-				<MapFolder From="00 Core/meshes" To="ModOrganizer/mods/SMIM 2.07/meshes" />
-				<MapFolder From="00 Core/textures" To="ModOrganizer/mods/SMIM 2.07/textures" />
-				<MapFile From="00 Core/SMIM Readme.txt" To="ModOrganizer/mods/SMIM 2.07/SMIM Readme.txt" />
-				<MapFolder From="71 Candelabras Sconces Walltorches" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="72 Chandeliers" To="ModOrganizer/mods/SMIM 2.07" />
-				<!-- 75 has plugins, so get everything else except those. -->
-				<MapFolder From="75 Dungeons Cliffs Snow Skirts/meshes" To="ModOrganizer/mods/SMIM 2.07/meshes" />
-				<MapFolder From="75 Dungeons Cliffs Snow Skirts/textures" To="ModOrganizer/mods/SMIM 2.07/textures" />
-				<MapFolder From="01 Furniture" To="ModOrganizer/mods/SMIM 2.07" />
-				<!-- 40 has plugins, so get everything else except those. -->
-				<MapFolder From="40 Furniture Chests/meshes" To="ModOrganizer/mods/SMIM 2.07/meshes" />
-				<MapFolder From="40 Furniture Chests/textures" To="ModOrganizer/mods/SMIM 2.07/textures" />
-				<MapFolder From="42 Furniture Noble" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="02 Vanilla Barrel Textures Animations" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="61 Bowl Ingredients" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="46 Carriage Seats and Fixes" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="03 Food" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="39 Dungeons 3D Ropes" To="ModOrganizer/mods/SMIM 2.07" />
-				<!-- 37 has plugins, so get everything else except those. -->
-				<MapFolder From="37 Riften 3D Ropes/meshes" To="ModOrganizer/mods/SMIM 2.07/meshes" />
-				<MapFolder From="37 Riften 3D Ropes/textures" To="ModOrganizer/mods/SMIM 2.07/textures" />
-				<MapFolder From="22 Solitude Docks Ropes" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="14 Stockade 3D Ropes" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="05 Chains 3D - Misc" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="06 Chains 3D - Signs" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="07 Chains 3D - Whiterun" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="09 Dwemer Clutter" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="10 Nordic Tables and Benches" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="11 Bridges" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="12 Whiterun Doors" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="15 Clothing Fixes" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="18 Farmhouse Woven Fence Less Flicker" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="16 Tankard Dark Brushed Metal" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="57 Ruins Sarcophagus" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="19 Smelter" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="25 Solitude Gate Doors" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="41 Draugr Corpses" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="33 Orc Longhouse" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="44 Poor Coffin Custom Texture" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="17 Nordic Catacombs Skeletal Remains" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="26 Human Skull Fixes" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="27 Hawk" To="ModOrganizer/mods/SMIM 2.07" />
-				<!-- 28 has plugins, so get everything else except... wait, it's only plugins. -->
-				<!-- Odd that "Strings" isn't copied here in the FOMOD... -->
-				<MapFolder From="70 Rabbit" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="47 Juniper Tree" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="49 Tundra Tree" To="ModOrganizer/mods/SMIM 2.07" />
-				<!-- 35 has plugins, so get everything else except those. -->
-				<MapFolder From="35 Shack Kit/meshes" To="ModOrganizer/mods/SMIM 2.07/meshes" />
-				<MapFolder From="35 Shack Kit/textures" To="ModOrganizer/mods/SMIM 2.07/textures" />
-				<!-- 36 has plugins, so get everything else except... wait, it's only plugins. -->
-				<MapFolder From="55 Windmills Base Vanilla Version" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="56 Windmills SkyMills Compatibility" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="58 Jewelry Rings" To="ModOrganizer/mods/SMIM 2.07 - Jewelry Rings (Vanilla)" />
-				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" To="ModOrganizer/mods/SMIM 2.07 - Jewelry Rings (CCO Remade)" />
-				<MapFolder From="30 Rocks - Generic" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="31 Rocks - Blackreach" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="32 Rocks - Mountains" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="45 Hanging Rings" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="60 Hearthfires Stuff" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="21 Dwemer Animated Lifts" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="53 Imperial Jail" To="ModOrganizer/mods/SMIM 2.07" />
-				<MapFolder From="95 Merged ESP OS All" To="ModOrganizer/mods/SMIM 2.07" />
+			<ExtractArchive ArchiveFile="SMIM 2.07" SimpleMO="Base">
+				<MapFile From="00 Core/SMIM Readme.txt" To="SMIM Readme.txt" />
+				<MapFolder From="01 Furniture" />
+				<MapFolder From="02 Vanilla Barrel Textures Animations" />
+				<MapFolder From="03 Food" />
+				<MapFolder From="04 Farmhouse 3D Ropes No Fade (Best)" />
+				<MapFolder From="05 Chains 3D - Misc" />
+				<MapFolder From="06 Chains 3D - Signs" />
+				<MapFolder From="07 Chains 3D - Whiterun" />
+				<MapFolder From="08 Chains 3D - Pull Levers Small Rings" />
+				<MapFolder From="09 Dwemer Clutter" />
+				<MapFolder From="10 Nordic Tables and Benches" />
+				<MapFolder From="11 Bridges" />
+				<MapFolder From="12 Whiterun Doors" />
+				<MapFolder From="14 Stockade 3D Ropes" />
+				<MapFolder From="15 Clothing Fixes" />
+				<MapFolder From="16 Tankard Dark Brushed Metal" />
+				<MapFolder From="17 Nordic Catacombs Skeletal Remains" />
+				<MapFolder From="18 Farmhouse Woven Fence Less Flicker" />
+				<MapFolder From="19 Smelter" />
+				<MapFolder From="21 Dwemer Animated Lifts" />
+				<MapFolder From="22 Solitude Docks Ropes" />
+				<MapFolder From="25 Solitude Gate Doors" />
+				<MapFolder From="26 Human Skull Fixes" />
+				<MapFolder From="27 Hawk" />
+				<MapFolder From="30 Rocks - Generic" />
+				<MapFolder From="31 Rocks - Blackreach" />
+				<MapFolder From="32 Rocks - Mountains" />
+				<MapFolder From="33 Orc Longhouse" />
+				<MapFolder From="39 Dungeons 3D Ropes" />
+				<MapFolder From="41 Draugr Corpses" />
+				<MapFolder From="42 Furniture Noble" />
+				<MapFolder From="43 Whiterun Castle Wood Carvings Vanilla" />
+				<MapFolder From="44 Poor Coffin Custom Texture" />
+				<MapFolder From="45 Hanging Rings" />
+				<MapFolder From="46 Carriage Seats and Fixes" />
+				<MapFolder From="47 Juniper Tree" />
+				<MapFolder From="49 Tundra Tree" />
+				<MapFolder From="50 Dawnguard Soulcairn Bone Piles" />
+				<MapFolder From="53 Imperial Jail" />
+				<MapFolder From="55 Windmills Base Vanilla Version" />
+				<MapFolder From="56 Windmills SkyMills Compatibility" />
+				<MapFolder From="57 Ruins Sarcophagus" />
+				<MapFolder From="60 Hearthfires Stuff" />
+				<MapFolder From="61 Bowl Ingredients" />
+				<MapFolder From="70 Rabbit" />
+				<MapFolder From="71 Candelabras Sconces Walltorches" />
+				<MapFolder From="72 Chandeliers" />
+				<MapFolder From="95 Merged ESP OS All" />
+
+				<!-- these have plugins, but we use the merged one, so just grab meshes and textures. -->
+				<MapFolder From="00 Core/meshes" To="meshes" />
+				<MapFolder From="00 Core/textures" To="textures" />
+				<MapFolder From="35 Shack Kit/meshes" To="meshes" />
+				<MapFolder From="35 Shack Kit/textures" To="textures" />
+				<MapFolder From="37 Riften 3D Ropes/meshes" To="meshes" />
+				<MapFolder From="37 Riften 3D Ropes/textures" To="textures" />
+				<MapFolder From="40 Furniture Chests/meshes" To="meshes" />
+				<MapFolder From="40 Furniture Chests/textures" To="textures" />
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts/meshes" To="meshes" />
+				<MapFolder From="75 Dungeons Cliffs Snow Skirts/textures" To="textures" />
+
+				<!-- STEP Core and STEP Extended differ here, so offer up a choice. -->
+				<MapFolder From="58 Jewelry Rings" ModOrganizerMod="SMIM 2.07 - Jewelry Rings (Vanilla)" />
+				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" ModOrganizerMod="SMIM 2.07 - Jewelry Rings (CCO Remade)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 1" Id="SRO1">
-				<MapFolder From="data" To="ModOrganizer/mods/Skyrim Realistic Overhaul 1.7" />
-			</ExtractArchive>
-
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 2" Id="SRO2">
-				<MapFolder From="data" To="ModOrganizer/mods/Skyrim Realistic Overhaul 1.7" />
-			</ExtractArchive>
-
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 3" Id="SRO3">
-				<MapFolder From="data" To="ModOrganizer/mods/Skyrim Realistic Overhaul 1.7" />
-			</ExtractArchive>
+			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 1" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO1" />
+			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 2" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO2" />
+			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 3" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO3" />
 
 			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - SRO 1.7 Original Skyrim version update" Id="SRO4">
 				<MapFolder From="data" To="OUTGOING_SRO17Update" />
@@ -1684,69 +1667,66 @@ TODO: detect max path now.
 
 			<ExtractArchive ArchiveFile="HD Misc 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Tobes Highres Textures - 1k 1.2" SimpleMO="Root" NestedDepth="2">
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel01.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel01_n.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel02.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barrel02_n.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/furniturewood01.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/furniturewood01_n.dds" />
-				<Hide Folder="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/barset" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadhare01.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadhare01_n.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadpheasant01.dds" />
-				<Hide File="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/clutter/deadanimals/deadpheasant01_n.dds" />
-				<Hide Folder="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2/Textures/furniture" />
+				<Hide File="Textures/clutter/barrel01.dds" />
+				<Hide File="Textures/clutter/barrel01_n.dds" />
+				<Hide File="Textures/clutter/barrel02.dds" />
+				<Hide File="Textures/clutter/barrel02_n.dds" />
+				<Hide File="Textures/clutter/furniturewood01.dds" />
+				<Hide File="Textures/clutter/furniturewood01_n.dds" />
+				<Hide Folder="Textures/clutter/barset" />
+				<Hide File="Textures/clutter/deadanimals/deadhare01.dds" />
+				<Hide File="Textures/clutter/deadanimals/deadhare01_n.dds" />
+				<Hide File="Textures/clutter/deadanimals/deadpheasant01.dds" />
+				<Hide File="Textures/clutter/deadanimals/deadpheasant01_n.dds" />
+				<Hide Folder="Textures/furniture" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b" NestedDepth="2">
-				<MapFolder To="ModOrganizer/mods/Tobes Highres Textures - 1k 1.2" />
-			</ExtractArchive>
-
+			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b" SimpleMO="Root" ForModOrganizerMod="Tobes Highres Textures - 1k 1.2" NestedDepth="2" />
 			<ExtractArchive ArchiveFile="High Quality Food and Ingredients - Performance Repack 1.6" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="A Quality World Map - Vivid with Stone Roads 9.0.1" SimpleMO="Root" />
 		</Group>
 
 		<Group Name="2.G. Landscape &amp; Environment">
 			<ExtractArchive ArchiveFile="aMidianBorn Farmhouse - 1k 1.0" SimpleMO="Root">
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/rope01.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/rope01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/ropealpha01.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/ropealpha01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch02.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch02_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch03.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Farmhouse - 1k 1.0/textures/architecture/farmhouse/thatch03_n.dds" />
+				<Hide File="textures/architecture/farmhouse/rope01.dds" />
+				<Hide File="textures/architecture/farmhouse/rope01_n.dds" />
+				<Hide File="textures/architecture/farmhouse/ropealpha01.dds" />
+				<Hide File="textures/architecture/farmhouse/ropealpha01_n.dds" />
+				<Hide File="textures/architecture/farmhouse/thatch02.dds" />
+				<Hide File="textures/architecture/farmhouse/thatch02_n.dds" />
+				<Hide File="textures/architecture/farmhouse/thatch03.dds" />
+				<Hide File="textures/architecture/farmhouse/thatch03_n.dds" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="aMidianBorn Solstheim Landscape - 1k 1.0" SimpleMO="Root">
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltcolumnsingle.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltcolumnsingle_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltside.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2basaltside_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2road01ash01.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/dlc2road01ash01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_05.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_darkcliff_01.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_darkcliff_01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_rocks_01_d.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_01.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_01_n.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_03.dds" />
-				<Hide File="ModOrganizer/mods/aMidianBorn Solstheim Landscape - 1k 1.0/textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2basaltcolumnsingle.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2basaltcolumnsingle_n.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2basaltside.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2basaltside_n.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2road01ash01.dds" />
+				<Hide File="textures/dlc02/landscape/dlc2road01ash01_n.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_05.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_darkcliff_01.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_darkcliff_01_n.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_rocks_01_d.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_rocks_01_n.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_tundra_01.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_tundra_01_n.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_tundra_03.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Deathbell HD - 1K 1.1">
-				<MapFolder From="textures" To="ModOrganizer/mods/Deathbell HD - 1K 1.1/textures" />
+				<MapFolder From="textures" To="." />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Basic Edition 1.87a" SimpleMO="Single" Id="SFOMain">
-				<Hide Folder="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/dirtcliffs" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/fieldgrass02.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/fieldgrass02_n.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/trees/treepineforestbranchcompsnow.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/landscape/trees/treepineforestbranchcompsnowl.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/terrain/tamriel/trees/tamrieltreelod.dds" />
+				<Hide Folder="textures/landscape/dirtcliffs" />
+				<Hide File="textures/landscape/fieldgrass02.dds" />
+				<Hide File="textures/landscape/fieldgrass02_n.dds" />
+				<Hide File="textures/landscape/trees/treepineforestbranchcompsnow.dds" />
+				<Hide File="textures/landscape/trees/treepineforestbranchcompsnowl.dds" />
+				<Hide File="textures/terrain/tamriel/trees/tamrieltreelod.dds" />
 			</ExtractArchive>
 
 			<Clean WaitFor="SFOMain">
@@ -1755,25 +1735,24 @@ TODO: detect max path now.
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Dragonborn Addon 0.2" NestedDepth="1" WaitFor="SFOMain">
-				<MapFolder To="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_01.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_04.dds" />
-				<Hide File="ModOrganizer/mods/Skyrim Flora Overhaul - Basic Edition 1.87a/textures/dlc02/landscape/volcanic_ash_04_n.dds" />
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Dragonborn Addon 0.2" SimpleMO="Single" ModOrganizerMod="Skyrim Flora Overhaul - Basic Edition 1.87a" WaitFor="SFOMain">
+				<Hide File="textures/dlc02/landscape/volcanic_ash_01.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_04.dds" />
+				<Hide File="textures/dlc02/landscape/volcanic_ash_04_n.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.33">
-				<MapFolder From="EHD 1K" To="ModOrganizer/mods/Embers HD - All-in-One 1.33" />
-				<MapFolder From="EHDFireplaces" To="ModOrganizer/mods/Embers HD - All-in-One 1.33" />
-				<MapFolder From="EHDForges" To="ModOrganizer/mods/Embers HD - All-in-One 1.33" />
-				<MapFolder From="EHDLavaCrater" To="ModOrganizer/mods/Embers HD - All-in-One 1.33" />
-				<MapFolder From="EHDPatchUHDFE" To="ModOrganizer/mods/Embers HD - All-in-One 1.33" />
+			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.33" SimpleMO="Base">
+				<MapFolder From="EHD 1K" />
+				<MapFolder From="EHDFireplaces" />
+				<MapFolder From="EHDForges" />
+				<MapFolder From="EHDLavaCrater" />
+				<MapFolder From="EHDPatchUHDFE" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Enhanced Night Skyrim - Low Stars 0.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Farmhouse Chimneys 3.0.3">
-				<MapFolder From="00 - Thinner Meshes" To="ModOrganizer/mods/Farmhouse Chimneys 3.0.3" />
-				<MapFolder From="01 - Vanilla" To="ModOrganizer/mods/Farmhouse Chimneys 3.0.3" />
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys 3.0.3" SimpleMO="Base">
+				<MapFolder From="00 - Thinner Meshes" />
+				<MapFolder From="01 - Vanilla" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0" SimpleMO="Root" NestedDepth="2" />
@@ -1785,39 +1764,39 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Northfire's Skidmarks 1.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Realistic Water Two 1.11">
-				<MapFolder From="00 Core" To="ModOrganizer/mods/Realistic Water Two 1.11" />
-				<MapFolder From="10 Medium Resolution" To="ModOrganizer/mods/Realistic Water Two 1.11" />
-				<MapFolder From="20 Legendary (21 + 22 + 30 + 31)" To="ModOrganizer/mods/Realistic Water Two 1.11" />
-				<MapFolder From="40 Bobbing Longboats" To="ModOrganizer/mods/Realistic Water Two 1.11" />
+			<ExtractArchive ArchiveFile="Realistic Water Two 1.11" SimpleMO="Base">
+				<MapFolder From="00 Core" />
+				<MapFolder From="10 Medium Resolution" />
+				<MapFolder From="20 Legendary (21 + 22 + 30 + 31)" />
+				<MapFolder From="40 Bobbing Longboats" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUSTIC MONUMENTS and TOMBSTONES 2.6" NestedDepth="1">
-				<MapFolder From="00 - Textures Monument 1k" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
-				<MapFolder From="01 - Textures Tomb 2k" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
-				<MapFolder From="02 - SMIM Mesh" To="ModOrganizer/mods/RUSTIC MONUMENTS and TOMBSTONES 2.6" />
+			<ExtractArchive ArchiveFile="RUSTIC MONUMENTS and TOMBSTONES 2.6" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="00 - Textures Monument 1k" />
+				<MapFolder From="01 - Textures Tomb 2k" />
+				<MapFolder From="02 - SMIM Mesh" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Shadowmarks Improved - 256 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Improved Puddles - 1k BAIN 1.1a">
-				<MapFolder From="00 Core Files" To="ModOrganizer/mods/Skyrim Improved Puddles - 1k BAIN 1.1a" />
-				<MapFolder From="17 --CHOOSE ONE ESP-- Dawnguard-HearthFires-Dragonborn DLC Users" To="ModOrganizer/mods/Skyrim Improved Puddles - 1k BAIN 1.1a" />
+			<ExtractArchive ArchiveFile="Skyrim Improved Puddles - 1k BAIN 1.1a" SimpleMO="Base">
+				<MapFolder From="00 Core Files" />
+				<MapFolder From="17 --CHOOSE ONE ESP-- Dawnguard-HearthFires-Dragonborn DLC Users" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Vivid Clouds and Fogs 2.90">
-				<MapFolder From="Medres Vivid Clouds" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
-				<MapFolder From="Medres Vivid Groundfogs" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
-				<MapFolder From="Medres Vivid Fogs" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
-				<MapFolder From="Medres Vivid Steams" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
-				<MapFolder From="Medres Vivid Firesmokes" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
-				<MapFile From="Extended Weathers/AllinOne/Vividian - Extended Weathers.esp" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90/Vividian - Extended Weathers.esp" />
-				<MapFolder From="Extended Weathers/ExtendedGroundfogs/Data" To="ModOrganizer/mods/Vivid Clouds and Fogs 2.90" />
+			<ExtractArchive ArchiveFile="Vivid Clouds and Fogs 2.90" SimpleMO="Base">
+				<MapFolder From="Medres Vivid Clouds" />
+				<MapFolder From="Medres Vivid Groundfogs" />
+				<MapFolder From="Medres Vivid Fogs" />
+				<MapFolder From="Medres Vivid Steams" />
+				<MapFolder From="Medres Vivid Firesmokes" />
+				<MapFile From="Extended Weathers/AllinOne/Vividian - Extended Weathers.esp" To="Vividian - Extended Weathers.esp" />
+				<MapFolder From="Extended Weathers/ExtendedGroundfogs/Data" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" SimpleMO="Single" Id="TundraMossMain" />
-			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5" WaitFor="TundraMossMain">
-				<MapFolder From="high poly mesh(for the same object)/Data" To="ModOrganizer/mods/Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5" ModOrganizerMod="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" WaitFor="TundraMossMain">
+				<MapFolder From="high poly mesh(for the same object)/Data" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Whiterun Trellis Redesigned - 1k 1.1" SimpleMO="Root" />
@@ -1834,41 +1813,41 @@ TODO: detect max path now.
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="Coverkhajits - 1k" NestedDepth="1">
-				<MapFolder From="khajiitfemale/Data" To="ModOrganizer/mods/Coverkhajits - 1k" />
+			<ExtractArchive ArchiveFile="Coverkhajits - 1k" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="khajiitfemale/Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DRAGON PRIEST - 2k 1.2">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/DRAGON PRIEST - 2k 1.2" />
+			<ExtractArchive ArchiveFile="DRAGON PRIEST - 2k 1.2" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DRAUGR - 2k 1.1">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/DRAUGR - 2k 1.1" />
+			<ExtractArchive ArchiveFile="DRAUGR - 2k 1.1" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="FAR - 2k X" NestedDepth="1">
-				<MapFolder From="Females/Default body/MAIN texture" To="ModOrganizer/mods/FAR - 2k X" />
-				<MapFolder From="Males/Better Males body" To="ModOrganizer/mods/FAR - 2k X" />
-				<MapFolder From="No glowing skin/Female" To="ModOrganizer/mods/FAR - 2k X" />
-				<MapFolder From="No glowing skin/Male" To="ModOrganizer/mods/FAR - 2k X" />
+			<ExtractArchive ArchiveFile="FAR - 2k X" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="Females/Default body/MAIN texture" />
+				<MapFolder From="Males/Better Males body" />
+				<MapFolder From="No glowing skin/Female" />
+				<MapFolder From="No glowing skin/Male" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Female Vampires Have Fangs 0.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="GIANT - 2k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/GIANT - 2k 1.0" />
+			<ExtractArchive ArchiveFile="GIANT - 2k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="HAGRAVEN - 2k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/HAGRAVEN - 2k 1.0" />
+			<ExtractArchive ArchiveFile="HAGRAVEN - 2k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a">
-				<MapFolder From="Installer V5 - Immersive Citizens - AI Overhaul/10_Main_Full_Version" To="ModOrganizer/mods/Immersive Citizens - AI Overhaul 0.3.5.1a" />
+			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="10_Main_Full_Version" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Lepidoptera Of Skyrim for Dawnguard DLC 2.0" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="MAMMOTH - 2k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/MAMMOTH - 2k 1.0" />
+			<ExtractArchive ArchiveFile="MAMMOTH - 2k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Realistic Hair 1.0" SimpleMO="Root" />
@@ -1877,14 +1856,15 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="RUSTIC CHILDREN - BODY - 2k-1k 1.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="RUSTIC DEATH HOUND - 2k-1k - DARK VERSION 1.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="RUSTIC GARGOYLE - 2k-1k 2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SABRECAT - 2k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/SABRECAT - 2k 1.0" />
+			<ExtractArchive ArchiveFile="SABRECAT - 2k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="SLF Hair - Rough Hair - Lite 1k 2.0" SimpleMO="Root" />
-			<ExtractArchive Id="Arvak" ArchiveFile="Dawnguard Rewritten - Arvak 1.1.1">
-				<MapFolder From="00 Plugin" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
-				<MapFolder From="01 HD" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
-				<MapFolder From="02 Soul Cairn" To="ModOrganizer/mods/Dawnguard Rewritten - Arvak 1.1.1" />
+			<ExtractArchive Id="Arvak" ArchiveFile="Dawnguard Rewritten - Arvak 1.1.1" SimpleMO="Base">
+				<MapFolder From="00 Plugin" />
+				<MapFolder From="01 HD" />
+				<MapFolder From="02 Soul Cairn" />
 			</ExtractArchive>
 
 			<Clean WaitFor="Arvak">
@@ -1893,25 +1873,28 @@ TODO: detect max path now.
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="TROLL - 2k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/TROLL - 2k 1.0" />
+			<ExtractArchive ArchiveFile="TROLL - 2k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06">
-				<MapFolder From="00 base" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
-				<MapFolder From="10 flipped monarch wings" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06" />
-				<MapFolder From="20 101BugsHD support" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
-				<MapFolder From="30 PondFish and Salmon Replacer" To="ModOrganizer/mods/Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
+			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06" SimpleMO="Base">
+				<MapFolder From="00 base" />
+				<MapFolder From="10 flipped monarch wings" />
+
+				<!-- While we're here... -->
+				<SwitchModOrganizerMod To="Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
+				<MapFolder From="20 101BugsHD support" />
+				<MapFolder From="30 PondFish and Salmon Replacer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="WISPMOTHER - 2x1k 1.0">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/WISPMOTHER - 2x1k 1.0" />
-				<MapFile From="01 Data/textures/actors/wisp/wispclothtile.dds" To="ModOrganizer/mods/WISPMOTHER - 2x1k 1.0/textures/actors/wisp/wispclothtile.dds" />
+			<ExtractArchive ArchiveFile="WISPMOTHER - 2x1k 1.0" SimpleMO="Base">
+				<MapFolder From="00 Data" />
+				<MapFile From="01 Data/textures/actors/wisp/wispclothtile.dds" To="textures/actors/wisp/wispclothtile.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="WSCO Occidental Vanilla Body 1.0" Id="WSCO">
-				<MapFolder From="00 Readme" To="ModOrganizer/mods/WSCO Occidental Vanilla Body 1.0" />
-				<MapFolder From="01 Female" To="ModOrganizer/mods/WSCO Occidental Vanilla Body 1.0" />
+			<ExtractArchive ArchiveFile="WSCO Occidental Vanilla Body 1.0" SimpleMO="Base" Id="WSCO">
+				<MapFolder From="00 Readme" />
+				<MapFolder From="01 Female" />
 			</ExtractArchive>
 
 			<Clean WaitFor="WSCO">
@@ -1923,114 +1906,112 @@ TODO: detect max path now.
 
 		<Group Name="2.I. Clothing &amp; Equipment">
 			<ExtractArchive ArchiveFile="aMidianBorn Blade of Woe 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9">
-				<MapFolder From="04 iron vanilla cut" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="05 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="09 steel plate" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="10 leather" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="03 hide" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="02 fur" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="01 elven gold" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="08 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="11 ancient nord" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="07 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="06 scaled" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="12 wolf grey" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="13 glass" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="14 ebony black" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="15 blades" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
-				<MapFolder From="16 falmer armor" To="ModOrganizer/mods/aMidianBorn Book of Silence - ARMORS 1.9" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9" SimpleMO="Base">
+				<MapFolder From="04 iron vanilla cut" />
+				<MapFolder From="05 steel" />
+				<MapFolder From="09 steel plate" />
+				<MapFolder From="10 leather" />
+				<MapFolder From="03 hide" />
+				<MapFolder From="02 fur" />
+				<MapFolder From="01 elven gold" />
+				<MapFolder From="08 dwarven" />
+				<MapFolder From="11 ancient nord" />
+				<MapFolder From="07 orcish" />
+				<MapFolder From="06 scaled" />
+				<MapFolder From="12 wolf grey" />
+				<MapFolder From="13 glass" />
+				<MapFolder From="14 ebony black" />
+				<MapFolder From="15 blades" />
+				<MapFolder From="16 falmer armor" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9">
-				<MapFolder From="01 skeleton" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
-				<MapFolder From="02 dragonpriest" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
-				<MapFolder From="03 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
-				<MapFolder From="04 falmer" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
-				<MapFolder From="05 chaurus" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
-				<MapFolder From="06 spriggan" To="ModOrganizer/mods/aMidianBorn Book of Silence - Creatures 1.9" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9" SimpleMO="Base">
+				<MapFolder From="01 skeleton" />
+				<MapFolder From="02 dragonpriest" />
+				<MapFolder From="03 draugr" />
+				<MapFolder From="04 falmer" />
+				<MapFolder From="05 chaurus" />
+				<MapFolder From="06 spriggan" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9">
-				<MapFolder From="01 nordic carved black" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
-				<MapFolder From="02 bonemold" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
-				<MapFolder From="03 acolyte masks" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
-				<MapFolder From="04 dragon priest acolyte" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
-				<MapFolder From="05 hulking draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" SimpleMO="Base">
+				<MapFolder From="01 nordic carved black" />
+				<MapFolder From="02 bonemold" />
+				<MapFolder From="03 acolyte masks" />
+				<MapFolder From="04 dragon priest acolyte" />
+				<MapFolder From="05 hulking draugr" />
 				<!-- "ash" should have been "ashman" -->
-				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9/textures/actors/dlc02/ashman" />
-				<MapFolder From="06 ash spawn" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
-				<MapFolder From="07 ash guardian" To="ModOrganizer/mods/aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" />
+				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="textures/actors/dlc02/ashman" />
+				<MapFolder From="06 ash spawn" />
+				<MapFolder From="07 ash guardian" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" Id="BoSUNIQUEITEMS">
-				<MapFolder From="01 targe of the blooded" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="02 wuuthrad" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="03 savior's hide" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="04 yngols helm" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="05 maceofmolagbal" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="06 mehrunes razor" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="07 volendrung" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="08 tsun" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="09 ebonymail black" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="10 staff of magnus" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-				<MapFolder From="11 dragon priest masks" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" Id="BoSUNIQUEITEMS" SimpleMO="Base">
+				<MapFolder From="01 targe of the blooded" />
+				<MapFolder From="02 wuuthrad" />
+				<MapFolder From="03 savior's hide" />
+				<MapFolder From="04 yngols helm" />
+				<MapFolder From="05 maceofmolagbal" />
+				<MapFolder From="06 mehrunes razor" />
+				<MapFolder From="07 volendrung" />
+				<MapFolder From="08 tsun" />
+				<MapFolder From="09 ebonymail black" />
+				<MapFolder From="10 staff of magnus" />
+				<MapFolder From="11 dragon priest masks" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9">
-				<MapFolder From="01 iron" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="02 steel" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="03 skyforge" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="04 silver" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="05 orcish" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="06 dwarven" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="09 staves" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<MapFolder From="10 draugr" To="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9" />
-				<Optional File="ModOrganizer/mods/aMidianBorn Book of Silence - WEAPONS 1.9/aMidianborn_Skyforge_Weapons.esp" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9" SimpleMO="Base">
+				<MapFolder From="01 iron" />
+				<MapFolder From="02 steel" />
+				<MapFolder From="03 skyforge" />
+				<MapFolder From="04 silver" />
+				<MapFolder From="05 orcish" />
+				<MapFolder From="06 dwarven" />
+				<MapFolder From="09 staves" />
+				<MapFolder From="10 draugr" />
+				<Optional File="aMidianborn_Skyforge_Weapons.esp" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" WaitFor="BoSUNIQUEITEMS">
-				<MapFolder From="data" To="ModOrganizer/mods/aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" />
-			</ExtractArchive>
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" SimpleMO="Single" ModOrganizerMod="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" WaitFor="BoSUNIQUEITEMS" />
 
-			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9">
+			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9" SimpleMO="Base">
 				<!-- effectively "delete this file" because the next line overwrites it. -->
-				<MapFile From="aMidianBorn_ContentAddon.esp" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9/aMidianBorn_ContentAddon.esp" />
-				<MapFolder From="Improved Closefaced Helmets version" To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
-				<MapFolder To="ModOrganizer/mods/aMidianBorn - Content Addon 1.9" />
+				<MapFile From="aMidianBorn_ContentAddon.esp" To="." />
+				<MapFolder From="Improved Closefaced Helmets version" />
+				<MapFolder />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="aMidianBorn Imperial Light and Studded - 2k 1.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="aMidianBorn Stormcloak Officer Armour - 2k 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized 1.0.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Dragonbone Mastery - Weapons Retexture 2.1">
-				<MapFolder From="00 Main Normals" To="ModOrganizer/mods/Dragonbone Mastery - Weapons Retexture 2.1" />
-				<MapFolder From="01 Main Files Darker" To="ModOrganizer/mods/Dragonbone Mastery - Weapons Retexture 2.1" />
-				<MapFolder From="02 Vanilla Arrow" To="ModOrganizer/mods/Dragonbone Mastery - Weapons Retexture 2.1" />
-				<MapFolder From="03 Short Scabbard Texture 1" To="ModOrganizer/mods/Dragonbone Mastery - Weapons Retexture 2.1" />
-				<MapFolder From="04 Required For Short Scabbard - Transparent Meshes" To="ModOrganizer/mods/Dragonbone Mastery - Weapons Retexture 2.1" />
+			<ExtractArchive ArchiveFile="Dragonbone Mastery - Weapons Retexture 2.1" SimpleMO="Base">
+				<MapFolder From="00 Main Normals" />
+				<MapFolder From="01 Main Files Darker" />
+				<MapFolder From="02 Vanilla Arrow" />
+				<MapFolder From="03 Short Scabbard Texture 1" />
+				<MapFolder From="04 Required For Short Scabbard - Transparent Meshes" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2k-1k 3.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Dragonborn Mages Robes Retexture Pack 0.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Elemental Staffs - 1k 1.16" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c">
-				<MapFolder From="00 - Amulets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
-				<MapFolder From="10 - Circlets" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
-				<MapFolder From="20 - Rings" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
-				<MapFolder From="40 - Dawnguard Addon" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
-				<MapFolder From="01a- Gamwich Amulet Textures 512" To="ModOrganizer/mods/Gemling Queen Jewelry - All In One 4.1c" />
+			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c" SimpleMO="Base">
+				<MapFolder From="00 - Amulets" />
+				<MapFolder From="10 - Circlets" />
+				<MapFolder From="20 - Rings" />
+				<MapFolder From="40 - Dawnguard Addon" />
+				<MapFolder From="01a- Gamwich Amulet Textures 512" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project 1.0.5" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Greatsword Sheaths and Scabbards Redux 2.7.3">
-				<MapFolder From="08 Fullsize Textures" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
-				<MapFolder From="04 Meshes Fullsize Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
-				<MapFolder From="05 Meshes Fullsize DG Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
-				<MapFolder From="06 Meshes Fullsize DB Thin" To="ModOrganizer/mods/Greatsword Sheaths and Scabbards Redux 2.7.3" />
+			<ExtractArchive ArchiveFile="Greatsword Sheaths and Scabbards Redux 2.7.3" SimpleMO="Base">
+				<MapFolder From="08 Fullsize Textures" />
+				<MapFolder From="04 Meshes Fullsize Thin" />
+				<MapFolder From="05 Meshes Fullsize DG Thin" />
+				<MapFolder From="06 Meshes Fullsize DB Thin" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Mage Outfit Texture Overhaul - Master X" SimpleMO="Single" />
@@ -2041,108 +2022,104 @@ TODO: detect max path now.
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
-			<ExtractArchive ArchiveFile="Animated clutter 1.9" NestedDepth="1">
-				<MapFolder From="Animal Related Containers/Beehive" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Animal Related Containers/Spider sack" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Animal Related Containers/Spider sack albino" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Coffins/Coffin common" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Coffins/Coffin dwemer" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Coffins/Coffin noble and poor" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Coffins/Coffin riften" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Coffins/Coffin whiterun" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Doors/Whiterun underforge outside door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Doors/Whiterun underforge inside door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Doors/Solitude palace inner door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Doors/Orc longhouse" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Doors/Windhelm gray quarters door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Falmer Chests/Falmer chests" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Barrel" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Burial urn" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Dwemer convector" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Dwemer dresser" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Elder scroll chest" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Guild Cache" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Knapsack" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Noble chest" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Orc end table" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Sacks closed" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Sacks opened" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Satchel" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Sovngarde mead barrels" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Strongbox" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Wall cage" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Winterhold bookcase" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Misc Containers/Wrapped draugr" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Sewers and Wells/Imperial sewer entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Sewers and Wells/Imperial well entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Sewers and Wells/Riften sewer entrance" To="ModOrganizer/mods/Animated clutter 1.9" />
+			<ExtractArchive ArchiveFile="Animated clutter 1.9" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="Animal Related Containers/Beehive" />
+				<MapFolder From="Animal Related Containers/Spider sack" />
+				<MapFolder From="Animal Related Containers/Spider sack albino" />
+				<MapFolder From="Coffins/Coffin common" />
+				<MapFolder From="Coffins/Coffin dwemer" />
+				<MapFolder From="Coffins/Coffin noble and poor" />
+				<MapFolder From="Coffins/Coffin riften" />
+				<MapFolder From="Coffins/Coffin whiterun" />
+				<MapFolder From="Doors/Whiterun underforge outside door" />
+				<MapFolder From="Doors/Whiterun underforge inside door" />
+				<MapFolder From="Doors/Solitude palace inner door" />
+				<MapFolder From="Doors/Orc longhouse" />
+				<MapFolder From="Doors/Windhelm gray quarters door" />
+				<MapFolder From="Falmer Chests/Falmer chests" />
+				<MapFolder From="Misc Containers/Barrel" />
+				<MapFolder From="Misc Containers/Burial urn" />
+				<MapFolder From="Misc Containers/Dwemer convector" />
+				<MapFolder From="Misc Containers/Dwemer dresser" />
+				<MapFolder From="Misc Containers/Elder scroll chest" />
+				<MapFolder From="Misc Containers/Guild Cache" />
+				<MapFolder From="Misc Containers/Knapsack" />
+				<MapFolder From="Misc Containers/Noble chest" />
+				<MapFolder From="Misc Containers/Orc end table" />
+				<MapFolder From="Misc Containers/Sacks closed" />
+				<MapFolder From="Misc Containers/Sacks opened" />
+				<MapFolder From="Misc Containers/Satchel" />
+				<MapFolder From="Misc Containers/Sovngarde mead barrels" />
+				<MapFolder From="Misc Containers/Strongbox" />
+				<MapFolder From="Misc Containers/Wall cage" />
+				<MapFolder From="Misc Containers/Winterhold bookcase" />
+				<MapFolder From="Misc Containers/Wrapped draugr" />
+				<MapFolder From="Sewers and Wells/Imperial sewer entrance" />
+				<MapFolder From="Sewers and Wells/Imperial well entrance" />
+				<MapFolder From="Sewers and Wells/Riften sewer entrance" />
 				<!-- this is the single one we skip. -->
-				<!-- <MapFolder From="Ships/Ships idles" To="ModOrganizer/mods/Animated clutter 1.9" /> -->
-				<MapFolder From="Ships/Ships trap doors" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Trap Doors/Farmhouse trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Trap Doors/Hearthfire basement home trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Trap Doors/Imperial trap doors" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Trap Doors/Winterhold trap door" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Fixes/Button animation fix" To="ModOrganizer/mods/Animated clutter 1.9" />
-				<MapFolder From="Fixes/Fort Dawnguard wall fix" To="ModOrganizer/mods/Animated clutter 1.9" />
+				<!-- <MapFolder From="Ships/Ships idles" /> -->
+				<MapFolder From="Ships/Ships trap doors" />
+				<MapFolder From="Trap Doors/Farmhouse trap door" />
+				<MapFolder From="Trap Doors/Hearthfire basement home trap door" />
+				<MapFolder From="Trap Doors/Imperial trap doors" />
+				<MapFolder From="Trap Doors/Winterhold trap door" />
+				<MapFolder From="Fixes/Button animation fix" />
+				<MapFolder From="Fixes/Fort Dawnguard wall fix" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Better Turn Animation 1.1" SimpleMO="Single" Id="BTAMain">
-				<Hide File="ModOrganizer/mods/Better Turn Animation 1.1/meshes/actors/character/animations/1hm_shout_exhale.hkx" />
-				<Hide File="ModOrganizer/mods/Better Turn Animation 1.1/meshes/actors/character/animations/mt_shout_exhale.hkx" />
-				<Hide File="ModOrganizer/mods/Better Turn Animation 1.1/meshes/actors/character/animations/mt_shout_inhale.hkx" />
+				<Hide File="meshes/actors/character/animations/1hm_shout_exhale.hkx" />
+				<Hide File="meshes/actors/character/animations/mt_shout_exhale.hkx" />
+				<Hide File="meshes/actors/character/animations/mt_shout_inhale.hkx" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Better Turn Animation - Fix Crossed Swords and Turn with Leg move 1.1" NestedDepth="1" WaitFor="BTAMain">
-				<MapFolder To="ModOrganizer/mods/Better Turn Animation 1.1" />
-			</ExtractArchive>
-
+			<ExtractArchive ArchiveFile="Better Turn Animation - Fix Crossed Swords and Turn with Leg move 1.1" ModOrganizerMod="Better Turn Animation 1.1" NestedDepth="1" WaitFor="BTAMain" />
 			<ExtractArchive ArchiveFile="Dawnguard Rune Weapons FXS Replacer 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="DROPS - v1 Optional 1.0" NestedDepth="1">
-				<MapFolder From="00 DROPS x512" To="ModOrganizer/mods/DROPS - v1 Optional 1.0" />
-				<MapFolder From="01 DROPS x512 at" To="ModOrganizer/mods/DROPS - v1 Optional 1.0" />
-				<Hide File="ModOrganizer/mods/DROPS - v1 Optional 1.0/textures/effects/fxwaterdropripplestile.dds"/>
-				<Hide File="ModOrganizer/mods/DROPS - v1 Optional 1.0/textures/effects/fxwaterdropripplestile_less.dds"/>
-				<Hide File="ModOrganizer/mods/DROPS - v1 Optional 1.0/textures/effects/fxwaterdropripplestilebrt.dds"/>
+			<ExtractArchive ArchiveFile="DROPS - v1 Optional 1.0" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="00 DROPS x512" />
+				<MapFolder From="01 DROPS x512 at" />
+				<Hide File="textures/effects/fxwaterdropripplestile.dds"/>
+				<Hide File="textures/effects/fxwaterdropripplestile_less.dds"/>
+				<Hide File="textures/effects/fxwaterdropripplestilebrt.dds"/>
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Realistic Boat Bobbing 2.4.8" NestedDepth="1">
-				<MapFolder From="010 Large Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="020 Long Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="030 Row Boat Meshes" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="201 Merged DLC ESP" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="252 Merged RWT Patch" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="314 SMIM Barrels Vanilla A" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
-				<MapFolder From="315 SMIM Crates" To="ModOrganizer/mods/Realistic Boat Bobbing 2.4.8" />
+			<ExtractArchive ArchiveFile="Realistic Boat Bobbing 2.4.8" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="010 Large Boat Meshes" />
+				<MapFolder From="020 Long Boat Meshes" />
+				<MapFolder From="030 Row Boat Meshes" />
+				<MapFolder From="201 Merged DLC ESP" />
+				<MapFolder From="252 Merged RWT Patch" />
+				<MapFolder From="314 SMIM Barrels Vanilla A" />
+				<MapFolder From="315 SMIM Crates" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Running with Bows 1.0" SimpleMO="Single" />
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
-			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1">
-				<MapFolder From="00 - MAIN" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
-				<MapFolder From="01b - Crown Texture 1k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
-				<MapFolder From="02b - Gamwich Jewelrybox Texture 1k" To="ModOrganizer/mods/Barenziah's Glory 2.1" />
+			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1" SimpleMO="Base">
+				<MapFolder From="00 - MAIN" />
+				<MapFolder From="01b - Crown Texture 1k" />
+				<MapFolder From="02b - Gamwich Jewelrybox Texture 1k" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL">
-				<MapFolder From="Detailing the Eldrich - Higher-Res Riekling Architecture/Data" To="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL" />
-				<Hide File="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL/textures/dlc02/clutter/dlc02stalhrimore.dds" />
-				<Hide File="ModOrganizer/mods/Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL/textures/dlc02/clutter/dlc02stalhrimore_n.dds" />
+			<ExtractArchive ArchiveFile="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL" SimpleMO="Root" NestedDepth="2">
+				<Hide File="textures/dlc02/clutter/dlc02stalhrimore.dds" />
+				<Hide File="textures/dlc02/clutter/dlc02stalhrimore_n.dds" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="LeanWolf's Improved Enchanter Candle Meshes 1.1" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="HD Linens 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="HD Ore and Ingots - with manager 1.0">
-				<MapFolder From="HD Ore And Ingots/Data" To="ModOrganizer/mods/HD Ore and Ingots - with manager 1.0" />
+			<ExtractArchive ArchiveFile="HD Ore and Ingots - with manager 1.0" SimpleMO="Base" NestedDepth="2">
+				<MapFolder From="textures" To="." />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="HD Reworked Baskets 1.0" SimpleMO="SingleData" NestedDepth="1" />
-			<ExtractArchive ArchiveFile="HORNCANDLES - 2k-1k 1.1">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/HORNCANDLES - 2k-1k 1.1" />
+			<ExtractArchive ArchiveFile="HORNCANDLES - 2k-1k 1.1" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="HQ Paper 2.3" SimpleMO="Single" />
@@ -2160,49 +2137,47 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Septim HD 1.0" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Full Pack 1.00" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Less Saturated Labels 1.00" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SKELETON - 2k 1.1">
-				<MapFolder From="00 Data" To="ModOrganizer/mods/SKELETON - 2k 1.1" />
+			<ExtractArchive ArchiveFile="SKELETON - 2k 1.1" SimpleMO="Base">
+				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0">
-				<MapFolder From="Skyrim Redesigned/Alchemy table v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Anvil v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Bloody rags v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Brown (less saturated) money bags/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Buckets - meshes better with environment)/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Charcoal/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Chaurus eggs (LORE)/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Cratewood v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Enchanting table- Css01 retexture/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Hasgraven claws/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Skeever tail/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Skeleton key v1/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
-				<MapFolder From="Skyrim Redesigned/Spider eggs/Data" To="ModOrganizer/mods/Skyrim Redesigned 1.0" />
+			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="Alchemy table v1/Data" />
+				<MapFolder From="Anvil v1/Data" />
+				<MapFolder From="Bloody rags v1/Data" />
+				<MapFolder From="Brown (less saturated) money bags/Data" />
+				<MapFolder From="Buckets - meshes better with environment)/Data" />
+				<MapFolder From="Charcoal/Data" />
+				<MapFolder From="Chaurus eggs (LORE)/Data" />
+				<MapFolder From="Cratewood v1/Data" />
+				<MapFolder From="Enchanting table- Css01 retexture/Data" />
+				<MapFolder From="Hasgraven claws/Data" />
+				<MapFolder From="Skeever tail/Data" />
+				<MapFolder From="Skeleton key v1/Data" />
+				<MapFolder From="Spider eggs/Data" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Super Realistic Ore Textures - Just the textures 1.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="Sweet Mother - Sweet Mother HD 2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="WEBS extended - x2048 3.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2">
-				<MapFolder From="01b - textures 1024" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
-				<MapFolder From="10c - nDG meshes 0.5x" To="ModOrganizer/mods/White Phial Replacer - All-in-One 1.2" />
+			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2" SimpleMO="Base">
+				<MapFolder From="01b - textures 1024" />
+				<MapFolder From="10c - nDG meshes 0.5x" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.L. Sound">
 			<ExtractArchive ArchiveFile="Lucidity Sound FX v2h" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5">
-				<MapFolder From="Better Animal footsteps v1-5/01 all footsteps" To="ModOrganizer/mods/Better Animal Footsteps 1.5" />
+			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Better Horse Pain Sounds 1.0">
-				<MapFolder From="Better Horse Pain Sounds/Data" To="ModOrganizer/mods/Better Horse Pain Sounds 1.0" />
-			</ExtractArchive>
+			<ExtractArchive ArchiveFile="Better Horse Pain Sounds 1.0" SimpleMO="Root" NestedDepth="2" />
 
 			<ExtractArchive ArchiveFile="Better Weapon Swing Sounds 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="AOS All-In-One 2.5.1">
-				<MapFolder From="AOS_2_5_1_Full-Improved_Installer/004 AOS Plugin Skyrim and DG and DB" To="ModOrganizer/mods/AOS All-In-One 2.5.1" />
-				<MapFolder From="AOS_2_5_1_Full-Improved_Installer/010 Sounds Loose" To="ModOrganizer/mods/AOS All-In-One 2.5.1" />
+			<ExtractArchive ArchiveFile="AOS All-In-One 2.5.1" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="004 AOS Plugin Skyrim and DG and DB" />
+				<MapFolder From="010 Sounds Loose" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Dragon Shout with Voice 1.1" SimpleMO="Single" />
@@ -2211,24 +2186,19 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Improved Horse step Sounds 2.1" SimpleMO="SingleData" />
 			<ExtractArchive ArchiveFile="Improved Combat Sounds 2.2" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Lower Sounding Thieves Guild Door 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Smooth blade draw and Sheathe sfx - Full Options 2.3">
-				<MapFolder From="01a - Daggers sds" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01b - 1handed blades sds" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01c - 2handed blades sds" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01f - Enchanted weapons sds" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01d - Mute activation fail" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01e - Mute critical hit" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="01g - Mute left hand" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
-				<MapFolder From="02 - Audio dynamic sneak" To="ModOrganizer/mods/Smooth blade draw and Sheathe sfx - Full Options 2.3" />
+			<ExtractArchive ArchiveFile="Smooth blade draw and Sheathe sfx - Full Options 2.3" SimpleMO="Base">
+				<MapFolder From="01a - Daggers sds" />
+				<MapFolder From="01b - 1handed blades sds" />
+				<MapFolder From="01c - 2handed blades sds" />
+				<MapFolder From="01f - Enchanted weapons sds" />
+				<MapFolder From="01d - Mute activation fail" />
+				<MapFolder From="01e - Mute critical hit" />
+				<MapFolder From="01g - Mute left hand" />
+				<MapFolder From="02 - Audio dynamic sneak" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Ultra Realistic Bow Shoot Sounds 1.0">
-				<MapFolder From="bow sounds/data" To="ModOrganizer/mods/Ultra Realistic Bow Shoot Sounds 1.0" />
-			</ExtractArchive>
-
-			<ExtractArchive ArchiveFile="Ultra Realistic Crossbow Shoot Sounds X">
-				<MapFolder From="Crossbow sounds" To="ModOrganizer/mods/Ultra Realistic Crossbow Shoot Sounds X" />
-			</ExtractArchive>
+			<ExtractArchive ArchiveFile="Ultra Realistic Bow Shoot Sounds 1.0" SimpleMO="Root" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Ultra Realistic Crossbow Shoot Sounds X" SimpleMO="Single" />
 		</Group>
 
 		<Group Name="2.M. Gameplay">
@@ -2241,99 +2211,100 @@ TODO: detect max path now.
 			<ExtractArchive ArchiveFile="Skyrim Community Uncapper 1.15.2.0" SimpleMO="Single" />
 			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="Traps Make Noise 2.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Wiseman303's Trap Fixes 2.0b">
-				<MapFolder From="00 core" To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
-				<MapFolder From="10 traps make noise compatibility" To="ModOrganizer/mods/Wiseman303's Trap Fixes 2.0b" />
+			<ExtractArchive ArchiveFile="Wiseman303's Trap Fixes 2.0b" SimpleMO="Base">
+				<MapFolder From="00 core" />
+				<MapFolder From="10 traps make noise compatibility" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.N. Patches">
 			<ExtractArchive ArchiveFile="Modern Brawl Bug Fix 1.04" SimpleMO="Root" />
 			<ExtractArchive ArchiveFile="STEP Compilation 2.10.0">
-				<MapFolder From="00 Core Files" To="ModOrganizer/mods/STEP Compilation 2.10.0 (Common)" />
-				<MapFolder From="01 STEP Core Comp" To="ModOrganizer/mods/STEP Compilation 2.10.0 (Common)" />
+				<MapFolder From="00 Core Files" ModOrganizerMod="STEP Compilation 2.10.0 (Common)" />
+				<MapFolder From="01 STEP Core Comp" ModOrganizerMod="STEP Compilation 2.10.0 (Common)" />
 
-				<MapFolder From="04 STEP Core Patch" To="ModOrganizer/mods/STEP Compilation 2.10.0 (Core)" />
+				<MapFolder From="04 STEP Core Patch" ModOrganizerMod="STEP Compilation 2.10.0 (Core)" />
 
 				<!-- While we're in here... -->
-				<MapFolder From="03 STEP Extended Comp" To="ModOrganizer/mods/STEP Compilation 2.10.0 (Extended)" />
-				<MapFolder From="04 STEP Extended Patch" To="ModOrganizer/mods/STEP Compilation 2.10.0 (Extended)" />
+				<MapFolder From="03 STEP Extended Comp" ModOrganizerMod="STEP Compilation 2.10.0 (Extended)" />
+				<MapFolder From="04 STEP Extended Patch" ModOrganizerMod="STEP Compilation 2.10.0 (Extended)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09" NestedDepth="1">
-				<MapFolder From="000 BSW Textures" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="001 Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="002 Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="003 Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="004 Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="005 Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="007 Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="008 Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="009 Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="010 Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="011 Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="012 Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="013 Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="014 Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="015 Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="016 Bound Weapons" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="017 Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="018 Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="022 Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="023 Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="024 Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="301 Arrow Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="302 Arrow Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="303 Arrow Forsworn" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="304 Arrow Falmer" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="305 Arrow Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="308 Arrow Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="309 Arrow Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="310 Arrow Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="311 Arrow Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="312 Arrow Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="314 Arrow Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="315 Arrow Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="019 Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="319 Arrow Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="309aArrow Auriel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="020 Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="320 Arrow Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="021 Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
-				<MapFolder From="321 Arrow Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09" />
+			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09" SimpleMO="Base" NestedDepth="1">
+				<MapFolder From="000 BSW Textures" />
+				<MapFolder From="001 Iron" />
+				<MapFolder From="002 Ancient Nordic" />
+				<MapFolder From="003 Ghostblade and Drainblood" />
+				<MapFolder From="004 Imperial" />
+				<MapFolder From="005 Steel" />
+				<MapFolder From="007 Silver" />
+				<MapFolder From="008 Orcish" />
+				<MapFolder From="009 Elven" />
+				<MapFolder From="010 Nord Hero" />
+				<MapFolder From="011 Dwarven" />
+				<MapFolder From="012 Glass" />
+				<MapFolder From="013 Chillrend" />
+				<MapFolder From="014 Ebony" />
+				<MapFolder From="015 Daedric" />
+				<MapFolder From="016 Bound Weapons" />
+				<MapFolder From="017 Nightingale" />
+				<MapFolder From="018 Dawnbreaker" />
+				<MapFolder From="022 Scimitar" />
+				<MapFolder From="023 Mehrunes Razor" />
+				<MapFolder From="024 Keening" />
+				<MapFolder From="301 Arrow Iron" />
+				<MapFolder From="302 Arrow Ancient Nordic" />
+				<MapFolder From="303 Arrow Forsworn" />
+				<MapFolder From="304 Arrow Falmer" />
+				<MapFolder From="305 Arrow Steel" />
+				<MapFolder From="308 Arrow Orcish" />
+				<MapFolder From="309 Arrow Elven" />
+				<MapFolder From="310 Arrow Nord Hero" />
+				<MapFolder From="311 Arrow Dwarven" />
+				<MapFolder From="312 Arrow Glass" />
+				<MapFolder From="314 Arrow Ebony" />
+				<MapFolder From="315 Arrow Daedric" />
+				<MapFolder From="019 Dragonbone" />
+				<MapFolder From="319 Arrow Dragonbone" />
+				<MapFolder From="309aArrow Auriel" />
+				<MapFolder From="020 Stalhrim" />
+				<MapFolder From="320 Arrow Stalhrim" />
+				<MapFolder From="021 Nordic" />
+				<MapFolder From="321 Arrow Nordic" />
 
 				<!-- DSR-only things -->
-				<MapFolder From="101 DSR Iron" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="102 DSR Ancient Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="103 DSR Ghostblade and Drainblood" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="104 DSR Imperial" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="105 DSR Steel" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="107 DSR Silver" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="108 DSR Orcish" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="109 DSR Elven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="110 DSR Nord Hero" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="111 DSR Dwarven" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="112 DSR Glass" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="113 DSR Chillrend" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="114 DSR Ebony" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="115 DSR Daedric" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="117 DSR Nightingale" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="118 DSR Dawnbreaker" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="118aDSR DawnbreakerAlt" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="119 DSR Dragonbone" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="120 DSR Stalhrim" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="121 DSR Nordic" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="122 DSR Scimitar" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="123 DSR Mehrunes Razor" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
-				<MapFolder From="124 DSR Keening" To="ModOrganizer/mods/LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<SwitchModOrganizerMod To="LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<MapFolder From="101 DSR Iron" />
+				<MapFolder From="102 DSR Ancient Nordic" />
+				<MapFolder From="103 DSR Ghostblade and Drainblood" />
+				<MapFolder From="104 DSR Imperial" />
+				<MapFolder From="105 DSR Steel" />
+				<MapFolder From="107 DSR Silver" />
+				<MapFolder From="108 DSR Orcish" />
+				<MapFolder From="109 DSR Elven" />
+				<MapFolder From="110 DSR Nord Hero" />
+				<MapFolder From="111 DSR Dwarven" />
+				<MapFolder From="112 DSR Glass" />
+				<MapFolder From="113 DSR Chillrend" />
+				<MapFolder From="114 DSR Ebony" />
+				<MapFolder From="115 DSR Daedric" />
+				<MapFolder From="117 DSR Nightingale" />
+				<MapFolder From="118 DSR Dawnbreaker" />
+				<MapFolder From="118aDSR DawnbreakerAlt" />
+				<MapFolder From="119 DSR Dragonbone" />
+				<MapFolder From="120 DSR Stalhrim" />
+				<MapFolder From="121 DSR Nordic" />
+				<MapFolder From="122 DSR Scimitar" />
+				<MapFolder From="123 DSR Mehrunes Razor" />
+				<MapFolder From="124 DSR Keening" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.30">
-				<MapFolder From="00 DynDOLOD Core Files - Required" To="ModOrganizer/mods/DynDOLOD Resources 2.30" />
-				<MapFolder From="02 Whiterun Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.30" />
-				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" To="ModOrganizer/mods/DynDOLOD Resources 2.30" />
-				<MapFolder From="05 Desync Birds of Prey" To="ModOrganizer/mods/DynDOLOD Resources 2.30" />
-				<MapFolder From="08 Solitude Exterior" To="ModOrganizer/mods/DynDOLOD Resources 2.30" />
+			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.30" SimpleMO="Base">
+				<MapFolder From="00 DynDOLOD Core Files - Required" />
+				<MapFolder From="02 Whiterun Exterior" />
+				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" />
+				<MapFolder From="05 Desync Birds of Prey" />
+				<MapFolder From="08 Solitude Exterior" />
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.31" NestedDepth="1">
@@ -2726,6 +2697,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +Cleaned Dawnguard ESM
 *Unmanaged: Dawnguard
 +PapyrusUtil 3.3
++FISS 1.21
 +SKSE Support
 +Cleaned Update ESM
 +Wrye Bash INI (Core)]]></Line>

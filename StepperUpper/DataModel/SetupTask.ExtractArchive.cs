@@ -35,6 +35,8 @@ namespace StepperUpper
 
                 var fileMappings = ImmutableArray.CreateBuilder<FileMapping>();
 
+                string mod = taskElement.Attribute("ModOrganizerMod")?.Value;
+
                 // handle "special" cases, where I caved and added C# to shrink the XML size.
                 string simpleMO = taskElement.Attribute("SimpleMO")?.Value;
                 switch (simpleMO)
@@ -42,14 +44,21 @@ namespace StepperUpper
                     case null:
                         break;
 
+                    case "Base":
                     case "Root":
                     case "Single":
                     case "SingleData":
+                        mod = mod ?? this.ArchiveFile.RelativePath;
+                        if (simpleMO == "Base")
+                        {
+                            break;
+                        }
+
                         fileMappings.Add(new FileMapping
                         {
                             Kind = FileMappingKind.MapFolder,
                             From = simpleMO == "SingleData" ? "Data" : null,
-                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + this.ArchiveFile.RelativePath)
+                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + mod),
                         });
 
                         this.NestedDepth = simpleMO == "Single" ? 1 : 0;
@@ -59,8 +68,7 @@ namespace StepperUpper
                         throw new NotSupportedException("Unrecognized SimpleMO value: " + simpleMO);
                 }
 
-                int nestedDepth;
-                if (Int32.TryParse(taskElement.Attribute("NestedDepth")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out nestedDepth))
+                if (Int32.TryParse(taskElement.Attribute("NestedDepth")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out int nestedDepth))
                 {
                     this.NestedDepth = nestedDepth;
                 }
@@ -70,16 +78,34 @@ namespace StepperUpper
                     var fileMapping = new FileMapping();
                     fileMappings.Add(fileMapping);
 
+                    string currMod = el.Attribute("ModOrganizerMod")?.Value ?? mod;
+                    string prefix = String.Empty;
+                    if (!String.IsNullOrEmpty(currMod))
+                    {
+                        prefix = "ModOrganizer/mods/" + mod + "/";
+                    }
+
                     switch (el.Name.LocalName)
                     {
                         case "MapFolder":
                         case "MapFile":
                         case "MapBSAFile":
                             fileMapping.From = el.Attribute("From")?.Value;
+                            string toRelativePath = el.Attribute("To")?.Value;
+                            if (toRelativePath == ".")
+                            {
+                                toRelativePath = fileMapping.From;
+                            }
+
                             fileMapping.To.BaseFolder = ParseKnownFolder(el.Attribute("ToParent")?.Value, defaultIfNotSpecified: KnownFolder.Output);
-                            fileMapping.To.RelativePath = el.Attribute("To").Value;
+                            fileMapping.To.RelativePath = prefix + toRelativePath;
 
                             fileMapping.Kind = (FileMappingKind)Enum.Parse(typeof(FileMappingKind), el.Name.LocalName);
+                            break;
+
+                        case "SwitchModOrganizerMod":
+                            mod = el.Attribute("To").Value;
+                            fileMappings.RemoveAt(fileMappings.Count - 1);
                             break;
 
                         // bah, why did I put this inside of ExtractArchive?  bleh... see how much
@@ -93,12 +119,12 @@ namespace StepperUpper
                             if (folderPathToHide != null)
                             {
                                 fileMapping.Kind = FileMappingKind.HideFolder;
-                                fileMapping.PathToHide = new DeferredAbsolutePath(parent, folderPathToHide);
+                                fileMapping.PathToHide = new DeferredAbsolutePath(parent, prefix + folderPathToHide);
                             }
                             else
                             {
                                 fileMapping.Kind = el.Name.LocalName == "Optional" ? FileMappingKind.Optional : FileMappingKind.HideFile;
-                                fileMapping.PathToHide = new DeferredAbsolutePath(parent, el.Attribute("File").Value);
+                                fileMapping.PathToHide = new DeferredAbsolutePath(parent, prefix + el.Attribute("File").Value);
                             }
 
                             break;
