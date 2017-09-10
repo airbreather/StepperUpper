@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-TODO: max path
+longest path I can detect looks like:
+abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for Enhanced Character Edit\meshes\CharacterMakingExtender\commonTriRaces\humanraces_noScale_slider.ini
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
@@ -8,7 +9,7 @@ TODO: max path
          PackVersion="2.10.0"
          FileVersion="1.0.0.0"
          MinimumToolVersion="2.0.0.0"
-         LongestOutputPathLength="157">
+         LongestOutputPathLength="180">
 
 	<Files>
 		<Group Name="2.D. Fixes">
