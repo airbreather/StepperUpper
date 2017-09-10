@@ -272,21 +272,6 @@ namespace StepperUpper
                     {
                         sourceDirectories.Add(gameDataPath = Path.Combine(gameInstallPath, "Data"));
                     }
-                    else if (modpack.MinimumToolVersion < new Version(0, 9, 3, 0))
-                    {
-                        // pack files for versions earlier than 0.9.3.0 always used Skyrim's Data
-                        // directory, relative to the Steam directory, as an additional source for
-                        // their input files; until we make a big enough breaking change, we might
-                        // as well continue to support those old pack files.
-                        if (options.SteamDirectoryPath == null)
-                        {
-                            Console.Error.WriteLine("-s / --steamFolder is required for {0}.", modpack.Name);
-                            return 11;
-                        }
-
-                        steamPath = new DirectoryInfo(options.SteamDirectoryPath).FullName;
-                        sourceDirectories.Add(Path.Combine(steamPath, "steamapps", "common", "Skyrim", "Data"));
-                    }
                 }
             }
 
