@@ -39,17 +39,6 @@ namespace StepperUpper
                     result = new CopyFile(taskElement);
                     break;
 
-                case "Materialize":
-                    Console.WriteLine("WARNING: the Materialize task is now just a special-case of CopyFile and will go away in the near future (probably in 1.2 or so).");
-                    CopyFile copyFileResult = new CopyFile
-                    {
-                        From = new DeferredAbsolutePath(KnownFolder.AllCheckedFiles, taskElement.Attribute("File").Value),
-                        To = new DeferredAbsolutePath(KnownFolder.Output, taskElement.Attribute("To").Value)
-                    };
-
-                    result = copyFileResult;
-                    break;
-
                 case "Embedded":
                     result = new Embedded(taskElement);
                     break;

@@ -214,6 +214,12 @@ namespace StepperUpper
                         return 3;
                     }
 
+                    if (modpack.MinimumToolVersion < new Version("2.0.0.0"))
+                    {
+                        Console.Error.WriteLine("Modpacks designed for tool versions earlier than 2.x are no longer supported in tool versions 2.x and above.");
+                        return 15;
+                    }
+
                     if (!seenSoFar.IsSupersetOf(modpack.Requirements))
                     {
                         Console.Error.WriteLine("{0} needs to be set up in the same run, after all of the following are set up as well: {1}", modpack.Name, String.Join(", ", modpack.Requirements));

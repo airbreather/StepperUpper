@@ -7,7 +7,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
          Game="Skyrim2011"
          PackVersion="2.10.0"
          FileVersion="1.0.0.0"
-         MinimumToolVersion="1.2.0.0"
+         MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
 	<Files>
@@ -1479,13 +1479,13 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 			<!-- SKSE -->
 			<ExtractArchive Id="ExtractSKSE" ArchiveFile="SKSE 1.7.3" NestedDepth="1">
-				<MapFolder From="Data" ModOrganizerMod="SKSE Support" />
+				<MapFolder From="Data" Mod="SKSE Support" />
 				<MapFile From="skse_1_9_32.dll" ToParent="GameInstallFolder" To="." />
 				<MapFile From="skse_loader.exe" ToParent="GameInstallFolder" To="." />
 				<MapFile From="skse_steam_loader.dll" ToParent="GameInstallFolder" To="." />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="FISS 1.21" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="FISS 1.21" SimpleMap="Mod" />
 
 			<TweakINI File="ModOrganizer/mods/SKSE Support/SKSE/SKSE.ini" WaitFor="ExtractSKSE">
 				<Set Section="General" Property="ClearInvalidRegistrations" Value="1" />
@@ -1497,33 +1497,36 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Set Section="Memory" Property="ScrapHeapSizeMB" Value="256" />
 			</TweakINI>
 
-			<ExtractArchive ArchiveFile="PapyrusUtil 3.3" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="PapyrusUtil 3.3" SimpleMap="Mod" />
 		</Group>
 
 		<Group Name="2.D. Fixes">
-			<ExtractArchive ArchiveFile="USLEEP 3.0.10" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Bug Fixes v1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Consistent Older People 31b All USLEEP 3.1b" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.6" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Fuz Ro D'oh 6.0" SimpleMO="Root" Id="FuzMain" />
-			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57" SimpleMO="Single" Id="ICHMain" />
-			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57a Update" SimpleMO="Root" ModOrganizerMod="Improved Closefaced Helmets (Legendary Edition) 1.57" WaitFor="ICHMain" />
-			<ExtractArchive ArchiveFile="Invisibility Eyes Fix 2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="NARC Core 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Ragdoll Paralysis - Paralyze 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT (Only Legendary) 4.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" SimpleMO="SingleData" />
-			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMO="Root" Id="SmartSoulsMain" />
-			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Weapon and Armor Fixes Remade 5.2" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="USLEEP 3.0.10" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Unofficial High Resolution Patch 1.2.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="STEP Vanilla Optimized Textures - Standard Version 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Appropriately Attired Jarls 1.1.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Bug Fixes v1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Clothing and Clutter Fixes 1.7" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Consistent Older People 31b All USLEEP 3.1b" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Cutting Room Floor - Legendary Edition 2.0.6" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Dead Body Collision Fix - With Improved Fireball Spell 2.4" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Enchantment Reload Fix 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Enhanced Lighting for ENB (ELE) - LITE - Only IL - STEP Specific 0.9.5c" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Fuz Ro D'oh 6.0" SimpleMap="Mod" Id="FuzMain" />
+			<ExtractArchive ArchiveFile="Guard Dialog Overhaul 1.4" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57" SimpleMap="Mod" NestedDepth="1" Id="ICHMain" />
+			<ExtractArchive ArchiveFile="Improved Closefaced Helmets (Legendary Edition) 1.57a Update" SimpleMap="Mod" Mod="Improved Closefaced Helmets (Legendary Edition) 1.57" WaitFor="ICHMain" />
+			<ExtractArchive ArchiveFile="Invisibility Eyes Fix 2.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="NARC Core 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Ragdoll Paralysis - Paralyze 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Relighting Skyrim - No JIT (Only Legendary) 4.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Skyrim Project Optimization - Full Version 1.6" Mod=".">
+				<MapFolder From="Data" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Smart Souls 9.0" SimpleMap="Mod" Id="SmartSoulsMain" />
+			<ExtractArchive ArchiveFile="Trade And Barter - Hearthfire 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Weapon and Armor Fixes Remade 5.2" Mod="." NestedDepth="1">
 				<MapFolder From="00 Readme" />
 				<MapFolder From="01 WAF Legendary" />
 				<MapFolder From="08 True Orcish Daedric/Req DG and DB" />
@@ -1531,8 +1534,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="18 Dark Brotherhood Mask Fix" />
 				<MapFolder From="19 Better Fitting Glass Helmet Meshes" />
 			</ExtractArchive>
-			<ExtractArchive ArchiveFile="WM Flora Fixes SMIM Patch 2.0" SimpleMO="Single" />
 
+			<ExtractArchive ArchiveFile="WM Flora Fixes SMIM Patch 2.0" SimpleMap="Mod" NestedDepth="1" />
 			<TweakINI File="ModOrganizer/mods/Fuz Ro D'oh 6.0/SKSE/Plugins/Fuz Ro D'oh.ini" WaitFor="FuzMain">
 				<Set Section="General" Property="WordsPerSecondSilence" Value="2" />
 			</TweakINI>
@@ -1545,28 +1548,28 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Set Section="Notifications" Property="ShowEscapedSoulQuality" Value="1" />
 			</TweakINI>
 
-			<ExtractArchive ArchiveFile="WM Flora Fixes 2.01" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="WM Flora Fixes 2.01" Mod=".">
 				<MapFolder From="00 Core" />
 				<MapFile From="WM Flora Fixes Readme.txt" To="." />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.E. Interface">
-			<ExtractArchive ArchiveFile="Better Dialogue Controls 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Better MessageBox Controls 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Easier Lockpicking - Nordic Locks 1.2" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="High Quality 3D Map - Meshes Hi-Res 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Main Font Replacement - Fertigo Pro 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="RaceMenu 3.4.5" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="SkyUI 5.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="High Quality 3D Map - Normals Original 2.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Better Dialogue Controls 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Better MessageBox Controls 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Easier Lockpicking - Nordic Locks 1.2" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="High Quality 3D Map - Meshes Hi-Res 2.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Main Font Replacement - Fertigo Pro 2.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="RaceMenu 3.4.5" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="SkyUI 5.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Viewable Faction Ranks - Dawnguard and Dragonborn 1.1.8" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="High Quality 3D Map - Normals Original 2.0" Mod=".">
 				<MapFolder From="03 - High 1024x1024" />
 				<MapFolder From="Docs" To="." />
 				<MapFile From="HQ3DMap.txt" To="." />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SSIRT 3.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="SSIRT 3.0" Mod=".">
 				<MapFolder From="docs" To="." />
 				<MapFolder From="100 BACKGROUND/HDR Nebula Default Stars" />
 				<MapFolder From="110 MESH FIXES" />
@@ -1579,7 +1582,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.F. Conflicting Graphics">
-			<ExtractArchive ArchiveFile="SkyFalls and SkyMills All-in-One 3.3.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="SkyFalls and SkyMills All-in-One 3.3.1" Mod=".">
 				<MapFolder From="03 Basic Core files DB + DG Only" />
 				<MapFolder From="01 SkyFalls + SkyMills + DG + DB" />
 				<MapFolder From="11 LOD Skyrim LOD" />
@@ -1587,7 +1590,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="22 Waterfalls Realistic water 2" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SMIM 2.07" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="SMIM 2.07" Mod=".">
 				<MapFile From="00 Core/SMIM Readme.txt" To="SMIM Readme.txt" />
 				<MapFolder From="01 Furniture" />
 				<MapFolder From="02 Vanilla Barrel Textures Animations" />
@@ -1650,13 +1653,13 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="75 Dungeons Cliffs Snow Skirts/textures" To="textures" />
 
 				<!-- STEP Core and STEP Extended differ here, so offer up a choice. -->
-				<MapFolder From="58 Jewelry Rings" ModOrganizerMod="SMIM 2.07 - Jewelry Rings (Vanilla)" />
-				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" ModOrganizerMod="SMIM 2.07 - Jewelry Rings (CCO Remade)" />
+				<MapFolder From="58 Jewelry Rings" Mod="SMIM 2.07 - Jewelry Rings (Vanilla)" />
+				<MapFolder From="59 Jewelry Rings CCO Remade or Jewelcraft Patch" Mod="SMIM 2.07 - Jewelry Rings (CCO Remade)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 1" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO1" />
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 2" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO2" />
-			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 3" SimpleMO="Single" ModOrganizerMod="Skyrim Realistic Overhaul 1.7" Id="SRO3" />
+			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 1" SimpleMap="Mod" Mod="Skyrim Realistic Overhaul 1.7" NestedDepth="1" Id="SRO1" />
+      <ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 2" SimpleMap="Mod" Mod="Skyrim Realistic Overhaul 1.7" NestedDepth="1" Id="SRO2" />
+      <ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - Part 3" SimpleMap="Mod" Mod="Skyrim Realistic Overhaul 1.7" NestedDepth="1" Id="SRO3" />
 
 			<ExtractArchive ArchiveFile="Skyrim Realistic Overhaul - SRO 1.7 Original Skyrim version update" Id="SRO4">
 				<MapFolder From="data" To="OUTGOING_SRO17Update" />
@@ -1665,8 +1668,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<!-- Note: the update doesn't conflict with anything from SRO1. -->
 			<MoveFolder From="OUTGOING_SRO17Update" To="ModOrganizer/mods/Skyrim Realistic Overhaul 1.7" WaitFor="SRO2|SRO3|SRO4" />
 
-			<ExtractArchive ArchiveFile="HD Misc 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Tobes Highres Textures - 1k 1.2" SimpleMO="Root" NestedDepth="2">
+			<ExtractArchive ArchiveFile="HD Misc 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Tobes Highres Textures - 1k 1.2" SimpleMap="Mod" NestedDepth="2">
 				<Hide File="Textures/clutter/barrel01.dds" />
 				<Hide File="Textures/clutter/barrel01_n.dds" />
 				<Hide File="Textures/clutter/barrel02.dds" />
@@ -1681,13 +1684,13 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Hide Folder="Textures/furniture" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b" SimpleMO="Root" ModOrganizerMod="Tobes Highres Textures - 1k 1.2" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="High Quality Food and Ingredients - Performance Repack 1.6" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="A Quality World Map - Vivid with Stone Roads 9.0.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b" SimpleMap="Mod" Mod="Tobes Highres Textures - 1k 1.2" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="High Quality Food and Ingredients - Performance Repack 1.6" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="A Quality World Map - Vivid with Stone Roads 9.0.1" SimpleMap="Mod" />
 		</Group>
 
 		<Group Name="2.G. Landscape &amp; Environment">
-			<ExtractArchive ArchiveFile="aMidianBorn Farmhouse - 1k 1.0" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="aMidianBorn Farmhouse - 1k 1.0" SimpleMap="Mod">
 				<Hide File="textures/architecture/farmhouse/rope01.dds" />
 				<Hide File="textures/architecture/farmhouse/rope01_n.dds" />
 				<Hide File="textures/architecture/farmhouse/ropealpha01.dds" />
@@ -1698,7 +1701,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Hide File="textures/architecture/farmhouse/thatch03_n.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Solstheim Landscape - 1k 1.0" SimpleMO="Root">
+			<ExtractArchive ArchiveFile="aMidianBorn Solstheim Landscape - 1k 1.0" SimpleMap="Mod">
 				<Hide File="textures/dlc02/landscape/dlc2basaltcolumnsingle.dds" />
 				<Hide File="textures/dlc02/landscape/dlc2basaltcolumnsingle_n.dds" />
 				<Hide File="textures/dlc02/landscape/dlc2basaltside.dds" />
@@ -1716,11 +1719,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Hide File="textures/dlc02/landscape/volcanic_ash_tundra_03_n.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Deathbell HD - 1K 1.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Deathbell HD - 1K 1.1" Mod=".">
 				<MapFolder From="textures" To="." />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Basic Edition 1.87a" SimpleMO="Single" Id="SFOMain">
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Basic Edition 1.87a" SimpleMap="Mod" NestedDepth="1" Id="SFOMain">
 				<Hide Folder="textures/landscape/dirtcliffs" />
 				<Hide File="textures/landscape/fieldgrass02.dds" />
 				<Hide File="textures/landscape/fieldgrass02_n.dds" />
@@ -1735,13 +1738,13 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Dragonborn Addon 0.2" SimpleMO="Single" ModOrganizerMod="Skyrim Flora Overhaul - Basic Edition 1.87a" WaitFor="SFOMain">
+			<ExtractArchive ArchiveFile="Skyrim Flora Overhaul - Dragonborn Addon 0.2" SimpleMap="Mod" Mod="Skyrim Flora Overhaul - Basic Edition 1.87a" NestedDepth="1" WaitFor="SFOMain">
 				<Hide File="textures/dlc02/landscape/volcanic_ash_01.dds" />
 				<Hide File="textures/dlc02/landscape/volcanic_ash_04.dds" />
 				<Hide File="textures/dlc02/landscape/volcanic_ash_04_n.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.33" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Embers HD - All-in-One 1.33" Mod=".">
 				<MapFolder From="EHD 1K" />
 				<MapFolder From="EHDFireplaces" />
 				<MapFolder From="EHDForges" />
@@ -1749,42 +1752,42 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="EHDPatchUHDFE" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Enhanced Night Skyrim - Low Stars 0.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Farmhouse Chimneys 3.0.3" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Enhanced Night Skyrim - Low Stars 0.4" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Farmhouse Chimneys 3.0.3" Mod=".">
 				<MapFolder From="00 - Thinner Meshes" />
 				<MapFolder From="01 - Vanilla" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="HD Enhanced Terrain and Map snow - 1024 8.0" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="High Quality LODs - Meshes Hi-Res 2.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="HQ Snow Texture - 1k Loose 2.7.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Hybrids Hires Plant and Herb Retexture 4.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Improved Vanilla Mountains HD 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Northfire's Skidmarks 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Realistic Water Two 1.11" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="HD Enhanced Terrain and Map snow - 1024 8.0" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="High Quality LODs - Meshes Hi-Res 2.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="HQ Snow Texture - 1k Loose 2.7.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Hybrids Hires Plant and Herb Retexture 4.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Improved Vanilla Mountains HD 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Northfire's Skidmarks 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Realistic Water Two 1.11" Mod=".">
 				<MapFolder From="00 Core" />
 				<MapFolder From="10 Medium Resolution" />
 				<MapFolder From="20 Legendary (21 + 22 + 30 + 31)" />
 				<MapFolder From="40 Bobbing Longboats" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUSTIC MONUMENTS and TOMBSTONES 2.6" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="RUSTIC MONUMENTS and TOMBSTONES 2.6" Mod="." NestedDepth="1">
 				<MapFolder From="00 - Textures Monument 1k" />
 				<MapFolder From="01 - Textures Tomb 2k" />
 				<MapFolder From="02 - SMIM Mesh" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Shadowmarks Improved - 256 2.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Improved Puddles - 1k BAIN 1.1a" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Shadowmarks Improved - 256 2.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Skyrim Improved Puddles - 1k BAIN 1.1a" Mod=".">
 				<MapFolder From="00 Core Files" />
 				<MapFolder From="17 --CHOOSE ONE ESP-- Dawnguard-HearthFires-Dragonborn DLC Users" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Vivid Clouds and Fogs 2.90" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Vivid Clouds and Fogs 2.90" Mod=".">
 				<MapFolder From="Medres Vivid Clouds" />
 				<MapFolder From="Medres Vivid Groundfogs" />
 				<MapFolder From="Medres Vivid Fogs" />
@@ -1794,74 +1797,80 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="Extended Weathers/ExtendedGroundfogs/Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" SimpleMO="Single" Id="TundraMossMain" />
-			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5" ModOrganizerMod="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" WaitFor="TundraMossMain">
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" SimpleMap="Mod" NestedDepth="1" Id="TundraMossMain" />
+			<ExtractArchive ArchiveFile="Vivid Landscapes - Tundra Moss Revised - SMIM compatibility patch 1.5" Mod="Vivid Landscapes - Tundra Moss Revised - yellow 1k 1.4" WaitFor="TundraMossMain">
 				<MapFolder From="high poly mesh(for the same object)/Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Whiterun Trellis Redesigned - 1k 1.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Whiterun Trellis Redesigned - 1k 1.1" SimpleMap="Mod" />
 		</Group>
 
 		<Group Name="2.H. Characters &amp; Creatures">
-			<ExtractArchive ArchiveFile="Beards - 1k 4.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Better males - Genox Faces 1.2" SimpleMO="SingleData" />
-			<ExtractArchive ArchiveFile="Better males - Underwear - Default 2.3.2" SimpleMO="SingleData" />
-			<ExtractArchive Id="Brows" ArchiveFile="Brows - 512x256px 3.1" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Beards - 1k 4.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Better males - Genox Faces 1.2" Mod=".">
+				<MapFolder From="Data" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Better males - Underwear - Default 2.3.2" Mod=".">
+				<MapFolder From="Data" />
+			</ExtractArchive>
+
+			<ExtractArchive Id="Brows" ArchiveFile="Brows - 512x256px 3.1" SimpleMap="Mod" />
 			<Clean WaitFor="Brows">
 				<Plugin Path="ModOrganizer/mods/Brows - 512x256px 3.1/Brows.esp">
 					<Delete Ids="E4DA8" />
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="Coverkhajits - 1k" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Coverkhajits - 1k" Mod="." NestedDepth="1">
 				<MapFolder From="khajiitfemale/Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DRAGON PRIEST - 2k 1.2" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="DRAGON PRIEST - 2k 1.2" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DRAUGR - 2k 1.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="DRAUGR - 2k 1.1" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="FAR - 2k X" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="FAR - 2k X" Mod="." NestedDepth="1">
 				<MapFolder From="Females/Default body/MAIN texture" />
 				<MapFolder From="Males/Better Males body" />
 				<MapFolder From="No glowing skin/Female" />
 				<MapFolder From="No glowing skin/Male" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Female Vampires Have Fangs 0.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="GIANT - 2k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Female Vampires Have Fangs 0.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="GIANT - 2k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="HAGRAVEN - 2k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="HAGRAVEN - 2k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Immersive Citizens - AI Overhaul 0.3.5.1a" Mod="." NestedDepth="1">
 				<MapFolder From="10_Main_Full_Version" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Lepidoptera Of Skyrim for Dawnguard DLC 2.0" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="MAMMOTH - 2k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Lepidoptera Of Skyrim for Dawnguard DLC 2.0" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="MAMMOTH - 2k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Realistic Hair 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Northborn Scars 1.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="PAINTERLY 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC CHILDREN - BODY - 2k-1k 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC DEATH HOUND - 2k-1k - DARK VERSION 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC GARGOYLE - 2k-1k 2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SABRECAT - 2k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Realistic Hair 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Northborn Scars 1.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="PAINTERLY 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC CHILDREN - BODY - 2k-1k 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC DEATH HOUND - 2k-1k - DARK VERSION 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC GARGOYLE - 2k-1k 2.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="SABRECAT - 2k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="SLF Hair - Rough Hair - Lite 1k 2.0" SimpleMO="Root" />
-			<ExtractArchive Id="Arvak" ArchiveFile="Dawnguard Rewritten - Arvak 1.1.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="SLF Hair - Rough Hair - Lite 1k 2.0" SimpleMap="Mod" />
+			<ExtractArchive Id="Arvak" ArchiveFile="Dawnguard Rewritten - Arvak 1.1.1" Mod=".">
 				<MapFolder From="00 Plugin" />
 				<MapFolder From="01 HD" />
 				<MapFolder From="02 Soul Cairn" />
@@ -1873,26 +1882,26 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				</Plugin>
 			</Clean>
 
-			<ExtractArchive ArchiveFile="TROLL - 2k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="TROLL - 2k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Wiseman303's Critter Fixes 1.06" Mod=".">
 				<MapFolder From="00 base" />
 				<MapFolder From="10 flipped monarch wings" />
 
 				<!-- While we're here... -->
-				<SwitchModOrganizerMod To="Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
+				<SwitchMod To="Wiseman303's Critter Fixes 1.06 (Extended Extras)" />
 				<MapFolder From="20 101BugsHD support" />
 				<MapFolder From="30 PondFish and Salmon Replacer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="WISPMOTHER - 2x1k 1.0" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="WISPMOTHER - 2x1k 1.0" Mod=".">
 				<MapFolder From="00 Data" />
 				<MapFile From="01 Data/textures/actors/wisp/wispclothtile.dds" To="textures/actors/wisp/wispclothtile.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="WSCO Occidental Vanilla Body 1.0" SimpleMO="Base" Id="WSCO">
+			<ExtractArchive ArchiveFile="WSCO Occidental Vanilla Body 1.0" Mod="." Id="WSCO">
 				<MapFolder From="00 Readme" />
 				<MapFolder From="01 Female" />
 			</ExtractArchive>
@@ -1905,8 +1914,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.I. Clothing &amp; Equipment">
-			<ExtractArchive ArchiveFile="aMidianBorn Blade of Woe 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Blade of Woe 1.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - ARMORS 1.9" Mod=".">
 				<MapFolder From="04 iron vanilla cut" />
 				<MapFolder From="05 steel" />
 				<MapFolder From="09 steel plate" />
@@ -1925,7 +1934,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="16 falmer armor" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9" Mod=".">
 				<MapFolder From="01 skeleton" />
 				<MapFolder From="02 dragonpriest" />
 				<MapFolder From="03 draugr" />
@@ -1934,7 +1943,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="06 spriggan" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - DRAGONBORN DLC 1.9" Mod=".">
 				<MapFolder From="01 nordic carved black" />
 				<MapFolder From="02 bonemold" />
 				<MapFolder From="03 acolyte masks" />
@@ -1946,7 +1955,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="07 ash guardian" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" Id="BoSUNIQUEITEMS" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" Id="BoSUNIQUEITEMS" Mod=".">
 				<MapFolder From="01 targe of the blooded" />
 				<MapFolder From="02 wuuthrad" />
 				<MapFolder From="03 savior's hide" />
@@ -1960,7 +1969,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="11 dragon priest masks" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - WEAPONS 1.9" Mod=".">
 				<MapFolder From="01 iron" />
 				<MapFolder From="02 steel" />
 				<MapFolder From="03 skyforge" />
@@ -1972,20 +1981,20 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Optional File="aMidianborn_Skyforge_Weapons.esp" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" SimpleMO="Single" ModOrganizerMod="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" WaitFor="BoSUNIQUEITEMS" />
+			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Staff of Magnus Hotfix 1.9" SimpleMap="Mod" Mod="aMidianBorn Book of Silence - UNIQUE ITEMS 1.9" NestedDepth="1" WaitFor="BoSUNIQUEITEMS" />
 
-			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn - Content Addon 1.9" Mod=".">
 				<!-- effectively "delete this file" because the next line overwrites it. -->
 				<MapFile From="aMidianBorn_ContentAddon.esp" To="." />
 				<MapFolder From="Improved Closefaced Helmets version" />
 				<MapFolder />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="aMidianBorn Imperial Light and Studded - 2k 1.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="aMidianBorn Stormcloak Officer Armour - 2k 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized 1.0.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Dragonbone Mastery - Weapons Retexture 2.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="aMidianBorn Imperial Light and Studded - 2k 1.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="aMidianBorn Stormcloak Officer Armour - 2k 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized 1.0.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Dawnguard Crossbow Explosive Bolts Visualized - HD Textures 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Dragonbone Mastery - Weapons Retexture 2.1" Mod=".">
 				<MapFolder From="00 Main Normals" />
 				<MapFolder From="01 Main Files Darker" />
 				<MapFolder From="02 Vanilla Arrow" />
@@ -1993,10 +2002,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="04 Required For Short Scabbard - Transparent Meshes" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2k-1k 3.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Dragonborn Mages Robes Retexture Pack 0.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Elemental Staffs - 1k 1.16" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="RUSTIC CLOTHING - COMPLETE - 2k-1k 3.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Dragonborn Mages Robes Retexture Pack 0.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Elemental Staffs - 1k 1.16" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Gemling Queen Jewelry - All In One 4.1c" Mod=".">
 				<MapFolder From="00 - Amulets" />
 				<MapFolder From="10 - Circlets" />
 				<MapFolder From="20 - Rings" />
@@ -2004,25 +2013,25 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="01a- Gamwich Amulet Textures 512" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project 1.0.5" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Greatsword Sheaths and Scabbards Redux 2.7.3" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project 1.0.5" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dawnguard DG1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Skyrim Weapon De-LARP-ification Project - Dragonborn 1.0.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Greatsword Sheaths and Scabbards Redux 2.7.3" Mod=".">
 				<MapFolder From="08 Fullsize Textures" />
 				<MapFolder From="04 Meshes Fullsize Thin" />
 				<MapFolder From="05 Meshes Fullsize DG Thin" />
 				<MapFolder From="06 Meshes Fullsize DB Thin" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Mage Outfit Texture Overhaul - Master X" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="New Thinner Torch - Ultimate HD Torch Compatible 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Nightingale Prime HD - Leather Version Final" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Not Really HD - Mask of Clavicus Vile - Wrecked 0.9a" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC FORSWORN - 2k-1k 2.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Mage Outfit Texture Overhaul - Master X" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="New Thinner Torch - Ultimate HD Torch Compatible 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Nightingale Prime HD - Leather Version Final" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Not Really HD - Mask of Clavicus Vile - Wrecked 0.9a" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC FORSWORN - 2k-1k 2.0" SimpleMap="Mod" NestedDepth="1" />
 		</Group>
 
 		<Group Name="2.J. Animations &amp; Effects">
-			<ExtractArchive ArchiveFile="Animated clutter 1.9" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Animated clutter 1.9" Mod="." NestedDepth="1">
 				<MapFolder From="Animal Related Containers/Beehive" />
 				<MapFolder From="Animal Related Containers/Spider sack" />
 				<MapFolder From="Animal Related Containers/Spider sack albino" />
@@ -2068,15 +2077,15 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="Fixes/Fort Dawnguard wall fix" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Better Turn Animation 1.1" SimpleMO="Single" Id="BTAMain">
+			<ExtractArchive ArchiveFile="Better Turn Animation 1.1" SimpleMap="Mod" NestedDepth="1" Id="BTAMain">
 				<Hide File="meshes/actors/character/animations/1hm_shout_exhale.hkx" />
 				<Hide File="meshes/actors/character/animations/mt_shout_exhale.hkx" />
 				<Hide File="meshes/actors/character/animations/mt_shout_inhale.hkx" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Better Turn Animation - Fix Crossed Swords and Turn with Leg move 1.1" ModOrganizerMod="Better Turn Animation 1.1" NestedDepth="1" WaitFor="BTAMain" />
-			<ExtractArchive ArchiveFile="Dawnguard Rune Weapons FXS Replacer 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="DROPS - v1 Optional 1.0" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Better Turn Animation - Fix Crossed Swords and Turn with Leg move 1.1" Mod="Better Turn Animation 1.1" NestedDepth="1" WaitFor="BTAMain" />
+			<ExtractArchive ArchiveFile="Dawnguard Rune Weapons FXS Replacer 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="DROPS - v1 Optional 1.0" Mod="." NestedDepth="1">
 				<MapFolder From="00 DROPS x512" />
 				<MapFolder From="01 DROPS x512 at" />
 				<Hide File="textures/effects/fxwaterdropripplestile.dds"/>
@@ -2084,8 +2093,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<Hide File="textures/effects/fxwaterdropripplestilebrt.dds"/>
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Realistic Boat Bobbing 2.4.8" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="NoMaaM Breathing Idles - Female without BBB and Male Breathing Idles 0.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Realistic Boat Bobbing 2.4.8" Mod="." NestedDepth="1">
 				<MapFolder From="010 Large Boat Meshes" />
 				<MapFolder From="020 Long Boat Meshes" />
 				<MapFolder From="030 Row Boat Meshes" />
@@ -2095,53 +2104,56 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="315 SMIM Crates" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Running with Bows 1.0" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Running with Bows 1.0" SimpleMap="Mod" NestedDepth="1" />
 		</Group>
 
 		<Group Name="2.K. Clutter &amp; Miscellaneous">
-			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Barenziah's Glory 2.1" Mod=".">
 				<MapFolder From="00 - MAIN" />
 				<MapFolder From="01b - Crown Texture 1k" />
 				<MapFolder From="02b - Gamwich Jewelrybox Texture 1k" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL" SimpleMO="Root" NestedDepth="2">
+			<ExtractArchive ArchiveFile="Detailing the Eldrich - Higher-Res Riekling Architecture MEDIAL" SimpleMap="Mod" NestedDepth="2">
 				<Hide File="textures/dlc02/clutter/dlc02stalhrimore.dds" />
 				<Hide File="textures/dlc02/clutter/dlc02stalhrimore_n.dds" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LeanWolf's Improved Enchanter Candle Meshes 1.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="HD Linens 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="HD Ore and Ingots - with manager 1.0" SimpleMO="Base" NestedDepth="2">
+			<ExtractArchive ArchiveFile="LeanWolf's Improved Enchanter Candle Meshes 1.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Gemling Queen Dragon Claws - SOLID with REFRACTIONS 3.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="HD Linens 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="HD Ore and Ingots - with manager 1.0" Mod="." NestedDepth="2">
 				<MapFolder From="textures" To="." />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="HD Reworked Baskets 1.0" SimpleMO="SingleData" NestedDepth="1" />
-			<ExtractArchive ArchiveFile="HORNCANDLES - 2k-1k 1.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="HD Reworked Baskets 1.0" Mod="." NestedDepth="1">
+				<MapFolder From="Data" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="HORNCANDLES - 2k-1k 1.1" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="HQ Paper 2.3" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="N-R HD Display Case - Smudged Glass Version 0.9a" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Not Really HD Keys - With Normal Maps X" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Not Really HD Leather Strips 0.9a" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Pilgrims Delight - Legacy 1.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Retexture for Bread - Hearthfire 0.55" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Retexture for Soup - For SMIM Mesh - Poor Version 1.3" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="RUSTIC DRAGON CORPSE - RUSTIC DRAGON CORPSE 2k 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC ELDERSCROLL - 2k 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC NORDIC MURALS - 2k-1k 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC POTIONS and POISIONS - 1k 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="RUSTIC SOULGEMS - 1k - SORTED 2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Septim HD 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Full Pack 1.00" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Less Saturated Labels 1.00" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="SKELETON - 2k 1.1" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="HQ Paper 2.3" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="N-R HD Display Case - Smudged Glass Version 0.9a" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Not Really HD Keys - With Normal Maps X" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Not Really HD Leather Strips 0.9a" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Pilgrims Delight - Legacy 1.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Retexture for Bread - Hearthfire 0.55" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Retexture for Soup - For SMIM Mesh - Poor Version 1.3" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="RUSTIC DRAGON CORPSE - RUSTIC DRAGON CORPSE 2k 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC ELDERSCROLL - 2k 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC NORDIC MURALS - 2k-1k 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC POTIONS and POISIONS - 1k 1.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="RUSTIC SOULGEMS - 1k - SORTED 2.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Septim HD 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Full Pack 1.00" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="SLOD Wine Cellar - Less Saturated Labels 1.00" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="SKELETON - 2k 1.1" Mod=".">
 				<MapFolder From="00 Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Skyrim Redesigned 1.0" Mod="." NestedDepth="1">
 				<MapFolder From="Alchemy table v1/Data" />
 				<MapFolder From="Anvil v1/Data" />
 				<MapFolder From="Bloody rags v1/Data" />
@@ -2157,36 +2169,39 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="Spider eggs/Data" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Super Realistic Ore Textures - Just the textures 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Sweet Mother - Sweet Mother HD 2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="WEBS extended - x2048 3.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Super Realistic Ore Textures - Just the textures 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Sweet Mother - Sweet Mother HD 2.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="WEBS extended - x2048 3.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="White Phial Replacer - All-in-One 1.2" Mod=".">
 				<MapFolder From="01b - textures 1024" />
 				<MapFolder From="10c - nDG meshes 0.5x" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<ExtractArchive ArchiveFile="Lucidity Sound FX v2h" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v2h" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" Mod="." NestedDepth="1">
 				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Better Horse Pain Sounds 1.0" SimpleMO="Root" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Better Horse Pain Sounds 1.0" SimpleMap="Mod" NestedDepth="2" />
 
-			<ExtractArchive ArchiveFile="Better Weapon Swing Sounds 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="AOS All-In-One 2.5.1" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="Better Weapon Swing Sounds 1.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="AOS All-In-One 2.5.1" Mod="." NestedDepth="1">
 				<MapFolder From="004 AOS Plugin Skyrim and DG and DB" />
 				<MapFolder From="010 Sounds Loose" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Dragon Shout with Voice 1.1" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Dragon Shout with Voice From Location 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Heart of the Beast - HIGH AGGRESSION 1.6" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Improved Horse step Sounds 2.1" SimpleMO="SingleData" />
-			<ExtractArchive ArchiveFile="Improved Combat Sounds 2.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Lower Sounding Thieves Guild Door 1.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="Smooth blade draw and Sheathe sfx - Full Options 2.3" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Dragon Shout with Voice 1.1" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Dragon Shout with Voice From Location 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Heart of the Beast - HIGH AGGRESSION 1.6" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Improved Horse step Sounds 2.1" Mod=".">
+				<MapFolder From="Data" />
+			</ExtractArchive>
+
+			<ExtractArchive ArchiveFile="Improved Combat Sounds 2.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Lower Sounding Thieves Guild Door 1.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Smooth blade draw and Sheathe sfx - Full Options 2.3" Mod=".">
 				<MapFolder From="01a - Daggers sds" />
 				<MapFolder From="01b - 1handed blades sds" />
 				<MapFolder From="01c - 2handed blades sds" />
@@ -2197,40 +2212,40 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="02 - Audio dynamic sneak" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Ultra Realistic Bow Shoot Sounds 1.0" SimpleMO="Root" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="Ultra Realistic Crossbow Shoot Sounds X" SimpleMO="Single" />
+			<ExtractArchive ArchiveFile="Ultra Realistic Bow Shoot Sounds 1.0" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Ultra Realistic Crossbow Shoot Sounds X" SimpleMap="Mod" NestedDepth="1" />
 		</Group>
 
 		<Group Name="2.M. Gameplay">
-			<ExtractArchive ArchiveFile="Auto Unequip Ammo 5.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Better Stealth AI for Followers 3.4" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Clams Drop Pearls 1.0" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Come Together N Out of the way - Nausicaa Tweaker 1.2" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Gildergreen Regrown 1.2.6" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Non-Essential Children - Hearthfire 10.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Skyrim Community Uncapper 1.15.2.0" SimpleMO="Single" />
-			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Traps Make Noise 2.1" SimpleMO="Root" />
-			<ExtractArchive ArchiveFile="Wiseman303's Trap Fixes 2.0b" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="Auto Unequip Ammo 5.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Better Stealth AI for Followers 3.4" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Clams Drop Pearls 1.0" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Come Together N Out of the way - Nausicaa Tweaker 1.2" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Gildergreen Regrown 1.2.6" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Non-Essential Children - Hearthfire 10.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Skyrim Community Uncapper 1.15.2.0" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="The Paarthurnax Dilemma 1.2.9" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Traps Make Noise 2.1" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Wiseman303's Trap Fixes 2.0b" Mod=".">
 				<MapFolder From="00 core" />
 				<MapFolder From="10 traps make noise compatibility" />
 			</ExtractArchive>
 		</Group>
 
 		<Group Name="2.N. Patches">
-			<ExtractArchive ArchiveFile="Modern Brawl Bug Fix 1.04" SimpleMO="Root" />
+			<ExtractArchive ArchiveFile="Modern Brawl Bug Fix 1.04" SimpleMap="Mod" />
 			<ExtractArchive ArchiveFile="STEP Compilation 2.10.0">
-				<MapFolder From="00 Core Files" ModOrganizerMod="STEP Compilation 2.10.0 (Common)" />
-				<MapFolder From="01 STEP Core Comp" ModOrganizerMod="STEP Compilation 2.10.0 (Common)" />
+				<MapFolder From="00 Core Files" Mod="STEP Compilation 2.10.0 (Common)" />
+				<MapFolder From="01 STEP Core Comp" Mod="STEP Compilation 2.10.0 (Common)" />
 
-				<MapFolder From="04 STEP Core Patch" ModOrganizerMod="STEP Compilation 2.10.0 (Core)" />
+				<MapFolder From="04 STEP Core Patch" Mod="STEP Compilation 2.10.0 (Core)" />
 
 				<!-- While we're in here... -->
-				<MapFolder From="03 STEP Extended Comp" ModOrganizerMod="STEP Compilation 2.10.0 (Extended)" />
-				<MapFolder From="04 STEP Extended Patch" ModOrganizerMod="STEP Compilation 2.10.0 (Extended)" />
+				<MapFolder From="03 STEP Extended Comp" Mod="STEP Compilation 2.10.0 (Extended)" />
+				<MapFolder From="04 STEP Extended Patch" Mod="STEP Compilation 2.10.0 (Extended)" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09" SimpleMO="Base" NestedDepth="1">
+			<ExtractArchive ArchiveFile="LeanWolf's Better-Shaped Weapons 2.0.09" Mod="." NestedDepth="1">
 				<MapFolder From="000 BSW Textures" />
 				<MapFolder From="001 Iron" />
 				<MapFolder From="002 Ancient Nordic" />
@@ -2273,7 +2288,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="321 Arrow Nordic" />
 
 				<!-- DSR-only things -->
-				<SwitchModOrganizerMod To="LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
+				<SwitchMod To="LeanWolf's Better-Shaped Weapons 2.0.09 (DSR)" />
 				<MapFolder From="101 DSR Iron" />
 				<MapFolder From="102 DSR Ancient Nordic" />
 				<MapFolder From="103 DSR Ghostblade and Drainblood" />
@@ -2299,7 +2314,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="124 DSR Keening" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.30" SimpleMO="Base">
+			<ExtractArchive ArchiveFile="DynDOLOD Resources 2.30" Mod=".">
 				<MapFolder From="00 DynDOLOD Core Files - Required" />
 				<MapFolder From="02 Whiterun Exterior" />
 				<MapFolder From="04 DLC2 Vvardenfell 3D Plume" />

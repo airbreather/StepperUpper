@@ -4,7 +4,7 @@
          Requires="STEP Core, 2.10.0"
          PackVersion="1.0.0.0"
          FileVersion="1.0.0.0"
-         MinimumToolVersion="1.2.0.0">
+         MinimumToolVersion="2.0.0.0">
 
 	<Files />
 

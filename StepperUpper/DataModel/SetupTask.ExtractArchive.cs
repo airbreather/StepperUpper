@@ -35,37 +35,24 @@ namespace StepperUpper
 
                 var fileMappings = ImmutableArray.CreateBuilder<FileMapping>();
 
-                string mod = taskElement.Attribute("ModOrganizerMod")?.Value;
-
-                // handle "special" cases, where I caved and added C# to shrink the XML size.
-                string simpleMO = taskElement.Attribute("SimpleMO")?.Value;
-                switch (simpleMO)
+                string mod;
+                switch (mod = taskElement.Attribute("Mod")?.Value)
                 {
-                    case null:
+                    case ".":
+                        mod = this.ArchiveFile.RelativePath;
                         break;
+                }
 
-                    case "Base":
-                    case "Root":
-                    case "Single":
-                    case "SingleData":
-                        mod = mod ?? this.ArchiveFile.RelativePath;
-                        if (simpleMO == "Base")
-                        {
-                            break;
-                        }
-
+                switch (taskElement.Attribute("SimpleMap")?.Value)
+                {
+                    case "Mod":
                         fileMappings.Add(new FileMapping
                         {
                             Kind = FileMappingKind.MapFolder,
-                            From = simpleMO == "SingleData" ? "Data" : null,
-                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + mod),
+                            To = new DeferredAbsolutePath(KnownFolder.Output, "ModOrganizer/mods/" + (mod = (mod ?? this.ArchiveFile.RelativePath))),
                         });
 
-                        this.NestedDepth = simpleMO == "Single" ? 1 : 0;
                         break;
-
-                    default:
-                        throw new NotSupportedException("Unrecognized SimpleMO value: " + simpleMO);
                 }
 
                 if (Int32.TryParse(taskElement.Attribute("NestedDepth")?.Value, NumberStyles.None, CultureInfo.InvariantCulture, out int nestedDepth))
@@ -78,7 +65,7 @@ namespace StepperUpper
                     var fileMapping = new FileMapping();
                     fileMappings.Add(fileMapping);
 
-                    string currMod = el.Attribute("ModOrganizerMod")?.Value ?? mod;
+                    string currMod = el.Attribute("Mod")?.Value ?? mod;
                     string prefix = String.Empty;
                     if (!String.IsNullOrEmpty(currMod))
                     {
@@ -103,7 +90,7 @@ namespace StepperUpper
                             fileMapping.Kind = (FileMappingKind)Enum.Parse(typeof(FileMappingKind), el.Name.LocalName);
                             break;
 
-                        case "SwitchModOrganizerMod":
+                        case "SwitchMod":
                             mod = el.Attribute("To").Value;
                             fileMappings.RemoveAt(fileMappings.Count - 1);
                             break;
