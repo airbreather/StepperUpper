@@ -222,7 +222,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		<Group Id="AfterDynDOLOD" WaitFor="RunDynDOLOD">
 			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 			<CreateEmptyFolder Id="DynDOLOD_CreateEmptyOverwrite" WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
-			<MoveFolder From="DynDOLOD Standalone 2.31/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Core)" />
+			<MoveFolder From="DynDOLOD Standalone 2.31/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Extended)" />
 
 			<EditFile File="ModOrganizer/profiles/STEP Extended 2.10.0/plugins.txt" Encoding="UTF8NoBOM">
 				<AddLineAfter>
