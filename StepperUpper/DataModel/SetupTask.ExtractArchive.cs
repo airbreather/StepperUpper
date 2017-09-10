@@ -82,7 +82,7 @@ namespace StepperUpper
                     string prefix = String.Empty;
                     if (!String.IsNullOrEmpty(currMod))
                     {
-                        prefix = "ModOrganizer/mods/" + mod + "/";
+                        prefix = "ModOrganizer/mods/" + currMod + "/";
                     }
 
                     switch (el.Name.LocalName)
