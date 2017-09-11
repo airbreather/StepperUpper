@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.0"
+         FileVersion="1.0.0.1"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -1685,7 +1685,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="Tobes Highres Textures - SMIM Patch 1.2b" SimpleMap="Mod" Mod="Tobes Highres Textures - 1k 1.2" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="High Quality Food and Ingredients - Performance Repack 1.6" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="High Quality Food and Ingredients - Performance Repack 1.6" SimpleMap="Mod" NestedDepth="1">
+				<Hide File="textures/Clutter/ingredients/venison_meat_n.dds" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="A Quality World Map - Vivid with Stone Roads 9.0.1" SimpleMap="Mod" />
 		</Group>
 
@@ -1759,7 +1762,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			</ExtractArchive>
 
 			<ExtractArchive ArchiveFile="HD Dark Brotherhood Door - No Glowing Eyes 1.0" SimpleMap="Mod" NestedDepth="2" />
-			<ExtractArchive ArchiveFile="HD Enhanced Terrain and Map snow - 1024 8.0" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="HD Enhanced Terrain and Map snow - 1024 8.0" SimpleMap="Mod" NestedDepth="2">
+				<Hide File="textures/terrain/noise.dds" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="High Quality LODs - Meshes Hi-Res 2.1" SimpleMap="Mod" />
 			<ExtractArchive ArchiveFile="HQ Snow Texture - 1k Loose 2.7.1" SimpleMap="Mod" />
 			<ExtractArchive ArchiveFile="Hybrids Hires Plant and Herb Retexture 4.0" SimpleMap="Mod" NestedDepth="1" />
@@ -1786,7 +1792,12 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="17 --CHOOSE ONE ESP-- Dawnguard-HearthFires-Dragonborn DLC Users" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMap="Mod" NestedDepth="1" />
+			<ExtractArchive ArchiveFile="Trees HD - HIGH 1.6" SimpleMap="Mod" NestedDepth="1">
+				<Hide Folder="meshes/landscape/trees" />
+				<Hide File="textures/landscape/trees/Vurt_Pine01.dds" />
+				<Hide File="textures/landscape/trees/Vurt_Pine02.dds" />
+			</ExtractArchive>
+
 			<ExtractArchive ArchiveFile="Vivid Clouds and Fogs 2.90" Mod=".">
 				<MapFolder From="Medres Vivid Clouds" />
 				<MapFolder From="Medres Vivid Groundfogs" />
@@ -1908,7 +1919,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 			<Clean WaitFor="WSCO">
 				<Plugin Path="ModOrganizer/mods/WSCO Occidental Vanilla Body 1.0/WSCO - OcciFemaleVNL.esp">
-					<Delete Ids="9F83A" />
+					<Delete Ids="5161F|9F83A" />
 				</Plugin>
 			</Clean>
 		</Group>
@@ -1936,8 +1947,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 			<ExtractArchive ArchiveFile="aMidianBorn Book of Silence - Creatures 1.9" Mod=".">
 				<MapFolder From="01 skeleton" />
-				<MapFolder From="02 dragonpriest" />
-				<MapFolder From="03 draugr" />
+				<!-- <MapFolder From="02 dragonpriest" /> -->
+				<!-- <MapFolder From="03 draugr" /> -->
 				<MapFolder From="04 falmer" />
 				<MapFolder From="05 chaurus" />
 				<MapFolder From="06 spriggan" />
@@ -1947,8 +1958,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="01 nordic carved black" />
 				<MapFolder From="02 bonemold" />
 				<MapFolder From="03 acolyte masks" />
-				<MapFolder From="04 dragon priest acolyte" />
-				<MapFolder From="05 hulking draugr" />
+				<!-- <MapFolder From="04 dragon priest acolyte" /> -->
+				<!-- <MapFolder From="05 hulking draugr" /> -->
 				<!-- "ash" should have been "ashman" -->
 				<MapFolder From="06 ash spawn/textures/actors/dlc02/ash" To="textures/actors/dlc02/ashman" />
 				<MapFolder From="06 ash spawn" />
