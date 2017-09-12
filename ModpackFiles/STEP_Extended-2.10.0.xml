@@ -684,6 +684,10 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 				<Set Section="customExecutables" Property="size" Value="10" />
 			</TweakINI>
 
+			<TweakINI File="BethINI 2.5/BethINI.ini">
+				<Set Section="Directories" Property="sGameSettingsPath" Value="{DumpFolderForwardSlashes}/ModOrganizer/profiles/STEP Extended 2.10.0/" />
+			</TweakINI>
+
 			<!-- Get ModOrganizer to use local save games instead of reusing the "My Games" that a
 			     user might have populated with vanilla save games.  We don't want to touch those.
 			     You'd think this would be a TweakINI for the initweaks.ini file, but nope.  The
