@@ -3,7 +3,7 @@
          Game="Skyrim2011"
          Requires="STEP Extended, 2.10.0, 1.0.0.3"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.3"
+         FileVersion="1.0.0.4"
          MinimumToolVersion="2.0.0.0">
 	<Files>
 		<Group Name="Default">
@@ -205,7 +205,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		<Group Id="AfterTexGen" WaitFor="RunTexGen">
 			<DeleteFolder Id="TexGen_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 			<CreateEmptyFolder WaitFor="TexGen_DeleteOverwrite" Path="ModOrganizer/overwrite" />
-			<MoveFolder From="DynDOLOD Standalone 2.31/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Extended)" />
+			<MoveFolder From="DynDOLOD Standalone 2.32/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Extended)" />
 
 			<EditFile File="ModOrganizer/profiles/STEP Extended 2.10.0/modlist.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
@@ -222,7 +222,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		<Group Id="AfterDynDOLOD" WaitFor="RunDynDOLOD">
 			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 			<CreateEmptyFolder WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
-			<MoveFolder From="DynDOLOD Standalone 2.31/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Extended)" />
+			<MoveFolder From="DynDOLOD Standalone 2.32/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Extended)" />
 
 			<EditFile File="ModOrganizer/profiles/STEP Extended 2.10.0/plugins.txt" Encoding="UTF8NoBOM">
 				<AddLineAfter>
