@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Core (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.4"
+         Requires="STEP Core, 2.10.0, 1.0.0.5"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.4"
+         FileVersion="1.0.0.5"
          MinimumToolVersion="2.0.0.0">
 	<Files>
 		<Group Name="Default">
@@ -128,11 +128,21 @@ WinWaitActive, ahk_class TMessageForm
 WinGet, SAVEANDEXITID, ID, ahk_class TMessageForm
 Send, {Space}
 WinWaitClose, %SAVEANDEXITID%
-WinWait, ahk_class TfrmFileSelect
-WinActivate, ahk_class TfrmFileSelect
-WinWaitActive, ahk_class TfrmFileSelect
-Send, {Tab 3}{Space}
-Process, WaitClose, %DYNPID%]]></Line>
+Loop {
+	WinWait, ahk_class TfrmFileSelect, , 1
+	if (ErrorLevel) {
+		Process, Exist, %DYNPID%
+		if (!ErrorLevel) {
+			return
+		}
+	} else {
+		WinActivate, ahk_class TfrmFileSelect
+		WinWaitActive, ahk_class TfrmFileSelect
+		Send, {Tab 3}{Space}
+		Process, WaitClose, %DYNPID%
+		return
+	}
+}]]></Line>
 			</Embedded>
 		</Group>
 
