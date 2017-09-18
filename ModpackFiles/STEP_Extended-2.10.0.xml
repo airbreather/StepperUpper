@@ -5,9 +5,9 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.5"
+         Requires="STEP Core, 2.10.0, 1.0.0.6"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.5"
+         FileVersion="1.0.0.6"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="180">
 
@@ -811,7 +811,7 @@ WetandCold.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2j
++Lucidity Sound FX v2k
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0

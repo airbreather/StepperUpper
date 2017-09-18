@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.5"
+         FileVersion="1.0.0.6"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -1118,6 +1118,12 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="0cb8f1588345f69918c5086048ac66af"
 			      DownloadTags="nexus|skyrim|73838|1000254590" />
 
+			<File Name="Lucidity Sound FX - Update v2k"
+			      LengthInBytes="5091412"
+			      CanonicalFileName="Lucidity Sound FX Update v2k-73838-v2k.rar"
+			      MD5Checksum="5a902cebe8760fac2c9fc87b9560fc14"
+			      DownloadTags="nexus|skyrim|73838|1000255047" />
+
 			<File Name="Better Animal Footsteps 1.5"
 			      LengthInBytes="2386644"
 			      CanonicalFileName="Better Animal Footsteps 1.5-24805-1-5.7z"
@@ -2190,7 +2196,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<ExtractArchive ArchiveFile="Lucidity Sound FX v2j" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v2j" SimpleMap="Mod" Mod="Lucidity Sound FX v2k" NestedDepth="2" Id="LucidityMain" />
+			<ExtractArchive ArchiveFile="Lucidity Sound FX - Update v2k" SimpleMap="Mod" Mod="Lucidity Sound FX v2k" NestedDepth="2" WaitFor="LucidityMain" />
 			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" Mod="." NestedDepth="1">
 				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
@@ -2557,7 +2564,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2j
++Lucidity Sound FX v2k
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0
