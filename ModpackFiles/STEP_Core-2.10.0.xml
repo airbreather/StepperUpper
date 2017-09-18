@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.3"
+         FileVersion="1.0.0.4"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -61,12 +61,12 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 
 		<Group Name="2.C. Extenders">
 			<File Name="ENBSeries v0315"
-			      LengthInBytes="3032927"
+			      LengthInBytes="3033697"
 			      CanonicalFileName="enbseries_skyrim_v0315.zip"
-			      MD5Checksum="d0ec5d59a70bbb106dd3ebc5fdae6f5d"
-			      SHA512Checksum="a1763b34e2e40d4d2901fdda1bf45f0c60a8e47ecda3caafa655002a69cabc08e0d034d83889000942697a7d48ea41b56d1a85c899eb0899b2dadd16c4b1b8d6"
-			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />
-
+			      MD5Checksum="89ba314ec41aa0cf836b922fc3de9ac4"
+			      SHA512Checksum="49bd90dbc081af7e5994c89ed0f4be0bea93af29ccc850c567e819fd9a254b4c6aaad458aa843d86d4530c73626bc9477443cde51e538fc32d744f7ad03542e0"
+			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />				  
+				  
 			<File Name="FISS 1.21"
 			      LengthInBytes="222457"
 			      CanonicalFileName="FileAccess Interface for Skyrim Scripts - FISS-48265-1-21.7z"
@@ -1286,10 +1286,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="47e2ff25748856a53777d363065b9534"
 			      DownloadTags="nexus|skyrim|39870|1000227598" />
 
-			<File Name="DynDOLOD Standalone 2.31"
-			      LengthInBytes="21296250"
-			      CanonicalFileName="DynDOLOD Standalone-59721-2-31.7z"
-			      MD5Checksum="c4a3abd7c71000d97158b7527ee0b793"
+			<File Name="DynDOLOD Standalone 2.32"
+			      LengthInBytes="21322615"
+			      CanonicalFileName="DynDOLOD Standalone-59721-2-32.7z"
+			      MD5Checksum="f39529d6c8885248d8c6c22af15617dc"
 			      DownloadTags="nexus|skyrim|59721|1000253013" />
 
 			<File Name="DynDOLOD Resources 2.30"
@@ -2333,8 +2333,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="08 Solitude Exterior" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.31" NestedDepth="1">
-				<MapFolder To="DynDOLOD Standalone 2.31" />
+			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.32" NestedDepth="1">
+				<MapFolder To="DynDOLOD Standalone 2.32" />
 			</ExtractArchive>
 		</Group>
 
@@ -2456,18 +2456,18 @@ globals:
 				<Set Section="customExecutables" Property="7\custom" Value="true" />
 				<Set Section="customExecutables" Property="7\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="7\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.31/DynDOLOD.exe" />
+				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/DynDOLOD.exe" />
 				<Set Section="customExecutables" Property="7\arguments" Value="" />
-				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.31/" />
+				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/" />
 				<Set Section="customExecutables" Property="7\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="7\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="8\title" Value="DynDOLOD TexGen" />
 				<Set Section="customExecutables" Property="8\custom" Value="true" />
 				<Set Section="customExecutables" Property="8\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="8\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.31/TexGen.exe" />
+				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/TexGen.exe" />
 				<Set Section="customExecutables" Property="8\arguments" Value="" />
-				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.31/" />
+				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/" />
 				<Set Section="customExecutables" Property="8\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="8\steamAppID" Value="" />
 
