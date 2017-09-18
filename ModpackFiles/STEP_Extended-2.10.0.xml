@@ -5,9 +5,9 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.3"
+         Requires="STEP Core, 2.10.0, 1.0.0.4"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.3"
+         FileVersion="1.0.0.4"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="180">
 

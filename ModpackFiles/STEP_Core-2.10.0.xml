@@ -65,8 +65,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      CanonicalFileName="enbseries_skyrim_v0315.zip"
 			      MD5Checksum="89ba314ec41aa0cf836b922fc3de9ac4"
 			      SHA512Checksum="49bd90dbc081af7e5994c89ed0f4be0bea93af29ccc850c567e819fd9a254b4c6aaad458aa843d86d4530c73626bc9477443cde51e538fc32d744f7ad03542e0"
-			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />				  
-				  
+			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />
+
 			<File Name="FISS 1.21"
 			      LengthInBytes="222457"
 			      CanonicalFileName="FileAccess Interface for Skyrim Scripts - FISS-48265-1-21.7z"
@@ -1290,7 +1290,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      LengthInBytes="21322615"
 			      CanonicalFileName="DynDOLOD Standalone-59721-2-32.7z"
 			      MD5Checksum="f39529d6c8885248d8c6c22af15617dc"
-			      DownloadTags="nexus|skyrim|59721|1000253013" />
+			      DownloadTags="nexus|skyrim|59721|1000254769" />
 
 			<File Name="DynDOLOD Resources 2.30"
 			      LengthInBytes="45544166"
