@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.6"
+         FileVersion="1.0.0.7"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -1112,17 +1112,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<File Name="Lucidity Sound FX v2j"
-			      LengthInBytes="530556460"
-			      CanonicalFileName="Lucidity Sound FX v2j-73838-v2j.rar"
-			      MD5Checksum="0cb8f1588345f69918c5086048ac66af"
-			      DownloadTags="nexus|skyrim|73838|1000254590" />
-
-			<File Name="Lucidity Sound FX - Update v2k"
-			      LengthInBytes="5091412"
-			      CanonicalFileName="Lucidity Sound FX Update v2k-73838-v2k.rar"
-			      MD5Checksum="5a902cebe8760fac2c9fc87b9560fc14"
-			      DownloadTags="nexus|skyrim|73838|1000255047" />
+			<File Name="Lucidity Sound FX v2k"
+			      LengthInBytes="532414833"
+			      CanonicalFileName="Lucidity Sound FX v2k-73838-v2k.rar"
+			      MD5Checksum="bbc250888fa40e43fe82f8fcc74c1655"
+			      DownloadTags="nexus|skyrim|73838|1000255149" />
 
 			<File Name="Better Animal Footsteps 1.5"
 			      LengthInBytes="2386644"
@@ -2196,8 +2190,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<ExtractArchive ArchiveFile="Lucidity Sound FX v2j" SimpleMap="Mod" Mod="Lucidity Sound FX v2k" NestedDepth="2" Id="LucidityMain" />
-			<ExtractArchive ArchiveFile="Lucidity Sound FX - Update v2k" SimpleMap="Mod" Mod="Lucidity Sound FX v2k" NestedDepth="2" WaitFor="LucidityMain" />
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v2k" SimpleMap="Mod" NestedDepth="2" />
 			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" Mod="." NestedDepth="1">
 				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
