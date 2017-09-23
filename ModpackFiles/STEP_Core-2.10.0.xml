@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.4"
+         FileVersion="1.0.0.7"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -65,8 +65,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      CanonicalFileName="enbseries_skyrim_v0315.zip"
 			      MD5Checksum="89ba314ec41aa0cf836b922fc3de9ac4"
 			      SHA512Checksum="49bd90dbc081af7e5994c89ed0f4be0bea93af29ccc850c567e819fd9a254b4c6aaad458aa843d86d4530c73626bc9477443cde51e538fc32d744f7ad03542e0"
-			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />				  
-				  
+			      DownloadTags="generic|http://enbdev.com/mod_tesskyrim_v0315.htm" />
+
 			<File Name="FISS 1.21"
 			      LengthInBytes="222457"
 			      CanonicalFileName="FileAccess Interface for Skyrim Scripts - FISS-48265-1-21.7z"
@@ -1112,11 +1112,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<File Name="Lucidity Sound FX v2j"
-			      LengthInBytes="530556460"
-			      CanonicalFileName="Lucidity Sound FX v2j-73838-v2j.rar"
-			      MD5Checksum="0cb8f1588345f69918c5086048ac66af"
-			      DownloadTags="nexus|skyrim|73838|1000254590" />
+			<File Name="Lucidity Sound FX v2k"
+			      LengthInBytes="532414833"
+			      CanonicalFileName="Lucidity Sound FX v2k-73838-v2k.rar"
+			      MD5Checksum="bbc250888fa40e43fe82f8fcc74c1655"
+			      DownloadTags="nexus|skyrim|73838|1000255149" />
 
 			<File Name="Better Animal Footsteps 1.5"
 			      LengthInBytes="2386644"
@@ -1290,7 +1290,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      LengthInBytes="21322615"
 			      CanonicalFileName="DynDOLOD Standalone-59721-2-32.7z"
 			      MD5Checksum="f39529d6c8885248d8c6c22af15617dc"
-			      DownloadTags="nexus|skyrim|59721|1000253013" />
+			      DownloadTags="nexus|skyrim|59721|1000254769" />
 
 			<File Name="DynDOLOD Resources 2.30"
 			      LengthInBytes="45544166"
@@ -2190,7 +2190,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<ExtractArchive ArchiveFile="Lucidity Sound FX v2j" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v2k" SimpleMap="Mod" NestedDepth="2" />
 			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" Mod="." NestedDepth="1">
 				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
@@ -2557,7 +2557,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2j
++Lucidity Sound FX v2k
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0

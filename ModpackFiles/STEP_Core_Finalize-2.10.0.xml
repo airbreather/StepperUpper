@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Core (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.3"
+         Requires="STEP Core, 2.10.0, 1.0.0.7"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.3"
+         FileVersion="1.0.0.7"
          MinimumToolVersion="2.0.0.0">
 	<Files>
 		<Group Name="Default">
@@ -71,10 +71,10 @@
 			<!-- Write out a .ahk file that runs the DynDOLOD TexGen process. -->
 			<Embedded File="AHKScripts/TexGen.ahk" Encoding="UTF8NoBOM">
 				<Line><![CDATA[Run, {DumpFolderForwardSlashes}/ModOrganizer/ModOrganizer.exe -p "STEP Core 2.10.0" "DynDOLOD TexGen", {DumpFolderForwardSlashes}/ModOrganizer
-WinWait, DynDOLOD TexGen 2.31 (1) by Sheson
-WinGet, DYNPID, PID, DynDOLOD TexGen 2.31 (1) by Sheson
-WinActivate, DynDOLOD TexGen 2.31 (1) by Sheson
-WinWaitActive, DynDOLOD TexGen 2.31 (1) by Sheson
+WinWait, DynDOLOD TexGen 2.32 (1) by Sheson
+WinGet, DYNPID, PID, DynDOLOD TexGen 2.32 (1) by Sheson
+WinActivate, DynDOLOD TexGen 2.32 (1) by Sheson
+WinWaitActive, DynDOLOD TexGen 2.32 (1) by Sheson
 Send, {Tab 8}{Space}
 WinWait, ahk_class TMessageForm
 WinActivate, ahk_class TMessageForm
@@ -91,7 +91,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		<Group Id="AfterTexGen" WaitFor="RunTexGen">
 			<DeleteFolder Id="TexGen_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 			<CreateEmptyFolder WaitFor="TexGen_DeleteOverwrite" Path="ModOrganizer/overwrite" />
-			<MoveFolder From="DynDOLOD Standalone 2.31/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Core)" />
+			<MoveFolder From="DynDOLOD Standalone 2.32/TexGen_Output" To="ModOrganizer/mods/DynDOLOD Textures (Core)" />
 
 			<EditFile File="ModOrganizer/profiles/STEP Core 2.10.0/modlist.txt" Encoding="UTF8NoBOM">
 				<AddLineBefore>
@@ -128,11 +128,21 @@ WinWaitActive, ahk_class TMessageForm
 WinGet, SAVEANDEXITID, ID, ahk_class TMessageForm
 Send, {Space}
 WinWaitClose, %SAVEANDEXITID%
-WinWait, ahk_class TfrmFileSelect
-WinActivate, ahk_class TfrmFileSelect
-WinWaitActive, ahk_class TfrmFileSelect
-Send, {Tab 3}{Space}
-Process, WaitClose, %DYNPID%]]></Line>
+Loop {
+	WinWait, ahk_class TfrmFileSelect, , 1
+	if (ErrorLevel) {
+		Process, Exist, %DYNPID%
+		if (!ErrorLevel) {
+			return
+		}
+	} else {
+		WinActivate, ahk_class TfrmFileSelect
+		WinWaitActive, ahk_class TfrmFileSelect
+		Send, {Tab 3}{Space}
+		Process, WaitClose, %DYNPID%
+		return
+	}
+}]]></Line>
 			</Embedded>
 		</Group>
 
@@ -143,7 +153,7 @@ Process, WaitClose, %DYNPID%]]></Line>
 		<Group Id="AfterDynDOLOD" WaitFor="RunDynDOLOD">
 			<DeleteFolder Id="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
 			<CreateEmptyFolder Id="DynDOLOD_CreateEmptyOverwrite" WaitFor="DynDOLOD_DeleteOverwrite" Path="ModOrganizer/overwrite" />
-			<MoveFolder From="DynDOLOD Standalone 2.31/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Core)" />
+			<MoveFolder From="DynDOLOD Standalone 2.32/DynDOLOD_Output" To="ModOrganizer/mods/DynDOLOD Worlds (Core)" />
 
 			<EditFile File="ModOrganizer/profiles/STEP Core 2.10.0/plugins.txt" Encoding="UTF8NoBOM">
 				<AddLineAfter>
