@@ -1118,7 +1118,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="c71fc6f2a9e675fce93ccbffd4c14842"
 			      DownloadTags="nexus|skyrim|73838|1000255517" />
 
-      <File Name="Better Animal Footsteps 1.5"
+			<File Name="Better Animal Footsteps 1.5"
 			      LengthInBytes="2386644"
 			      CanonicalFileName="Better Animal Footsteps 1.5-24805-1-5.7z"
 			      MD5Checksum="a34d4608f1a505a4653c40b30cc09acc"
@@ -2557,7 +2557,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2k
++Lucidity Sound FX v2l
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0
