@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.8"
+         FileVersion="1.0.0.9"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -26,11 +26,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="215ccbbca78af9cd3f833dd2efb81759"
 			      DownloadTags="nexus|skyrim|1334|1000174746" />
 
-			<File Name="BethINI 2.5"
-			      LengthInBytes="726393"
-			      CanonicalFileName="BethINI-69787-2-5.zip"
-			      MD5Checksum="88ce01c6b61981ff2a2d01226bc1ef4e"
-			      DownloadTags="nexus|skyrim|69787|1000236842" />
+			<File Name="BethINI 2.5.1"
+			      LengthInBytes="725864"
+			      CanonicalFileName="BethINI-69787-2-5-1.zip"
+			      MD5Checksum="0774d81bbed9ebbbc437aa1fbc426349"
+			      DownloadTags="nexus|skyrim|69787|1000255644" />
 
 			<File Name="xEdit 3.2"
 			      LengthInBytes="3118561"
@@ -1310,11 +1310,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder To="ModOrganizer" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="BethINI 2.5" NestedDepth="1" Id="ExtractBethINI">
-				<MapFolder To="BethINI 2.5" />
+			<ExtractArchive ArchiveFile="BethINI 2.5.1" NestedDepth="1" Id="ExtractBethINI">
+				<MapFolder To="BethINI 2.5.1" />
 			</ExtractArchive>
 
-			<TweakINI File="BethINI 2.5/BethINI.ini" WaitFor="ExtractBethINI">
+			<TweakINI File="BethINI 2.5.1/BethINI.ini" WaitFor="ExtractBethINI">
 				<Set Section="General" Property="sGameName" Value="Skyrim" />
 				<Set Section="General" Property="bCreationKit" Value="0" />
 				<Set Section="General" Property="bAlwaysSelectGame" Value="0" />
@@ -1334,10 +1334,10 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="1.D. INI Tweaks">
-			<CopyFile Id="SkyrimINI" From="BethINI 2.5/Presets/Skyrim/BethINI-Presets/{GraphicsPreset}/Skyrim.ini" To="ModOrganizer/profiles/STEP Core 2.10.0/Skyrim.ini" WaitFor="ExtractBethINI" />
-			<CopyFile Id="SkyrimPrefsINI" From="BethINI 2.5/Presets/Skyrim/BethINI-Presets/{GraphicsPreset}/SkyrimPrefs.ini" To="ModOrganizer/profiles/STEP Core 2.10.0/SkyrimPrefs.ini" WaitFor="ExtractBethINI" />
+			<CopyFile Id="SkyrimINI" From="BethINI 2.5.1/Presets/Skyrim/BethINI-Presets/{GraphicsPreset}/Skyrim.ini" To="ModOrganizer/profiles/STEP Core 2.10.0/Skyrim.ini" WaitFor="ExtractBethINI" />
+			<CopyFile Id="SkyrimPrefsINI" From="BethINI 2.5.1/Presets/Skyrim/BethINI-Presets/{GraphicsPreset}/SkyrimPrefs.ini" To="ModOrganizer/profiles/STEP Core 2.10.0/SkyrimPrefs.ini" WaitFor="ExtractBethINI" />
 			<TweakINI File="ModOrganizer/profiles/STEP Core 2.10.0/Skyrim.ini" WaitFor="SkyrimINI">
-				<!-- Start with just what BethINI 2.5 does when you click "Recommended Tweaks". -->
+				<!-- Start with just what BethINI 2.5.1 does when you click "Recommended Tweaks". -->
 				<Set Section="Archive" Property="bInvalidateOlderFiles" Value="1" />
 				<Set Section="Archive" Property="sResourceArchiveList" Value="Skyrim - Misc.bsa, Skyrim - Shaders.bsa, Skyrim - Textures.bsa, Skyrim - Interface.bsa, Skyrim - Animations.bsa, Skyrim - Meshes.bsa, Skyrim - Sounds.bsa" />
 				<Set Section="Archive" Property="sResourceArchiveList2" Value="Skyrim - Voices.bsa, Skyrim - VoicesExtra.bsa" />
@@ -1405,7 +1405,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			</TweakINI>
 
 			<TweakINI File="ModOrganizer/profiles/STEP Core 2.10.0/SkyrimPrefs.ini" WaitFor="SkyrimPrefsINI">
-				<!-- Start with just what BethINI 2.5 does when you click "Recommended Tweaks". -->
+				<!-- Start with just what BethINI 2.5.1 does when you click "Recommended Tweaks". -->
 				<Set Section="Controls" Property="fMouseHeadingSensitivity" Value="0.0125" />
 
 				<Set Section="Display" Property="fGamma" Value="1" />

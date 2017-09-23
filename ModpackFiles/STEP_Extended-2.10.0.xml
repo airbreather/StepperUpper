@@ -5,9 +5,9 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.8"
+         Requires="STEP Core, 2.10.0, 1.0.0.9"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.8"
+         FileVersion="1.0.0.9"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="180">
 
@@ -684,7 +684,7 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 				<Set Section="customExecutables" Property="size" Value="10" />
 			</TweakINI>
 
-			<TweakINI File="BethINI 2.5/BethINI.ini">
+			<TweakINI File="BethINI 2.5.1/BethINI.ini">
 				<Set Section="Directories" Property="sGameSettingsPath" Value="{DumpFolderForwardSlashes}/ModOrganizer/profiles/STEP Extended 2.10.0/" />
 			</TweakINI>
 
