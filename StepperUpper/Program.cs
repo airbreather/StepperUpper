@@ -532,12 +532,32 @@ namespace StepperUpper
             return 0;
         }
 
+        internal static void MoveDir(DirectoryInfo fromDir, DirectoryInfo toDir)
+        {
+            toDir.Create();
+
+            foreach (DirectoryInfo dir in fromDir.EnumerateDirectories())
+            {
+                DirectoryInfo dest = new DirectoryInfo(Path.Combine(toDir.FullName, dir.Name));
+                MoveDir(dir, dest);
+            }
+
+            foreach (FileInfo info in fromDir.EnumerateFiles())
+            {
+                string dest = Path.Combine(toDir.FullName, info.Name);
+                File.Delete(dest);
+                File.Move(info.FullName, dest );
+            }
+
+            fromDir.Delete();
+        }
+
         internal static async Task MoveDirectoryAsync(DirectoryInfo fromDirectory, DirectoryInfo toDirectory)
         {
             try
             {
-                toDirectory.Parent.Create();
-                fromDirectory.MoveTo(toDirectory.FullName);
+                MoveDir(fromDirectory, toDirectory);
+
                 return;
             }
             catch
