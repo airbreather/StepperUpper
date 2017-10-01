@@ -5,9 +5,9 @@ abcdefgh.xyz\11 XPMSE3 Plugin Enhanced Character Edit Enhancer Compatibility for
 -->
 <Modpack Name="STEP Extended"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.9"
+         Requires="STEP Core, 2.10.0, 1.0.0.10"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.9"
+         FileVersion="1.0.0.10"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="180">
 
@@ -811,7 +811,7 @@ WetandCold.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2l
++Lucidity Sound FX v2m
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0
@@ -931,7 +931,7 @@ WetandCold.bsa]]></Line>
 +Realistic Water Two 1.11
 +Re-Defined Dungeons - 1k 1.0
 +Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0
-+Point The Way 1.0.8
++Point The Way 1.0.9
 +Northfire's Skidmarks 1.0
 +Lanterns Of Skyrim - All In One - MCM Special Edition 2.5
 +Improved Vanilla Mountains HD 1.0

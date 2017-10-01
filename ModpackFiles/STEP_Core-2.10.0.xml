@@ -6,7 +6,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 <Modpack Name="STEP Core"
          Game="Skyrim2011"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.9"
+         FileVersion="1.0.0.10"
          MinimumToolVersion="2.0.0.0"
          LongestOutputPathLength="169">
 
@@ -487,11 +487,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="4033129f81566fe7f1e29065720d86eb"
 			      DownloadTags="nexus|skyrim|72245|1000189268" />
 
-			<File Name="Point The Way 1.0.8"
-			      LengthInBytes="792875"
-			      CanonicalFileName="Point The Way-33393-1-0-8.7z"
-			      MD5Checksum="bb3654ad6002643a81e19de47f781ce0"
-			      DownloadTags="nexus|skyrim|33393|1000197437" />
+			<File Name="Point The Way 1.0.9"
+			      LengthInBytes="793387"
+			      CanonicalFileName="Point The Way-33393-1-0-9.7z"
+			      MD5Checksum="5fc3aa565c330a280cb1dd26b74d62d8"
+			      DownloadTags="nexus|skyrim|33393|1000256206" />
 
 			<File Name="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0"
 			      LengthInBytes="6728337"
@@ -1112,11 +1112,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<File Name="Lucidity Sound FX v2l"
-			      LengthInBytes="531971526"
-			      CanonicalFileName="Lucidity Sound FX v2l-73838-v2l.rar"
-			      MD5Checksum="c71fc6f2a9e675fce93ccbffd4c14842"
-			      DownloadTags="nexus|skyrim|73838|1000255517" />
+			<File Name="Lucidity Sound FX v2m"
+			      LengthInBytes="536314378"
+			      CanonicalFileName="Lucidity Sound FX v2m-73838-v2m.rar"
+			      MD5Checksum="02e61f38dfd44e9ae105d9254c49f61a"
+			      DownloadTags="nexus|skyrim|73838|1000256277" />
 
 			<File Name="Better Animal Footsteps 1.5"
 			      LengthInBytes="2386644"
@@ -1286,11 +1286,11 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			      MD5Checksum="47e2ff25748856a53777d363065b9534"
 			      DownloadTags="nexus|skyrim|39870|1000227598" />
 
-			<File Name="DynDOLOD Standalone 2.32"
-			      LengthInBytes="21322615"
-			      CanonicalFileName="DynDOLOD Standalone-59721-2-32.7z"
-			      MD5Checksum="f39529d6c8885248d8c6c22af15617dc"
-			      DownloadTags="nexus|skyrim|59721|1000254769" />
+			<File Name="DynDOLOD Standalone 2.34"
+			      LengthInBytes="21325821"
+			      CanonicalFileName="DynDOLOD Standalone-59721-2-34.7z"
+			      MD5Checksum="ab4cca92df6d9ecd113bf20eddade150"
+			      DownloadTags="nexus|skyrim|59721|1000256218" />
 
 			<File Name="DynDOLOD Resources 2.30"
 			      LengthInBytes="45544166"
@@ -1771,7 +1771,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 			<ExtractArchive ArchiveFile="Hybrids Hires Plant and Herb Retexture 4.0" SimpleMap="Mod" NestedDepth="1" />
 			<ExtractArchive ArchiveFile="Improved Vanilla Mountains HD 1.0" SimpleMap="Mod" NestedDepth="1" />
 			<ExtractArchive ArchiveFile="Northfire's Skidmarks 1.0" SimpleMap="Mod" NestedDepth="1" />
-			<ExtractArchive ArchiveFile="Point The Way 1.0.8" SimpleMap="Mod" />
+			<ExtractArchive ArchiveFile="Point The Way 1.0.9" SimpleMap="Mod" />
 			<ExtractArchive ArchiveFile="Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0" SimpleMap="Mod" NestedDepth="1" />
 			<ExtractArchive ArchiveFile="Realistic Water Two 1.11" Mod=".">
 				<MapFolder From="00 Core" />
@@ -2190,7 +2190,7 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 		</Group>
 
 		<Group Name="2.L. Sound">
-			<ExtractArchive ArchiveFile="Lucidity Sound FX v2l" SimpleMap="Mod" NestedDepth="2" />
+			<ExtractArchive ArchiveFile="Lucidity Sound FX v2m" SimpleMap="Mod" NestedDepth="2" />
 			<ExtractArchive ArchiveFile="Better Animal Footsteps 1.5" Mod="." NestedDepth="1">
 				<MapFolder From="01 all footsteps" />
 			</ExtractArchive>
@@ -2333,8 +2333,8 @@ abcdefgh.xyz\AOS_2_5_1_Full-Improved_Installer\010 Sounds Loose\Sound\fx\npc\dwa
 				<MapFolder From="08 Solitude Exterior" />
 			</ExtractArchive>
 
-			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.32" NestedDepth="1">
-				<MapFolder To="DynDOLOD Standalone 2.32" />
+			<ExtractArchive ArchiveFile="DynDOLOD Standalone 2.34" NestedDepth="1">
+				<MapFolder To="DynDOLOD Standalone 2.34" />
 			</ExtractArchive>
 		</Group>
 
@@ -2456,18 +2456,18 @@ globals:
 				<Set Section="customExecutables" Property="7\custom" Value="true" />
 				<Set Section="customExecutables" Property="7\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="7\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/DynDOLOD.exe" />
+				<Set Section="customExecutables" Property="7\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.34/DynDOLOD.exe" />
 				<Set Section="customExecutables" Property="7\arguments" Value="" />
-				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/" />
+				<Set Section="customExecutables" Property="7\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.34/" />
 				<Set Section="customExecutables" Property="7\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="7\steamAppID" Value="" />
 				<Set Section="customExecutables" Property="8\title" Value="DynDOLOD TexGen" />
 				<Set Section="customExecutables" Property="8\custom" Value="true" />
 				<Set Section="customExecutables" Property="8\toolbar" Value="false" />
 				<Set Section="customExecutables" Property="8\ownicon" Value="true" />
-				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/TexGen.exe" />
+				<Set Section="customExecutables" Property="8\binary" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.34/TexGen.exe" />
 				<Set Section="customExecutables" Property="8\arguments" Value="" />
-				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.32/" />
+				<Set Section="customExecutables" Property="8\workingDirectory" Value="{DumpFolderForwardSlashes}/DynDOLOD Standalone 2.34/" />
 				<Set Section="customExecutables" Property="8\closeOnStart" Value="false" />
 				<Set Section="customExecutables" Property="8\steamAppID" Value="" />
 
@@ -2557,7 +2557,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +Better Weapon Swing Sounds 1.1
 +Better Horse Pain Sounds 1.0
 +Better Animal Footsteps 1.5
-+Lucidity Sound FX v2l
++Lucidity Sound FX v2m
 +White Phial Replacer - All-in-One 1.2
 +WEBS extended - x2048 3.0
 +Sweet Mother - Sweet Mother HD 2.0
@@ -2656,7 +2656,7 @@ Modern Brawl Bug Fix.bsa]]></Line>
 +RUSTIC MONUMENTS and TOMBSTONES 2.6
 +Realistic Water Two 1.11
 +Real Wood Textures - Farmhouses - No Green Moss Version 1k (S.T.E.P. Version) 1.0
-+Point The Way 1.0.8
++Point The Way 1.0.9
 +Northfire's Skidmarks 1.0
 +Improved Vanilla Mountains HD 1.0
 +Hybrids Hires Plant and Herb Retexture 4.0
