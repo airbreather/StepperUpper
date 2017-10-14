@@ -3,7 +3,7 @@
          Game="Skyrim2011"
          Requires="STEP Core, 2.10.0"
          PackVersion="1.0.0.0"
-         FileVersion="1.0.0.11"
+         FileVersion="1.0.0.12"
          MinimumToolVersion="2.0.0.0">
 
 	<Files />
