@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Modpack Name="STEP Core (Finalize)"
          Game="Skyrim2011"
-         Requires="STEP Core, 2.10.0, 1.0.0.12"
+         Requires="STEP Core, 2.10.0, 1.0.0.13"
          PackVersion="2.10.0"
-         FileVersion="1.0.0.12"
+         FileVersion="1.0.0.13"
          MinimumToolVersion="2.0.0.0">
 	<Files>
 		<Group Name="Default">
