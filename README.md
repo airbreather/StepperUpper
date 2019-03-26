@@ -1,6 +1,11 @@
 # StepperUpper
 An automated application to ease STEP (and similar) modpack setup.
 
+Archived
+--
+
+I stopped actively maintaining this after about a year or so.
+
 Building
 --
 
